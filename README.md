@@ -1,4 +1,4 @@
-the project that I used to generate my termite cfg:
+termite config generator
 
 https://github.com/adi1090x/termite-style
 
