@@ -10,6 +10,10 @@ bash framework:
 
 https://github.com/Bash-it/bash-it
 
+zsh framework:
+
+https://github.com/ohmyzsh/ohmyzsh
+
 manjaro cfg files:
 
 https://gitlab.manjaro.org/profiles-and-settings/desktop-settings/tree/master
