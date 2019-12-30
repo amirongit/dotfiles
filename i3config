@@ -23,7 +23,7 @@ exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 bindsym Print exec scrot '%m-%d_%H-%M-%S_shot.png' -e 'mv $f ~/Pictures/scrot/'
 bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Blogger Sans' #-b
 bindsym $mod+Return exec termite
-
+bindsym Control+Return exec exec rofi -font 'Cascadia Code 10' -show
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
 
@@ -62,11 +62,11 @@ bindsym $mod+e layout toggle split
 
 bindsym $mod+space bar mode toggle
 
-set $ws1 "1:[ RCH ]"
-set $ws2 "2:[ WWW ]"
-set $ws3 "3:[ DEV ]"
-set $ws4 "4:[ GFX ]"
-set $ws5 "5:[ SYS ]"
+set $ws1 "[ RCH ]"
+set $ws2 "[ WWW ]"
+set $ws3 "[ DEV ]"
+set $ws4 "[ GFX ]"
+set $ws5 "[ SYS ]"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -167,3 +167,4 @@ bar {
 		urgent_workspace   $urgent-bg-color    $urgent-bg-color   $text-color
     }
 }
+
