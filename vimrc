@@ -38,6 +38,8 @@ call plug#end()
 :set omnifunc=syntaxcomplete
 :set encoding=utf-8
 :set background=dark
+:set t_Co=256
+:set termguicolors
 
 :let g:acp_behaviorKeywordLength=1 
 :let g:airline_theme='codedark'
@@ -52,14 +54,20 @@ call plug#end()
 :let g:gruvbox_contrast_dark="hard"
 :let g:gruvbox_italicize_strings=1
 :let g:onedark_termcolors=16
+:let g:indentLine_setColors = 0
 
 :map <C-\> :NERDTreeToggle<CR>
 :syntax on
 :colorscheme codedark
 :filetype plugin on
 
-:nnoremap <Left> gT
-:nnoremap <Right> gt
+:nnoremap <S-h> gT
+:nnoremap <S-l> gt
+:nnoremap <Down> <C-W>j
+:nnoremap <Up> <C-W>k
+:nnoremap <Right> <C-W>l
+:nnoremap <Left> <C-W>h
+
 :nnoremap <Tab> :tabnew<CR>
 
 :autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
