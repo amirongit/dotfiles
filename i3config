@@ -1,11 +1,11 @@
 set $mod Mod4
 floating_modifier $mod
-font pango:Font Awesome Bold 7
+font pango:Blogger Sans 7
 #new_float normal
 
 #for_window [class="."] border pixel 1
-gaps inner 10
-gaps outer 5
+gaps inner 7
+gaps outer 3
 #smart_borders on
 
 set $bg-color 	         #354151
@@ -16,24 +16,23 @@ set $urgent-bg-color     #e06c75
 set $bar-bg              #1e1e1e
 
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id compton --config ~/.config/compton/compton.conf
+exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
 exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec scrot '%m-%d_%H-%M-%S_shot.png' -e 'mv $f ~/Pictures/scrot/'
 bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Blogger Sans' #-b
 bindsym $mod+Return exec termite
-bindsym Control+Return exec exec rofi -font 'Cascadia Code 10' -show
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
 
-bindsym $mod+F7 exec xbacklight -inc 5%
-bindsym $mod+F8 exec xbacklight -dec 5%
+bindsym $mod+F7 exec light -A 5
+bindsym $mod+F8 exec light -U 5
 bindsym $mod+F6 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym $mod+F5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10%
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10%
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
 
@@ -62,11 +61,11 @@ bindsym $mod+e layout toggle split
 
 bindsym $mod+space bar mode toggle
 
-set $ws1 "[ RCH ]"
-set $ws2 "[ WWW ]"
-set $ws3 "[ DEV ]"
-set $ws4 "[ GFX ]"
-set $ws5 "[ SYS ]"
+set $ws1 " Fedora "
+set $ws2 " Web "
+set $ws3 " Dev "
+set $ws4 " Graphics "
+set $ws5 " System "
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -82,13 +81,13 @@ bindsym $mod+Shift+5 move container to workspace $ws5
 
 assign [class="Inkscape"] $ws4
 assign [class="Steam"] $ws4
-assign [class="firefox"] $ws2
+assign [class="Chromium-freeworld"] $ws2
 assign [class="Opera"] $ws2
 assign [class="code-oss"] $ws3
 assign [class="Electron"] $ws3
 assign [class="TelegramDesktop"] $ws1
 assign [class="Gimp"] $ws4
-assign [class="Atom"] $ws3
+assign [class="Code"] $ws3
 assign [class="discord"] $ws1
 
 for_window [class="Inkscape"] floating enable
@@ -106,8 +105,9 @@ for_window [class="Eog"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Machine"] floating enable
-for_window [class="TelegramDesktop"] floating enable
 for_window [class="Evince"] floating enable
+for_window [class="DB Browser for SQLite"] floating enable
+for_window [class="qt5ct"] floating enable
 
 client.focused          $bg-color           $bg-color          $text-color          $inactive-bg-color
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
