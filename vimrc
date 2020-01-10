@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged') 
 
 Plug 'tpope/vim-sensible'
+Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'Yggdroot/indentLine'
@@ -42,7 +43,7 @@ call plug#end()
 :set termguicolors
 
 :let g:acp_behaviorKeywordLength=1 
-:let g:airline_theme='codedark'
+:let g:airline_theme='nord'
 :let g:airline_powerline_fonts=1
 :let g:airline_extensions = ['tabline', 'branch'] 
 :let g:NERDTreeMapOpenInTab='<C-n>'
@@ -54,11 +55,15 @@ call plug#end()
 :let g:gruvbox_contrast_dark="hard"
 :let g:gruvbox_italicize_strings=1
 :let g:onedark_termcolors=16
-:let g:indentLine_setColors = 0
+:let g:airline_left_sep = ''
+:let g:airline_left_sep = ''
+:let g:airline_right_sep = ''
+:let g:airline_right_sep = ''
+":let g:indentLine_setColors = 0
 
 :map <C-\> :NERDTreeToggle<CR>
 :syntax on
-:colorscheme codedark
+:colorscheme nord
 :filetype plugin on
 
 :nnoremap <S-h> gT
