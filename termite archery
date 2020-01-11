@@ -1,0 +1,53 @@
+[options]
+
+allow_bold = false
+audible_bell = true
+browser = xdg-open
+clickable_url = true
+cursor_blink = system
+cursor_shape = underline
+dynamic_title = true
+filter_unmatched_urls = true
+font = cascadia code 10
+geometry = 480x280
+icon_name = terminal
+modify_other_keys = false
+mouse_autohide = false
+scroll_on_output = false
+scroll_on_keystroke = true
+scrollback_lines = 15000
+size_hints = false
+search_wrap = true
+urgent_on_bell = true
+highlight = #30343e
+
+[colors]
+
+# special
+foreground=#F6F9FC
+cursor=#F6F9FC
+background=#25272C
+# black
+color0=#25272C
+color8=#354151
+# red
+color1=#BA2A2A
+color9=#C95F5F
+# green
+color2=#008542
+color10=#73BA25
+# yellow
+color3=#F07D30
+color11=#EAC06E
+# blue
+color4=#0088CC
+color12=#81A3CF
+# magenta
+color5=#8D4888
+color13=#B589C2
+# cyan
+color6=#006596
+color14=#25B8A5
+# white
+color7=#53586F
+color15=#F6F9FC
