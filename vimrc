@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged') 
 
+Plug 'Badacadabra/vim-archery'
 Plug 'tpope/vim-sensible'
 Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
@@ -43,7 +44,7 @@ call plug#end()
 :set termguicolors
 
 :let g:acp_behaviorKeywordLength=1 
-:let g:airline_theme='nord'
+:let g:airline_theme='archery'
 :let g:airline_powerline_fonts=1
 :let g:airline_extensions = ['tabline', 'branch'] 
 :let g:NERDTreeMapOpenInTab='<C-n>'
@@ -63,7 +64,7 @@ call plug#end()
 
 :map <C-\> :NERDTreeToggle<CR>
 :syntax on
-:colorscheme nord
+:colorscheme archery
 :filetype plugin on
 
 :nnoremap <S-h> gT
