@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged') 
 
+Plug 'nanotech/jellybeans.vim'
 Plug 'majutsushi/tagbar'
 Plug 'Badacadabra/vim-archery'
 Plug 'tpope/vim-sensible'
@@ -41,12 +42,13 @@ call plug#end()
 :set termguicolors
 
 :let g:acp_behaviorKeywordLength=1 
-:let g:airline_theme='archery'
+:let g:airline_theme='jellybeans'
 :let g:airline_powerline_fonts=1
 :let g:airline_extensions = ['tabline', 'branch'] 
 :let g:NERDTreeMapOpenInTab='<C-n>'
 :let g:indentLine_char='┊'
-:let g:indentLine_color_term=239
+":let g:indentLine_color_term=239
+":let g:indentLine_setColors = 0
 :let g:jedi#show_call_signatures="2"
 :let g:dracula_colorterm=0
 :let g:gruvbox_italic=1
@@ -57,10 +59,13 @@ call plug#end()
 :let g:airline_left_sep = ''
 :let g:airline_right_sep = ''
 :let g:airline_right_sep = ''
-":let g:indentLine_setColors = 0
+:let g:jellybeans_overrides = { 'background': { 'ctermbg': 'none', '256ctermbg': 'none' },}
+if has('termguicolors') && &termguicolors
+    let g:jellybeans_overrides['background']['guibg'] = 'none'
+endif
 
 :syntax on
-:colorscheme archery
+:colorscheme jellybeans
 :filetype plugin on
 
 :map \ :TagbarToggle<CR>
