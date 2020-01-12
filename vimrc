@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged') 
 
 Plug 'nanotech/jellybeans.vim'
-Plug 'majutsushi/tagbar'
 Plug 'Badacadabra/vim-archery'
 Plug 'tpope/vim-sensible'
 Plug 'arcticicestudio/nord-vim'
@@ -68,8 +67,7 @@ endif
 :colorscheme jellybeans
 :filetype plugin on
 
-:map \ :TagbarToggle<CR>
-:map ` :NERDTreeToggle<CR>
+:map \ :NERDTreeToggle<CR>
 
 :nnoremap <S-h> gT
 :nnoremap <S-l> gt
