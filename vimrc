@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged') 
 
+Plug 'majutsushi/tagbar'
 Plug 'Badacadabra/vim-archery'
 Plug 'tpope/vim-sensible'
 Plug 'arcticicestudio/nord-vim'
@@ -62,10 +63,12 @@ call plug#end()
 :let g:airline_right_sep = ''
 ":let g:indentLine_setColors = 0
 
-:map <C-\> :NERDTreeToggle<CR>
 :syntax on
 :colorscheme archery
 :filetype plugin on
+
+:map \ :TagbarToggle<CR>
+:map ` :NERDTreeToggle<CR>
 
 :nnoremap <S-h> gT
 :nnoremap <S-l> gt
@@ -73,8 +76,14 @@ call plug#end()
 :nnoremap <Up> <C-W>k
 :nnoremap <Right> <C-W>l
 :nnoremap <Left> <C-W>h
-
 :nnoremap <Tab> :tabnew<CR>
+:inoremap        (  ()<Left>
+:inoremap        "  ""<Left>
+:inoremap        `  ``<Left>
+:inoremap        '  ''<Left>
+:inoremap        [  []<Left>
+:inoremap      {  {}<Left>
+:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
 :autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 :autocmd BufWritePre *.* :%s/\s\+$//e
@@ -82,14 +91,6 @@ call plug#end()
 :autocmd FileType python set ts=4
 :autocmd FileType python set sts=4
 :autocmd FileType python setlocal completeopt-=preview
-
-":inoremap        (  ()<Left>
-":inoremap        "  ""<Left>
-":inoremap        `  ``<Left>
-":inoremap        '  ''<Left>
-":inoremap        [  []<Left>
-":inoremap      {  {}<Left>
-:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
 function! Tab_Or_Complete()
   if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
