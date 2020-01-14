@@ -39,6 +39,7 @@ call plug#end()
 :set background=dark
 :set t_Co=256
 :set termguicolors
+:set hlsearch!
 
 :let g:acp_behaviorKeywordLength=1 
 :let g:airline_theme='jellybeans'
@@ -67,7 +68,8 @@ endif
 :colorscheme jellybeans
 :filetype plugin on
 
-:map \ :NERDTreeToggle<CR>
+:map ` :NERDTreeToggle<CR>
+:map <C-f> :set hlsearch!<CR>
 
 :nnoremap <S-h> gT
 :nnoremap <S-l> gt
@@ -82,6 +84,7 @@ endif
 :inoremap        '  ''<Left>
 :inoremap        [  []<Left>
 :inoremap      {  {}<Left>
+:inoremap      <  <><Left>
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
 :autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
