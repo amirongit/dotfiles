@@ -8,19 +8,19 @@ gaps inner 7
 gaps outer 3
 #smart_borders on
 
-set $bg-color 	         #354151
-set $inactive-bg-color   #282c34
-set $text-color          #d4d4d4
-set $inactive-text-color #d4d4d4
-set $urgent-bg-color     #e06c75
-set $bar-bg              #1e1e1e
+set $bg-color 	         #3c5d5d
+set $inactive-bg-color   #121212
+set $text-color          #F6F9FC
+set $inactive-text-color #F6F9FC
+set $urgent-bg-color     #d75f5f
+set $bar-bg              #121212
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
 exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
-bindsym Print exec scrot '%m-%d_%H-%M-%S_shot.png' -e 'mv $f ~/Pictures/scrot/'
+bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png
 bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Blogger Sans' #-b
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
@@ -157,7 +157,7 @@ mode "$mode_gaps_outer" {
 bar {
         #position top
         status_command i3blocks
-        separator_symbol "‍"
+        separator_symbol "·"
         #mode hide
         colors {
 	    background $bar-bg
