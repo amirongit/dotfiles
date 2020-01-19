@@ -5,7 +5,6 @@ Plug 'Badacadabra/vim-archery'
 Plug 'tpope/vim-sensible'
 Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
@@ -45,7 +44,6 @@ call plug#end()
 :let g:airline_theme='jellybeans'
 :let g:airline_powerline_fonts=1
 :let g:airline_extensions = ['tabline', 'branch'] 
-:let g:NERDTreeMapOpenInTab='<C-n>'
 :let g:indentLine_char='┊'
 ":let g:indentLine_color_term=239
 ":let g:indentLine_setColors = 0
@@ -68,7 +66,6 @@ endif
 :colorscheme jellybeans
 :filetype plugin on
 
-:map ` :NERDTreeToggle<CR>
 :map <C-f> :set hlsearch!<CR>
 
 :nnoremap <S-h> gT
@@ -77,7 +74,6 @@ endif
 :nnoremap <Up> <C-W>k
 :nnoremap <Right> <C-W>l
 :nnoremap <Left> <C-W>h
-:nnoremap <Tab> :tabnew<CR>
 :inoremap        (  ()<Left>
 :inoremap        "  ""<Left>
 :inoremap        `  ``<Left>
@@ -87,7 +83,6 @@ endif
 :inoremap      <  <><Left>
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
-:autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 :autocmd BufWritePre *.* :%s/\s\+$//e
 :autocmd FileType python set sw=4
 :autocmd FileType python set ts=4
