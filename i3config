@@ -1,19 +1,19 @@
 set $mod Mod4
 floating_modifier $mod
-font pango:Blogger Sans 7
+font pango:Droid Sans 7
 #new_float normal
 
-#for_window [class="."] border pixel 1
+for_window [class="."] border pixel 2
 gaps inner 7
 gaps outer 3
 #smart_borders on
 
-set $bg-color 	         #3c5d5d
-set $inactive-bg-color   #121212
-set $text-color          #F6F9FC
-set $inactive-text-color #F6F9FC
-set $urgent-bg-color     #d75f5f
-set $bar-bg              #121212
+set $bg-color 	         #bfbfbf
+set $inactive-bg-color   #53586F
+set $text-color          #1b1b19
+set $inactive-text-color #bfbfbf
+set $urgent-bg-color     #C95F5F
+set $bar-bg              #1b1b19
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -21,15 +21,19 @@ exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png
-bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Blogger Sans' #-b
+bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Blogger Sans' -b
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
 
-bindsym $mod+F7 exec light -A 5
-bindsym $mod+F8 exec light -U 5
+bindsym $mod+F7 exec --no-startup-id light -A 5
+bindsym $mod+F8 exec --no-startup-id light -U 5
 bindsym $mod+F6 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym $mod+F5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+
+bindsym $mod+Shift+Right exec --no-startup-id cmus-remote -n
+bindsym $mod+Shift+Left exec --no-startup-id cmus-remote -r
+
 
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
@@ -61,11 +65,11 @@ bindsym $mod+e layout toggle split
 
 bindsym $mod+space bar mode toggle
 
-set $ws1 " Fedora "
-set $ws2 " Web "
-set $ws3 " Dev "
-set $ws4 " Graphics "
-set $ws5 " System "
+set $ws1 "[ LNX ]"
+set $ws2 "[ WWW ]"
+set $ws3 "[ DEV ]"
+set $ws4 "[ GFX ]"
+set $ws5 "[ SYS ]"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -81,33 +85,33 @@ bindsym $mod+Shift+5 move container to workspace $ws5
 
 assign [class="Inkscape"] $ws4
 assign [class="Steam"] $ws4
-assign [class="Chromium-freeworld"] $ws2
-assign [class="Opera"] $ws2
+assign [class="Firefox"] $ws2
 assign [class="code-oss"] $ws3
 assign [class="Electron"] $ws3
 assign [class="TelegramDesktop"] $ws1
 assign [class="Gimp"] $ws4
 assign [class="Code"] $ws3
-assign [class="discord"] $ws1
+assign [class="Deluge"] $ws2
+assign [class="Uget-gtk"] $ws2
 
 for_window [class="Inkscape"] floating enable
-for_window [class="Org.gnome.gedit"] floating enable
+for_window [class="TelegramDesktop"] floating enable
+for_window [class="Leafpad"] floating enable
 for_window [class="Nitrogen"] floating enable
-for_window [class="Transmission-gtk"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="Uget-gtk"] floating enable
-for_window [class="Org.gnome.Nautilus"] floating enable
+for_window [class="Pcmanfm"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="mpv"] floating enable
-for_window [class="discord"] floating enable
-for_window [class="Eog"] floating enable
+for_window [class="feh"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Machine"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="DB Browser for SQLite"] floating enable
 for_window [class="qt5ct"] floating enable
+for_window [class="Deluge"] floating enable
 
 client.focused          $bg-color           $bg-color          $text-color          $inactive-bg-color
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
@@ -155,9 +159,9 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        #position top
+        position top
         status_command i3blocks
-        separator_symbol "·"
+        separator_symbol "‌"
         #mode hide
         colors {
 	    background $bar-bg
