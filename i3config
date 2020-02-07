@@ -8,12 +8,12 @@ gaps inner 7
 gaps outer 3
 #smart_borders on
 
-set $bg-color 	         #bfbfbf
-set $inactive-bg-color   #53586F
+set $bg-color 	         #FFFFFF
+set $inactive-bg-color   #263238
 set $text-color          #1b1b19
 set $inactive-text-color #bfbfbf
-set $urgent-bg-color     #C95F5F
-set $bar-bg              #1b1b19
+set $urgent-bg-color     #E53935
+set $bar-bg              #263238
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -21,7 +21,7 @@ exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png
-bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Blogger Sans' -b
+bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Cascadia Code:pixelsize=12' -b
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
