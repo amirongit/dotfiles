@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged') 
 
+Plug 'preservim/nerdtree'
 Plug 'nanotech/jellybeans.vim'
 Plug 'Badacadabra/vim-archery'
 Plug 'tpope/vim-sensible'
@@ -41,12 +42,12 @@ call plug#end()
 :set hlsearch!
 :set omnifunc=jedi#completions
 
-":let g:airline_left_sep = ''
-":let g:airline_left_sep = ''
-":let g:airline_right_sep = ''
-":let g:airline_right_sep = ''
-:let g:indentLine_color_term=239
-:let g:indentLine_setColors = 0
+:let g:airline_left_sep = ''
+:let g:airline_left_sep = ''
+:let g:airline_right_sep = ''
+:let g:airline_right_sep = ''
+":let g:indentLine_color_term=239
+":let g:indentLine_setColors = 0
 :let g:jedi#force_py_version = 3
 :let g:acp_behaviorKeywordLength=1 
 :let g:airline_theme='jellybeans'
@@ -69,6 +70,7 @@ endif
 :filetype plugin on
 
 :map <C-f> :set hlsearch!<CR>
+:map ` :NERDTreeToggle<CR>
 
 :nnoremap <S-h> gT
 :nnoremap <S-l> gt
@@ -90,6 +92,7 @@ endif
 :autocmd FileType python set ts=4
 :autocmd FileType python set sts=4
 :autocmd FileType python setlocal completeopt-=preview
+:autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 
 function! Tab_Or_Complete()
   if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
