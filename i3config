@@ -1,19 +1,19 @@
 set $mod Mod4
 floating_modifier $mod
-font pango:Droid Sans 7
+font pango:Cascadia Code 7
 #new_float normal
 
-for_window [class="."] border pixel 2
+#for_window [class="."] border pixel 1
 gaps inner 7
 gaps outer 3
 #smart_borders on
 
-set $bg-color 	         #FFFFFF
-set $inactive-bg-color   #263238
-set $text-color          #1b1b19
-set $inactive-text-color #bfbfbf
-set $urgent-bg-color     #E53935
-set $bar-bg              #263238
+set $bg-color 	         #634425
+set $inactive-bg-color   #16282c
+set $text-color          #FFFFFF
+set $inactive-text-color #FFFFFF
+set $urgent-bg-color     #1d4b5c
+set $bar-bg              #131e22
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -55,6 +55,7 @@ bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+f floating toggle
 
 bindsym $mod+Tab focus mode_toggle
+bindsym $mod+BackSpace workspace back_and_forth
 
 bindsym $mod+Down split v
 bindsym $mod+Right split h
@@ -65,11 +66,11 @@ bindsym $mod+e layout toggle split
 
 bindsym $mod+space bar mode toggle
 
-set $ws1 "[ LNX ]"
-set $ws2 "[ WWW ]"
-set $ws3 "[ DEV ]"
-set $ws4 "[ GFX ]"
-set $ws5 "[ SYS ]"
+set $ws1 "CHILL"
+set $ws2 "WEB"
+set $ws3 "DEVELOPMENT"
+set $ws4 "GRAPHICS"
+set $ws5 "SYSTEM"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -93,9 +94,11 @@ assign [class="Gimp"] $ws4
 assign [class="Code"] $ws3
 assign [class="Deluge"] $ws2
 assign [class="Uget-gtk"] $ws2
+assign [class="discord"] $ws1
+assign [class="Atom"] $ws3
 
+for_window [class="discord"] floating enable
 for_window [class="Inkscape"] floating enable
-for_window [class="TelegramDesktop"] floating enable
 for_window [class="Leafpad"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Steam"] floating enable
@@ -166,9 +169,9 @@ bar {
         colors {
 	    background $bar-bg
         separator #F6F6F6
-	    focused_workspace  $bg-color $bg-color $text-color
-		inactive_workspace $bar-bg   $bar-bg   $inactive-text-color
-		urgent_workspace   $urgent-bg-color    $urgent-bg-color   $text-color
+	    focused_workspace  $bg-color           $bg-color           $text-color
+		inactive_workspace $bar-bg             $bar-bg             $inactive-text-color
+		urgent_workspace   $urgent-bg-color    $urgent-bg-color    $inactive-text-color
     }
 }
 
