@@ -4,16 +4,16 @@ font pango:Cascadia Code 7
 #new_float normal
 
 #for_window [class="."] border pixel 1
-gaps inner 7
-gaps outer 3
+#gaps inner 2
+#gaps outer 2
 #smart_borders on
 
-set $bg-color 	         #646695
-set $inactive-bg-color   #24201f
-set $text-color          #FFFFFF
-set $inactive-text-color #FFFFFF
-set $urgent-bg-color     #8f5d54
-set $bar-bg              #24201f
+set $bg-color 	         #1f435e
+set $inactive-bg-color   #222222
+set $text-color          #ffffff
+set $inactive-text-color #d4d4d4
+set $urgent-bg-color     #900000
+set $bar-bg              #1e1e1e
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -65,10 +65,10 @@ bindsym $mod+e layout toggle split
 
 bindsym $mod+space bar mode toggle
 
-set $ws1 "Social, Network"
-set $ws2 "Development, Code"
-set $ws3 "Graphics, Media"
-set $ws4 "Sudo WorkSpac"
+set $ws1 "WWW"
+set $ws2 "DEV"
+set $ws3 "GFX"
+set $ws4 "SU-"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -99,7 +99,7 @@ for_window [class="Leafpad"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="Uget-gtk"] floating enable
-for_window [class="Pcmanfm"] floating enable
+#for_window [class="Pcmanfm"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="mpv"] floating enable

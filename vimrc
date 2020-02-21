@@ -10,9 +10,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 Plug 'davidhalter/jedi-vim'
-Plug 'whatyouhide/vim-gotham'
 Plug 'dracula/vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 
@@ -50,7 +50,7 @@ call plug#end()
 ":let g:indentLine_setColors = 0
 :let g:jedi#force_py_version = 3
 :let g:acp_behaviorKeywordLength=1 
-:let g:airline_theme='jellybeans'
+:let g:airline_theme='codedark'
 :let g:airline_powerline_fonts=1
 :let g:airline_extensions = ['tabline', 'branch'] 
 :let g:indentLine_char='┊'
@@ -66,7 +66,7 @@ if has('termguicolors') && &termguicolors
 endif
 
 :syntax on
-:colorscheme jellybeans
+:colorscheme codedark
 :filetype plugin on
 
 :map <C-f> :set hlsearch!<CR>
