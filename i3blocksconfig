@@ -1,10 +1,3 @@
-[arch-update]
-command=scripts/arch-update/arch-update
-interval=3600
-markup=pango
-BASE_COLOR=#FFFFFF
-UPDATE_COLOR=#FFFFFF
-
 [essid]
 command=scripts/essid/essid
 interval=60
@@ -41,10 +34,6 @@ LABEL=DISK
 #DIR=$HOME
 ALERT_LOW=10
 interval=30
-
-[kbdd_layout]
-command=scripts/kbdd_layout/kbdd_layout
-interval=persist
 
 [time]
 command=scripts/time/time

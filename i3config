@@ -13,7 +13,7 @@ set $inactive-bg-color   #222222
 set $text-color          #ffffff
 set $inactive-text-color #d4d4d4
 set $urgent-bg-color     #900000
-set $bar-bg              #1e1e1e
+set $bar-bg              #000000
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -21,7 +21,7 @@ exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png
-bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Cascadia Code:pixelsize=12' -b
+bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Cascadia Code:pixelsize=12'
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
@@ -65,10 +65,10 @@ bindsym $mod+e layout toggle split
 
 bindsym $mod+space bar mode toggle
 
-set $ws1 "WWW"
-set $ws2 "DEV"
-set $ws3 "GFX"
-set $ws4 "SU-"
+set $ws1 "Web, Net"
+set $ws2 "Code, Dev"
+set $ws3 "Graphic, Media"
+set $ws4 "Sudo, Root"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -92,6 +92,7 @@ assign [class="Deluge"] $ws1
 assign [class="Uget-gtk"] $ws1
 assign [class="discord"] $ws1
 assign [class="Atom"] $ws2
+assign [class="SimpleScreenRecorder"] $ws3
 
 for_window [class="discord"] floating enable
 for_window [class="Inkscape"] floating enable
@@ -103,13 +104,14 @@ for_window [class="Uget-gtk"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="mpv"] floating enable
-for_window [class="feh"] floating enable
+#for_window [class="feh"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Machine"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="DB Browser for SQLite"] floating enable
 for_window [class="qt5ct"] floating enable
+for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Deluge"] floating enable
 
 client.focused          $bg-color           $bg-color          $text-color          $inactive-bg-color
@@ -158,7 +160,7 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        position top
+        #osition top
         status_command i3blocks
         separator_symbol "‌"
         #mode hide
