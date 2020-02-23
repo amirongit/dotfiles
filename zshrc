@@ -1,6 +1,8 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 export ZSH="/home/amir/.oh-my-zsh"
+export PATH=$PATH:$GOROOT/bin
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$PATH:$HOME/go/bin"
+export GOPATH=$HOME/go
 
 source $HOME/antigen.zsh
 
