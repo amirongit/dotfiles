@@ -9,6 +9,7 @@ IFACE=wlo1
 color=#00FF00
 interval=10
 color=#FFFFFF
+LABEL= 
 
 [volume]
 command=scripts/volume/volume
@@ -16,27 +17,25 @@ LABEL=VOL
 interval=2
 signal=10
 STEP=5%
-LABEL=VOL 
+LABEL= 
 
 [battery]
 command=scripts/battery/battery
 interval=30
-LABEL=BAT 
+LABEL= 
 
 [memory]
 command=scripts/memory/memory
-label=MEM 
+label= 
 interval=30
 
 [disk]
-command=scripts/disk/disk
-LABEL=DISK 
-#DIR=$HOME
-ALERT_LOW=10
-interval=30
+command=scripts/cpu_usage/cpu_usage
+LABEL= 
+interval=10
 
 [time]
 command=scripts/time/time
 interval=30
-STRFTIME_FORMAT=%Y-%m-%d %H:%M
+STRFTIME_FORMAT= %H:%M
 TZ_LABELS=TEH

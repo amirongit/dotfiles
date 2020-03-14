@@ -1,27 +1,28 @@
 set $mod Mod4
 floating_modifier $mod
-font pango:Cascadia Code 7
+#font pango:Font Awesome 5 Free 7
+font pango: Comic Sans MS 8
 #new_float normal
 
 #for_window [class="."] border pixel 1
-gaps inner 4
-gaps outer 4
+#gaps inner 3
+#gaps outer 3
 #smart_borders on
 
-set $bg-color 	         #002023
-set $inactive-bg-color   #121212
-set $text-color          #dedede
-set $inactive-text-color #dedede
-set $urgent-bg-color     #821a1a
-set $bar-bg              #121212
+set $bg-color 	         #285577
+set $inactive-bg-color   #0c0c0c
+set $text-color          #ffffff
+set $inactive-text-color #ffffff
+set $urgent-bg-color     #900000
+set $bar-bg              #0c0c0c
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
 exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
-bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png
-bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Cascadia Code:pixelsize=12'
+bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
+bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Comic Sans MS:pixelsize=12' #-b
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
@@ -65,21 +66,23 @@ bindsym $mod+e layout toggle split
 
 bindsym $mod+space bar mode toggle
 
-set $ws1 "RCH"
-set $ws2 "NET"
-set $ws3 "DEV"
-set $ws4 "GFX"
-set $ws5 "SYS"
+set $ws1 " RCH"
+set $ws2 " NET"
+set $ws3 " DEV"
+set $ws4 " GFX"
+set $ws5 " SYS"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
 
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
 
 assign [class="Inkscape"] $ws4
 assign [class="Steam"] $ws4
@@ -95,6 +98,7 @@ assign [class="discord"] $ws1
 assign [class="Atom"] $ws3
 assign [class="SimpleScreenRecorder"] $ws4
 
+for_window [class="GParted"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 for_window [class="discord"] floating enable
 for_window [class="Inkscape"] floating enable
@@ -102,7 +106,7 @@ for_window [class="Leafpad"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="Uget-gtk"] floating enable
-for_window [class="Pcmanfm"] floating enable
+#for_window [class="Pcmanfm"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="mpv"] floating enable
@@ -164,7 +168,7 @@ mode "$mode_gaps_outer" {
 bar {
         #osition top
         status_command i3blocks
-        separator_symbol "‌"
+        separator_symbol " "
         #mode hide
         colors {
 	    background $bar-bg
