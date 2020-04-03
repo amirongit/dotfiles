@@ -1,16 +1,15 @@
 call plug#begin('~/.vim/plugged') 
 
-Plug 'preservim/nerdtree'
 Plug 'nanotech/jellybeans.vim'
 Plug 'Badacadabra/vim-archery'
 Plug 'tpope/vim-sensible'
-Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tomasiser/vim-code-dark'
 Plug 'jaredgorski/spacecamp'
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
@@ -70,7 +69,6 @@ endif
 :filetype plugin on
 
 :map <C-f> :set hlsearch!<CR>
-:map ` :NERDTreeToggle<CR>
 
 :tnoremap <Esc> <C-\><C-n>
 
@@ -97,7 +95,6 @@ endif
 :autocmd FileType python set ts=4
 :autocmd FileType python set sts=4
 :autocmd FileType python setlocal completeopt-=preview
-:autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 
 function! Tab_Or_Complete()
   if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
