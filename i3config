@@ -1,20 +1,20 @@
 set $mod Mod4
 floating_modifier $mod
 #font pango:Font Awesome 5 Free 7
-font pango: Comic Sans MS 8
+font pango: Operator Mono 8
 #new_float normal
 
-#for_window [class="."] border pixel 1
-#gaps inner 3
-#gaps outer 3
+for_window [class="."] border pixel 2
+gaps inner 9
+gaps outer 3
 #smart_borders on
 
-set $bg-color 	         #285577
-set $inactive-bg-color   #0c0c0c
-set $text-color          #ffffff
-set $inactive-text-color #ffffff
-set $urgent-bg-color     #900000
-set $bar-bg              #0c0c0c
+set $bg-color 	         #F6F9FC
+set $inactive-bg-color   #25272C
+set $text-color          #25272C
+set $inactive-text-color #F6F9FC
+set $urgent-bg-color     #BA2A2A
+set $bar-bg              #121212
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -22,7 +22,7 @@ exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Comic Sans MS:pixelsize=12' #-b
+bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Operator Mono:pixelsize=12' #-b
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
@@ -66,11 +66,11 @@ bindsym $mod+e layout toggle split
 
 bindsym $mod+space bar mode toggle
 
-set $ws1 " RCH"
-set $ws2 " NET"
-set $ws3 " DEV"
-set $ws4 " GFX"
-set $ws5 " SYS"
+set $ws1 "Chat, Chill"
+set $ws2 "Internet, Browser"
+set $ws3 "Development, Coding"
+set $ws4 "Graphics, Games"
+set $ws5 "sudo WorkSpace"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -86,7 +86,7 @@ bindsym $mod+Shift+5 move container to workspace $ws5
 
 assign [class="Inkscape"] $ws4
 assign [class="Steam"] $ws4
-assign [class="firefox"] $ws2
+assign [class="firefoxdeveloperedition"] $ws2
 assign [class="code-oss"] $ws3
 assign [class="Electron"] $ws3
 assign [class="TelegramDesktop"] $ws1
@@ -120,10 +120,10 @@ for_window [class="qt5ct"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Deluge"] floating enable
 
-client.focused          $bg-color           $bg-color          $text-color          $inactive-bg-color
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $inactive-bg-color
+client.focused          $bg-color           $bg-color          $text-color          $646695
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $646695
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $646695
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $646695
 
 
 mode "resize" {
@@ -166,16 +166,15 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        #osition top
+#       position top
         status_command i3blocks
-        separator_symbol " "
-        #mode hide
+        separator_symbol "-"
+#        mode hide
         colors {
-	    background $bar-bg
+        background $bar-bg
         separator #F6F6F6
 	    focused_workspace  $bg-color           $bg-color           $text-color
 		inactive_workspace $bar-bg             $bar-bg             $inactive-text-color
 		urgent_workspace   $urgent-bg-color    $urgent-bg-color    $inactive-text-color
     }
 }
-
