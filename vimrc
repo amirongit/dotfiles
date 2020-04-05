@@ -11,6 +11,7 @@ Plug 'jaredgorski/spacecamp'
 Plug 'ap/vim-css-color'
 Plug 'maralla/completor.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'alvan/vim-closetag'
 
 call plug#end()
 
@@ -48,19 +49,22 @@ call plug#end()
 :let g:airline_right_sep = ''
 :let g:completor_python_binary = '/usr/bin/python3.8'
 :let g:acp_behaviorKeywordLength = 1
-:let g:airline_theme = 'dracula'
+:let g:airline_theme = 'codedark'
 :let g:airline_powerline_fonts = 1
 :let g:airline_extensions = ['tabline', 'branch'] 
 :let g:indentLine_char = '┊'
 :let g:onedark_termcolors = 16
+:let g:completor_complete_options = 'menuone,noselect'
 
 :syntax on
-:colorscheme dracula
+:colorscheme codedark
 :filetype plugin on
 
 :map <C-f> :set hlsearch!<CR>
 
 :tnoremap <Esc> <C-\><C-n>
+
+:inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 :nnoremap <S-h> gT
 :nnoremap <S-l> gt
@@ -71,7 +75,4 @@ call plug#end()
 :nnoremap <Left> <C-W>h
 
 :autocmd BufWritePre *.* :%s/\s\+$//e
-:autocmd FileType python set sw=4
-:autocmd FileType python set ts=4
-:autocmd FileType python set sts=4
 :autocmd FileType python setlocal completeopt-=preview
