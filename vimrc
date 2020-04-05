@@ -10,7 +10,7 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'jaredgorski/spacecamp'
 Plug 'ap/vim-css-color'
 Plug 'maralla/completor.vim'
-Plug 'preservim/nerdtree'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -44,25 +44,21 @@ call plug#end()
 :set backspace=indent,eol,start
 
 
-:let g:NERDTreeMapOpenInTab='<C-n>'
 :let g:airline_left_sep = ''
 :let g:airline_right_sep = ''
-:let g:NERDTreeDirArrowExpandable = ''
-:let g:NERDTreeDirArrowCollapsible = ''
 :let g:completor_python_binary = '/usr/bin/python3.8'
 :let g:acp_behaviorKeywordLength = 1
-:let g:airline_theme = 'codedark'
+:let g:airline_theme = 'dracula'
 :let g:airline_powerline_fonts = 1
 :let g:airline_extensions = ['tabline', 'branch'] 
 :let g:indentLine_char = '┊'
 :let g:onedark_termcolors = 16
 
 :syntax on
-:colorscheme codedark
+:colorscheme dracula
 :filetype plugin on
 
 :map <C-f> :set hlsearch!<CR>
-:map <C-\> :NERDTreeToggle<CR>
 
 :tnoremap <Esc> <C-\><C-n>
 
@@ -79,5 +75,3 @@ call plug#end()
 :autocmd FileType python set ts=4
 :autocmd FileType python set sts=4
 :autocmd FileType python setlocal completeopt-=preview
-:autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
-:autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
