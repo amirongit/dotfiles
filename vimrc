@@ -13,6 +13,7 @@ Plug 'maralla/completor.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'alvan/vim-closetag'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
@@ -41,20 +42,25 @@ call plug#end()
 :let g:acp_behaviorKeywordLength = 1
 :let g:airline_theme = 'codedark'
 :let g:airline_powerline_fonts = 1
-:let g:airline_extensions = ['tabline', 'branch'] 
+:let g:airline_extensions = ['tabline'] 
 :let g:indentLine_char = '┊'
 :let g:completor_complete_options = 'menuone,noselect'
+:let g:ale_pattern_options = {'\.py': {'ale_linters': ['pycodestyle']}}
+:let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+:let g:ale_sign_error = '!'
+:let g:ale_sign_warning = '!'
+
 
 :syntax on
 :colorscheme codedark
 :filetype plugin on
 
-:map <C-f> :set hlsearch!<CR>
+:map <S-f> :set hlsearch!<CR>
 
 :tnoremap <Esc> <C-\><C-n>
 
 :inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-:noremap <silent> <C-d> :call completor#do('doc')<CR>
+:noremap <silent> <S-Tab> :call completor#do('doc')<CR>
 
 :nnoremap <S-h> gT
 :nnoremap <S-l> gt
