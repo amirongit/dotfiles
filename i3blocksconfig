@@ -1,41 +1,50 @@
-[essid]
-command=scripts/essid/essid
-interval=60
-INTERFACE=wlo1
-
 [iface]
 command=scripts/iface/iface
 IFACE=wlo1
 color=#00FF00
 interval=10
 color=#FFFFFF
-LABEL= 
+LABEL=IP 
+
+[bandwidth]
+command=scripts/bandwidth/bandwidth
+interval=5
+
+[essid]
+command=scripts/essid/essid
+interval=60
+INTERFACE=wlo1
 
 [volume]
 command=scripts/volume/volume
-LABEL=VOL
 interval=2
 signal=10
 STEP=5%
-LABEL= 
+LABEL=VOL 
 
 [battery]
 command=scripts/battery/battery
 interval=30
-LABEL= 
+LABEL=BAT 
+color=#FFFFFF
+
+[disk]
+command=scripts/disk/disk
+LABEL=DISK 
+interval=30
 
 [memory]
 command=scripts/memory/memory
-label= 
+label=MEM 
 interval=30
 
-[disk]
+[cpu]
 command=scripts/cpu_usage/cpu_usage
-LABEL= 
+LABEL=CPU 
 interval=10
 
 [time]
 command=scripts/time/time
 interval=30
-STRFTIME_FORMAT= %H:%M
-TZ_LABELS=TEH
+STRFTIME_FORMAT=TIME %Y-%m-%d %H:%M
+TZ_LABELS=

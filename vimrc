@@ -40,23 +40,22 @@ call plug#end()
 :let g:airline_right_sep = ''
 :let g:completor_python_binary = '/usr/bin/python3.8'
 :let g:acp_behaviorKeywordLength = 1
-:let g:airline_theme = 'codedark'
+:let g:airline_theme = 'dracula'
 :let g:airline_powerline_fonts = 1
-:let g:airline_extensions = ['tabline'] 
+:let g:airline_extensions = ['tabline', 'ale', 'branch'] 
 :let g:indentLine_char = '┊'
 :let g:completor_complete_options = 'menuone,noselect'
 :let g:ale_pattern_options = {'\.py': {'ale_linters': ['pycodestyle']}}
 :let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-:let g:ale_sign_error = '!!'
-:let g:ale_sign_warning = '!!'
+:let g:ale_sign_error = 'E'
+:let g:ale_sign_warning = 'W'
 :let g:ale_echo_msg_error_str = 'E'
 :let g:ale_echo_msg_warning_str = 'W'
 :let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 :syntax on
-:colorscheme codedark
+:colorscheme dracula
 :filetype plugin on
-:highlight clear ALEErrorSign
 :highlight clear ALEWarningSign
 
 :map <S-f> :set hlsearch!<CR>

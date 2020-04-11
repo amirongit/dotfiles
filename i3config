@@ -1,20 +1,25 @@
 set $mod Mod4
 floating_modifier $mod
-#font pango:Font Awesome 5 Free 7
+
 font pango: Operator Mono 8
-#new_float normal
 
-for_window [class="."] border pixel 2
-gaps inner 9
+focus_follows_mouse no
+
+#for_window [class="."] border pixel 2
+
+gaps inner 7
 gaps outer 3
-#smart_borders on
 
-set $bg-color 	         #F6F9FC
-set $inactive-bg-color   #25272C
-set $text-color          #25272C
-set $inactive-text-color #F6F9FC
-set $urgent-bg-color     #BA2A2A
-set $bar-bg              #121212
+smart_borders on
+
+workspace_layout tabbed
+
+set $bg-color 	         #BFBFBF
+set $inactive-bg-color   #282A36
+set $text-color          #282A36
+set $inactive-text-color #BFBFBF
+set $urgent-bg-color     #FF5555
+set $bar-bg              #282A36
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -70,7 +75,7 @@ set $ws1 "Chat, Chill"
 set $ws2 "Internet, Browser"
 set $ws3 "Development, Coding"
 set $ws4 "Graphics, Games"
-set $ws5 "sudo WorkSpace"
+set $ws5 "VirtualBox, Sys"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -86,44 +91,40 @@ bindsym $mod+Shift+5 move container to workspace $ws5
 
 assign [class="Inkscape"] $ws4
 assign [class="Steam"] $ws4
-assign [class="firefoxdeveloperedition"] $ws2
-assign [class="code-oss"] $ws3
-assign [class="Electron"] $ws3
+assign [class="firefox"] $ws2
 assign [class="TelegramDesktop"] $ws1
 assign [class="Gimp"] $ws4
-assign [class="Code"] $ws3
 assign [class="Deluge"] $ws2
 assign [class="Uget-gtk"] $ws2
-assign [class="discord"] $ws1
-assign [class="Atom"] $ws3
-assign [class="SimpleScreenRecorder"] $ws4
+assign [class="VirtualBox Machine"] $ws5
+assign [class="VirtualBox Manager"] $ws5
 
-for_window [class="GParted"] floating enable
+for_window [class="VirtualBox Machine"] floating disable
+for_window [class="VirtualBox Manager"] floating disable
+
+for_window [class="Gnome-system-monitor"] floating enable
 for_window [class="TelegramDesktop"] floating enable
-for_window [class="discord"] floating enable
 for_window [class="Inkscape"] floating enable
-for_window [class="Leafpad"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="Uget-gtk"] floating enable
-#for_window [class="Pcmanfm"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="vlc"] floating enable
-for_window [class="mpv"] floating enable
-#for_window [class="feh"] floating enable
 for_window [class="Lxappearance"] floating enable
-for_window [class="VirtualBox Manager"] floating enable
-for_window [class="VirtualBox Machine"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="DB Browser for SQLite"] floating enable
 for_window [class="qt5ct"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Deluge"] floating enable
+for_window [class="Org.gnome.Nautilus"] floating enable
+for_window [class="Gedit"] floating enable
+for_window [class="Eog"] floating enable
 
-client.focused          $bg-color           $bg-color          $text-color          $646695
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $646695
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $646695
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $646695
+
+client.focused          $bg-color           $bg-color          $text-color          $bg-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
 
 
 mode "resize" {
@@ -168,8 +169,8 @@ mode "$mode_gaps_outer" {
 bar {
 #       position top
         status_command i3blocks
-        separator_symbol "-"
-#        mode hide
+        separator_symbol "*"
+#       mode hide
         colors {
         background $bar-bg
         separator #F6F6F6
