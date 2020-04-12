@@ -174,8 +174,8 @@ bar {
         colors {
         background $bar-bg
         separator #F6F6F6
-	    focused_workspace  $bg-color           $bg-color           $text-color
-		inactive_workspace $bar-bg             $bar-bg             $inactive-text-color
-		urgent_workspace   $urgent-bg-color    $urgent-bg-color    $inactive-text-color
+	focused_workspace  $bg-color           $bg-color           $text-color
+        inactive_workspace $bar-bg             $bar-bg             $inactive-text-color
+        urgent_workspace   $urgent-bg-color    $urgent-bg-color    $inactive-text-color
     }
 }
