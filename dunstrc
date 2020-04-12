@@ -1,6 +1,6 @@
 [global]
     frame_width = 2
-    frame_color = "#CAA9FA"
+    frame_color = "#808080"
     
     font = Cascadia Code 10
     markup = yes
@@ -46,7 +46,7 @@
     
     horizontal_padding = 10
 
-    separator_color = #CAA9FA
+    separator_color = "#808080"
     
     startup_notification = false
     
@@ -62,17 +62,17 @@
 
 
 [urgency_low]
-    background = "#282A36"
-    foreground = "#BFBFBF"
+    background = "#1e1e1e"
+    foreground = "#d4d4d4"
     timeout = 10
 
 [urgency_normal]
-    background = "#2B2A36"
-    foreground = "#BFBFBF"
+    background = "#1e1e1e"
+    foreground = "#d4d4d4"
     timeout = 10
 
 [urgency_critical]
-    background = "#2B2A36"
-    foreground = "#BFBFBF"
+    background = "#1e1e1e"
+    foreground = "#d4d4d4"
     timeout = 0
 
