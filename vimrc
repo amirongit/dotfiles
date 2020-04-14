@@ -19,6 +19,7 @@ call plug#end()
 
 :set number relativenumber
 :set nocp
+:set scrolloff=3
 :set tabstop=4
 :set expandtab
 :set softtabstop=4
@@ -40,7 +41,7 @@ call plug#end()
 :let g:airline_right_sep = ''
 :let g:completor_python_binary = '/usr/bin/python3.8'
 :let g:acp_behaviorKeywordLength = 1
-:let g:airline_theme = 'dracula'
+:let g:airline_theme = 'codedark'
 :let g:airline_powerline_fonts = 1
 :let g:airline_extensions = ['tabline', 'ale', 'branch'] 
 :let g:indentLine_char = '┊'
@@ -54,13 +55,11 @@ call plug#end()
 :let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 :syntax on
-:colorscheme dracula
+:colorscheme codedark
 :filetype plugin on
 :highlight clear ALEWarningSign
 
 :map <S-f> :set hlsearch!<CR>
-
-:tnoremap <Esc> <C-\><C-n>
 
 :inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 :noremap <silent> <S-Tab> :call completor#do('doc')<CR>
@@ -68,10 +67,15 @@ call plug#end()
 :nnoremap <S-h> gT
 :nnoremap <S-l> gt
 
-:nnoremap <Down> <C-W>j
-:nnoremap <Up> <C-W>k
-:nnoremap <Right> <C-W>l
-:nnoremap <Left> <C-W>h
+:nnoremap <Up>      :resize +2<CR>
+:nnoremap <Down>    :resize -2<CR>
+:nnoremap <Left>    :vertical resize +2<CR>
+:nnoremap <Right>   :vertical resize -2<CR>
+
+:nnoremap <S-Up>        <C-w>k
+:nnoremap <S-Down>      <C-w>j
+:nnoremap <S-Left>      <C-w>h
+:nnoremap <S-Right>     <C-w>l
 
 :autocmd BufWritePre *.* :%s/\s\+$//e
 :autocmd FileType python setlocal completeopt-=preview
