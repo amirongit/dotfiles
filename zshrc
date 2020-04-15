@@ -12,12 +12,12 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-antigen theme robbyrussell
+antigen theme jispwoso
 antigen apply
-
 #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=FF0000"
 
-alias ls='ls --color=none'
+pfetch && /opt/shell-color-scripts/colorscript.sh exec panes
+
 alias toryay='https_proxy=socks5://127.0.0.1:9050 yay'
 alias restor='sudo systemctl restart tor'
 alias stator='systemctl status tor'
@@ -25,7 +25,8 @@ alias systemctl='sudo systemctl'
 alias lsc='ls --color'
 alias netping='ping 4.2.2.4'
 alias SetX='setxkbmap -option grp:alt_shift_toggle us,ir'
-alias PacmanClean='sudo pacman -R $(pacman -Qdtq)'
 alias protonvpn='sudo python -m protonvpn_cli'
-alias :q='exit'
+alias q='exit'
+alias eject='udisksctl power-off'
 
+export PATH=$PATH:~/.local/bin
