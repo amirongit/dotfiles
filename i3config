@@ -1,26 +1,26 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: NovaMono Bold 8
+font pango: NovaMono Bold 7
 
 focus_follows_mouse yes
 smart_gaps on
+smart_borders on
 
-#for_window [class="."] border pixel 2
+for_window [class="."] border pixel 2
 
-gaps inner 9
+gaps inner 4
 gaps outer 2
 
-smart_borders on
 
 workspace_layout tabbed
 
 set $bg-color 	         #285577
-set $inactive-bg-color   #131F1D
-set $text-color          #ffffff
-set $inactive-text-color #ffffff
+set $inactive-bg-color   #1e1e1e
+set $text-color          #d4d4d4
+set $inactive-text-color #d4d4d4
 set $urgent-bg-color     #900000
-set $bar-bg              #131F1D
+set $bar-bg              #1e1e1e
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -28,7 +28,8 @@ exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'AltSystemCode:pixelsize=12' #-b
+bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'mononoki:pixelsize=12' -b
+bindsym $mod+Shift+p exec rofi -show run -lines 5 -font "NovaMono 12"
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
@@ -104,7 +105,7 @@ for_window [class="VirtualBox Machine"] floating disable
 for_window [class="VirtualBox Manager"] floating disable
 
 for_window [class="Gnome-system-monitor"] floating enable
-for_window [class="TelegramDesktop"] floating enable
+#for_window [class="TelegramDesktop"] floating enable
 for_window [class="Inkscape"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Steam"] floating enable
@@ -112,14 +113,14 @@ for_window [class="Uget-gtk"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Lxappearance"] floating enable
-for_window [class="Evince"] floating enable
+for_window [class="Xreader"] floating enable
 for_window [class="DB Browser for SQLite"] floating enable
 for_window [class="qt5ct"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Deluge"] floating enable
-for_window [class="Org.gnome.Nautilus"] floating enable
-for_window [class="Gedit"] floating enable
-for_window [class="Eog"] floating enable
+for_window [class="Pcmanfm"] floating enable
+for_window [class="Leafpad"] floating enable
+for_window [class="feh"] floating enable
 
 
 client.focused          $bg-color           $bg-color          $text-color          $bg-color
@@ -168,7 +169,7 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        #position top
+        position top
         status_command i3blocks
         separator_symbol "‌"
         #mode hide
