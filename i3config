@@ -1,7 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: NovaMono Bold 7
+font pango: Alt System Code Bold 8
 
 focus_follows_mouse yes
 smart_gaps on
@@ -15,12 +15,12 @@ gaps outer 2
 
 workspace_layout tabbed
 
-set $bg-color 	         #285577
-set $inactive-bg-color   #1e1e1e
-set $text-color          #d4d4d4
-set $inactive-text-color #d4d4d4
-set $urgent-bg-color     #900000
-set $bar-bg              #1e1e1e
+set $bg-color 	         #3A3A3A
+set $inactive-bg-color   #000000
+set $text-color          #ffffff
+set $inactive-text-color #ffffff
+set $urgent-bg-color     #AF050E
+set $bar-bg              #000000
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -28,7 +28,7 @@ exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec rofi -show run -lines 5 -font "Alt System Code Bold 12"
+bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Alt System Code:pixelsize=12' -b
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
@@ -91,6 +91,7 @@ bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 
 assign [class="Inkscape"] $ws4
+assign [class="libreoffice*"] $ws4
 assign [class="Steam"] $ws4
 assign [class="firefox"] $ws2
 assign [class="TelegramDesktop"] $ws1

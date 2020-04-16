@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged') 
 
+Plug 'lucasprag/simpleblack'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
@@ -41,9 +42,9 @@ call plug#end()
 :let g:airline_right_sep = ''
 :let g:completor_python_binary = '/usr/bin/python3.8'
 :let g:acp_behaviorKeywordLength = 1
-:let g:airline_theme = 'codedark'
+:let g:airline_theme = 'minimalist'
 :let g:airline_powerline_fonts = 1
-:let g:airline_extensions = ['tabline', 'ale', 'branch'] 
+:let g:airline_extensions = ['tabline', 'ale'] 
 :let g:indentLine_char = '┊'
 :let g:completor_complete_options = 'menuone,noselect'
 :let g:ale_pattern_options = {'\.py': {'ale_linters': ['pycodestyle']}}
@@ -55,7 +56,7 @@ call plug#end()
 :let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 :syntax on
-:colorscheme codedark
+:colorscheme simpleblack
 :filetype plugin on
 :highlight clear ALEWarningSign
 
