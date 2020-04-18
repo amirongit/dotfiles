@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged') 
 
-Plug 'lucasprag/simpleblack'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
@@ -8,13 +7,13 @@ Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tomasiser/vim-code-dark'
-Plug 'jaredgorski/spacecamp'
 Plug 'ap/vim-css-color'
 Plug 'maralla/completor.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'alvan/vim-closetag'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'dense-analysis/ale'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -42,7 +41,7 @@ call plug#end()
 :let g:airline_right_sep = ''
 :let g:completor_python_binary = '/usr/bin/python3.8'
 :let g:acp_behaviorKeywordLength = 1
-:let g:airline_theme = 'minimalist'
+:let g:airline_theme = 'onedark'
 :let g:airline_powerline_fonts = 1
 :let g:airline_extensions = ['tabline', 'ale'] 
 :let g:indentLine_char = '┊'
@@ -56,27 +55,30 @@ call plug#end()
 :let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 :syntax on
-:colorscheme simpleblack
+:colorscheme onedark
 :filetype plugin on
 :highlight clear ALEWarningSign
 
-:map <S-f> :set hlsearch!<CR>
+:map <S-f>                  :set hlsearch!<CR>
 
-:inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-:noremap <silent> <S-Tab> :call completor#do('doc')<CR>
+:inoremap <expr> <Tab>      pumvisible() ? "\<C-n>" : "\<Tab>"
+:noremap <silent> <S-Tab>   :call completor#do('doc')<CR>
 
-:nnoremap <S-h> gT
-:nnoremap <S-l> gt
+:nnoremap H                 gT
+:nnoremap L                 gt
 
-:nnoremap <Up>      :resize +2<CR>
-:nnoremap <Down>    :resize -2<CR>
-:nnoremap <Left>    :vertical resize +2<CR>
-:nnoremap <Right>   :vertical resize -2<CR>
+:nnoremap <S-Up>            :resize +2<CR>
+:nnoremap <S-Down>          :resize -2<CR>
+:nnoremap <S-Left>          :vertical resize +2<CR>
+:nnoremap <S-Right>         :vertical resize -2<CR>
 
-:nnoremap <S-Up>        <C-w>k
-:nnoremap <S-Down>      <C-w>j
-:nnoremap <S-Left>      <C-w>h
-:nnoremap <S-Right>     <C-w>l
+:nnoremap <C-j>             <C-w>j
+:nnoremap <C-k>             <C-w>k
+:nnoremap <C-l>             <C-w>l
+:nnoremap <C-h>             <C-w>h
 
-:autocmd BufWritePre *.* :%s/\s\+$//e
+:xnoremap K                 :move '<-2<CR>gv-gv
+:xnoremap J                 :move '>+1<CR>gv-gv
+
+:autocmd BufWritePre *.*    :%s/\s\+$//e
 :autocmd FileType python setlocal completeopt-=preview

@@ -1,7 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Alt System Code Bold 8
+font pango: inconsolata Bold 8
 
 focus_follows_mouse yes
 smart_gaps on
@@ -9,18 +9,18 @@ smart_borders on
 
 for_window [class="."] border pixel 2
 
-gaps inner 4
-gaps outer 2
+gaps inner 8
+gaps outer 4
 
 
 workspace_layout tabbed
 
-set $bg-color 	         #3A3A3A
-set $inactive-bg-color   #000000
-set $text-color          #ffffff
-set $inactive-text-color #ffffff
-set $urgent-bg-color     #AF050E
-set $bar-bg              #000000
+set $bg-color 	         #323639
+set $inactive-bg-color   #202124
+set $text-color          #d4d4d4
+set $inactive-text-color #d4d4d4
+set $urgent-bg-color     #E06C75
+set $bar-bg              #202124
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -28,7 +28,7 @@ exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Alt System Code:pixelsize=12' -b
+bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Cascadia Code:pixelsize=12' -b
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
@@ -93,7 +93,7 @@ bindsym $mod+Shift+5 move container to workspace $ws5
 assign [class="Inkscape"] $ws4
 assign [class="libreoffice*"] $ws4
 assign [class="Steam"] $ws4
-assign [class="firefox"] $ws2
+assign [class="Chromium"] $ws2
 assign [class="TelegramDesktop"] $ws1
 assign [class="Gimp"] $ws4
 assign [class="Deluge"] $ws2
@@ -118,7 +118,7 @@ for_window [class="DB Browser for SQLite"] floating enable
 for_window [class="qt5ct"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Deluge"] floating enable
-for_window [class="Pcmanfm"] floating enable
+#for_window [class="Pcmanfm"] floating enable
 for_window [class="Leafpad"] floating enable
 for_window [class="feh"] floating enable
 
