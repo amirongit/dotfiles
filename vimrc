@@ -16,6 +16,7 @@ Plug 'dense-analysis/ale'
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -43,7 +44,7 @@ call plug#end()
 :let g:airline_right_sep = ''
 :let g:completor_python_binary = '/usr/bin/python3.8'
 :let g:acp_behaviorKeywordLength = 1
-:let g:airline_theme = 'purify'
+:let g:airline_theme = 'nord'
 :let g:airline_powerline_fonts = 1
 :let g:airline_extensions = ['tabline', 'ale'] 
 :let g:indentLine_char = '┊'
@@ -59,7 +60,7 @@ call plug#end()
 :let g:gruvbox_contrast_dark = 'hard'
 
 :syntax on
-:colorscheme purify
+:colorscheme nord
 :filetype plugin on
 :highlight clear ALEWarningSign
 
