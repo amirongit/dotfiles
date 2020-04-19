@@ -1,0 +1,44 @@
+[options]
+
+allow_bold = false
+audible_bell = true
+browser = xdg-open
+clickable_url = true
+cursor_blink = ture
+cursor_shape = underline
+dynamic_title = true
+filter_unmatched_urls = true
+font = iosevka Semibold 13
+geometry = 480x280
+icon_name = terminal
+modify_other_keys = false
+mouse_autohide = false
+scroll_on_output = false
+scroll_on_keystroke = true
+scrollback_lines = 15000
+size_hints = false
+search_wrap = true
+urgent_on_bell = true
+
+[colors]
+cursor = #EBDBB2
+foreground = #EBDBB2
+background = #1D2021
+
+color0  = #1D2021
+color1  = #CC241D
+color2  = #98971A
+color3  = #D79921
+color4  = #458588
+color5  = #B16286
+color6  = #689D6A
+color7  = #A89984
+
+color8  = #928374
+color9  = #FB4934
+color10 = #B8BB26
+color11 = #FABD2F
+color12 = #83A598
+color13 = #D3869B
+color14 = #8EC07C
+color15 = #EBDBB2

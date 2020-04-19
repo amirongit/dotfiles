@@ -14,6 +14,8 @@ Plug 'alvan/vim-closetag'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'dense-analysis/ale'
 Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
 
 call plug#end()
 
@@ -41,7 +43,7 @@ call plug#end()
 :let g:airline_right_sep = ''
 :let g:completor_python_binary = '/usr/bin/python3.8'
 :let g:acp_behaviorKeywordLength = 1
-:let g:airline_theme = 'onedark'
+:let g:airline_theme = 'purify'
 :let g:airline_powerline_fonts = 1
 :let g:airline_extensions = ['tabline', 'ale'] 
 :let g:indentLine_char = '┊'
@@ -53,9 +55,11 @@ call plug#end()
 :let g:ale_echo_msg_error_str = 'E'
 :let g:ale_echo_msg_warning_str = 'W'
 :let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+:let g:gruvbox_italic = 1
+:let g:gruvbox_contrast_dark = 'hard'
 
 :syntax on
-:colorscheme onedark
+:colorscheme purify
 :filetype plugin on
 :highlight clear ALEWarningSign
 
