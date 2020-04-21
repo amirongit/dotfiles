@@ -2,9 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-sensible'
-Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tomasiser/vim-code-dark'
 Plug 'ap/vim-css-color'
@@ -12,7 +10,6 @@ Plug 'maralla/completor.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'alvan/vim-closetag'
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'dense-analysis/ale'
 Plug 'ajh17/Spacegray.vim'
 
 call plug#end()
@@ -36,28 +33,16 @@ call plug#end()
 :set t_Co=256
 :set termguicolors
 :set clipboard=unnamedplus
+:set showmode
 
-:let g:airline_left_sep = ''
-:let g:airline_right_sep = ''
 :let g:completor_python_binary = '/usr/bin/python3.8'
 :let g:acp_behaviorKeywordLength = 1
-:let g:airline_theme = 'minimalist'
-:let g:airline_powerline_fonts = 1
-:let g:airline_extensions = ['tabline', 'ale'] 
 :let g:indentLine_char = '┊'
 :let g:completor_complete_options = 'menuone,noselect'
-:let g:ale_pattern_options = {'\.py': {'ale_linters': ['pycodestyle']}}
-:let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-:let g:ale_sign_error = 'E'
-:let g:ale_sign_warning = 'W'
-:let g:ale_echo_msg_error_str = 'E'
-:let g:ale_echo_msg_warning_str = 'W'
-:let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 :syntax on
 :colorscheme spacegray
 :filetype plugin on
-:highlight clear ALEWarningSign
 
 :map <S-f>                  :set hlsearch!<CR>
 
@@ -77,3 +62,21 @@ call plug#end()
 
 :autocmd BufWritePre *.*    :%s/\s\+$//e
 :autocmd FileType python setlocal completeopt-=preview
+
+
+" to make it work use  run :so $VIMRUNTIME/syntax/hitest.vim
+:set statusline +=%#Title#
+:set statusline +=\[%{mode()}]
+:set statusline +=\[%F]
+:set statusline +=\%r
+:set statusline +=\%m
+:set statusline +=%=
+:set statusline +=\[buffer
+:set statusline +=\ %n]
+:set statusline +=\[column
+:set statusline +=\ %v]
+:set statusline +=\[line
+:set statusline +=\ %l
+:set statusline +=\ /
+:set statusline +=\ %L]
+:set statusline +=\[%Y]
