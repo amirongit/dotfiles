@@ -71,11 +71,6 @@ call plug#end()
 :nnoremap <S-Left>          :vertical resize +2<CR>
 :nnoremap <S-Right>         :vertical resize -2<CR>
 
-:nnoremap <C-j>             <C-w>j
-:nnoremap <C-k>             <C-w>k
-:nnoremap <C-l>             <C-w>l
-:nnoremap <C-h>             <C-w>h
-
 :xnoremap K                 :move '<-2<CR>gv-gv
 :xnoremap J                 :move '>+1<CR>gv-gv
 
