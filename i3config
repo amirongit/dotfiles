@@ -15,12 +15,12 @@ gaps outer 4
 
 workspace_layout tabbed
 
-set $bg-color 	         #323639
-set $inactive-bg-color   #202124
+set $bg-color 	         #46437D
+set $inactive-bg-color   #1E1E1E
 set $text-color          #d4d4d4
 set $inactive-text-color #d4d4d4
-set $urgent-bg-color     #E06C75
-set $bar-bg              #202124
+set $urgent-bg-color     #F44747
+set $bar-bg              #181818
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -100,12 +100,12 @@ assign [class="Deluge"] $ws2
 assign [class="Uget-gtk"] $ws2
 assign [class="VirtualBox Machine"] $ws5
 assign [class="VirtualBox Manager"] $ws5
+assign [class="code-oss"] $ws3
 
 for_window [class="VirtualBox Machine"] floating disable
 for_window [class="VirtualBox Manager"] floating disable
 
 for_window [class="Gnome-system-monitor"] floating enable
-#for_window [class="TelegramDesktop"] floating enable
 for_window [class="Inkscape"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Steam"] floating enable
