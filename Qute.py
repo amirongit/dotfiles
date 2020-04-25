@@ -482,7 +482,7 @@ c.qt.low_end_device_mode = 'auto'
 
 c.qt.process_model = 'process-per-site-instance'
 
-c.scrolling.bar = 'when-searching'
+c.scrolling.bar = 'always'
 
 c.scrolling.smooth = False
 
