@@ -74,23 +74,23 @@ c.colors.keyhint.fg = '#d4d4d4'
 
 c.colors.keyhint.suffix.fg = '#646695'
 
-c.colors.messages.error.bg = '#F44747'
+c.colors.messages.error.bg = '#1e1e1e'
 
 c.colors.messages.error.border = '#808080'
 
-c.colors.messages.error.fg = '#1e1e1e'
+c.colors.messages.error.fg = '#d4d4d4'
 
-c.colors.messages.info.bg = '#569cd6'
+c.colors.messages.info.bg = '#1e1e1e'
 
 c.colors.messages.info.border = '#808080'
 
-c.colors.messages.info.fg = '#1e1e1e'
+c.colors.messages.info.fg = '#d4d4d4'
 
-c.colors.messages.warning.bg = '#f44747'
+c.colors.messages.warning.bg = '#1e1e1e'
 
 c.colors.messages.warning.border = '#808080'
 
-c.colors.messages.warning.fg = '#1e1e1e'
+c.colors.messages.warning.fg = '#d4d4d4'
 
 c.colors.prompts.bg = '#1e1e1e'
 
@@ -362,11 +362,11 @@ c.fonts.hints = '8pt mononoki'
 
 c.fonts.keyhint = '8pt mononoki'
 
-c.fonts.messages.error = '10pt Cascadia Code'
+c.fonts.messages.error = '8pt mononoki'
 
-c.fonts.messages.info = '10pt Estedad'
+c.fonts.messages.info = '8pt mononoki'
 
-c.fonts.messages.warning = '10pt Cascadia Code'
+c.fonts.messages.warning = '8pt mononoki'
 
 c.fonts.prompts = '8pt mononoki'
 
@@ -626,7 +626,7 @@ config.bind('P', 'tab-pin')
 config.bind('S', 'stop')
 config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 config.bind('?', 'set-cmd-text ?')
-config.bind('Q', 'tab-close')
+config.bind('q', 'tab-close')
 config.bind('J', 'back')
 config.bind('L', 'tab-next')
 config.bind('H', 'tab-prev')
@@ -638,7 +638,6 @@ config.bind('j', 'scroll down')
 config.bind('k', 'scroll up')
 config.bind('l', 'scroll right')
 config.bind('o', 'set-cmd-text -s :open')
-config.bind('m', 'record-macro')
 config.bind('u', 'undo')
 config.bind('<Escape>', 'leave-mode', mode='hint')
 config.bind('<Escape>', 'leave-mode', mode='insert')
