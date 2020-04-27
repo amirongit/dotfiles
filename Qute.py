@@ -164,27 +164,27 @@ c.colors.tabs.odd.bg = '#1e1e1e'
 
 c.colors.tabs.odd.fg = '#d4d4d4'
 
-c.colors.tabs.pinned.even.bg = '#808080'
+c.colors.tabs.pinned.even.bg = '#456E90'
 
 c.colors.tabs.pinned.even.fg = '#d4d4d4'
 
-c.colors.tabs.pinned.odd.bg = '#808080'
+c.colors.tabs.pinned.odd.bg = '#456E90'
 
 c.colors.tabs.pinned.odd.fg = '#d4d4d4'
 
-c.colors.tabs.pinned.selected.even.bg = '#808080'
+c.colors.tabs.pinned.selected.even.bg = '#456E90'
 
 c.colors.tabs.pinned.selected.even.fg = '#d4d4d4'
 
-c.colors.tabs.pinned.selected.odd.bg = '#808080'
+c.colors.tabs.pinned.selected.odd.bg = '#456E90'
 
 c.colors.tabs.pinned.selected.odd.fg = '#d4d4d4'
 
-c.colors.tabs.selected.even.bg = '#808080'
+c.colors.tabs.selected.even.bg = '#456E90'
 
 c.colors.tabs.selected.even.fg = '#d4d4d4'
 
-c.colors.tabs.selected.odd.bg = '#808080'
+c.colors.tabs.selected.odd.bg = '#456E90'
 
 c.colors.tabs.selected.odd.fg = '#d4d4d4'
 
@@ -474,7 +474,7 @@ c.qt.force_platformtheme = None
 #   - qt-quick: Tell Qt Quick to use a software renderer instead of OpenGL. (`QT_QUICK_BACKEND=software`)
 #   - chromium: Tell Chromium to disable GPU support and use Skia software rendering instead. (`--disable-gpu`)
 #   - none: Don't force software rendering.
-c.qt.force_software_rendering = 'none'
+c.qt.force_software_rendering = 'qt-quick'
 
 c.qt.highdpi = False
 
@@ -608,22 +608,8 @@ config.bind('-', 'zoom-out')
 config.bind('.', 'repeat-command')
 config.bind('/', 'set-cmd-text /')
 config.bind(':', 'set-cmd-text :')
-config.bind('I', 'hint images tab')
-config.bind('D', 'hint links download')
 config.bind('O', 'hint all tab-fg')
-config.bind('<Alt-1>', 'tab-focus 1')
-config.bind('<Alt-2>', 'tab-focus 2')
-config.bind('<Alt-3>', 'tab-focus 3')
-config.bind('<Alt-4>', 'tab-focus 4')
-config.bind('<Alt-5>', 'tab-focus 5')
-config.bind('<Alt-6>', 'tab-focus 6')
-config.bind('<Alt-7>', 'tab-focus 7')
-config.bind('<Alt-8>', 'tab-focus 8')
-config.bind('<Alt-9>', 'tab-focus -1')
-config.bind('<Alt-m>', 'tab-mute')
 config.bind('R', 'reload -f')
-config.bind('P', 'tab-pin')
-config.bind('S', 'stop')
 config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 config.bind('?', 'set-cmd-text ?')
 config.bind('q', 'tab-close')
@@ -631,7 +617,6 @@ config.bind('J', 'back')
 config.bind('L', 'tab-next')
 config.bind('H', 'tab-prev')
 config.bind('K', 'forward')
-config.bind('M', 'bookmark-add')
 config.bind('h', 'scroll left')
 config.bind('i', 'enter-mode insert')
 config.bind('j', 'scroll down')
@@ -641,6 +626,7 @@ config.bind('o', 'set-cmd-text -s :open')
 config.bind('u', 'undo')
 config.bind('<Escape>', 'leave-mode', mode='hint')
 config.bind('<Escape>', 'leave-mode', mode='insert')
+config.bind('Y', 'hint links spawn mpv {hint-url}')
 
 
 config.bind('<Down>', 'prompt-item-focus next', mode='prompt')
