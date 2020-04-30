@@ -9,18 +9,18 @@ smart_borders on
 
 for_window [class="."] border pixel 2
 
-gaps inner 8
-gaps outer 4
+gaps inner 5
+gaps outer 2
 
 
 workspace_layout tabbed
 
-set $bg-color 	         #46437D
-set $inactive-bg-color   #1E1E1E
-set $text-color          #d4d4d4
-set $inactive-text-color #d4d4d4
-set $urgent-bg-color     #F44747
-set $bar-bg              #181818
+set $bg-color 	         #657B83
+set $inactive-bg-color   #002B36
+set $text-color          #EEE8D5
+set $inactive-text-color #EEE8D5
+set $urgent-bg-color     #DC322F
+set $bar-bg              #002B36
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
@@ -91,9 +91,11 @@ bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 
 assign [class="Inkscape"] $ws4
+assign [class="discord"] $ws1
 assign [class="libreoffice*"] $ws4
 assign [class="Steam"] $ws4
 assign [class="Chromium"] $ws2
+assign [class="qutebrowser"] $ws2
 assign [class="TelegramDesktop"] $ws1
 assign [class="Gimp"] $ws4
 assign [class="Deluge"] $ws2
@@ -106,6 +108,8 @@ for_window [class="VirtualBox Machine"] floating disable
 for_window [class="VirtualBox Manager"] floating disable
 
 for_window [class="Gnome-system-monitor"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="Connman-gtk"] floating enable
 for_window [class="Inkscape"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Steam"] floating enable

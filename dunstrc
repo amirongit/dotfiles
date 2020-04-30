@@ -1,6 +1,6 @@
 [global]
     frame_width = 2
-    frame_color = "#808080"
+    frame_color = "#839496"
     
     font = Cascadia Code 10
     markup = yes
@@ -62,17 +62,17 @@
 
 
 [urgency_low]
-    background = "#1e1e1e"
-    foreground = "#d4d4d4"
+    background = "#002B36"
+    foreground = "#EEE8D5"
     timeout = 10
 
 [urgency_normal]
-    background = "#1e1e1e"
-    foreground = "#d4d4d4"
+    background = "#002B36"
+    foreground = "#EEE8D5"
     timeout = 10
 
 [urgency_critical]
-    background = "#1e1e1e"
-    foreground = "#d4d4d4"
+    background = "#002B36"
+    foreground = "#EEE8D5"
     timeout = 0
 

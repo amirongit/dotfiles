@@ -1,19 +1,24 @@
 #!/usr/bin/env bash
 
-PS1="\n\w \[\033[0;32m\]$\[\033[0m\] "
+export PATH=$PATH:~/.local/bin
+export PATH=$PATH:$HOME/go/bin
+export GOPATH=$HOME/go
 
 case $- in
   *i*) ;;
     *) return;;
 esac
 
-pfetch
+bind 'set completion-ignore-case on'
+complete -d cd
 
-alias toryay='https_proxy=socks5://127.0.0.1:9050 yay'
-alias restor='sudo systemctl restart tor'
-alias stator='systemctl status tor'
-alias systemctl='sudo systemctl'
-alias lsc='ls --color'
-alias netping='ping 4.2.2.4'
-alias SetX='setxkbmap -option grp:alt_shift_toggle us,ir'
-alias PacmanClean='sudo pacman -R $(pacman -Qdtq)'
+PS1='\u@\h:\w \e[0;32m$\e[0;37m ';
+export PS1;
+
+ufetch && /opt/shell-color-scripts/colorscript.sh exec panes
+
+alias PING='ping 4.2.2.4'
+alias XLANG='setxkbmap -option grp:alt_shift_toggle us,ir'
+alias VPN='sudo python -m protonvpn_cli'
+alias EJECT='udisksctl power-off'
+alias vi='vim'

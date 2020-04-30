@@ -627,6 +627,7 @@ config.bind('u', 'undo')
 config.bind('<Escape>', 'leave-mode', mode='hint')
 config.bind('<Escape>', 'leave-mode', mode='insert')
 config.bind('Y', 'hint links spawn mpv {hint-url}')
+config.bind('f', 'hint')
 
 
 config.bind('<Down>', 'prompt-item-focus next', mode='prompt')
