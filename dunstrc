@@ -1,6 +1,6 @@
 [global]
     frame_width = 2
-    frame_color = "#839496"
+    frame_color = "#4C566A"
     
     font = Cascadia Code 10
     markup = yes
@@ -25,7 +25,7 @@
     
     shrink = yes
     
-    transparency = 10
+    transparency = 0
     
     idle_threshold = 120 
     
@@ -62,17 +62,17 @@
 
 
 [urgency_low]
-    background = "#002B36"
-    foreground = "#EEE8D5"
+    background = "#2E3440"
+    foreground = "#D8DEE9"
     timeout = 10
 
 [urgency_normal]
-    background = "#002B36"
-    foreground = "#EEE8D5"
+    background = "#2E3440"
+    foreground = "#D8DEE9"
     timeout = 10
 
 [urgency_critical]
-    background = "#002B36"
-    foreground = "#EEE8D5"
+    background = "#BF616A"
+    foreground = "#ECEFF4"
     timeout = 0
 

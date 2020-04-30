@@ -15,15 +15,15 @@ gaps outer 2
 
 workspace_layout tabbed
 
-set $bg-color 	         #657B83
-set $inactive-bg-color   #002B36
-set $text-color          #EEE8D5
-set $inactive-text-color #EEE8D5
-set $urgent-bg-color     #DC322F
-set $bar-bg              #002B36
+set $bg-color 	         #4C566A
+set $inactive-bg-color   #2E3440
+set $text-color          #D8DEE9
+set $inactive-text-color #D8DEE9
+set $urgent-bg-color     #BF616A
+set $bar-bg              #2E3440
 
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf 
+exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf
 exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
@@ -134,12 +134,12 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 
 mode "resize" {
-    
+
     bindsym h resize shrink width 5 px or 5 ppt
     bindsym l resize grow width 5 px or 5 ppt
     bindsym j resize grow height 5 px or 5 ppt
     bindsym k resize shrink height 5 px or 5 ppt
-    
+
     bindsym Return mode "default"
 }
 

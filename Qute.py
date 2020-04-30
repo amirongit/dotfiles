@@ -6,57 +6,57 @@ c.auto_save.session = True
 
 c.backend = 'webengine'
 
-c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1e1e1e, stop:1 #1e1e1e)'
+c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #002B36, stop:1 #002B36)'
 
-c.colors.completion.category.border.bottom = '#1e1e1e'
+c.colors.completion.category.border.bottom = '#002B36'
 
-c.colors.completion.category.border.top = '#1e1e1e'
+c.colors.completion.category.border.top = '#002B36'
 
-c.colors.completion.category.fg = '#d4d4d4'
+c.colors.completion.category.fg = '#EEE8D5'
 
-c.colors.completion.even.bg = '#1e1e1e'
+c.colors.completion.even.bg = '#002B36'
 
-c.colors.completion.fg = ['#d4d4d4']
+c.colors.completion.fg = ['#EEE8D5']
 
-c.colors.completion.item.selected.bg = '#569cd6'
+c.colors.completion.item.selected.bg = '#859900'
 
-c.colors.completion.item.selected.border.bottom = '#1e1e1e'
+c.colors.completion.item.selected.border.bottom = '#002B36'
 
-c.colors.completion.item.selected.border.top = '#1e1e1e'
+c.colors.completion.item.selected.border.top = '#002B36'
 
-c.colors.completion.item.selected.fg = '#1e1e1e'
+c.colors.completion.item.selected.fg = '#002B36'
 
-c.colors.completion.item.selected.match.fg = '#1e1e1e'
+c.colors.completion.item.selected.match.fg = '#002B36'
 
-c.colors.completion.match.fg = '#c586c0'
+c.colors.completion.match.fg = '#6C71C4'
 
-c.colors.completion.odd.bg = '#1e1e1e'
+c.colors.completion.odd.bg = '#002B36'
 
-c.colors.completion.scrollbar.bg = '#808080'
+c.colors.completion.scrollbar.bg = '#839496'
 
-c.colors.completion.scrollbar.fg = '#d4d4d4'
+c.colors.completion.scrollbar.fg = '#EEE8D5'
 
-c.colors.contextmenu.menu.bg = '#1e1e1e'
+c.colors.contextmenu.menu.bg = '#002B36'
 
-c.colors.contextmenu.menu.fg = '#d4d4d4'
+c.colors.contextmenu.menu.fg = '#EEE8D5'
 
-c.colors.contextmenu.selected.bg = '#d4d4d4'
+c.colors.contextmenu.selected.bg = '#EEE8D5'
 
-c.colors.contextmenu.selected.fg = '#1e1e1e'
+c.colors.contextmenu.selected.fg = '#002B36'
 
-c.colors.downloads.bar.bg = '#1e1e1e'
+c.colors.downloads.bar.bg = '#002B36'
 
-c.colors.downloads.error.bg = '#f44747'
+c.colors.downloads.error.bg = '#DC322F'
 
-c.colors.downloads.error.fg = '#d4d4d4'
+c.colors.downloads.error.fg = '#EEE8D5'
 
-c.colors.downloads.start.bg = '#4ec9b0'
+c.colors.downloads.start.bg = '#B58900'
 
-c.colors.downloads.start.fg = '#d4d4d4'
+c.colors.downloads.start.fg = '#EEE8D5'
 
-c.colors.downloads.stop.bg = '#608b4e'
+c.colors.downloads.stop.bg = '#859900'
 
-c.colors.downloads.stop.fg = '#d4d4d4'
+c.colors.downloads.stop.fg = '#EEE8D5'
 
 c.colors.downloads.system.bg = 'none'
 
@@ -64,131 +64,131 @@ c.colors.downloads.system.fg = 'none'
 
 c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(197, 134, 192, 0.8), stop:1 rgba(100, 102, 149, 0.8))'
 
-c.colors.hints.fg = '#1e1e1e'
+c.colors.hints.fg = '#002B36'
 
-c.colors.hints.match.fg = '#569CD6'
+c.colors.hints.match.fg = '#859900'
 
 c.colors.keyhint.bg = 'rgba(30, 30, 30, 80%)'
 
-c.colors.keyhint.fg = '#d4d4d4'
+c.colors.keyhint.fg = '#EEE8D5'
 
 c.colors.keyhint.suffix.fg = '#646695'
 
-c.colors.messages.error.bg = '#1e1e1e'
+c.colors.messages.error.bg = '#002B36'
 
-c.colors.messages.error.border = '#808080'
+c.colors.messages.error.border = '#839496'
 
-c.colors.messages.error.fg = '#d4d4d4'
+c.colors.messages.error.fg = '#EEE8D5'
 
-c.colors.messages.info.bg = '#1e1e1e'
+c.colors.messages.info.bg = '#002B36'
 
-c.colors.messages.info.border = '#808080'
+c.colors.messages.info.border = '#839496'
 
-c.colors.messages.info.fg = '#d4d4d4'
+c.colors.messages.info.fg = '#EEE8D5'
 
-c.colors.messages.warning.bg = '#1e1e1e'
+c.colors.messages.warning.bg = '#002B36'
 
-c.colors.messages.warning.border = '#808080'
+c.colors.messages.warning.border = '#839496'
 
-c.colors.messages.warning.fg = '#d4d4d4'
+c.colors.messages.warning.fg = '#EEE8D5'
 
-c.colors.prompts.bg = '#1e1e1e'
+c.colors.prompts.bg = '#002B36'
 
 c.colors.prompts.border = '1px solid gray'
 
-c.colors.prompts.fg = '#d4d4d4'
+c.colors.prompts.fg = '#EEE8D5'
 
-c.colors.prompts.selected.bg = '#569cd6'
+c.colors.prompts.selected.bg = '#859900'
 
 c.colors.statusbar.caret.bg = '#646695'
 
-c.colors.statusbar.caret.fg = '#d4d4d4'
+c.colors.statusbar.caret.fg = '#EEE8D5'
 
-c.colors.statusbar.caret.selection.bg = '#C586C0'
+c.colors.statusbar.caret.selection.bg = '#6C71C4'
 
-c.colors.statusbar.caret.selection.fg = '#d4d4d4'
+c.colors.statusbar.caret.selection.fg = '#EEE8D5'
 
-c.colors.statusbar.command.bg = '#1e1e1e'
+c.colors.statusbar.command.bg = '#002B36'
 
-c.colors.statusbar.command.fg = '#d4d4d4'
+c.colors.statusbar.command.fg = '#EEE8D5'
 
-c.colors.statusbar.command.private.bg = '#1e1e1e'
+c.colors.statusbar.command.private.bg = '#002B36'
 
-c.colors.statusbar.command.private.fg = '#d4d4d4'
+c.colors.statusbar.command.private.fg = '#EEE8D5'
 
-c.colors.statusbar.insert.bg = '#608B4E'
+c.colors.statusbar.insert.bg = '#859900'
 
-c.colors.statusbar.insert.fg = '#d4d4d4'
+c.colors.statusbar.insert.fg = '#EEE8D5'
 
-c.colors.statusbar.normal.bg = '#1e1e1e'
+c.colors.statusbar.normal.bg = '#002B36'
 
-c.colors.statusbar.normal.fg = '#d4d4d4'
+c.colors.statusbar.normal.fg = '#EEE8D5'
 
 c.colors.statusbar.passthrough.bg = '#646695'
 
-c.colors.statusbar.passthrough.fg = '#d4d4d4'
+c.colors.statusbar.passthrough.fg = '#EEE8D5'
 
-c.colors.statusbar.private.bg = '#1e1e1e'
+c.colors.statusbar.private.bg = '#002B36'
 
-c.colors.statusbar.private.fg = '#d4d4d4'
+c.colors.statusbar.private.fg = '#EEE8D5'
 
-c.colors.statusbar.progress.bg = '#d4d4d4'
+c.colors.statusbar.progress.bg = '#EEE8D5'
 
 c.colors.statusbar.url.error.fg = '#CE9178'
 
-c.colors.statusbar.url.fg = '#d4d4d4'
+c.colors.statusbar.url.fg = '#EEE8D5'
 
 c.colors.statusbar.url.hover.fg = '#5A5B83'
 
-c.colors.statusbar.url.success.http.fg = '#d4d4d4'
+c.colors.statusbar.url.success.http.fg = '#EEE8D5'
 
-c.colors.statusbar.url.success.https.fg = '#d4d4d4'
+c.colors.statusbar.url.success.https.fg = '#EEE8D5'
 
-c.colors.statusbar.url.warn.fg = '#808080'
+c.colors.statusbar.url.warn.fg = '#839496'
 
-c.colors.tabs.bar.bg = '#1e1e1e'
+c.colors.tabs.bar.bg = '#002B36'
 
-c.colors.tabs.even.bg = '#1e1e1e'
+c.colors.tabs.even.bg = '#002B36'
 
-c.colors.tabs.even.fg = '#d4d4d4'
+c.colors.tabs.even.fg = '#EEE8D5'
 
-c.colors.tabs.indicator.error = '#f44747'
+c.colors.tabs.indicator.error = '#DC322F'
 
-c.colors.tabs.indicator.start = '#1e1e1e'
+c.colors.tabs.indicator.start = '#002B36'
 
-c.colors.tabs.indicator.stop = '#808080'
+c.colors.tabs.indicator.stop = '#839496'
 
 c.colors.tabs.indicator.system = 'none'
 
-c.colors.tabs.odd.bg = '#1e1e1e'
+c.colors.tabs.odd.bg = '#002B36'
 
-c.colors.tabs.odd.fg = '#d4d4d4'
+c.colors.tabs.odd.fg = '#EEE8D5'
 
-c.colors.tabs.pinned.even.bg = '#456E90'
+c.colors.tabs.pinned.even.bg = '#B58900'
 
-c.colors.tabs.pinned.even.fg = '#d4d4d4'
+c.colors.tabs.pinned.even.fg = '#EEE8D5'
 
-c.colors.tabs.pinned.odd.bg = '#456E90'
+c.colors.tabs.pinned.odd.bg = '#B58900'
 
-c.colors.tabs.pinned.odd.fg = '#d4d4d4'
+c.colors.tabs.pinned.odd.fg = '#EEE8D5'
 
-c.colors.tabs.pinned.selected.even.bg = '#456E90'
+c.colors.tabs.pinned.selected.even.bg = '#B58900'
 
-c.colors.tabs.pinned.selected.even.fg = '#d4d4d4'
+c.colors.tabs.pinned.selected.even.fg = '#EEE8D5'
 
-c.colors.tabs.pinned.selected.odd.bg = '#456E90'
+c.colors.tabs.pinned.selected.odd.bg = '#B58900'
 
-c.colors.tabs.pinned.selected.odd.fg = '#d4d4d4'
+c.colors.tabs.pinned.selected.odd.fg = '#EEE8D5'
 
-c.colors.tabs.selected.even.bg = '#456E90'
+c.colors.tabs.selected.even.bg = '#B58900'
 
-c.colors.tabs.selected.even.fg = '#d4d4d4'
+c.colors.tabs.selected.even.fg = '#EEE8D5'
 
-c.colors.tabs.selected.odd.bg = '#456E90'
+c.colors.tabs.selected.odd.bg = '#B58900'
 
-c.colors.tabs.selected.odd.fg = '#d4d4d4'
+c.colors.tabs.selected.odd.fg = '#EEE8D5'
 
-c.colors.webpage.bg = '#d4d4d4'
+c.colors.webpage.bg = '#EEE8D5'
 
 c.colors.webpage.prefers_color_scheme_dark = True
 
@@ -324,7 +324,7 @@ c.content.webgl = True
 
 c.content.webrtc_ip_handling_policy = 'all-interfaces'
 
-c.content.windowed_fullscreen = True ###
+c.content.fullscreen.window = True ###
 
 c.content.xss_auditing = False
 
@@ -585,7 +585,7 @@ c.url.incdec_segments = ['path', 'query']
 
 c.url.open_base_url = False
 
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'g': 'https://duckduckgo.com/?q=!g%20{}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 
 c.url.start_pages = ['https://start.duckduckgo.com']
 
