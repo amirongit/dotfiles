@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-sensible'
 Plug 'Yggdroot/indentLine'
@@ -11,8 +10,28 @@ Plug 'maralla/completor.vim'
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'arcticicestudio/nord-vim'
-
 call plug#end()
+
+function! s:gitModified()
+    let files = systemlist('git ls-files -m 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+function! s:gitUntracked()
+    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '[0W 0E]' : printf(
+    \   '[%dW %dE]',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
 
 set number relativenumber
 set nocp
@@ -52,17 +71,7 @@ set statusline +=\ %l
 set statusline +=\ /
 set statusline +=\ %L]
 set statusline +=\[%Y]
-
-function! s:gitModified()
-    let files = systemlist('git ls-files -m 2>/dev/null')
-    return map(files, "{'line': v:val, 'path': v:val}")
-endfunction
-
-function! s:gitUntracked()
-    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
-    return map(files, "{'line': v:val, 'path': v:val}")
-endfunction
-
+set statusline +=%{LinterStatus()}
 
 let g:completor_python_binary = '/usr/bin/python3.8'
 let g:completor_gocode_binary = '/home/amir/go/bin/gocode'
