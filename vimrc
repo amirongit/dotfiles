@@ -84,10 +84,10 @@ let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:startify_lists = [
-        \ { 'type': 'files','header': ['Last Buffers']},
-        \ { 'type': 'sessions','header': ['Sessions']},
-        \ { 'type': function('s:gitModified'),  'header': ['Modified']},
-        \ { 'type': function('s:gitUntracked'), 'header': ['New']},
+        \ { 'type': 'files','header': ['        Last Buffers']},
+        \ { 'type': 'sessions','header': ['        Sessions']},
+        \ { 'type': function('s:gitModified'),  'header': ['        Modified']},
+        \ { 'type': function('s:gitUntracked'), 'header': ['        New']},
         \ ]
 
 highlight clear ALEErrorSign
