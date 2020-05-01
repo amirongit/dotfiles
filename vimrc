@@ -99,7 +99,7 @@ syntax on
 colorscheme nord
 filetype plugin on
 
-inoremap <Tab>              pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <Tab>       pumvisible() ? "\<C-n>" : "\<Tab>"
 noremap  <leader>d          :call completor#do('doc')<CR>
 nnoremap <leader>n          :NnnPicker '%:p:h'<CR>
 nnoremap <leader>h          :set hlsearch!<CR>
