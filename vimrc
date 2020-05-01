@@ -10,6 +10,7 @@ Plug 'maralla/completor.vim'
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'arcticicestudio/nord-vim'
+Plug 'mcchrish/nnn.vim'
 call plug#end()
 
 function! s:gitModified()
@@ -83,11 +84,13 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:nnn#layout = 'tabnew'
+let g:nnn#action = {'<S-t>': 'tab split'}
 let g:startify_lists = [
-        \ { 'type': 'files','header': ['        Last Buffers']},
-        \ { 'type': 'sessions','header': ['        Sessions']},
-        \ { 'type': function('s:gitModified'),  'header': ['        Modified']},
-        \ { 'type': function('s:gitUntracked'), 'header': ['        New']},
+        \ {'type': 'files','header': ['        Last Buffers']},
+        \ {'type': 'sessions','header': ['        Sessions']},
+        \ {'type': function('s:gitModified'),  'header': ['        Modified']},
+        \ {'type': function('s:gitUntracked'), 'header': ['        New']},
         \ ]
 
 highlight clear ALEErrorSign
@@ -96,10 +99,10 @@ syntax on
 colorscheme nord
 filetype plugin on
 
-map <S-f>                  :set hlsearch!<CR>
-
-inoremap <expr> <Tab>      pumvisible() ? "\<C-n>" : "\<Tab>"
-noremap <silent> <S-Tab>   :call completor#do('doc')<CR>
+inoremap <Tab>              pumvisible() ? "\<C-n>" : "\<Tab>"
+noremap  <leader>d          :call completor#do('doc')<CR>
+nnoremap <leader>n          :NnnPicker '%:p:h'<CR>
+nnoremap <leader>h          :set hlsearch!<CR>
 
 nnoremap H                 gT
 nnoremap L                 gt
