@@ -48,10 +48,6 @@ set expandtab
 set softtabstop=4
 set shiftwidth=4
 set bg=dark
-set autoindent
-set cindent
-set si
-set showmatch
 set ignorecase
 set noswapfile
 set encoding=utf-8
@@ -99,7 +95,7 @@ let g:startify_lists = [
         \ {'type': function('s:gitModified'),  'header': ['        Modified']},
         \ {'type': function('s:gitUntracked'), 'header': ['        New']},
         \ ]
-let g:gitgutter_sign_allow_clobber = 2
+let g:gitgutter_sign_allow_clobber = 0
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
