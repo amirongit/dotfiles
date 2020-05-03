@@ -60,6 +60,9 @@ set t_Co=256
 set clipboard=unnamedplus
 set showmode
 set completeopt=longest,menuone
+set noshowmode
+set noshowcmd
+set shortmess+=F
 
 " run :so $VIMRUNTIME/syntax/hitest.vim
 set statusline +=%#Title#
@@ -135,3 +138,5 @@ nnoremap <S-Right>         :vertical resize -2<CR>
 
 xnoremap K                 :move '<-2<CR>gv-gv
 xnoremap J                 :move '>+1<CR>gv-gv
+
+
