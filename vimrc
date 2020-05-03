@@ -57,8 +57,6 @@ set noswapfile
 set encoding=utf-8
 set background=dark
 set t_Co=256
-set clipboard=unnamedplus
-set showmode
 set completeopt=longest,menuone
 set noshowmode
 set noshowcmd
@@ -83,7 +81,7 @@ set statusline +=\[%Y]
 set statusline +=%{LinterStatus()}
 set statusline +=%{GitStatus()}
 
-let g:completor_python_binary = '/usr/bin/python3.8'
+let g:completor_python_binary = '/usr/bin/python'
 let g:completor_gocode_binary = '/home/amir/go/bin/gocode'
 let g:completor_complete_options = 'menuone,noselect'
 let g:indentLine_char = '┆'
@@ -138,5 +136,3 @@ nnoremap <S-Right>         :vertical resize -2<CR>
 
 xnoremap K                 :move '<-2<CR>gv-gv
 xnoremap J                 :move '>+1<CR>gv-gv
-
-
