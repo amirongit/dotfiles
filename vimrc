@@ -57,7 +57,6 @@ set noswapfile
 set encoding=utf-8
 set background=dark
 set t_Co=256
-set termguicolors
 set clipboard=unnamedplus
 set showmode
 set completeopt=longest,menuone
