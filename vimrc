@@ -4,13 +4,13 @@ Plug 'tpope/vim-sensible'
 Plug 'Yggdroot/indentLine'
 Plug 'tomasiser/vim-code-dark'
 Plug 'ap/vim-css-color'
-Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'maralla/completor.vim'
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'arcticicestudio/nord-vim'
 Plug 'mcchrish/nnn.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'wincent/terminus'
 call plug#end()
 
 function! s:gitModified()
@@ -34,9 +34,15 @@ function! LinterStatus() abort
     \)
 endfunction
 
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('[+%d ~%d -%d]', a, m, r)
+endfunction
+
 set number relativenumber
 set nocp
 set scrolloff=3
+set updatetime=100
 set tabstop=4
 set expandtab
 set softtabstop=4
@@ -73,6 +79,7 @@ set statusline +=\ /
 set statusline +=\ %L]
 set statusline +=\[%Y]
 set statusline +=%{LinterStatus()}
+set statusline +=%{GitStatus()}
 
 let g:completor_python_binary = '/usr/bin/python3.8'
 let g:completor_gocode_binary = '/home/amir/go/bin/gocode'
@@ -92,6 +99,19 @@ let g:startify_lists = [
         \ {'type': function('s:gitModified'),  'header': ['        Modified']},
         \ {'type': function('s:gitUntracked'), 'header': ['        New']},
         \ ]
+let g:gitgutter_sign_allow_clobber = 2
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '~'
+let g:gitgutter_map_keys = 0
+let g:gitgutter_enabled = 1
+let g:gitgutter_signs = 1
+let g:gitgutter_async = 1
+let g:gitgutter_grep=''
+let g:gitgutter_terminal_reports_focus=0
+
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
