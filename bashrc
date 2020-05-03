@@ -12,8 +12,11 @@ esac
 bind 'set completion-ignore-case on'
 complete -d cd
 
-PS1='\u@\h:\w \e[0;32m$\e[0;37m ';
+PS1='\[\u@\h:\w \e[0;32m$\e[0;37m \]';
 export PS1;
+
+PS2='$'
+export PS2;
 
 ufetch && /opt/shell-color-scripts/colorscript.sh exec panes
 
