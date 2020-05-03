@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-sensible'
 Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-fugitive'
 Plug 'tomasiser/vim-code-dark'
 Plug 'ap/vim-css-color'
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -11,6 +10,7 @@ Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'arcticicestudio/nord-vim'
 Plug 'mcchrish/nnn.vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 function! s:gitModified()
@@ -103,6 +103,7 @@ inoremap <expr> <Tab>       pumvisible() ? "\<C-n>" : "\<Tab>"
 noremap  <leader>d          :call completor#do('doc')<CR>
 nnoremap <leader>n          :NnnPicker '%:p:h'<CR>
 nnoremap <leader>h          :set hlsearch!<CR>
+nnoremap q                  <NOP>
 
 nnoremap H                 gT
 nnoremap L                 gt
