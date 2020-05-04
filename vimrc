@@ -105,9 +105,10 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_enabled = 1
 let g:gitgutter_signs = 1
 let g:gitgutter_async = 1
-let g:gitgutter_grep=''
-let g:gitgutter_terminal_reports_focus=0
-let g:TerminusCursorShape=0
+let g:gitgutter_grep = ''
+let g:gitgutter_terminal_reports_focus = 0
+let g:TerminusCursorShape = 0
+let g:indentLine_setConceal = 0
 
 
 highlight clear ALEErrorSign
