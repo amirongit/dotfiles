@@ -378,7 +378,7 @@ c.fonts.web.family.cursive = 'Blogger Sans'
 
 c.fonts.web.family.fantasy = 'Estedad'
 
-c.fonts.web.family.fixed = 'Cascadia Code'
+c.fonts.web.family.fixed = 'Monaco'
 
 c.fonts.web.family.sans_serif = 'Tanha'
 
@@ -612,7 +612,7 @@ config.bind('O', 'hint all tab-fg')
 config.bind('R', 'reload -f')
 config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 config.bind('?', 'set-cmd-text ?')
-config.bind('q', 'tab-close')
+config.bind('Q', 'tab-close')
 config.bind('J', 'back')
 config.bind('L', 'tab-next')
 config.bind('H', 'tab-prev')
@@ -628,6 +628,9 @@ config.bind('<Escape>', 'leave-mode', mode='hint')
 config.bind('<Escape>', 'leave-mode', mode='insert')
 config.bind('Y', 'hint links spawn mpv {hint-url}')
 config.bind('f', 'hint')
+config.bind('q', 'nop')
+config.bind('m', 'nop')
+config.bind('.', 'nop')
 
 
 config.bind('<Down>', 'prompt-item-focus next', mode='prompt')
