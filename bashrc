@@ -12,7 +12,7 @@ esac
 bind 'set completion-ignore-case on'
 complete -d cd
 
-export PS1='\[ \u@\h:\w\\$ \]';
+export PS1='\u@\h:\w\\$ ';
 export PS2=' >';
 
 ufetch && /opt/shell-color-scripts/colorscript.sh exec panes
