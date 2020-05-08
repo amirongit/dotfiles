@@ -9,21 +9,20 @@ smart_borders on
 
 for_window [class="."] border pixel 2
 
-gaps inner 5
-gaps outer 2
-
+gaps inner 0
+gaps outer 0
 
 workspace_layout tabbed
 
-set $bg-color 	         #4C566A
-set $inactive-bg-color   #2E3440
-set $text-color          #D8DEE9
-set $inactive-text-color #D8DEE9
-set $urgent-bg-color     #BF616A
-set $bar-bg              #2E3440
+set $bg-color 	         #D4D4D4
+set $inactive-bg-color   #1E1E1E
+set $text-color          #1E1E1E
+set $inactive-text-color #D4D4D4
+set $urgent-bg-color     #F44747
+set $bar-bg              #1E1E1E
 
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id compton --config /home/amir/.config/compton/compton.conf
+exec --no-startup-id picom --config /home/amir/.config/compton/compton.conf
 exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
@@ -117,14 +116,15 @@ for_window [class="Uget-gtk"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Lxappearance"] floating enable
-for_window [class="Xreader"] floating enable
+for_window [class="Evince"] floating enable
 for_window [class="DB Browser for SQLite"] floating enable
 for_window [class="qt5ct"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Deluge"] floating enable
-#for_window [class="Pcmanfm"] floating enable
-for_window [class="Leafpad"] floating enable
-for_window [class="feh"] floating enable
+#for_window [class="Org.gnome.Nautilus"] floating enable
+for_window [class="Gedit"] floating enable
+for_window [class="okular"] floating enable
+for_window [class="Eog"] floating enable
 
 
 client.focused          $bg-color           $bg-color          $text-color          $bg-color

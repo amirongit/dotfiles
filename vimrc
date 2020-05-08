@@ -108,13 +108,12 @@ let g:gitgutter_async = 1
 let g:gitgutter_grep = ''
 let g:gitgutter_terminal_reports_focus = 0
 let g:TerminusCursorShape = 0
-let g:indentLine_setConceal = 0
 
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 syntax on
-colorscheme nord
+colorscheme codedark
 filetype plugin on
 
 inoremap <expr> <Tab>       pumvisible() ? "\<C-n>" : "\<Tab>"

@@ -6,189 +6,189 @@ c.auto_save.session = True
 
 c.backend = 'webengine'
 
-c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #2E3440, stop:1 #2E3440)'
+c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1E1E1E, stop:1 #1E1E1E)'
 
-c.colors.completion.category.border.bottom = '#2E3440'
+c.colors.completion.category.border.bottom = '#1E1E1E'
 
-c.colors.completion.category.border.top = '#2E3440'
+c.colors.completion.category.border.top = '#1E1E1E'
 
-c.colors.completion.category.fg = '#D8DEE9'
+c.colors.completion.category.fg = '#D4D4D4'
 
-c.colors.completion.even.bg = '#2E3440'
+c.colors.completion.even.bg = '#1E1E1E'
 
-c.colors.completion.fg = ['#D8DEE9']
+c.colors.completion.fg = ['#D4D4D4']
 
-c.colors.completion.item.selected.bg = '#A3BE8C'
+c.colors.completion.item.selected.bg = '#646695'
 
-c.colors.completion.item.selected.border.bottom = '#2E3440'
+c.colors.completion.item.selected.border.bottom = '#1E1E1E'
 
-c.colors.completion.item.selected.border.top = '#2E3440'
+c.colors.completion.item.selected.border.top = '#1E1E1E'
 
-c.colors.completion.item.selected.fg = '#2E3440'
+c.colors.completion.item.selected.fg = '#1E1E1E'
 
-c.colors.completion.item.selected.match.fg = '#2E3440'
+c.colors.completion.item.selected.match.fg = '#D4D4D4'
 
-c.colors.completion.match.fg = '#B48EAD'
+c.colors.completion.match.fg = '#808080'
 
-c.colors.completion.odd.bg = '#2E3440'
+c.colors.completion.odd.bg = '#1E1E1E'
 
-c.colors.completion.scrollbar.bg = '#2E3440'
+c.colors.completion.scrollbar.bg = '#1E1E1E'
 
-c.colors.completion.scrollbar.fg = '#D8DEE9'
+c.colors.completion.scrollbar.fg = '#D4D4D4'
 
-c.colors.contextmenu.menu.bg = '#2E3440'
+c.colors.contextmenu.menu.bg = '#1E1E1E'
 
-c.colors.contextmenu.menu.fg = '#D8DEE9'
+c.colors.contextmenu.menu.fg = '#D4D4D4'
 
-c.colors.contextmenu.selected.bg = '#D8DEE9'
+c.colors.contextmenu.selected.bg = '#D4D4D4'
 
-c.colors.contextmenu.selected.fg = '#2E3440'
+c.colors.contextmenu.selected.fg = '#1E1E1E'
 
-c.colors.downloads.bar.bg = '#2E3440'
+c.colors.downloads.bar.bg = '#1E1E1E'
 
-c.colors.downloads.error.bg = '#BF616A'
+c.colors.downloads.error.bg = '#F44747'
 
-c.colors.downloads.error.fg = '#D8DEE9'
+c.colors.downloads.error.fg = '#D4D4D4'
 
-c.colors.downloads.start.bg = '#81A1C1'
+c.colors.downloads.start.bg = '#646695'
 
-c.colors.downloads.start.fg = '#D8DEE9'
+c.colors.downloads.start.fg = '#D4D4D4'
 
-c.colors.downloads.stop.bg = '#A3BE8C'
+c.colors.downloads.stop.bg = '#646695'
 
-c.colors.downloads.stop.fg = '#D8DEE9'
+c.colors.downloads.stop.fg = '#D4D4D4'
 
 c.colors.downloads.system.bg = 'none'
 
 c.colors.downloads.system.fg = 'none'
 
-c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(197, 134, 192, 0.8), stop:1 rgba(100, 102, 149, 0.8))'
+c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(30, 30, 30, 0.8), stop:1 rgba(30, 30, 30, 0.8))'
 
-c.colors.hints.fg = '#2E3440'
+c.colors.hints.fg = '#1E1E1E'
 
-c.colors.hints.match.fg = '#A3BE8C'
+c.colors.hints.match.fg = '#646695'
 
 c.colors.keyhint.bg = 'rgba(30, 30, 30, 80%)'
 
-c.colors.keyhint.fg = '#D8DEE9'
+c.colors.keyhint.fg = '#D4D4D4'
 
 c.colors.keyhint.suffix.fg = '#646695'
 
-c.colors.messages.error.bg = '#2E3440'
+c.colors.messages.error.bg = '#1E1E1E'
 
-c.colors.messages.error.border = '#2E3440'
+c.colors.messages.error.border = '#1E1E1E'
 
-c.colors.messages.error.fg = '#D8DEE9'
+c.colors.messages.error.fg = '#D4D4D4'
 
-c.colors.messages.info.bg = '#2E3440'
+c.colors.messages.info.bg = '#1E1E1E'
 
-c.colors.messages.info.border = '#2E3440'
+c.colors.messages.info.border = '#1E1E1E'
 
-c.colors.messages.info.fg = '#D8DEE9'
+c.colors.messages.info.fg = '#D4D4D4'
 
-c.colors.messages.warning.bg = '#2E3440'
+c.colors.messages.warning.bg = '#1E1E1E'
 
-c.colors.messages.warning.border = '#2E3440'
+c.colors.messages.warning.border = '#1E1E1E'
 
-c.colors.messages.warning.fg = '#D8DEE9'
+c.colors.messages.warning.fg = '#D4D4D4'
 
-c.colors.prompts.bg = '#2E3440'
+c.colors.prompts.bg = '#1E1E1E'
 
 c.colors.prompts.border = '1px solid gray'
 
-c.colors.prompts.fg = '#D8DEE9'
+c.colors.prompts.fg = '#D4D4D4'
 
-c.colors.prompts.selected.bg = '#A3BE8C'
+c.colors.prompts.selected.bg = '#646695'
 
 c.colors.statusbar.caret.bg = '#646695'
 
-c.colors.statusbar.caret.fg = '#D8DEE9'
+c.colors.statusbar.caret.fg = '#D4D4D4'
 
 c.colors.statusbar.caret.selection.bg = '#B48EAD'
 
-c.colors.statusbar.caret.selection.fg = '#D8DEE9'
+c.colors.statusbar.caret.selection.fg = '#D4D4D4'
 
-c.colors.statusbar.command.bg = '#2E3440'
+c.colors.statusbar.command.bg = '#1E1E1E'
 
-c.colors.statusbar.command.fg = '#D8DEE9'
+c.colors.statusbar.command.fg = '#D4D4D4'
 
-c.colors.statusbar.command.private.bg = '#2E3440'
+c.colors.statusbar.command.private.bg = '#1E1E1E'
 
-c.colors.statusbar.command.private.fg = '#D8DEE9'
+c.colors.statusbar.command.private.fg = '#D4D4D4'
 
-c.colors.statusbar.insert.bg = '#A3BE8C'
+c.colors.statusbar.insert.bg = '#646695'
 
-c.colors.statusbar.insert.fg = '#D8DEE9'
+c.colors.statusbar.insert.fg = '#D4D4D4'
 
-c.colors.statusbar.normal.bg = '#2E3440'
+c.colors.statusbar.normal.bg = '#1E1E1E'
 
-c.colors.statusbar.normal.fg = '#D8DEE9'
+c.colors.statusbar.normal.fg = '#D4D4D4'
 
 c.colors.statusbar.passthrough.bg = '#646695'
 
-c.colors.statusbar.passthrough.fg = '#D8DEE9'
+c.colors.statusbar.passthrough.fg = '#D4D4D4'
 
-c.colors.statusbar.private.bg = '#2E3440'
+c.colors.statusbar.private.bg = '#1E1E1E'
 
-c.colors.statusbar.private.fg = '#D8DEE9'
+c.colors.statusbar.private.fg = '#D4D4D4'
 
-c.colors.statusbar.progress.bg = '#D8DEE9'
+c.colors.statusbar.progress.bg = '#D4D4D4'
 
-c.colors.statusbar.url.error.fg = '#BF616A'
+c.colors.statusbar.url.error.fg = '#F44747'
 
-c.colors.statusbar.url.fg = '#D8DEE9'
+c.colors.statusbar.url.fg = '#D4D4D4'
 
 c.colors.statusbar.url.hover.fg = '#5A5B83'
 
-c.colors.statusbar.url.success.http.fg = '#D8DEE9'
+c.colors.statusbar.url.success.http.fg = '#D4D4D4'
 
-c.colors.statusbar.url.success.https.fg = '#D8DEE9'
+c.colors.statusbar.url.success.https.fg = '#D4D4D4'
 
-c.colors.statusbar.url.warn.fg = '#2E3440'
+c.colors.statusbar.url.warn.fg = '#1E1E1E'
 
-c.colors.tabs.bar.bg = '#2E3440'
+c.colors.tabs.bar.bg = '#1E1E1E'
 
-c.colors.tabs.even.bg = '#2E3440'
+c.colors.tabs.even.bg = '#1E1E1E'
 
-c.colors.tabs.even.fg = '#D8DEE9'
+c.colors.tabs.even.fg = '#D4D4D4'
 
-c.colors.tabs.indicator.error = '#BF616A'
+c.colors.tabs.indicator.error = '#F44747'
 
-c.colors.tabs.indicator.start = '#2E3440'
+c.colors.tabs.indicator.start = '#1E1E1E'
 
-c.colors.tabs.indicator.stop = '#2E3440'
+c.colors.tabs.indicator.stop = '#1E1E1E'
 
 c.colors.tabs.indicator.system = 'none'
 
-c.colors.tabs.odd.bg = '#2E3440'
+c.colors.tabs.odd.bg = '#1E1E1E'
 
-c.colors.tabs.odd.fg = '#D8DEE9'
+c.colors.tabs.odd.fg = '#D4D4D4'
 
-c.colors.tabs.pinned.even.bg = '#81A1C1'
+c.colors.tabs.pinned.even.bg = '#646695'
 
-c.colors.tabs.pinned.even.fg = '#D8DEE9'
+c.colors.tabs.pinned.even.fg = '#D4D4D4'
 
-c.colors.tabs.pinned.odd.bg = '#81A1C1'
+c.colors.tabs.pinned.odd.bg = '#646695'
 
-c.colors.tabs.pinned.odd.fg = '#D8DEE9'
+c.colors.tabs.pinned.odd.fg = '#D4D4D4'
 
-c.colors.tabs.pinned.selected.even.bg = '#81A1C1'
+c.colors.tabs.pinned.selected.even.bg = '#646695'
 
-c.colors.tabs.pinned.selected.even.fg = '#D8DEE9'
+c.colors.tabs.pinned.selected.even.fg = '#D4D4D4'
 
-c.colors.tabs.pinned.selected.odd.bg = '#81A1C1'
+c.colors.tabs.pinned.selected.odd.bg = '#646695'
 
-c.colors.tabs.pinned.selected.odd.fg = '#D8DEE9'
+c.colors.tabs.pinned.selected.odd.fg = '#D4D4D4'
 
-c.colors.tabs.selected.even.bg = '#81A1C1'
+c.colors.tabs.selected.even.bg = '#646695'
 
-c.colors.tabs.selected.even.fg = '#D8DEE9'
+c.colors.tabs.selected.even.fg = '#D4D4D4'
 
-c.colors.tabs.selected.odd.bg = '#81A1C1'
+c.colors.tabs.selected.odd.bg = '#646695'
 
-c.colors.tabs.selected.odd.fg = '#D8DEE9'
+c.colors.tabs.selected.odd.fg = '#D4D4D4'
 
-c.colors.webpage.bg = '#D8DEE9'
+c.colors.webpage.bg = '#D4D4D4'
 
 c.colors.webpage.prefers_color_scheme_dark = True
 
@@ -500,7 +500,7 @@ c.statusbar.hide = False
 
 c.statusbar.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
 
-c.statusbar.position = 'bottom'
+c.statusbar.position = 'top'
 
 #   - url: Current page URL.
 #   - scroll: Percentage of the current page position like `10%`.
@@ -549,7 +549,7 @@ c.tabs.pinned.frozen = True
 
 c.tabs.pinned.shrink = True
 
-c.tabs.position = 'top'
+c.tabs.position = 'bottom'
 
 c.tabs.select_on_remove = 'last-used'
 
@@ -631,6 +631,7 @@ config.bind('f', 'hint')
 config.bind('q', 'nop')
 config.bind('m', 'nop')
 config.bind('.', 'nop')
+config.bind('p', 'nop')
 
 
 config.bind('<Down>', 'prompt-item-focus next', mode='prompt')
