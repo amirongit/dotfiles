@@ -8,7 +8,6 @@ Plug 'maralla/completor.vim'
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'arcticicestudio/nord-vim'
-Plug 'mcchrish/nnn.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
 call plug#end()
@@ -87,8 +86,6 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:nnn#layout = 'tabnew'
-let g:nnn#action = {'<S-t>': 'tab split'}
 let g:startify_lists = [
         \ {'type': 'files','header': ['        Last Buffers']},
         \ {'type': 'sessions','header': ['        Sessions']},
@@ -117,16 +114,15 @@ colorscheme codedark
 filetype plugin on
 
 inoremap <expr> <Tab>       pumvisible() ? "\<C-n>" : "\<Tab>"
+
 noremap  <leader>d          :call completor#do('doc')<CR>
-nnoremap <leader>n          :NnnPicker '%:p:h'<CR>
 nnoremap <leader>h          :set hlsearch!<CR>
 nnoremap q                  <NOP>
+nnoremap H                  gT
+nnoremap L                  gt
 
-nnoremap H                 gT
-nnoremap L                 gt
-
-nnoremap <S-Up>            :resize +2<CR>
-nnoremap <S-Down>          :resize -2<CR>
+nnoremap <S-Down>            :resize +2<CR>
+nnoremap <S-Up>          :resize -2<CR>
 nnoremap <S-Left>          :vertical resize +2<CR>
 nnoremap <S-Right>         :vertical resize -2<CR>
 
