@@ -6,57 +6,57 @@ c.auto_save.session = True
 
 c.backend = 'webengine'
 
-c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1E1E1E, stop:1 #1E1E1E)'
+c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #000000, stop:1 #000000)'
 
-c.colors.completion.category.border.bottom = '#1E1E1E'
+c.colors.completion.category.border.bottom = '#000000'
 
-c.colors.completion.category.border.top = '#1E1E1E'
+c.colors.completion.category.border.top = '#000000'
 
-c.colors.completion.category.fg = '#D4D4D4'
+c.colors.completion.category.fg = '#DEDEDE'
 
-c.colors.completion.even.bg = '#1E1E1E'
+c.colors.completion.even.bg = '#000000'
 
-c.colors.completion.fg = ['#D4D4D4']
+c.colors.completion.fg = ['#DEDEDE']
 
-c.colors.completion.item.selected.bg = '#646695'
+c.colors.completion.item.selected.bg = '#8399C9'
 
-c.colors.completion.item.selected.border.bottom = '#1E1E1E'
+c.colors.completion.item.selected.border.bottom = '#000000'
 
-c.colors.completion.item.selected.border.top = '#1E1E1E'
+c.colors.completion.item.selected.border.top = '#000000'
 
-c.colors.completion.item.selected.fg = '#1E1E1E'
+c.colors.completion.item.selected.fg = '#000000'
 
-c.colors.completion.item.selected.match.fg = '#D4D4D4'
+c.colors.completion.item.selected.match.fg = '#DEDEDE'
 
-c.colors.completion.match.fg = '#808080'
+c.colors.completion.match.fg = '#DEDEDE'
 
-c.colors.completion.odd.bg = '#1E1E1E'
+c.colors.completion.odd.bg = '#000000'
 
-c.colors.completion.scrollbar.bg = '#1E1E1E'
+c.colors.completion.scrollbar.bg = '#000000'
 
-c.colors.completion.scrollbar.fg = '#D4D4D4'
+c.colors.completion.scrollbar.fg = '#DEDEDE'
 
-c.colors.contextmenu.menu.bg = '#1E1E1E'
+c.colors.contextmenu.menu.bg = '#000000'
 
-c.colors.contextmenu.menu.fg = '#D4D4D4'
+c.colors.contextmenu.menu.fg = '#DEDEDE'
 
-c.colors.contextmenu.selected.bg = '#D4D4D4'
+c.colors.contextmenu.selected.bg = '#DEDEDE'
 
-c.colors.contextmenu.selected.fg = '#1E1E1E'
+c.colors.contextmenu.selected.fg = '#000000'
 
-c.colors.downloads.bar.bg = '#1E1E1E'
+c.colors.downloads.bar.bg = '#000000'
 
-c.colors.downloads.error.bg = '#F44747'
+c.colors.downloads.error.bg = '#C21717'
 
-c.colors.downloads.error.fg = '#D4D4D4'
+c.colors.downloads.error.fg = '#DEDEDE'
 
-c.colors.downloads.start.bg = '#646695'
+c.colors.downloads.start.bg = '#8399C9'
 
-c.colors.downloads.start.fg = '#D4D4D4'
+c.colors.downloads.start.fg = '#DEDEDE'
 
-c.colors.downloads.stop.bg = '#646695'
+c.colors.downloads.stop.bg = '#8399C9'
 
-c.colors.downloads.stop.fg = '#D4D4D4'
+c.colors.downloads.stop.fg = '#DEDEDE'
 
 c.colors.downloads.system.bg = 'none'
 
@@ -64,131 +64,131 @@ c.colors.downloads.system.fg = 'none'
 
 c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(30, 30, 30, 0.8), stop:1 rgba(30, 30, 30, 0.8))'
 
-c.colors.hints.fg = '#1E1E1E'
+c.colors.hints.fg = '#DEDEDE'
 
-c.colors.hints.match.fg = '#646695'
+c.colors.hints.match.fg = '#8399C9'
 
 c.colors.keyhint.bg = 'rgba(30, 30, 30, 80%)'
 
-c.colors.keyhint.fg = '#D4D4D4'
+c.colors.keyhint.fg = '#DEDEDE'
 
-c.colors.keyhint.suffix.fg = '#646695'
+c.colors.keyhint.suffix.fg = '#8399C9'
 
-c.colors.messages.error.bg = '#1E1E1E'
+c.colors.messages.error.bg = '#000000'
 
-c.colors.messages.error.border = '#1E1E1E'
+c.colors.messages.error.border = '#000000'
 
-c.colors.messages.error.fg = '#D4D4D4'
+c.colors.messages.error.fg = '#DEDEDE'
 
-c.colors.messages.info.bg = '#1E1E1E'
+c.colors.messages.info.bg = '#000000'
 
-c.colors.messages.info.border = '#1E1E1E'
+c.colors.messages.info.border = '#000000'
 
-c.colors.messages.info.fg = '#D4D4D4'
+c.colors.messages.info.fg = '#DEDEDE'
 
-c.colors.messages.warning.bg = '#1E1E1E'
+c.colors.messages.warning.bg = '#000000'
 
-c.colors.messages.warning.border = '#1E1E1E'
+c.colors.messages.warning.border = '#000000'
 
-c.colors.messages.warning.fg = '#D4D4D4'
+c.colors.messages.warning.fg = '#DEDEDE'
 
-c.colors.prompts.bg = '#1E1E1E'
+c.colors.prompts.bg = '#000000'
 
 c.colors.prompts.border = '1px solid gray'
 
-c.colors.prompts.fg = '#D4D4D4'
+c.colors.prompts.fg = '#DEDEDE'
 
-c.colors.prompts.selected.bg = '#646695'
+c.colors.prompts.selected.bg = '#8399C9'
 
-c.colors.statusbar.caret.bg = '#646695'
+c.colors.statusbar.caret.bg = '#8399C9'
 
-c.colors.statusbar.caret.fg = '#D4D4D4'
+c.colors.statusbar.caret.fg = '#DEDEDE'
 
-c.colors.statusbar.caret.selection.bg = '#B48EAD'
+c.colors.statusbar.caret.selection.bg = '#BB68CF'
 
-c.colors.statusbar.caret.selection.fg = '#D4D4D4'
+c.colors.statusbar.caret.selection.fg = '#DEDEDE'
 
-c.colors.statusbar.command.bg = '#1E1E1E'
+c.colors.statusbar.command.bg = '#000000'
 
-c.colors.statusbar.command.fg = '#D4D4D4'
+c.colors.statusbar.command.fg = '#DEDEDE'
 
-c.colors.statusbar.command.private.bg = '#1E1E1E'
+c.colors.statusbar.command.private.bg = '#000000'
 
-c.colors.statusbar.command.private.fg = '#D4D4D4'
+c.colors.statusbar.command.private.fg = '#DEDEDE'
 
-c.colors.statusbar.insert.bg = '#646695'
+c.colors.statusbar.insert.bg = '#8399C9'
 
-c.colors.statusbar.insert.fg = '#D4D4D4'
+c.colors.statusbar.insert.fg = '#DEDEDE'
 
-c.colors.statusbar.normal.bg = '#1E1E1E'
+c.colors.statusbar.normal.bg = '#000000'
 
-c.colors.statusbar.normal.fg = '#D4D4D4'
+c.colors.statusbar.normal.fg = '#DEDEDE'
 
-c.colors.statusbar.passthrough.bg = '#646695'
+c.colors.statusbar.passthrough.bg = '#8399C9'
 
-c.colors.statusbar.passthrough.fg = '#D4D4D4'
+c.colors.statusbar.passthrough.fg = '#DEDEDE'
 
-c.colors.statusbar.private.bg = '#1E1E1E'
+c.colors.statusbar.private.bg = '#000000'
 
-c.colors.statusbar.private.fg = '#D4D4D4'
+c.colors.statusbar.private.fg = '#DEDEDE'
 
-c.colors.statusbar.progress.bg = '#D4D4D4'
+c.colors.statusbar.progress.bg = '#DEDEDE'
 
-c.colors.statusbar.url.error.fg = '#F44747'
+c.colors.statusbar.url.error.fg = '#C21717'
 
-c.colors.statusbar.url.fg = '#D4D4D4'
+c.colors.statusbar.url.fg = '#DEDEDE'
 
-c.colors.statusbar.url.hover.fg = '#5A5B83'
+c.colors.statusbar.url.hover.fg = '#8399C9'
 
-c.colors.statusbar.url.success.http.fg = '#D4D4D4'
+c.colors.statusbar.url.success.http.fg = '#DEDEDE'
 
-c.colors.statusbar.url.success.https.fg = '#D4D4D4'
+c.colors.statusbar.url.success.https.fg = '#DEDEDE'
 
-c.colors.statusbar.url.warn.fg = '#1E1E1E'
+c.colors.statusbar.url.warn.fg = '#000000'
 
-c.colors.tabs.bar.bg = '#1E1E1E'
+c.colors.tabs.bar.bg = '#000000'
 
-c.colors.tabs.even.bg = '#1E1E1E'
+c.colors.tabs.even.bg = '#000000'
 
-c.colors.tabs.even.fg = '#D4D4D4'
+c.colors.tabs.even.fg = '#DEDEDE'
 
-c.colors.tabs.indicator.error = '#F44747'
+c.colors.tabs.indicator.error = '#C21717'
 
-c.colors.tabs.indicator.start = '#1E1E1E'
+c.colors.tabs.indicator.start = '#000000'
 
-c.colors.tabs.indicator.stop = '#1E1E1E'
+c.colors.tabs.indicator.stop = '#000000'
 
 c.colors.tabs.indicator.system = 'none'
 
-c.colors.tabs.odd.bg = '#1E1E1E'
+c.colors.tabs.odd.bg = '#000000'
 
-c.colors.tabs.odd.fg = '#D4D4D4'
+c.colors.tabs.odd.fg = '#DEDEDE'
 
-c.colors.tabs.pinned.even.bg = '#646695'
+c.colors.tabs.pinned.even.bg = '#8399C9'
 
-c.colors.tabs.pinned.even.fg = '#D4D4D4'
+c.colors.tabs.pinned.even.fg = '#DEDEDE'
 
-c.colors.tabs.pinned.odd.bg = '#646695'
+c.colors.tabs.pinned.odd.bg = '#8399C9'
 
-c.colors.tabs.pinned.odd.fg = '#D4D4D4'
+c.colors.tabs.pinned.odd.fg = '#DEDEDE'
 
-c.colors.tabs.pinned.selected.even.bg = '#646695'
+c.colors.tabs.pinned.selected.even.bg = '#8399C9'
 
-c.colors.tabs.pinned.selected.even.fg = '#D4D4D4'
+c.colors.tabs.pinned.selected.even.fg = '#DEDEDE'
 
-c.colors.tabs.pinned.selected.odd.bg = '#646695'
+c.colors.tabs.pinned.selected.odd.bg = '#8399C9'
 
-c.colors.tabs.pinned.selected.odd.fg = '#D4D4D4'
+c.colors.tabs.pinned.selected.odd.fg = '#DEDEDE'
 
-c.colors.tabs.selected.even.bg = '#646695'
+c.colors.tabs.selected.even.bg = '#8399C9'
 
-c.colors.tabs.selected.even.fg = '#D4D4D4'
+c.colors.tabs.selected.even.fg = '#DEDEDE'
 
-c.colors.tabs.selected.odd.bg = '#646695'
+c.colors.tabs.selected.odd.bg = '#8399C9'
 
-c.colors.tabs.selected.odd.fg = '#D4D4D4'
+c.colors.tabs.selected.odd.fg = '#DEDEDE'
 
-c.colors.webpage.bg = '#D4D4D4'
+c.colors.webpage.bg = '#DEDEDE'
 
 c.colors.webpage.prefers_color_scheme_dark = True
 
@@ -308,7 +308,7 @@ c.content.print_element_backgrounds = True
 
 c.content.private_browsing = False
 
-c.content.proxy = 'socks://127.0.0.1:9050'
+c.content.proxy = 'system'
 
 c.content.proxy_dns_requests = True
 
@@ -344,47 +344,47 @@ c.downloads.remove_finished = -1
 
 c.editor.encoding = 'utf-8'
 
-c.fonts.completion.category = '8pt mononoki'
+c.fonts.completion.category = '10pt inconsolata SemiBold'
 
-c.fonts.completion.entry = '8pt mononoki'
+c.fonts.completion.entry = '10pt inconsolata SemiBold'
 
-c.fonts.contextmenu = '8pt Estedad'
+c.fonts.contextmenu = '8pt Cantarell'
 
-c.fonts.debug_console = '12pt Cascadia Code'
+c.fonts.debug_console = '10pt inconsolata SemiBold'
 
-c.fonts.default_family = ['8pt Estedad', '8pt Tanha']
+c.fonts.default_family = ['8pt Cantarell', '8pt Blogger Sans']
 
 c.fonts.default_size = '10pt'
 
-c.fonts.downloads = '10pt Estedad'
+c.fonts.downloads = '8pt Cantarell'
 
-c.fonts.hints = '8pt mononoki'
+c.fonts.hints = '10pt inconsolata SemiBold'
 
-c.fonts.keyhint = '8pt mononoki'
+c.fonts.keyhint = '10pt inconsolata SemiBold'
 
-c.fonts.messages.error = '8pt mononoki'
+c.fonts.messages.error = '10pt inconsolata SemiBold'
 
-c.fonts.messages.info = '8pt mononoki'
+c.fonts.messages.info = '10pt inconsolata SemiBold'
 
-c.fonts.messages.warning = '8pt mononoki'
+c.fonts.messages.warning = '10pt inconsolata SemiBold'
 
-c.fonts.prompts = '8pt mononoki'
+c.fonts.prompts = '10pt inconsolata SemiBold'
 
-c.fonts.statusbar = '8pt mononoki'
+c.fonts.statusbar = '10pt inconsolata SemiBold'
 
 c.fonts.tabs = '8pt Blogger Sans'
 
 c.fonts.web.family.cursive = 'Blogger Sans'
 
-c.fonts.web.family.fantasy = 'Estedad'
+c.fonts.web.family.fantasy = 'Cantarell'
 
-c.fonts.web.family.fixed = 'Monaco'
+c.fonts.web.family.fixed = 'inconsolata SemiBold'
 
-c.fonts.web.family.sans_serif = 'Tanha'
+c.fonts.web.family.sans_serif = 'Blogger Sans'
 
-c.fonts.web.family.serif = 'Estedad'
+c.fonts.web.family.serif = 'Cantarell'
 
-c.fonts.web.family.standard = 'Tanha'
+c.fonts.web.family.standard = 'Blogger Sans'
 
 c.fonts.web.size.default = 12
 
@@ -557,7 +557,7 @@ c.tabs.select_on_remove = 'last-used'
 #   - never: Always hide the tab bar.
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'always'
+c.tabs.show = 'multiple'
 
 c.tabs.show_switching_delay = 1500
 
@@ -579,7 +579,7 @@ c.tabs.wrap = True
 
 c.url.auto_search = 'naive'
 
-c.url.default_page = 'https://start.duckduckgo.com/'
+c.url.default_page = 'file:///home/amir/.config/qutebrowser/startpage.html'
 
 c.url.incdec_segments = ['path', 'query']
 
@@ -639,4 +639,3 @@ config.bind('<Escape>', 'leave-mode', mode='prompt')
 config.bind('<Return>', 'prompt-accept', mode='prompt')
 config.bind('<Tab>', 'prompt-item-focus next', mode='prompt')
 config.bind('<Up>', 'prompt-item-focus prev', mode='prompt')
-
