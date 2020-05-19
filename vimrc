@@ -10,6 +10,7 @@ Plug 'mhinz/vim-startify'
 Plug 'arcticicestudio/nord-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
+Plug 'lucasprag/simpleblack'
 call plug#end()
 
 function! s:gitModified()
@@ -110,7 +111,7 @@ let g:TerminusCursorShape = 0
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 syntax on
-colorscheme codedark
+colorscheme simpleblack
 filetype plugin on
 
 inoremap <expr> <Tab>       pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -118,6 +119,8 @@ inoremap <expr> <Tab>       pumvisible() ? "\<C-n>" : "\<Tab>"
 noremap  <leader>d          :call completor#do('doc')<CR>
 nnoremap <leader>h          :set hlsearch!<CR>
 nnoremap q                  <NOP>
+nnoremap J                  <NOP>
+nnoremap K                  <NOP>
 nnoremap H                  gT
 nnoremap L                  gt
 
