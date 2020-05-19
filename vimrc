@@ -111,7 +111,7 @@ let g:TerminusCursorShape = 0
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 syntax on
-colorscheme simpleblack
+colorscheme codedark
 filetype plugin on
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"

@@ -7,28 +7,28 @@ focus_follows_mouse yes
 #smart_gaps on
 smart_borders on
 
-#for_window [class="."] border pixel 1
+for_window [class="."] border pixel 1
 
 gaps inner 5
 gaps outer 5
 
-#workspace_layout tabbed
+workspace_layout tabbed
 
-set $bg 	             #121212
-set $text                #DEDEDE
+set $bg 	             #d4d4d4
+set $text                #1e1e1e
 
-set $inactive-bg         #000000
-set $inactive-text       #DEDEDE
+set $inactive-bg         #808080
+set $inactive-text       #1e1e1e
 
-set $bar-bg              #000000
+set $bar-bg              #1E1E1E
 
-set $bar-active          #DEDEDE
-set $bar-active-text     #000000
+set $bar-active          #E69E00
+set $bar-active-text     #1E1E1E
 
-set $bar-inactive        #000000
-set $bar-inactive-text   #DEDEDE
+set $bar-inactive        #1E1E1E
+set $bar-inactive-text   #D4D4D4
 
-set $urgent-bg           #821A1A
+set $urgent-bg           #DC4040
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom --config /home/amir/.config/compton/compton.conf
@@ -115,7 +115,11 @@ assign [class="code-oss"] $ws3
 for_window [class="VirtualBox Machine"] floating disable
 for_window [class="VirtualBox Manager"] floating disable
 
+for_window [class="qutebrowser"] border pixel 2
+
 for_window [class="Gnome-system-monitor"] floating enable
+for_window [class="TelegramDesktop"] floating enable
+for_window [class="discord"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Connman-gtk"] floating enable
 for_window [class="Inkscape"] floating enable
