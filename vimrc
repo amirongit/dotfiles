@@ -114,20 +114,20 @@ syntax on
 colorscheme simpleblack
 filetype plugin on
 
-inoremap <expr> <Tab>       pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
-noremap  <leader>d          :call completor#do('doc')<CR>
-nnoremap <leader>h          :set hlsearch!<CR>
-nnoremap q                  <NOP>
-nnoremap J                  <NOP>
-nnoremap K                  <NOP>
-nnoremap H                  gT
-nnoremap L                  gt
+noremap  <leader>d  :call completor#do('doc')<CR>
+nnoremap <leader>h  :set hlsearch!<CR>
+nnoremap q          <NOP>
+nnoremap J          <NOP>
+nnoremap K          <NOP>
+nnoremap H          gT
+nnoremap L          gt
 
-nnoremap <S-Down>            :resize +2<CR>
-nnoremap <S-Up>          :resize -2<CR>
-nnoremap <S-Left>          :vertical resize +2<CR>
-nnoremap <S-Right>         :vertical resize -2<CR>
+nnoremap <S-Down>   :resize +2<CR>
+nnoremap <S-Up>     :resize -2<CR>
+nnoremap <S-Left>   :vertical resize +2<CR>
+nnoremap <S-Right>  :vertical resize -2<CR>
 
-xnoremap K                 :move '<-2<CR>gv-gv
-xnoremap J                 :move '>+1<CR>gv-gv
+xnoremap K          :move '<-2<CR>gv-gv
+xnoremap J          :move '>+1<CR>gv-gv
