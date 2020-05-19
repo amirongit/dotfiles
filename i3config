@@ -4,22 +4,31 @@ floating_modifier $mod
 font pango: inconsolata Bold 8
 
 focus_follows_mouse yes
-smart_gaps on
+#smart_gaps on
 smart_borders on
 
-for_window [class="."] border pixel 2
+#for_window [class="."] border pixel 1
 
-gaps inner 0
-gaps outer 0
+gaps inner 5
+gaps outer 5
 
-workspace_layout tabbed
+#workspace_layout tabbed
 
-set $bg-color 	         #D4D4D4
-set $inactive-bg-color   #1E1E1E
-set $text-color          #1E1E1E
-set $inactive-text-color #D4D4D4
-set $urgent-bg-color     #F44747
-set $bar-bg              #1E1E1E
+set $bg 	             #121212
+set $text                #DEDEDE
+
+set $inactive-bg         #000000
+set $inactive-text       #DEDEDE
+
+set $bar-bg              #000000
+
+set $bar-active          #DEDEDE
+set $bar-active-text     #000000
+
+set $bar-inactive        #000000
+set $bar-inactive-text   #DEDEDE
+
+set $urgent-bg           #821A1A
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom --config /home/amir/.config/compton/compton.conf
@@ -27,7 +36,7 @@ exec --no-startup-id xset -b
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text-color' -sb '$bg-color' -fn 'Cascadia Code:pixelsize=12' -b
+bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text' -sb '$bg' -fn 'Cascadia Code:pixelsize=12' -b
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
@@ -122,15 +131,15 @@ for_window [class="qt5ct"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Deluge"] floating enable
 #for_window [class="Org.gnome.Nautilus"] floating enable
-for_window [class="Gedit"] floating enable
+for_window [class="Leafpad"] floating enable
 for_window [class="okular"] floating enable
-for_window [class="Eog"] floating enable
+for_window [class="feh"] floating enable
 
 
-client.focused          $bg-color           $bg-color          $text-color          $bg-color
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
+client.focused          $bg           $bg          $text          $bg
+client.unfocused        $inactive-bg  $inactive-bg $inactive-text $inactive-bg
+client.focused_inactive $inactive-bg  $inactive-bg $inactive-text $inactive-bg
+client.urgent           $urgent-bg    $urgent-bg   $text          $urgent-bg
 
 
 mode "resize" {
@@ -179,8 +188,8 @@ bar {
         colors {
         background $bar-bg
         separator #F6F6F6
-        focused_workspace  $bg-color           $bg-color           $text-color
-        inactive_workspace $bar-bg             $bar-bg             $inactive-text-color
-        urgent_workspace   $urgent-bg-color    $urgent-bg-color    $inactive-text-color
+        focused_workspace  $bar-active         $bar-active           $bar-active-text
+        inactive_workspace $bar-inactive       $bar-inactive         $bar-inactive-text
+        urgent_workspace   $urgent-bg          $urgent-bg            $inactive-text
     }
 }
