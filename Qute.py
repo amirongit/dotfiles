@@ -28,7 +28,7 @@ c.colors.completion.item.selected.fg = '#000000'
 
 c.colors.completion.item.selected.match.fg = '#DEDEDE'
 
-c.colors.completion.match.fg = '#DEDEDE'
+c.colors.completion.match.fg = '#A5B7DC'
 
 c.colors.completion.odd.bg = '#000000'
 
