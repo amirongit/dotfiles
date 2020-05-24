@@ -78,10 +78,11 @@ set statusline +=%{LinterStatus()}
 set statusline +=%{GitStatus()}
 
 let g:completor_python_binary = '/usr/bin/python'
-let g:completor_gocode_binary = '/home/amir/go/bin/gocode'
+let g:completor_filetype_map = {}
+let g:completor_filetype_map.rust = {'ft': 'lsp', 'cmd': 'rls'}
 let g:completor_complete_options = 'menuone,noselect'
 let g:indentLine_char = '┆'
-let g:ale_linters = {'python': ['pycodestyle'], 'go': ['golint']}
+let g:ale_linters = {'python': ['pycodestyle'], 'rust': ['rustc']}
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '!'
