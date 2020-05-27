@@ -7,10 +7,9 @@ Plug 'ap/vim-css-color'
 Plug 'maralla/completor.vim'
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
-Plug 'arcticicestudio/nord-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
-Plug 'lucasprag/simpleblack'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 function! s:gitModified()
