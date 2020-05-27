@@ -9,7 +9,6 @@ Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
-Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 function! s:gitModified()
