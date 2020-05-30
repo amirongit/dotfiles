@@ -9,6 +9,7 @@ Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
 function! s:gitModified()
@@ -110,7 +111,7 @@ let g:TerminusCursorShape = 0
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 syntax on
-colorscheme codedark
+colorscheme jellybeans
 filetype plugin on
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
