@@ -10,6 +10,7 @@ Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
 Plug 'nanotech/jellybeans.vim'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
 call plug#end()
 
 function! s:gitModified()
@@ -111,7 +112,7 @@ let g:TerminusCursorShape = 0
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 syntax on
-colorscheme jellybeans
+colorscheme purify
 filetype plugin on
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"

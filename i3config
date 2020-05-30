@@ -14,21 +14,21 @@ gaps outer 5
 
 #workspace_layout tabbed
 
-set $bg 	             #008980
-set $text                #E6E6E6
+set $bg 	             #E6E6E6
+set $text                #111111
 
-set $inactive-bg         #111111
-set $inactive-text       #E6E6E6
+set $inactive-bg         #B4B4B4
+set $inactive-text       #111111
 
-set $bar-bg              #111111
+set $bar-bg              #121212
 
-set $bar-active          #008980
-set $bar-active-text     #111111
+set $bar-active          #9E7AE6
+set $bar-active-text     #FFFFFF
 
-set $bar-inactive        #111111
-set $bar-inactive-text   #E6E6E6
+set $bar-inactive        #121212
+set $bar-inactive-text   #FFFFFF
 
-set $urgent-bg           #CC6868
+set $urgent-bg           #E65750
 
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id picom --config /home/amir/.config/compton/compton.conf
