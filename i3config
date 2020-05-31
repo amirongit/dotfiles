@@ -9,26 +9,26 @@ smart_borders on
 
 for_window [class="."] border pixel 1
 
-gaps inner 5
-gaps outer 5
+gaps inner 4
+gaps outer 4
 
 #workspace_layout tabbed
 
-set $bg 	             #E6E6E6
-set $text                #111111
+set $bg 	             #FFFFFF
+set $text                #1e1e1e
 
-set $inactive-bg         #B4B4B4
-set $inactive-text       #111111
+set $inactive-bg         #E4E4E4
+set $inactive-text       #1e1e1e
 
-set $bar-bg              #121212
+set $bar-bg              #101010
 
-set $bar-active          #9E7AE6
-set $bar-active-text     #FFFFFF
+set $bar-active          #4EA832
+set $bar-active-text     #101010
 
-set $bar-inactive        #121212
-set $bar-inactive-text   #FFFFFF
+set $bar-inactive        #101010
+set $bar-inactive-text   #C8C8C8
 
-set $urgent-bg           #E65750
+set $urgent-bg           #C21717
 
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id picom --config /home/amir/.config/compton/compton.conf

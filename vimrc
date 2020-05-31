@@ -9,8 +9,7 @@ Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
-Plug 'nanotech/jellybeans.vim'
-Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'jaredgorski/SpaceCamp'
 call plug#end()
 
 function! s:gitModified()
@@ -112,7 +111,7 @@ let g:TerminusCursorShape = 0
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 syntax on
-colorscheme purify
+colorscheme spacecamp
 filetype plugin on
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
