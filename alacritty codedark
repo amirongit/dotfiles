@@ -1,0 +1,37 @@
+font:
+  normal:
+    family: mononoki
+  size: 8
+
+
+cursor:
+  style: Underline
+
+
+colors:
+  # Default colors
+  primary:
+    background: '#1C1C1C'
+    foreground: '#D4D4D4'
+
+  # Normal colors
+  normal:
+    black:   '#1e1e1e'
+    red:     '#f44747'
+    green:   '#608b4e'
+    yellow:  '#d7ba7d'
+    blue:    '#569cd6'
+    magenta: '#ac0063'
+    cyan:    '#646695'
+    white:   '#D4D4D4'
+
+  # Bright colors
+  bright:
+    black:   '#808080'
+    red:     '#d16969'
+    green:   '#4ec9b0'
+    yellow:  '#dcdcaa'
+    blue:    '#9cdcfe'
+    magenta: '#c586c0'
+    cyan:    '#c586c0'
+    white:   '#FFFFFF'
