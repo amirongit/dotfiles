@@ -64,6 +64,7 @@ set completeopt=longest,menuone
 set noshowmode
 set noshowcmd
 set shortmess+=F
+set hidden
 
 " run :so $VIMRUNTIME/syntax/hitest.vim
 set statusline +=%#Title#
@@ -127,8 +128,10 @@ nnoremap <leader>L  :Lines!<CR>
 nnoremap <leader>T  :Tags!<CR>
 nnoremap <leader>C  :Commits!<CR>
 
-noremap  <leader>d  :call completor#do('doc')<CR>
-nnoremap <leader>h  :set hlsearch!<CR>
+noremap  <leader>P  :call completor#do('doc')<CR>
+nnoremap <leader>D  :call completor#do('definition')<CR>
+nnoremap <leader>U  <C-o>
+
 
 nnoremap q          <NOP>
 nnoremap J          <NOP>
