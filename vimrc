@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-sensible'
 Plug 'tomasiser/vim-code-dark'
 Plug 'ap/vim-css-color'
 Plug 'maralla/completor.vim'
@@ -35,6 +34,16 @@ endfunction
 function! GitStatus()
   let [a,m,r] = GitGutterGetHunkSummary()
   return printf('[+%d ~%d -%d]', a, m, r)
+endfunction
+
+function! Tab_Or_Complete() abort
+  if pumvisible()
+    return "\<C-N>"
+    elseif col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^[[:keyword:][:ident:]]'
+    return "\<C-R>=completor#do('complete')\<CR>"
+  else
+    return "\<Tab>"
+  endif
 endfunction
 
 set number relativenumber
@@ -108,6 +117,7 @@ colorscheme codedark
 filetype plugin on
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 nnoremap <leader>E  :Files!<CR>
 nnoremap <leader>H  :History!<CR>
@@ -119,6 +129,7 @@ nnoremap <leader>C  :Commits!<CR>
 
 noremap  <leader>d  :call completor#do('doc')<CR>
 nnoremap <leader>h  :set hlsearch!<CR>
+
 nnoremap q          <NOP>
 nnoremap J          <NOP>
 nnoremap K          <NOP>
