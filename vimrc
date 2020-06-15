@@ -64,10 +64,10 @@ set completeopt=longest,menuone
 set noshowmode
 set noshowcmd
 set shortmess+=F
-set hidden
+set laststatus=2
 
-" run :so $VIMRUNTIME/syntax/hitest.vim
-set statusline +=%#Title#
+" so $VIMRUNTIME/syntax/hitest.vim
+set statusline +=%#Question#
 set statusline +=\[%{mode()}]
 set statusline +=\[%F]
 set statusline +=\%r
@@ -120,24 +120,28 @@ filetype plugin on
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-nnoremap <leader>E  :Files!<CR>
-nnoremap <leader>H  :History!<CR>
-nnoremap <leader>F  :GFiles!<CR>
-nnoremap <leader>S  :GFiles?<CR>
-nnoremap <leader>L  :Lines!<CR>
-nnoremap <leader>T  :Tags!<CR>
-nnoremap <leader>C  :Commits!<CR>
+nnoremap <leader>hls  :set hlsearch!<CR>
 
-noremap  <leader>P  :call completor#do('doc')<CR>
-nnoremap <leader>D  :call completor#do('definition')<CR>
-nnoremap <leader>U  <C-o>
+nnoremap <leader>exp  :Files!<CR>
+nnoremap <leader>his  :History!<CR>
+nnoremap <leader>gfi  :GFiles!<CR>
+nnoremap <leader>sta  :GFiles?<CR>
+nnoremap <leader>lin  :Lines!<CR>
+nnoremap <leader>tag  :Tags!<CR>
+nnoremap <leader>com  :Commits!<CR>
+
+noremap  <leader>doc  :call completor#do('doc')<CR>
+nnoremap <leader>def  :call completor#do('definition')<CR>
 
 
 nnoremap q          <NOP>
 nnoremap J          <NOP>
 nnoremap K          <NOP>
+
 nnoremap H          gT
 nnoremap L          gt
+
+nnoremap zz         <C-^>
 
 nnoremap <S-Down>   :resize +2<CR>
 nnoremap <S-Up>     :resize -2<CR>
