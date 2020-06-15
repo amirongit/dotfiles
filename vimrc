@@ -1,15 +1,14 @@
 call plug#begin('~/.vim/plugged')
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-sensible'
 Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-sensible'
 Plug 'tomasiser/vim-code-dark'
 Plug 'ap/vim-css-color'
 Plug 'maralla/completor.vim'
 Plug 'dense-analysis/ale'
-Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
-Plug 'jaredgorski/SpaceCamp'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 call plug#end()
 
 function! s:gitModified()
@@ -77,22 +76,16 @@ set statusline +=%{LinterStatus()}
 set statusline +=%{GitStatus()}
 
 let g:completor_python_binary = '/usr/bin/python'
+let g:completor_clang_binary = '/usr/bin/clang'
 let g:completor_filetype_map = {}
 let g:completor_filetype_map.rust = {'ft': 'lsp', 'cmd': 'rls'}
 let g:completor_complete_options = 'menuone,noselect'
-let g:indentLine_char = '┆'
 let g:ale_linters = {'python': ['pycodestyle'], 'rust': ['rustc']}
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:startify_lists = [
-        \ {'type': 'files','header': ['        Last Buffers']},
-        \ {'type': 'sessions','header': ['        Sessions']},
-        \ {'type': function('s:gitModified'),  'header': ['        Modified']},
-        \ {'type': function('s:gitUntracked'), 'header': ['        New']},
-        \ ]
 let g:gitgutter_sign_allow_clobber = 0
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
@@ -106,15 +99,23 @@ let g:gitgutter_async = 1
 let g:gitgutter_grep = ''
 let g:gitgutter_terminal_reports_focus = 0
 let g:TerminusCursorShape = 0
-
+let g:indentLine_char = '┆'
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 syntax on
-colorscheme spacecamp
+colorscheme codedark
 filetype plugin on
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+
+nnoremap <leader>E  :Files!<CR>
+nnoremap <leader>H  :History!<CR>
+nnoremap <leader>F  :GFiles!<CR>
+nnoremap <leader>S  :GFiles?<CR>
+nnoremap <leader>L  :Lines!<CR>
+nnoremap <leader>T  :Tags!<CR>
+nnoremap <leader>C  :Commits!<CR>
 
 noremap  <leader>d  :call completor#do('doc')<CR>
 nnoremap <leader>h  :set hlsearch!<CR>
