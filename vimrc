@@ -36,16 +36,6 @@ function! GitStatus()
   return printf('[+%d ~%d -%d]', a, m, r)
 endfunction
 
-function! Tab_Or_Complete() abort
-  if pumvisible()
-    return "\<C-N>"
-    elseif col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^[[:keyword:][:ident:]]'
-    return "\<C-R>=completor#do('complete')\<CR>"
-  else
-    return "\<Tab>"
-  endif
-endfunction
-
 set number relativenumber
 set nocp
 set scrolloff=3
