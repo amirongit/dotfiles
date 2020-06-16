@@ -63,14 +63,7 @@ set statusline +=\[%F]
 set statusline +=\%r
 set statusline +=\%m
 set statusline +=%=
-set statusline +=\[buffer
-set statusline +=\ %n]
-set statusline +=\[column
-set statusline +=\ %v]
-set statusline +=\[line
-set statusline +=\ %l
-set statusline +=\ /
-set statusline +=\ %L]
+set statusline +=\[%v/%l]
 set statusline +=\[%Y]
 set statusline +=%{LinterStatus()}
 set statusline +=%{GitStatus()}
