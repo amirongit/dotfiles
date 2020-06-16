@@ -63,7 +63,7 @@ set statusline +=\[%F]
 set statusline +=\%r
 set statusline +=\%m
 set statusline +=%=
-set statusline +=\[%v/%l]
+set statusline +=\[%v]
 set statusline +=\[%Y]
 set statusline +=%{LinterStatus()}
 set statusline +=%{GitStatus()}
