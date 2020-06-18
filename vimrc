@@ -38,6 +38,7 @@ endfunction
 
 set number relativenumber
 set nocp
+set hidden
 set scrolloff=3
 set updatetime=100
 set tabstop=4
@@ -104,8 +105,9 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 nnoremap <leader>hls  :set hlsearch!<CR>
+nnoremap <leader>gen  :!ctags -R<CR>
 
-nnoremap <leader>exp  :Files!<CR>
+nnoremap <leader>exp  :Files!
 nnoremap <leader>his  :History!<CR>
 nnoremap <leader>gfi  :GFiles!<CR>
 nnoremap <leader>sta  :GFiles?<CR>
