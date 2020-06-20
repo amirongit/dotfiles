@@ -143,11 +143,12 @@ nnoremap <leader>vex  :Vexplore<CR>
 " file explorer in new tab
 nnoremap <leader>tex  :Texplore<CR>
 " opened files history
+
 nnoremap <leader>his  :History!<CR>
 " files tracking by git
 nnoremap <leader>gfi  :GFiles!<CR>
 " git status
-nnoremap <leader>sta  :GFiles?<CR>
+nnoremap <leader>sta  :GFiles!?<CR>
 " lines of all buffers
 nnoremap <leader>lin  :Lines!<CR>
 " tags
