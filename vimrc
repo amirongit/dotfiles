@@ -10,16 +10,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 call plug#end()
 
-function! s:gitModified()
-    let files = systemlist('git ls-files -m 2>/dev/null')
-    return map(files, "{'line': v:val, 'path': v:val}")
-endfunction
-
-function! s:gitUntracked()
-    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
-    return map(files, "{'line': v:val, 'path': v:val}")
-endfunction
-
+" line warning or errors using a linter (ALE)(StatusBar)
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
     let l:all_errors = l:counts.error + l:counts.style_error
@@ -31,107 +22,160 @@ function! LinterStatus() abort
     \)
 endfunction
 
+" number of modified, removed or added lines to the file (GitGutter)(StatusBar)
 function! GitStatus()
   let [a,m,r] = GitGutterGetHunkSummary()
   return printf('[+%d ~%d -%d]', a, m, r)
 endfunction
 
+" relative line numbers
 set number relativenumber
+" activate vim options
 set nocp
+" enabled to be able to use completor:JumpToDefenition
 set hidden
-set scrolloff=3
-set updatetime=100
+" set soft tabs to be 4 spaces
 set tabstop=4
+" convert my tabs to spaces
 set expandtab
+" I am once again asking for my tabs to be 4 spaces
 set softtabstop=4
+" set indents to be 4 spaces
 set shiftwidth=4
-set bg=dark
-set ignorecase
-set noswapfile
-set encoding=utf-8
+" this is required by some colorschemes to be dark
 set background=dark
+" ignore case sensetivity when searching
+set ignorecase
+" Avoid swap files
+set noswapfile
+" encoding method
+set encoding=utf-8
+" force vim to use 256 based colors
 set t_Co=256
-set completeopt=longest,menuone
+" avoid shitty messages to display under status bar
 set noshowmode
+" again
 set noshowcmd
+" and again
 set shortmess+=F
+" force status bar to show
 set laststatus=2
 
+" Status Bar
 " so $VIMRUNTIME/syntax/hitest.vim
+" run above command and choose a color from the generated file
 set statusline +=%#Question#
+" mode
 set statusline +=\[%{mode()}]
+" file path
 set statusline +=\[%F]
+" readonly flag
 set statusline +=\%r
+" modified flag
 set statusline +=\%m
+" second half (right side)
 set statusline +=%=
+" column number
 set statusline +=\[%v]
+" file type
 set statusline +=\[%Y]
+" call LinterStatus func
 set statusline +=%{LinterStatus()}
+" call GitStatus func
 set statusline +=%{GitStatus()}
+" reduce update time to write swap files and also for gitgutter to work faster
+set updatetime=100
 
+" python interpreter with jedi installed on it (completor)
 let g:completor_python_binary = '/usr/bin/python'
+" path to clang binary (completor)
 let g:completor_clang_binary = '/usr/bin/clang'
-let g:completor_filetype_map = {}
-let g:completor_filetype_map.rust = {'ft': 'lsp', 'cmd': 'rls'}
+" completor options (completor)
 let g:completor_complete_options = 'menuone,noselect'
-let g:ale_linters = {'python': ['pycodestyle'], 'rust': ['rustc']}
+" linter for python and cpp (ALE)
+let g:ale_linters = {'python': ['pycodestyle'], 'cpp': ['gcc']}
+" ALE fix options (ALE)
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+" apply ALE fixers when saving a file (ALE)
 let g:ale_fix_on_save = 1
+" error sign (ALE)
 let g:ale_sign_error = '!'
+" warning sign (ALE)
 let g:ale_sign_warning = '?'
+" message format (ALE)
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" vim gitgutter doesn't work without this line idk why (GitGutter)
 let g:gitgutter_sign_allow_clobber = 0
+" add sign for git gutter (GitGutter)
 let g:gitgutter_sign_added = '+'
+" modified sign for git gutter (GitGutter)
 let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_modified_removed = '~'
+" removed sign for gitgutter (GitGutter)
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '-'
-let g:gitgutter_sign_modified_removed = '~'
+" disable git gutter key maps (GitGutter)
 let g:gitgutter_map_keys = 0
-let g:gitgutter_enabled = 1
-let g:gitgutter_signs = 1
-let g:gitgutter_async = 1
-let g:gitgutter_grep = ''
-let g:gitgutter_terminal_reports_focus = 0
+" disable cursor shape changing in modes (Terminus)
 let g:TerminusCursorShape = 0
+" indent guid char (IndentLine)
 let g:indentLine_char = '┆'
 
+" disable sign colors (ALE)
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
+" enable syntax highlighting
 syntax on
+" theme
 colorscheme codedark
-filetype plugin on
 
+" moving between auto completion suggestions with Tab and Shift Tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" toggle searching highlight
 nnoremap <leader>hls  :set hlsearch!<CR>
+" generate tags file in current directory
 nnoremap <leader>gen  :!ctags -R<CR>
 
+" fzf file explorer in current directory
 nnoremap <leader>exp  :Files!
+" opened files history
 nnoremap <leader>his  :History!<CR>
+" files tracking by git
 nnoremap <leader>gfi  :GFiles!<CR>
+" git status
 nnoremap <leader>sta  :GFiles?<CR>
+" lines of all buffers
 nnoremap <leader>lin  :Lines!<CR>
+" tags
 nnoremap <leader>tag  :Tags!<CR>
+" commits
 nnoremap <leader>com  :Commits!<CR>
 
+" docstring or docs for a function
 noremap  <leader>doc  :call completor#do('doc')<CR>
+" jump to defenition of a function
 nnoremap <leader>def  :call completor#do('definition')<CR>
 
-
+" disable all these keys
 nnoremap q          <NOP>
 nnoremap J          <NOP>
 nnoremap K          <NOP>
 
+" move to left or right tab
 nnoremap H          gT
 nnoremap L          gt
 
+" go back a page
 nnoremap zz         <C-^>
 
+" resize windows
 nnoremap <S-Down>   :resize +2<CR>
 nnoremap <S-Up>     :resize -2<CR>
 nnoremap <S-Left>   :vertical resize +2<CR>
 nnoremap <S-Right>  :vertical resize -2<CR>
 
+" swap selected lines above or under
 xnoremap K          :move '<-2<CR>gv-gv
 xnoremap J          :move '>+1<CR>gv-gv
