@@ -7,36 +7,46 @@ focus_follows_mouse yes
 #smart_gaps on
 smart_borders on
 
-for_window [class="."] border pixel 1
+#for_window [class="."] border pixel 1
 
-gaps inner 4
-gaps outer 4
+gaps inner 2
+gaps outer 2
 
 #workspace_layout tabbed
 
-set $bg 	             #FFFFFF
-set $text                #1e1e1e
+set $ActiveBorder       #4c7899
+set $ActiveBackGround   #285577
+set $ActiveText         #ffffff
 
-set $inactive-bg         #E4E4E4
-set $inactive-text       #1e1e1e
+set $UnFocusedBorder       #333333
+set $UnFocusedBackGround   #222222
+set $UnFocusedText         #888888
 
-set $bar-bg              #101010
+set $InActiveBorder       #333333
+set $InActiveBackGround   #5f676a
+set $InActiveText         #ffffff
 
-set $bar-active          #4EA832
-set $bar-active-text     #101010
+set $UrgentBorder      #2f343a
+set $UrgenBackGround   #900000
+set $UrgentText        #ffffff
 
-set $bar-inactive        #101010
-set $bar-inactive-text   #C8C8C8
+set $BarBackGround         #222222
+set $BarUrgentBackGround   #900000
 
-set $urgent-bg           #C21717
+set $BarActive       #285577
+set $BarActiveText   #ffffff
+
+set $BarInActive       #222222
+set $BarInActiveText   #ffffff
+
 
 exec_always --no-startup-id nitrogen --restore
-exec_always --no-startup-id picom --config /home/amir/.config/compton/compton.conf
+exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p run: -nb '$bar-bg' -sf '$text' -sb '$bg' -fn 'Cascadia Code:pixelsize=12' -b
+bindsym $mod+d exec dmenu_run -p run: -nb '$UnFocusedBackGround' -sf '$ActiveText' -sb '$ActiveBackGround' -fn 'Cascadia Code:pixelsize=12' #-b
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
@@ -142,10 +152,10 @@ for_window [class="okular"] floating enable
 for_window [class="feh"] floating enable
 
 
-client.focused          $bg           $bg          $text          $bg
-client.unfocused        $inactive-bg  $inactive-bg $inactive-text $inactive-bg
-client.focused_inactive $inactive-bg  $inactive-bg $inactive-text $inactive-bg
-client.urgent           $urgent-bg    $urgent-bg   $text          $urgent-bg
+client.focused            $ActiveBorder      $ActiveBackGround      $ActiveText      $ActiveBackGround
+client.focused_inactive   $InActiveBorder    $InActiveBackGround    $InActiveText    $InActiveBackGround
+client.unfocused          $UnFocusedBorder   $UnFocusedBackGround   $UnFocusedText   $UnFocusedBackGround
+client.urgent             $UrgentBorder      $UrgenBackGround       $UrgentText      $UrgenBackGround
 
 
 mode "resize" {
@@ -186,16 +196,16 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        position top
+        #position top
         status_command i3blocks
         separator_symbol "‌"
         #mode hide
         height 15
         colors {
-        background $bar-bg
+        background $BarBackGround
         separator #F6F6F6
-        focused_workspace  $bar-active         $bar-active           $bar-active-text
-        inactive_workspace $bar-inactive       $bar-inactive         $bar-inactive-text
-        urgent_workspace   $urgent-bg          $urgent-bg            $inactive-text
-    }
+        focused_workspace  $BarActive             $BarActive             $BarActiveText
+        inactive_workspace $BarInActive           $BarInActive           $BarInActiveText
+        urgent_workspace   $BarUrgentBackGround   $BarUrgentBackGround   $BarInActiveText
+        }
 }
