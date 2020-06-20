@@ -10,7 +10,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 call plug#end()
 
-" line warning or errors using a linter (ALE)(StatusBar)
+" line warning or errors using a linter
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
     let l:all_errors = l:counts.error + l:counts.style_error
@@ -22,7 +22,7 @@ function! LinterStatus() abort
     \)
 endfunction
 
-" number of modified, removed or added lines to the file (GitGutter)(StatusBar)
+" number of modified, removed or added lines to the file
 function! GitStatus()
   let [a,m,r] = GitGutterGetHunkSummary()
   return printf('[+%d ~%d -%d]', a, m, r)
@@ -86,42 +86,42 @@ set statusline +=%{GitStatus()}
 " reduce update time to write swap files and also for gitgutter to work faster
 set updatetime=100
 
-" python interpreter with jedi installed on it (completor)
+" python interpreter with jedi installed on it
 let g:completor_python_binary = '/usr/bin/python'
-" path to clang binary (completor)
+" path to clang binary
 let g:completor_clang_binary = '/usr/bin/clang'
-" completor options (completor)
+" completor options
 let g:completor_complete_options = 'menuone,noselect'
-" linter for python and cpp (ALE)
+" linter for python and cpp
 let g:ale_linters = {'python': ['pycodestyle'], 'cpp': ['gcc']}
-" ALE fix options (ALE)
+" ALE fix options
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-" apply ALE fixers when saving a file (ALE)
+" apply ALE fixers when saving a file
 let g:ale_fix_on_save = 1
-" error sign (ALE)
+" error sign
 let g:ale_sign_error = '!'
-" warning sign (ALE)
+" warning sign
 let g:ale_sign_warning = '?'
-" message format (ALE)
+" message format
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" vim gitgutter doesn't work without this line idk why (GitGutter)
+" vim gitgutter doesn't work without this line idk why
 let g:gitgutter_sign_allow_clobber = 0
-" add sign for git gutter (GitGutter)
+" add sign for git gutter
 let g:gitgutter_sign_added = '+'
-" modified sign for git gutter (GitGutter)
+" modified sign for git gutter
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_modified_removed = '~'
-" removed sign for gitgutter (GitGutter)
+" removed sign for gitgutter
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '-'
-" disable git gutter key maps (GitGutter)
+" disable git gutter key maps
 let g:gitgutter_map_keys = 0
 " disable cursor shape changing in modes (Terminus)
 let g:TerminusCursorShape = 0
 " indent guid char (IndentLine)
 let g:indentLine_char = '┆'
 
-" disable sign colors (ALE)
+" disable sign colors
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 " enable syntax highlighting
@@ -138,8 +138,10 @@ nnoremap <leader>hls  :set hlsearch!<CR>
 " generate tags file in current directory
 nnoremap <leader>gen  :!ctags -R<CR>
 
-" fzf file explorer in current directory
-nnoremap <leader>exp  :Files!
+" file explorer in vertical split
+nnoremap <leader>vex  :Vexplore<CR>
+" file explorer in new tab
+nnoremap <leader>tex  :Texplore<CR>
 " opened files history
 nnoremap <leader>his  :History!<CR>
 " files tracking by git
