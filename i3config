@@ -47,7 +47,7 @@ exec_always --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
 bindsym $mod+d exec dmenu_run -p run: -nb '$UnFocusedBackGround' -sf '$ActiveText' -sb '$ActiveBackGround' -fn 'Cascadia Code:pixelsize=12' #-b
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
 
@@ -149,7 +149,7 @@ for_window [class="Deluge"] floating enable
 #for_window [class="Org.gnome.Nautilus"] floating enable
 for_window [class="Leafpad"] floating enable
 for_window [class="okular"] floating enable
-for_window [class="feh"] floating enable
+for_window [class="Sxiv"] floating enable
 
 
 client.focused            $ActiveBorder      $ActiveBackGround      $ActiveText      $ActiveBackGround
