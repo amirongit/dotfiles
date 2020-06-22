@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 Plug 'Yggdroot/indentLine'
-Plug 'tomasiser/vim-code-dark'
 Plug 'ap/vim-css-color'
 Plug 'maralla/completor.vim'
 Plug 'dense-analysis/ale'
@@ -33,8 +32,6 @@ endfunction
 set number relativenumber
 " activate vim options
 set nocp
-" enabled to be able to use completor:JumpToDefenition
-set hidden
 " set soft tabs to be 4 spaces
 set tabstop=4
 " convert my tabs to spaces
@@ -105,8 +102,6 @@ let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
 " message format
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" vim gitgutter doesn't work without this line idk why
-let g:gitgutter_sign_allow_clobber = 0
 " add sign for git gutter
 let g:gitgutter_sign_added = '+'
 " modified sign for git gutter
@@ -129,6 +124,8 @@ highlight clear ALEWarningSign
 syntax on
 " theme
 colorscheme jellybeans
+" jellybeans tweaks
+hi SignColumn ctermbg=none
 
 " moving between auto completion suggestions with Tab and Shift Tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -160,7 +157,7 @@ nnoremap <leader>com  :Commits!<CR>
 " docstring or docs for a function
 noremap  <leader>doc  :call completor#do('doc')<CR>
 " jump to defenition of a function
-nnoremap <leader>def  :call completor#do('definition')<CR>
+nnoremap <leader>def  :set hidden<CR>:call completor#do('definition')<CR>
 
 " disable all these keys
 nnoremap q          <NOP>
