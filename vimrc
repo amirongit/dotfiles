@@ -8,6 +8,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
 " line warning or errors using a linter
@@ -127,7 +128,7 @@ highlight clear ALEWarningSign
 " enable syntax highlighting
 syntax on
 " theme
-colorscheme codedark
+colorscheme jellybeans
 
 " moving between auto completion suggestions with Tab and Shift Tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
