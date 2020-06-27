@@ -2,7 +2,7 @@
     frame_width = 1
     frame_color = "#dedede"
 
-    font = Cascadia Code 10
+    font = mononoki 10
     markup = yes
 
     format = "%s %p\n%b"
