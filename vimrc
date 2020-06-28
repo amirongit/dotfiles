@@ -1,13 +1,14 @@
 call plug#begin('~/.vim/plugged')
-Plug 'Yggdroot/indentLine'
-Plug 'ap/vim-css-color'
 Plug 'maralla/completor.vim'
 Plug 'dense-analysis/ale'
+Plug 'ap/vim-css-color'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 Plug 'nanotech/jellybeans.vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " line warning or errors using a linter
@@ -116,6 +117,8 @@ let g:gitgutter_map_keys = 0
 let g:TerminusCursorShape = 0
 " indent guid char (IndentLine)
 let g:indentLine_char = '┆'
+" set gruvbox contrast to hard
+let g:gruvbox_contrast_dark = 'hard'
 
 " disable sign colors
 highlight clear ALEErrorSign
@@ -123,8 +126,8 @@ highlight clear ALEWarningSign
 " enable syntax highlighting
 syntax on
 " theme
-colorscheme jellybeans
-" jellybeans tweaks
+colorscheme gruvbox
+" disable signColumn color
 hi SignColumn ctermbg=none
 
 " moving between auto completion suggestions with Tab and Shift Tab
@@ -137,7 +140,7 @@ nnoremap <leader>hls  :set hlsearch!<CR>
 nnoremap <leader>gen  :!ctags -R<CR>
 
 " file explorer in vertical split
-nnoremap <leader>vex  :Vexplore<CR>
+nnoremap <leader>sex  :Sexplore<CR>
 " file explorer in new tab
 nnoremap <leader>tex  :Texplore<CR>
 " opened files history
