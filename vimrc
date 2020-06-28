@@ -63,7 +63,7 @@ set laststatus=2
 " Status Bar
 " so $VIMRUNTIME/syntax/hitest.vim
 " run above command and choose a color from the generated file
-set statusline +=%#StatusLineNC#
+set statusline +=%#DiffChange#
 " mode
 set statusline +=\[%{mode()}]
 " file path
