@@ -177,10 +177,10 @@ nnoremap L          gt
 nnoremap zz         <C-^>
 
 " resize windows
-nnoremap <S-Down>   :resize +2<CR>
-nnoremap <S-Up>     :resize -2<CR>
-nnoremap <S-Left>   :vertical resize +2<CR>
-nnoremap <S-Right>  :vertical resize -2<CR>
+nnoremap <Down>   :resize +2<CR>
+nnoremap <Up>     :resize -2<CR>
+nnoremap <Left>   :vertical resize +2<CR>
+nnoremap <Right>  :vertical resize -2<CR>
 
 " swap selected lines above or under
 xnoremap K          :move '<-2<CR>gv-gv
