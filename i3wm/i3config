@@ -7,7 +7,8 @@ focus_follows_mouse yes
 #smart_gaps on
 smart_borders on
 
-#for_window [class="."] border pixel 1
+new_window normal 0
+new_float normal 0
 
 gaps inner 2
 gaps outer 2
@@ -23,7 +24,7 @@ set $UnFocusedBackGround   #222222
 set $UnFocusedText         #888888
 
 set $InActiveBorder       #333333
-set $InActiveBackGround   #5f676a
+set $InActiveBackGround   #222222
 set $InActiveText         #ffffff
 
 set $UrgentBorder      #2f343a
@@ -112,7 +113,7 @@ assign [class="Inkscape"] $ws4
 assign [class="discord"] $ws1
 assign [class="libreoffice*"] $ws4
 assign [class="Steam"] $ws4
-assign [class="Chromium"] $ws2
+assign [class="firefoxdeveloperedition"] $ws2
 assign [class="firefox"] $ws2
 assign [class="Thunderbird"] $ws1
 assign [class="TelegramDesktop"] $ws1
