@@ -92,7 +92,7 @@ let g:completor_python_binary = '/usr/bin/python'
 " path to clang binary
 let g:completor_clang_binary = '/usr/bin/clang'
 " completor options
-let g:completor_complete_options = 'menuone,noselect'
+let g:completor_complete_options = 'menuone,noselect,preview'
 " linter for python and cpp
 let g:ale_linters = {'python': ['pycodestyle'], 'cpp': ['gcc']}
 " ALE fix options
@@ -128,7 +128,7 @@ highlight clear ALEWarningSign
 " enable syntax highlighting
 syntax on
 " theme
-colorscheme gruvbox
+colorscheme jellybeans
 " disable signColumn color
 hi SignColumn ctermbg=none
 
