@@ -25,8 +25,8 @@ endfunction
 
 " number of modified, removed or added lines to the file
 function! GitStatus()
-  let [a,m,r] = GitGutterGetHunkSummary()
-  return printf('[+%d ~%d -%d]', a, m, r)
+    let [a,m,r] = GitGutterGetHunkSummary()
+    return printf('[+%d ~%d -%d]', a, m, r)
 endfunction
 
 " relative line numbers
@@ -93,8 +93,10 @@ let g:completor_python_binary = '/usr/bin/python'
 let g:completor_clang_binary = '/usr/bin/clang'
 " completor options
 let g:completor_complete_options = 'menuone,noselect,preview'
+" disable ale on vim start
+let g:ale_lint_on_enter = 0
 " linter for python and cpp
-let g:ale_linters = {'python': ['pycodestyle'], 'cpp': ['gcc']}
+let g:ale_linters = {'python': ['pycodestyle']}
 " ALE fix options
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 " apply ALE fixers when saving a file
