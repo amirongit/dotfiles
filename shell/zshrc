@@ -1,8 +1,6 @@
 export ZSH="/home/amir/.oh-my-zsh"
-export PATH=$PATH:$GOROOT/bin
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$PATH:$HOME/go/bin"
-export GOPATH=$HOME/go
+export PATH=$PATH:~/.local/bin
 
 source $HOME/antigen.zsh
 
@@ -14,19 +12,18 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen theme jispwoso
 antigen apply
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=FF0000"
-
-pfetch && /opt/shell-color-scripts/colorscript.sh exec panes
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666"
 
 alias toryay='https_proxy=socks5://127.0.0.1:9050 yay'
 alias restor='sudo systemctl restart tor'
 alias stator='systemctl status tor'
 alias systemctl='sudo systemctl'
-alias lsc='ls --color'
+alias ls='ls --color=none'
 alias netping='ping 4.2.2.4'
 alias SetX='setxkbmap -option grp:alt_shift_toggle us,ir'
 alias protonvpn='sudo python -m protonvpn_cli'
 alias q='exit'
 alias eject='udisksctl power-off'
-
-export PATH=$PATH:~/.local/bin
+alias vi='vim'
+alias EJECT='udisksctl power-off -b'
+alias PING='ping 4.2.2.4'
