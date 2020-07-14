@@ -8,10 +8,15 @@ Plug 'wincent/terminus'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 Plug 'nanotech/jellybeans.vim'
-Plug 'morhetz/gruvbox'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
-" line warning or errors using a linter
+" ALE
+" disable sign colors
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+" functions
+" warnings in statusbar
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
     let l:all_errors = l:counts.error + l:counts.style_error
@@ -22,13 +27,116 @@ function! LinterStatus() abort
     \   all_errors
     \)
 endfunction
+" variables
+" disable ale on vim start
+let g:ale_lint_on_enter = 0
+" linter for python and cpp
+let g:ale_linters = {'python': ['pycodestyle']}
+" ALE fix options
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+" apply ALE fixers when saving a file
+let g:ale_fix_on_save = 1
+" error sign
+let g:ale_sign_error = '!'
+" warning sign
+let g:ale_sign_warning = '?'
+" message format
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
-" number of modified, removed or added lines to the file
+" GITGUTTER
+" reduce updatetime
+set updatetime=100
+" functions
+" modified, removed or added lines in statusbar
 function! GitStatus()
     let [a,m,r] = GitGutterGetHunkSummary()
     return printf('[+%d ~%d -%d]', a, m, r)
 endfunction
+" variables
+" add sign for git gutter
+let g:gitgutter_sign_added = '+'
+" modified sign for git gutter
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_modified_removed = '~'
+" removed sign for gitgutter
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+" disable git gutter key maps
+let g:gitgutter_map_keys = 0
 
+" COMPLETOR
+" variables
+" python interpreter with jedi installed on it
+let g:completor_python_binary = '/usr/bin/python'
+" path to clang binary
+let g:completor_clang_binary = '/usr/bin/clang'
+" completor options
+let g:completor_complete_options = 'menuone,noselect,preview'
+" keymaps
+" docstring or docs for a function
+noremap  <leader>doc  :call completor#do('doc')<CR>
+" jump to defenition of a function
+nnoremap <leader>def  :set hidden<CR>:call completor#do('definition')<CR>
+" moving between auto completion suggestions with Tab and Shift Tab
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+
+" TERMINUS
+" variables
+" disable cursor shape changing in modes (Terminus)
+let g:TerminusCursorShape = 0
+
+" INDENTLINE
+" variables
+" indent guid char (IndentLine)
+let g:indentLine_char = '┆'
+
+" FZF.VIM
+" keymaps
+" recently opened files
+nnoremap <leader>his  :History!<CR>
+" files tracking by git
+nnoremap <leader>gfi  :GFiles!<CR>
+" git status
+nnoremap <leader>sta  :GFiles!?<CR>
+" lines of all buffers
+nnoremap <leader>lin  :Lines!<CR>
+" tags
+nnoremap <leader>tag  :Tags!<CR>
+" commits
+nnoremap <leader>com  :Commits!<CR>
+" generate tags file in current directory
+nnoremap <leader>gen  :!ctags -R<CR>
+
+" GLOBAL
+" keymaps
+" swap selected lines above or under
+xnoremap K          :move '<-2<CR>gv-gv
+xnoremap J          :move '>+1<CR>gv-gv
+" resize windows
+nnoremap <Down>   :resize +2<CR>
+nnoremap <Up>     :resize -2<CR>
+nnoremap <Left>   :vertical resize +2<CR>
+nnoremap <Right>  :vertical resize -2<CR>
+" disable all these keys
+nnoremap q          <NOP>
+nnoremap J          <NOP>
+nnoremap K          <NOP>
+" move to left or right tab
+nnoremap H          gT
+nnoremap L          gt
+" go back a page
+nnoremap zz         <C-^>
+" file explorer in vertical split
+nnoremap <leader>sex  :Sexplore<CR>
+" file explorer in new tab
+nnoremap <leader>tex  :Texplore<CR>
+" opened files history
+nnoremap <leader>pas  :set paste<CR>
+" toggle searching highlight
+nnoremap <leader>hls  :set hlsearch!<CR>
+" options
 " relative line numbers
 set number relativenumber
 " activate vim options
@@ -59,11 +167,18 @@ set noshowcmd
 set shortmess+=F
 " force status bar to show
 set laststatus=2
+" colors
+" enable syntax highlighting
+syntax on
+" setting colorscheme
+colorscheme jellybeans
+" disable signColumn color
+hi SignColumn ctermbg=none
 
-" Status Bar
+" STATUSBAR
 " so $VIMRUNTIME/syntax/hitest.vim
 " run above command and choose a color from the generated file
-set statusline +=%#LineNr#
+set statusline +=%#Title#
 " mode
 set statusline +=\[%{mode()}]
 " file path
@@ -84,106 +199,3 @@ set statusline +=\[%Y]
 set statusline +=%{LinterStatus()}
 " call GitStatus func
 set statusline +=%{GitStatus()}
-" reduce update time to write swap files and also for gitgutter to work faster
-set updatetime=100
-
-" python interpreter with jedi installed on it
-let g:completor_python_binary = '/usr/bin/python'
-" path to clang binary
-let g:completor_clang_binary = '/usr/bin/clang'
-" completor options
-let g:completor_complete_options = 'menuone,noselect,preview'
-" disable ale on vim start
-let g:ale_lint_on_enter = 0
-" linter for python and cpp
-let g:ale_linters = {'python': ['pycodestyle']}
-" ALE fix options
-let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-" apply ALE fixers when saving a file
-let g:ale_fix_on_save = 1
-" error sign
-let g:ale_sign_error = '!'
-" warning sign
-let g:ale_sign_warning = '?'
-" message format
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" add sign for git gutter
-let g:gitgutter_sign_added = '+'
-" modified sign for git gutter
-let g:gitgutter_sign_modified = '~'
-let g:gitgutter_sign_modified_removed = '~'
-" removed sign for gitgutter
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '-'
-" disable git gutter key maps
-let g:gitgutter_map_keys = 0
-" disable cursor shape changing in modes (Terminus)
-let g:TerminusCursorShape = 0
-" indent guid char (IndentLine)
-let g:indentLine_char = '┆'
-" set gruvbox contrast to hard
-let g:gruvbox_contrast_dark = 'hard'
-
-" disable sign colors
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-" enable syntax highlighting
-syntax on
-" theme
-colorscheme jellybeans
-" disable signColumn color
-hi SignColumn ctermbg=none
-
-" moving between auto completion suggestions with Tab and Shift Tab
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" toggle searching highlight
-nnoremap <leader>hls  :set hlsearch!<CR>
-" generate tags file in current directory
-nnoremap <leader>gen  :!ctags -R<CR>
-
-" file explorer in vertical split
-nnoremap <leader>sex  :Sexplore<CR>
-" file explorer in new tab
-nnoremap <leader>tex  :Texplore<CR>
-" opened files history
-
-nnoremap <leader>his  :History!<CR>
-" files tracking by git
-nnoremap <leader>gfi  :GFiles!<CR>
-" git status
-nnoremap <leader>sta  :GFiles!?<CR>
-" lines of all buffers
-nnoremap <leader>lin  :Lines!<CR>
-" tags
-nnoremap <leader>tag  :Tags!<CR>
-" commits
-nnoremap <leader>com  :Commits!<CR>
-
-" docstring or docs for a function
-noremap  <leader>doc  :call completor#do('doc')<CR>
-" jump to defenition of a function
-nnoremap <leader>def  :set hidden<CR>:call completor#do('definition')<CR>
-
-" disable all these keys
-nnoremap q          <NOP>
-nnoremap J          <NOP>
-nnoremap K          <NOP>
-
-" move to left or right tab
-nnoremap H          gT
-nnoremap L          gt
-
-" go back a page
-nnoremap zz         <C-^>
-
-" resize windows
-nnoremap <Down>   :resize +2<CR>
-nnoremap <Up>     :resize -2<CR>
-nnoremap <Left>   :vertical resize +2<CR>
-nnoremap <Right>  :vertical resize -2<CR>
-
-" swap selected lines above or under
-xnoremap K          :move '<-2<CR>gv-gv
-xnoremap J          :move '>+1<CR>gv-gv
