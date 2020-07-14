@@ -8,7 +8,7 @@ Plug 'wincent/terminus'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 Plug 'nanotech/jellybeans.vim'
-Plug 'sheerun/vim-polyglot'
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 " ALE
@@ -171,14 +171,21 @@ set laststatus=2
 " enable syntax highlighting
 syntax on
 " setting colorscheme
-colorscheme jellybeans
+colorscheme base16-default-dark
 " disable signColumn color
 hi SignColumn ctermbg=none
+
+" BASE 16 - VIM
+" variables
+let base16colorspace=256
+" remove diffrent background color for line numbers
+highlight LineNr ctermbg=NONE
+
 
 " STATUSBAR
 " so $VIMRUNTIME/syntax/hitest.vim
 " run above command and choose a color from the generated file
-set statusline +=%#Title#
+set statusline +=%#String#
 " mode
 set statusline +=\[%{mode()}]
 " file path
@@ -190,7 +197,7 @@ set statusline +=\%m
 " second half (right side)
 set statusline +=%=
 " second half color
-set statusline +=%#String#
+set statusline +=%#Title#
 " column number
 set statusline +=\[%v]
 " file type
