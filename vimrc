@@ -7,7 +7,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
-Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/base16-vim'
 call plug#end()
 
