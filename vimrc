@@ -30,8 +30,8 @@ endfunction
 " variables
 " disable ale on vim start
 let g:ale_lint_on_enter = 0
-" linter for python and cpp
-let g:ale_linters = {'python': ['pycodestyle']}
+" linters
+let g:ale_linters = {'python': ['pycodestyle'], 'javascript': ['eslint']}
 " ALE fix options
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 " apply ALE fixers when saving a file
@@ -66,6 +66,8 @@ let g:gitgutter_map_keys = 0
 
 " COMPLETOR
 " variables
+" node with tern installed
+let g:completor_node_binary = '/usr/bin/node'
 " python interpreter with jedi installed on it
 let g:completor_python_binary = '/usr/bin/python'
 " path to clang binary
@@ -177,9 +179,12 @@ hi SignColumn ctermbg=none
 
 " BASE 16 - VIM
 " variables
-let base16colorspace=256
 " remove diffrent background color for line numbers
 highlight LineNr ctermbg=NONE
+" change autocomplete menu back ground
+highlight Pmenu ctermbg=black
+" necessery for base256 colorschemes
+let base16colorspace = 256
 
 
 " STATUSBAR
