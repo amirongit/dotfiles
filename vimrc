@@ -179,6 +179,8 @@ hi SignColumn ctermbg=none
 " variables
 " remove diffrent background color for line numbers
 highlight LineNr ctermbg=NONE
+" customize bg and fg color for visual mode
+highlight Visual ctermbg=blue ctermfg=black
 " change autocomplete menu back ground
 highlight Pmenu ctermbg=black
 " necessery for base256 colorschemes
