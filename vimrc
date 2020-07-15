@@ -62,6 +62,8 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '-'
 " disable git gutter key maps
 let g:gitgutter_map_keys = 0
+" avoid git gutter to change sign column bg colors
+let g:gitgutter_set_sign_backgrounds = 1
 
 " COMPLETOR
 " variables
@@ -171,8 +173,6 @@ set laststatus=2
 syntax on
 " setting colorscheme
 colorscheme base16-default-dark
-" disable signColumn color
-hi SignColumn ctermbg=none
 
 " BASE 16 - VIM
 " variables
@@ -182,6 +182,8 @@ highlight LineNr ctermbg = NONE
 highlight Visual ctermbg = blue ctermfg = black
 " change autocomplete menu back ground
 highlight Pmenu ctermbg = black
+" disable signColumn color
+highlight SignColumn ctermbg = black
 " necessery for base256 colorschemes
 let base16colorspace = 256
 
