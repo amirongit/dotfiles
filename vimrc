@@ -177,11 +177,11 @@ hi SignColumn ctermbg=none
 " BASE 16 - VIM
 " variables
 " remove diffrent background color for line numbers
-highlight LineNr ctermbg=NONE
+highlight LineNr ctermbg = NONE
 " customize bg and fg color for visual mode
-highlight Visual ctermbg=blue ctermfg=black
+highlight Visual ctermbg = blue ctermfg = black
 " change autocomplete menu back ground
-highlight Pmenu ctermbg=black
+highlight Pmenu ctermbg = black
 " necessery for base256 colorschemes
 let base16colorspace = 256
 
