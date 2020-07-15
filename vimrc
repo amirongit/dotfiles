@@ -128,8 +128,6 @@ nnoremap K          <NOP>
 " move to left or right tab
 nnoremap H          gT
 nnoremap L          gt
-" go back a page
-nnoremap zz         <C-^>
 " file explorer in vertical split
 nnoremap <leader>sex  :Sexplore<CR>
 " file explorer in new tab
