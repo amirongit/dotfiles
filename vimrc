@@ -109,8 +109,6 @@ nnoremap <leader>lin  :Lines!<CR>
 nnoremap <leader>tag  :Tags!<CR>
 " commits
 nnoremap <leader>com  :Commits!<CR>
-" generate tags file in current directory
-nnoremap <leader>gen  :!ctags -R<CR>
 
 " GLOBAL
 " keymaps
