@@ -1,9 +1,42 @@
+env:
+  TERM: alacritty
+
 font:
   normal:
-    family: Iosevka Medium
+    family: iosevka
+    style: Medium
+  bold:
+    family: iosevka
+    style: Semibold
+  italic:
+    family: iosevka
+    style: Medium Italic
+  bold_italic:
+    family: iosevka
+    style: Semibold Oblique
   size: 8
-
 
 cursor:
   style: Block
+  thickness: 0.15
 
+mouse:
+  hide_when_typing: true
+
+scrolling:
+  history: 500
+  multiplier: 3
+
+key_bindings:
+  - {key: V, mods: Control|Shift, action: Paste}
+  - {key: Add, mods: Control, action: IncreaseFontSize}
+  - {key: Minus, mods: Control, action: DecreaseFontSize}
+  - {key: 0, mods: Control, action: ResetFontSize}
+
+
+selection:
+  save_to_clipboard: true
+
+live_config_reload: true
+background_opacity: 1
+dynamic_title: true
