@@ -17,9 +17,9 @@ highlight clear ALEWarningSign
 " functions
 " warnings in statusbar
 function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
+    let l:counts=ale#statusline#Count(bufnr(''))
+    let l:all_errors=l:counts.error + l:counts.style_error
+    let l:all_non_errors=l:counts.total - l:all_errors
     return l:counts.total == 0 ? '[0W 0E]' : printf(
     \   '[%dW %dE]',
     \   all_non_errors,
@@ -28,19 +28,19 @@ function! LinterStatus() abort
 endfunction
 " variables
 " disable ale on vim start
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter=0
 " linters
-let g:ale_linters = {'python': ['pycodestyle'], 'javascript': ['eslint']}
+let g:ale_linters={'python': ['pycodestyle'], 'javascript': ['eslint']}
 " ALE fix options
-let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_fixers={'*': ['remove_trailing_lines', 'trim_whitespace']}
 " apply ALE fixers when saving a file
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save=1
 " error sign
-let g:ale_sign_error = '!'
+let g:ale_sign_error='!'
 " warning sign
-let g:ale_sign_warning = '?'
+let g:ale_sign_warning='?'
 " message format
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_msg_format='[%linter%] %s [%severity%]'
 
 " GITGUTTER
 " reduce updatetime
@@ -48,33 +48,33 @@ set updatetime=100
 " functions
 " modified, removed or added lines in statusbar
 function! GitStatus()
-    let [a,m,r] = GitGutterGetHunkSummary()
+    let [a,m,r]=GitGutterGetHunkSummary()
     return printf('[+%d ~%d -%d]', a, m, r)
 endfunction
 " variables
 " add sign for git gutter
-let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_added='+'
 " modified sign for git gutter
-let g:gitgutter_sign_modified = '~'
-let g:gitgutter_sign_modified_removed = '~'
+let g:gitgutter_sign_modified='~'
+let g:gitgutter_sign_modified_removed='~'
 " removed sign for gitgutter
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_removed='-'
+let g:gitgutter_sign_removed_first_line='-'
 " disable git gutter key maps
-let g:gitgutter_map_keys = 0
+let g:gitgutter_map_keys=0
 " avoid git gutter to change sign column bg colors
-let g:gitgutter_set_sign_backgrounds = 1
+let g:gitgutter_set_sign_backgrounds=1
 
 " COMPLETOR
 " variables
 " node with tern installed
-let g:completor_node_binary = '/usr/bin/node'
+let g:completor_node_binary='/usr/bin/node'
 " python interpreter with jedi installed on it
-let g:completor_python_binary = '/usr/bin/python'
+let g:completor_python_binary='/usr/bin/python'
 " path to clang binary
-let g:completor_clang_binary = '/usr/bin/clang'
+let g:completor_clang_binary='/usr/bin/clang'
 " completor options
-let g:completor_complete_options = 'menuone,noselect,preview'
+let g:completor_complete_options='menuone,noselect,preview'
 " keymaps
 " docstring or docs for a function
 noremap  <leader>doc  :call completor#do('doc')<CR>
@@ -88,12 +88,12 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " TERMINUS
 " variables
 " disable cursor shape changing in modes (Terminus)
-let g:TerminusCursorShape = 0
+let g:TerminusCursorShape=0
 
 " INDENTLINE
 " variables
 " indent guid char (IndentLine)
-let g:indentLine_char = '┆'
+let g:indentLine_char='┆'
 
 " FZF.VIM
 " keymaps
@@ -175,15 +175,18 @@ colorscheme base16-default-dark
 " BASE 16 - VIM
 " variables
 " remove diffrent background color for line numbers
-highlight LineNr ctermbg = NONE
+highlight LineNr ctermbg=NONE
 " customize bg and fg color for visual mode
-highlight Visual ctermbg = blue ctermfg = black
-" change autocomplete menu back ground
-highlight Pmenu ctermbg = black
+highlight Visual ctermbg=blue ctermfg = black
+" change autocomplete menu colors
+highlight Pmenu ctermbg=black
+highlight PmenuSel ctermfg=black
+highlight PmenuSbar ctermbg=NONE ctermfg = NONE
+highlight PmenuThumb ctermfg=NONE ctermbg = NONE
 " disable signColumn color
-highlight SignColumn ctermbg = black
+highlight SignColumn ctermbg=black guifg = black
 " necessery for base256 colorschemes
-let base16colorspace = 256
+let base16colorspace=256
 
 
 " STATUSBAR
