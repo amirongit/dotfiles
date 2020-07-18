@@ -21,3 +21,7 @@ https://gitlab.manjaro.org/profiles-and-settings/desktop-settings/tree/master
 i3blocks scripts:
 
 https://github.com/vivien/i3blocks-contribhttps://github.com/vivien/i3blocks-contrib
+
+base16:
+
+https://github.com/chriskempson/base16
