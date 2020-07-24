@@ -66,6 +66,8 @@ let g:gitgutter_map_keys=0
 let g:gitgutter_set_sign_backgrounds=1
 
 " COMPLETOR
+" open preview windows in bottom
+set splitbelow
 " variables
 " node with tern installed
 let g:completor_node_binary='/usr/bin/node'
@@ -170,7 +172,7 @@ set laststatus=2
 " enable syntax highlighting
 syntax on
 " setting colorscheme
-colorscheme base16-default-dark
+colorscheme base16-snazzy
 
 " BASE 16 - VIM
 " variables
