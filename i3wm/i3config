@@ -1,7 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: inconsolata Bold 8
+font pango: Blogger Sans 7
 
 focus_follows_mouse yes
 #smart_gaps on
@@ -10,8 +10,8 @@ smart_borders on
 new_window normal 0
 new_float normal 0
 
-gaps inner 2
-gaps outer 2
+gaps inner 3
+gaps outer 3
 
 #workspace_layout tabbed
 
@@ -47,7 +47,7 @@ exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p run: -nb '$UnFocusedBackGround' -sf '$ActiveText' -sb '$ActiveBackGround' -fn 'Cascadia Code:pixelsize=12' #-b
+bindsym $mod+d exec dmenu_run -p run: -nb '$UnFocusedBackGround' -sf '$ActiveText' -sb '$ActiveBackGround' -fn 'Blogger Sans:pixelsize=12' #-b
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
@@ -114,7 +114,7 @@ assign [class="discord"] $ws1
 assign [class="libreoffice*"] $ws4
 assign [class="Steam"] $ws4
 assign [class="firefoxdeveloperedition"] $ws2
-assign [class="firefox"] $ws2
+assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws1
 assign [class="TelegramDesktop"] $ws1
 assign [class="Gimp"] $ws4
@@ -127,7 +127,6 @@ assign [class="Atom"] $ws3
 for_window [class="VirtualBox Machine"] floating disable
 for_window [class="VirtualBox Manager"] floating disable
 
-for_window [class="qutebrowser"] border pixel 2
 
 for_window [class="Gnome-system-monitor"] floating enable
 for_window [class="Thunderbird"] floating enable
@@ -197,7 +196,7 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        #position top
+        position top
         status_command i3blocks
         separator_symbol "‌"
         #mode hide
