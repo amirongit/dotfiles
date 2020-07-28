@@ -190,6 +190,10 @@ c.fonts.prompts = '10pt inconsolata SemiBold'
 
 c.fonts.statusbar = '10pt inconsolata SemiBold'
 
+c.fonts.tabs.selected = '10pt inconsolata SemiBold'
+
+c.fonts.tabs.unselected = '10pt inconsolata SemiBold'
+
 
 c.fonts.web.family.cursive = 'Blogger Sans'
 
@@ -395,7 +399,7 @@ c.tabs.wrap = True
 
 c.url.auto_search = 'naive'
 
-c.url.default_page = 'https://duckduckgo.com'
+c.url.default_page = 'https://start.duckduckgo.com'
 
 c.url.incdec_segments = ['path', 'query']
 
@@ -419,8 +423,22 @@ c.zoom.mouse_divider = 512
 
 c.zoom.text_only = False
 
-
-# put colors here :)
+base00 = "#181818"
+base01 = "#282828"
+base02 = "#383838"
+base03 = "#585858"
+base04 = "#b8b8b8"
+base05 = "#d8d8d8"
+base06 = "#e8e8e8"
+base07 = "#f8f8f8"
+base08 = "#ab4642"
+base09 = "#dc9656"
+base0A = "#f7ca88"
+base0B = "#a1b56c"
+base0C = "#86c1b9"
+base0D = "#7cafc2"
+base0E = "#ba8baf"
+base0F = "#a16946"
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
