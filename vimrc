@@ -142,6 +142,8 @@ nnoremap <leader>hls  :set hlsearch!<CR>
 " options
 " relative line numbers
 set number relativenumber
+" always show the 3 lines bottom of cursor
+set scrolloff=3
 " activate vim options
 set nocp
 " set soft tabs to be 4 spaces
