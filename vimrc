@@ -124,10 +124,11 @@ nnoremap <Down>   :resize +2<CR>
 nnoremap <Up>     :resize -2<CR>
 nnoremap <Left>   :vertical resize +2<CR>
 nnoremap <Right>  :vertical resize -2<CR>
-" disable all these keys
+" remap scroll key bindings
+nnoremap J          <C-e>
+nnoremap K          <C-y>
+" disable these keys
 nnoremap q          <NOP>
-nnoremap J          <NOP>
-nnoremap K          <NOP>
 " move to left or right tab
 nnoremap H          gT
 nnoremap L          gt
