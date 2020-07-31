@@ -1,3 +1,20 @@
+base00 = "#181818"
+base01 = "#282828"
+base02 = "#383838"
+base03 = "#585858"
+base04 = "#b8b8b8"
+base05 = "#d8d8d8"
+base06 = "#e8e8e8"
+base07 = "#f8f8f8"
+base08 = "#ab4642"
+base09 = "#dc9656"
+base0A = "#f7ca88"
+base0B = "#a1b56c"
+base0C = "#86c1b9"
+base0D = "#7cafc2"
+base0E = "#ba8baf"
+base0F = "#a16946"
+
 c.aliases = {'w': 'session-save', 'q': 'close', 'wq': 'quit --save'}
 
 c.auto_save.interval = 15000
@@ -348,42 +365,42 @@ c.fonts.completion.category = '8pt mononoki'
 
 c.fonts.completion.entry = '8pt mononoki'
 
-c.fonts.contextmenu = '8pt Estedad'
+c.fonts.contextmenu = '8pt Courgette'
 
-c.fonts.debug_console = '12pt Cascadia Code'
+c.fonts.debug_console = '12pt mononoki'
 
-c.fonts.default_family = ['8pt Estedad', '8pt Tanha']
+c.fonts.default_family = ['8pt Courgette', '8pt Tanha']
 
 c.fonts.default_size = '10pt'
 
-c.fonts.downloads = '10pt Estedad'
+c.fonts.downloads = '8pt Courgette'
 
 c.fonts.hints = '8pt mononoki'
 
 c.fonts.keyhint = '8pt mononoki'
 
-c.fonts.messages.error = '10pt Cascadia Code'
+c.fonts.messages.error = '10pt mononoki'
 
-c.fonts.messages.info = '10pt Estedad'
+c.fonts.messages.info = '8pt Courgette'
 
-c.fonts.messages.warning = '10pt Cascadia Code'
+c.fonts.messages.warning = '10pt mononoki'
 
 c.fonts.prompts = '8pt mononoki'
 
 c.fonts.statusbar = '8pt mononoki'
 
 
-c.fonts.web.family.cursive = 'Blogger Sans'
+c.fonts.web.family.cursive = 'Courgette'
 
-c.fonts.web.family.fantasy = 'Estedad'
+c.fonts.web.family.fantasy = 'Courgette'
 
-c.fonts.web.family.fixed = 'Cascadia Code'
+c.fonts.web.family.fixed = 'mononoki'
 
-c.fonts.web.family.sans_serif = 'Tanha'
+c.fonts.web.family.sans_serif = 'Courgette'
 
-c.fonts.web.family.serif = 'Estedad'
+c.fonts.web.family.serif = 'Courgette'
 
-c.fonts.web.family.standard = 'Tanha'
+c.fonts.web.family.standard = 'Courgette'
 
 c.fonts.web.size.default = 12
 
