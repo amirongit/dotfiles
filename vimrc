@@ -192,6 +192,8 @@ highlight PmenuSbar ctermbg=NONE ctermfg = NONE
 highlight PmenuThumb ctermfg=NONE ctermbg = NONE
 " disable signColumn color
 highlight SignColumn ctermbg=black guifg = black
+" hide tilde icon for blank lines
+highlight NonText ctermfg=bg
 " necessery for base256 colorschemes
 let base16colorspace=256
 
