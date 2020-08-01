@@ -1,3 +1,20 @@
+base00 = "#181818"
+base01 = "#282828"
+base02 = "#383838"
+base03 = "#585858"
+base04 = "#b8b8b8"
+base05 = "#d8d8d8"
+base06 = "#e8e8e8"
+base07 = "#f8f8f8"
+base08 = "#ab4642"
+base09 = "#dc9656"
+base0A = "#f7ca88"
+base0B = "#a1b56c"
+base0C = "#86c1b9"
+base0D = "#7cafc2"
+base0E = "#ba8baf"
+base0F = "#a16946"
+
 c.aliases = {'w': 'session-save', 'q': 'close', 'wq': 'quit --save'}
 
 c.auto_save.interval = 15000
@@ -146,7 +163,7 @@ c.colors.statusbar.url.success.https.fg = base0B
 
 c.colors.statusbar.url.warn.fg = base0E
 
-c.colors.tabs.bar.bg = base00
+c.colors.tabs.bar.bg = base05
 
 c.colors.tabs.even.bg = base00
 
@@ -164,27 +181,27 @@ c.colors.tabs.odd.bg = base00
 
 c.colors.tabs.odd.fg = base05
 
-c.colors.tabs.pinned.even.bg = base0B
+c.colors.tabs.pinned.even.bg = base05
 
 c.colors.tabs.pinned.even.fg = base00
 
-c.colors.tabs.pinned.odd.bg = base0B
+c.colors.tabs.pinned.odd.bg = base05
 
 c.colors.tabs.pinned.odd.fg = base00
 
-c.colors.tabs.pinned.selected.even.bg = base0D
+c.colors.tabs.pinned.selected.even.bg = base05
 
-c.colors.tabs.pinned.selected.even.fg = base00
+c.colors.tabs.pinned.selected.even.fg = base0E
 
-c.colors.tabs.pinned.selected.odd.bg = base0D
+c.colors.tabs.pinned.selected.odd.bg = base05
 
-c.colors.tabs.pinned.selected.odd.fg = base00
+c.colors.tabs.pinned.selected.odd.fg = base0E
 
-c.colors.tabs.selected.even.bg = base0D
+c.colors.tabs.selected.even.bg = base0E
 
 c.colors.tabs.selected.even.fg = base00
 
-c.colors.tabs.selected.odd.bg = base0D
+c.colors.tabs.selected.odd.bg = base0E
 
 c.colors.tabs.selected.odd.fg = base00
 
@@ -584,9 +601,9 @@ c.url.default_page = 'https://start.duckduckgo.com/'
 
 c.url.incdec_segments = ['path', 'query']
 
-c.url.open_base_url = False
+c.url.open_base_url = True
 
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'g': 'https://duckduckgo.com/?q=!g%20{}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 
 c.url.start_pages = ['https://start.duckduckgo.com']
 
