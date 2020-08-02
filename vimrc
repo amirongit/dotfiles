@@ -129,13 +129,18 @@ nnoremap J          <C-e>
 nnoremap K          <C-y>
 " disable these keys
 nnoremap q          <NOP>
+nnoremap Q          <NOP>
 " move to left or right tab
 nnoremap H          gT
 nnoremap L          gt
-" file explorer in vertical split
+" file explorer in horizental split
 nnoremap <leader>sex  :Sexplore<CR>
+" file explorer in vertical split
+nnoremap <leader>vex  :Vexplore<CR>
 " file explorer in new tab
 nnoremap <leader>tex  :Texplore<CR>
+" file explorer in active window
+nnoremap <leader>exp  :Explore
 " opened files history
 nnoremap <leader>pas  :set paste<CR>
 " toggle searching highlight
@@ -177,7 +182,7 @@ set laststatus=2
 " enable syntax highlighting
 syntax on
 " setting colorscheme
-colorscheme base16-snazzy
+colorscheme base16-solarized-dark
 
 " BASE 16 - VIM
 " variables
