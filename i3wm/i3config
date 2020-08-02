@@ -1,53 +1,52 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Blogger Sans 7
+font pango: Courgette 8
 
 focus_follows_mouse yes
 #smart_gaps on
-smart_borders on
+#smart_borders on
 
 new_window normal 0
 new_float normal 0
 
-gaps inner 3
-gaps outer 3
+#gaps inner 3
+#gaps outer 3
 
 #workspace_layout tabbed
 
-set $ActiveBorder       #4c7899
-set $ActiveBackGround   #285577
-set $ActiveText         #ffffff
+set $ActiveBorder       #657b83
+set $ActiveBackGround   #657b83
+set $ActiveText         #002b36
 
-set $UnFocusedBorder       #333333
-set $UnFocusedBackGround   #222222
-set $UnFocusedText         #888888
+set $UnFocusedBorder       #002b36
+set $UnFocusedBackGround   #002b36
+set $UnFocusedText         #fdf6e3
 
-set $InActiveBorder       #333333
-set $InActiveBackGround   #222222
-set $InActiveText         #ffffff
+set $InActiveBorder       #002b36
+set $InActiveBackGround   #002b36
+set $InActiveText         #fdf6e3
 
-set $UrgentBorder      #2f343a
-set $UrgenBackGround   #900000
-set $UrgentText        #ffffff
+set $UrgentBorder      #dc322f
+set $UrgenBackGround   #dc322f
+set $UrgentText        #839496
 
-set $BarBackGround         #222222
-set $BarUrgentBackGround   #900000
+set $BarBackGround         #002b36
+set $BarUrgentBackGround   #d33682
 
-set $BarActive       #285577
-set $BarActiveText   #ffffff
+set $BarActive       #657b83
+set $BarActiveText   #002b36
 
-set $BarInActive       #222222
-set $BarInActiveText   #ffffff
+set $BarInActive       #002b36
+set $BarInActiveText   #fdf6e3
 
 
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
-exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p run: -nb '$UnFocusedBackGround' -sf '$ActiveText' -sb '$ActiveBackGround' -fn 'Blogger Sans:pixelsize=12' #-b
+bindsym $mod+d exec dmenu_run -p run: -nb '$UnFocusedBackGround' -sf '$ActiveText' -sb '$ActiveBackGround' -fn 'Courgette:pixelsize=14' -b
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
