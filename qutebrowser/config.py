@@ -308,7 +308,7 @@ c.content.print_element_backgrounds = True
 
 c.content.private_browsing = False
 
-c.content.proxy = 'socks://127.0.0.1:9050'
+c.content.proxy = 'none'
 
 c.content.proxy_dns_requests = True
 
