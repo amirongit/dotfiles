@@ -3,17 +3,17 @@ env:
 
 font:
   normal:
-    family: iosevka
-    style: Medium
+    family: mononoki
+    style: Regular
   bold:
-    family: iosevka
-    style: Semibold
+    family: mononoki
+    style: Bold
   italic:
-    family: iosevka
-    style: Medium Italic
+    family: mononoki
+    style: Italic
   bold_italic:
-    family: iosevka
-    style: Semibold Oblique
+    family: mononoki
+    style: Bold Italic
   size: 8
 
 cursor:
@@ -32,7 +32,6 @@ key_bindings:
   - {key: Add, mods: Control, action: IncreaseFontSize}
   - {key: Minus, mods: Control, action: DecreaseFontSize}
   - {key: 0, mods: Control, action: ResetFontSize}
-
 
 selection:
   save_to_clipboard: true
