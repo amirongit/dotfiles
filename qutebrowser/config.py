@@ -344,37 +344,37 @@ c.downloads.remove_finished = -1
 
 c.editor.encoding = 'utf-8'
 
-c.fonts.tabs.unselected = '8pt Courgette'
+c.fonts.tabs.unselected = '10pt Courgette'
 
-c.fonts.tabs.selected = '8pt Courgette'
+c.fonts.tabs.selected = '10pt Courgette'
 
-c.fonts.completion.category = '8pt mononoki'
+c.fonts.completion.category = '10pt mononoki'
 
-c.fonts.completion.entry = '8pt mononoki'
+c.fonts.completion.entry = '10pt mononoki'
 
-c.fonts.contextmenu = '8pt Courgette'
+c.fonts.contextmenu = '10pt Courgette'
 
 c.fonts.debug_console = '12pt mononoki'
 
-c.fonts.default_family = ['8pt Courgette', '8pt Tanha']
+c.fonts.default_family = ['10pt Courgette', '10pt Tanha']
 
 c.fonts.default_size = '10pt'
 
-c.fonts.downloads = '8pt Courgette'
+c.fonts.downloads = '10pt Courgette'
 
-c.fonts.hints = '8pt mononoki'
+c.fonts.hints = '10pt mononoki'
 
-c.fonts.keyhint = '8pt mononoki'
+c.fonts.keyhint = '10pt mononoki'
 
 c.fonts.messages.error = '10pt mononoki'
 
-c.fonts.messages.info = '8pt Courgette'
+c.fonts.messages.info = '10pt Courgette'
 
 c.fonts.messages.warning = '10pt mononoki'
 
-c.fonts.prompts = '8pt mononoki'
+c.fonts.prompts = '10pt mononoki'
 
-c.fonts.statusbar = '8pt mononoki'
+c.fonts.statusbar = '10pt mononoki'
 
 
 c.fonts.web.family.cursive = 'Courgette'
