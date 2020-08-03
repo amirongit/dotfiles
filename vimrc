@@ -124,12 +124,11 @@ nnoremap <Down>   :resize +2<CR>
 nnoremap <Up>     :resize -2<CR>
 nnoremap <Left>   :vertical resize +2<CR>
 nnoremap <Right>  :vertical resize -2<CR>
-" remap scroll key bindings
-nnoremap J          <C-e>
-nnoremap K          <C-y>
 " disable these keys
 nnoremap q          <NOP>
 nnoremap Q          <NOP>
+nnoremap J          <NOP>
+nnoremap K          <NOP>
 " move to left or right tab
 nnoremap H          gT
 nnoremap L          gt
@@ -170,6 +169,12 @@ set noswapfile
 set encoding=utf-8
 " force vim to use 256 based colors
 set t_Co=256
+" enable code foldin
+set foldmethod=indent
+" set vim to fold only 2 levels of indents
+set foldnestmax=2
+" disable folding when I open vim
+set nofoldenable
 " avoid shitty messages to display under status bar
 set noshowmode
 " again
@@ -182,7 +187,7 @@ set laststatus=2
 " enable syntax highlighting
 syntax on
 " setting colorscheme
-colorscheme base16-solarized-dark
+colorscheme base16-circus
 
 " BASE 16 - VIM
 " variables
