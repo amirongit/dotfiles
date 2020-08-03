@@ -344,23 +344,23 @@ c.downloads.remove_finished = -1
 
 c.editor.encoding = 'utf-8'
 
-c.fonts.tabs.unselected = '10pt Courgette'
+c.fonts.tabs.unselected = '8pt Sans'
 
-c.fonts.tabs.selected = '10pt Courgette'
+c.fonts.tabs.selected = '8pt Sans'
 
 c.fonts.completion.category = '10pt mononoki'
 
 c.fonts.completion.entry = '10pt mononoki'
 
-c.fonts.contextmenu = '10pt Courgette'
+c.fonts.contextmenu = '8pt Sans'
 
 c.fonts.debug_console = '12pt mononoki'
 
-c.fonts.default_family = ['10pt Courgette', '10pt Tanha']
+c.fonts.default_family = ['8pt Sans', '10pt Tanha']
 
 c.fonts.default_size = '10pt'
 
-c.fonts.downloads = '10pt Courgette'
+c.fonts.downloads = '8pt Sans'
 
 c.fonts.hints = '10pt mononoki'
 
@@ -368,7 +368,7 @@ c.fonts.keyhint = '10pt mononoki'
 
 c.fonts.messages.error = '10pt mononoki'
 
-c.fonts.messages.info = '10pt Courgette'
+c.fonts.messages.info = '8pt Sans'
 
 c.fonts.messages.warning = '10pt mononoki'
 
@@ -377,17 +377,17 @@ c.fonts.prompts = '10pt mononoki'
 c.fonts.statusbar = '10pt mononoki'
 
 
-c.fonts.web.family.cursive = 'Courgette'
+c.fonts.web.family.cursive = 'Sans'
 
-c.fonts.web.family.fantasy = 'Courgette'
+c.fonts.web.family.fantasy = 'Sans'
 
 c.fonts.web.family.fixed = 'mononoki'
 
-c.fonts.web.family.sans_serif = 'Courgette'
+c.fonts.web.family.sans_serif = 'Sans'
 
-c.fonts.web.family.serif = 'Courgette'
+c.fonts.web.family.serif = 'Sans'
 
-c.fonts.web.family.standard = 'Courgette'
+c.fonts.web.family.standard = 'Sans'
 
 c.fonts.web.size.default = 12
 
@@ -558,7 +558,7 @@ c.tabs.select_on_remove = 'last-used'
 #   - never: Always hide the tab bar.
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'always'
+c.tabs.show = 'switching'
 
 c.tabs.show_switching_delay = 1500
 
