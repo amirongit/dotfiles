@@ -34,7 +34,7 @@ c.colors.completion.odd.bg = base00
 
 c.colors.completion.scrollbar.bg = base00
 
-c.colors.completion.scrollbar.fg = base05
+c.colors.completion.scrollbar.fg = base00
 
 c.colors.contextmenu.menu.bg = base00
 
@@ -206,7 +206,7 @@ c.completion.quick = True
 
 c.completion.scrollbar.padding = 0
 
-c.completion.scrollbar.width = 8
+c.completion.scrollbar.width = 0
 
 c.completion.show = 'always'
 
@@ -558,7 +558,7 @@ c.tabs.select_on_remove = 'last-used'
 #   - never: Always hide the tab bar.
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'switching'
+c.tabs.show = 'multiple'
 
 c.tabs.show_switching_delay = 1500
 
