@@ -180,11 +180,11 @@ c.colors.tabs.pinned.selected.odd.bg = base05
 
 c.colors.tabs.pinned.selected.odd.fg = base0E
 
-c.colors.tabs.selected.even.bg = base0E
+c.colors.tabs.selected.even.bg = base02
 
 c.colors.tabs.selected.even.fg = base00
 
-c.colors.tabs.selected.odd.bg = base0E
+c.colors.tabs.selected.odd.bg = base02
 
 c.colors.tabs.selected.odd.fg = base00
 
