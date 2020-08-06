@@ -145,8 +145,8 @@ nnoremap <leader>pas  :set paste<CR>
 " toggle searching highlight
 nnoremap <leader>hls  :set hlsearch!<CR>
 " execute active buffer code
-autocmd FileType python map <buffer> <leader>run  :w<CR>:exec '!clear && python' shellescape(@%, 1)<CR>
-autocmd FileType javascript map <buffer> <leader>run  :w<CR>:exec '!clear && node' shellescape(@%, 1)<CR>
+autocmd FileType python map <buffer> <leader>run  :w<CR>:exec '!clear; /usr/bin/time -f "\n\%C : \%e" python' shellescape(@%, 1)<cr>
+autocmd FileType javascript map <buffer> <leader>run  :w<CR>:exec '!clear; /usr/bin/time -f "\n\%C : \%e" node' shellescape(@%, 1)<cr>
 " options
 " relative line numbers
 set number relativenumber
