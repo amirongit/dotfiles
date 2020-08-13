@@ -139,7 +139,7 @@ nnoremap <leader>vex  :Vexplore<CR>
 " file explorer in new tab
 nnoremap <leader>tex  :Texplore<CR>
 " file explorer in active window
-nnoremap <leader>exp  :Explore
+nnoremap <leader>exp  :Explore<CR>
 " opened files history
 nnoremap <leader>pas  :set paste<CR>
 " toggle searching highlight
@@ -190,7 +190,7 @@ set laststatus=2
 " enable syntax highlighting
 syntax on
 " setting colorscheme
-colorscheme base16-circus
+colorscheme base16-default-dark
 
 " BASE 16 - VIM
 " variables
