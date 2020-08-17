@@ -177,13 +177,7 @@ set foldmethod=indent
 " set vim to fold only 2 levels of indents
 set foldnestmax=2
 " disable folding when I open vim
-set nofoldenable
-" avoid shitty messages to display under status bar
-set noshowmode
-" again
-set noshowcmd
-" and again
-set shortmess+=F
+" set nofoldenable
 " force status bar to show
 set laststatus=2
 " colors
