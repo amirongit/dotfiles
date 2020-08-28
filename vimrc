@@ -98,6 +98,8 @@ let g:TerminusCursorShape=0
 " variables
 " indent guid char (IndentLine)
 let g:indentLine_char='┆'
+" toggle indentline
+nnoremap <leader>ind  :IndentLinesToggle<CR>
 
 " FZF.VIM
 " keymaps
@@ -184,7 +186,7 @@ set laststatus=2
 " enable syntax highlighting
 syntax on
 " setting colorscheme
-colorscheme base16-default-dark
+colorscheme base16-chalk
 
 " BASE 16 - VIM
 " variables
