@@ -1,0 +1,22 @@
+[options]
+
+allow_bold = false
+audible_bell = true
+browser = xdg-open
+clickable_url = true
+cursor_blink = true
+cursor_shape = Block
+dynamic_title = true
+filter_unmatched_urls = true
+font = mononoki 12
+geometry = 480x280
+icon_name = terminal
+modify_other_keys = false
+mouse_autohide = false
+scroll_on_output = false
+scroll_on_keystroke = true
+scrollback_lines = 15000
+size_hints = false
+search_wrap = true
+urgent_on_bell = true
+
