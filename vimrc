@@ -8,6 +8,8 @@ Plug 'wincent/terminus'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 Plug 'chriskempson/base16-vim'
+Plug 'jaredgorski/spacecamp'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
 " ALE
@@ -79,11 +81,13 @@ let g:completor_python_binary='/usr/bin/python'
 let g:completor_clang_binary='/usr/bin/clang'
 " completor options
 let g:completor_complete_options='menuone,noselect,preview'
+"
+let g:completor_def_split='tab'
 " keymaps
 " docstring or docs for a function
 noremap  <leader>doc  :call completor#do('doc')<CR>
 " jump to defenition of a function
-nnoremap <leader>def  :set hidden<CR>:call completor#do('definition')<CR>
+nnoremap <leader>def  :call completor#do('definition')<CR>
 " moving between auto completion suggestions with Tab and Shift Tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -96,8 +100,12 @@ let g:TerminusCursorShape=0
 
 " INDENTLINE
 " variables
-" indent guid char (IndentLine)
+" indent guid char
 let g:indentLine_char='┆'
+" enable showing leading spaces
+" let g:indentLine_leadingSpaceEnabled=1
+" leading spaces char
+" let g:indentLine_leadingSpaceChar='·'
 " toggle indentline
 nnoremap <leader>ind  :IndentLinesToggle<CR>
 
@@ -134,6 +142,8 @@ nnoremap K          <NOP>
 " move to left or right tab
 nnoremap H          gT
 nnoremap L          gt
+" toggle rtl mode
+nnoremap <leader>rtl  :set rl!<CR>
 " file explorer in horizental split
 nnoremap <leader>sex  :Sexplore<CR>
 " file explorer in vertical split
@@ -149,6 +159,7 @@ nnoremap <leader>hls  :set hlsearch!<CR>
 " execute active buffer code
 autocmd FileType python map <buffer> <leader>run  :w<CR>:exec '!clear; /usr/bin/time -f "\n\%C : \%e" python' shellescape(@%, 1)<cr>
 autocmd FileType javascript map <buffer> <leader>run  :w<CR>:exec '!clear; /usr/bin/time -f "\n\%C : \%e" node' shellescape(@%, 1)<cr>
+autocmd FileType sh map <buffer> <leader>run  :w<CR>:exec '!clear; /usr/bin/time -f "\n\%C : \%e" bash' shellescape(@%, 1)<cr>
 " options
 " relative line numbers
 set number relativenumber
@@ -168,44 +179,37 @@ set shiftwidth=4
 set background=dark
 " ignore case sensetivity when searching
 set ignorecase
+" highlight when I start searching
+set incsearch
 " Avoid swap files
 set noswapfile
 " encoding method
 set encoding=utf-8
 " force vim to use 256 based colors
 set t_Co=256
-" enable code foldin
+" enable code folding
 set foldmethod=indent
 " set vim to fold only 2 levels of indents
-set foldnestmax=2
+" set foldnestmax=2
 " disable folding when I open vim
-" set nofoldenable
+set nofoldenable
 " force status bar to show
 set laststatus=2
+"disable menu bar
+set guioptions-=m
+"disable toolbar
+set guioptions-=T
+"disable scrollbar
+set guioptions-=r
 " colors
 " enable syntax highlighting
 syntax on
-" setting colorscheme
-colorscheme base16-chalk
-
-" BASE 16 - VIM
-" variables
-" remove diffrent background color for line numbers
-highlight LineNr ctermbg=NONE
-" customize bg and fg color for visual mode
-highlight Visual ctermbg=blue ctermfg = black
-" change autocomplete menu colors
-highlight Pmenu ctermbg=black
-highlight PmenuSel ctermfg=black
-highlight PmenuSbar ctermbg=NONE ctermfg = NONE
-highlight PmenuThumb ctermfg=NONE ctermbg = NONE
-" disable signColumn color
-highlight SignColumn ctermbg=black guifg = black
-" hide tilde icon for blank lines
-highlight EndOfBuffer ctermfg=bg
 " necessery for base256 colorschemes
 let base16colorspace=256
-
+" setting colorscheme
+colorscheme jellybeans
+" same bg color for gutter
+highlight SignColumn ctermbg=bg
 
 " STATUSBAR
 " so $VIMRUNTIME/syntax/hitest.vim
