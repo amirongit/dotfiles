@@ -210,6 +210,11 @@ let base16colorspace=256
 colorscheme jellybeans
 " same bg color for gutter
 highlight SignColumn ctermbg=bg
+" when openning a file, go to the same line where I left
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
 
 " STATUSBAR
 " so $VIMRUNTIME/syntax/hitest.vim
