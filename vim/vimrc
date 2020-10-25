@@ -1,97 +1,82 @@
 call plug#begin('~/.vim/plugged')
-Plug 'maralla/completor.vim'
-Plug 'dense-analysis/ale'
 Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 Plug 'chriskempson/base16-vim'
 Plug 'jaredgorski/spacecamp'
 Plug 'nanotech/jellybeans.vim'
+Plug 'mhinz/vim-startify'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+" coc-extensions installed
+" coc-git, python, jedi, css, fzf-preview, terminal
 
-" ALE
-" disable sign colors
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-" functions
-" warnings in statusbar
-function! LinterStatus() abort
-    let l:counts=ale#statusline#Count(bufnr(''))
-    let l:all_errors=l:counts.error + l:counts.style_error
-    let l:all_non_errors=l:counts.total - l:all_errors
-    return l:counts.total == 0 ? '[0W 0E]' : printf(
-    \   '[%dW %dE]',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-" variables
-" disable ale on vim start
-let g:ale_lint_on_enter=0
-" linters
-let g:ale_linters={'python': ['pycodestyle'], 'javascript': ['eslint']}
-" ALE fix options
-let g:ale_fixers={'*': ['remove_trailing_lines', 'trim_whitespace']}
-" apply ALE fixers when saving a file
-let g:ale_fix_on_save=1
-" error sign
-let g:ale_sign_error='!'
-" warning sign
-let g:ale_sign_warning='?'
-" message format
-let g:ale_echo_msg_format='[%linter%] %s [%severity%]'
-" enable linting while typing
-let g:ale_lint_on_text_changed=1
-
-" GITGUTTER
-" reduce updatetime
-set updatetime=100
-" functions
-" modified, removed or added lines in statusbar
-function! GitStatus()
-    let [a,m,r]=GitGutterGetHunkSummary()
-    return printf('[+%d ~%d -%d]', a, m, r)
-endfunction
-" variables
-" add sign for git gutter
-let g:gitgutter_sign_added='+'
-" modified sign for git gutter
-let g:gitgutter_sign_modified='~'
-let g:gitgutter_sign_modified_removed='~'
-" removed sign for gitgutter
-let g:gitgutter_sign_removed='-'
-let g:gitgutter_sign_removed_first_line='-'
-" disable git gutter key maps
-let g:gitgutter_map_keys=0
-" avoid git gutter to change sign column bg colors
-let g:gitgutter_set_sign_backgrounds=1
-
-" COMPLETOR
-" open preview windows in bottom
-set splitbelow
-" variables
-" node with tern installed
-let g:completor_node_binary='/usr/bin/node'
-" python interpreter with jedi installed on it
-let g:completor_python_binary='/usr/bin/python'
-" path to clang binary
-let g:completor_clang_binary='/usr/bin/clang'
-" completor options
-let g:completor_complete_options='menuone,noselect,preview'
-"
-let g:completor_def_split='tab'
+" coc.vim
+" coc needs these settings
+set nobackup
+set nowritebackup
+set cmdheight=2
 " keymaps
-" docstring or docs for a function
-noremap  <leader>doc  :call completor#do('doc')<CR>
-" jump to defenition of a function
-nnoremap <leader>def  :call completor#do('definition')<CR>
-" moving between auto completion suggestions with Tab and Shift Tab
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
+" use tab to trigger auto complete
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" jump to defenition
+nmap <leader>def :call CocAction('jumpDefinition')<CR>
+" show refrence
+nmap <leader>ref <Plug>(coc-references)
+" show documentation
+nnoremap <leader>doc :call <SID>show_documentation()<CR>
+" run coc actions
+nmap <leader>act <Plug>(coc-codeaction)
+" rename a symbol
+nmap <leader>ren <Plug>(coc-rename)
+" run buffers code in vs terminal
+nmap <leader>run  :CocCommand python.execInTerminal<CR>
+" open a REPL
+nmap <leader>she  :CocCommand terminal.REPL<CR>
+" toggle terminal
+nmap <leader>ter  <Plug>(coc-terminal-toggle)
+" functions
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" needed for showing document keymap
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+" get the linter's result in statusline
+function! StatusDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, 'E' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, 'W' . info['warning'])
+  endif
+  return join(msgs, '0') . ' ' . get(g:, 'coc_status', '')
+endfunction
+" variables
+" customize error and warning signs
+let g:coc_status_error_sign = 'E'
+let g:coc_status_warning_sign = 'W' 
+" customize git signs
+" options
+" show previews in bottom
+set splitbelow
 
 " TERMINUS
 " variables
@@ -106,6 +91,7 @@ let g:indentLine_char='┆'
 " let g:indentLine_leadingSpaceEnabled=1
 " leading spaces char
 " let g:indentLine_leadingSpaceChar='·'
+" keymaps
 " toggle indentline
 nnoremap <leader>ind  :IndentLinesToggle<CR>
 
@@ -124,6 +110,38 @@ nnoremap <leader>tag  :Tags!<CR>
 " commits
 nnoremap <leader>com  :Commits!<CR>
 
+" VIM-STARTIFY
+" functions
+" get modified files in git
+function! s:gitModified()
+    let files = systemlist('git ls-files -m 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+" get untracked files in git
+function! s:gitUntracked()
+    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+" variables
+" limit the number of shown files in startify
+let g:startify_files_number = 4
+" customizing startify's header
+" let g:startify_custom_header = 'startify#pad(startify#fortune#quote())'
+let g:ascii = [
+      \ '           __',
+      \ '   .--.--.|__|.--------.',
+      \ '   |  |  ||  ||        |',
+      \ '    \___/ |__||__|__|__|',
+      \ '   '
+      \]
+let g:startify_custom_header = g:ascii
+" startify appearance
+let g:startify_lists = [
+        \ { 'type': 'files',     'header': ['    Recent Files']            },
+        \ { 'type': function('s:gitModified'),  'header': ['    Git Modified Files ']},
+        \ { 'type': function('s:gitUntracked'), 'header': ['    Git Untracked Files']},
+        \ ]
+
 " GLOBAL
 " keymaps
 " swap selected lines above or under
@@ -135,7 +153,6 @@ nnoremap <Up>     :resize -2<CR>
 nnoremap <Left>   :vertical resize +2<CR>
 nnoremap <Right>  :vertical resize -2<CR>
 " disable these keys
-nnoremap q          <NOP>
 nnoremap Q          <NOP>
 nnoremap J          <NOP>
 nnoremap K          <NOP>
@@ -156,10 +173,6 @@ nnoremap <leader>exp  :Explore<CR>
 nnoremap <leader>pas  :set paste<CR>
 " toggle searching highlight
 nnoremap <leader>hls  :set hlsearch!<CR>
-" execute active buffer code
-autocmd FileType python map <buffer> <leader>run  :w<CR>:exec '!clear; /usr/bin/time -f "\n\%C : \%e" python' shellescape(@%, 1)<cr>
-autocmd FileType javascript map <buffer> <leader>run  :w<CR>:exec '!clear; /usr/bin/time -f "\n\%C : \%e" node' shellescape(@%, 1)<cr>
-autocmd FileType sh map <buffer> <leader>run  :w<CR>:exec '!clear; /usr/bin/time -f "\n\%C : \%e" bash' shellescape(@%, 1)<cr>
 " options
 " relative line numbers
 set number relativenumber
@@ -201,6 +214,8 @@ set guioptions-=m
 set guioptions-=T
 "disable scrollbar
 set guioptions-=r
+" merge sign column and number column
+set signcolumn=number
 " colors
 " enable syntax highlighting
 syntax on
@@ -208,7 +223,7 @@ syntax on
 let base16colorspace=256
 " setting colorscheme
 colorscheme jellybeans
-" same bg color for gutter
+" same bg color for signcolumn
 highlight SignColumn ctermbg=bg
 " when openning a file, go to the same line where I left
 if has("autocmd")
@@ -236,7 +251,7 @@ set statusline +=%#Title#
 set statusline +=\[%v]
 " file type
 set statusline +=\[%Y]
-" call LinterStatus func
-set statusline +=%{LinterStatus()}
-" call GitStatus func
-set statusline +=%{GitStatus()}
+" linters status
+set statusline +=[%{StatusDiagnostic()}]
+" git status
+set statusline +=[%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}]
