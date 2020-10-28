@@ -1,13 +1,10 @@
 {
-  "python.linting.enabled": true,
   "coc.preferences.jumpCommand": "tab drop",
   "coc.preferences.hoverTarget": "preview",
   "suggest.floatEnable": false,
   "suggest.previewEnable": true,
   "signature.target": "preview",
   "diagnostic.messageTarget": "echo",
-  "python.linting.pylintEnabled": false,
-  "python.linting.pep8Enabled": true,
   "diagnostic.errorSign": "e",
   "diagnostic.warningSign": "w",
   "diagnostic.infoSign": "I",
@@ -21,5 +18,15 @@
   "git.addedSign.text": "a",
   "git.removedSign.text": "r",
   "git.topRemovedSign.text": "r",
-  "git.changeRemovedSign.text": "c"
+  "git.changeRemovedSign.text": "c",
+  "python.linting.enabled": true,
+  "python.linting.pep8Enabled": true,
+  "python.venvPath": "/home/amir/Dev/VirtualEnvironments",
+  "python.pythonPath": "/sbin/python",
+  "reportMissingImports": false,
+  "pythonVersion": "3.8",
+  "suggest.enablePreview": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "pyright.disableLanguageServices": false
 }

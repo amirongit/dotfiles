@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
-Plug 'wincent/terminus'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 Plug 'chriskempson/base16-vim'
@@ -10,11 +9,11 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-" coc-extensions installed
-" coc-git, python, jedi, css, fzf-preview, terminal
+" coc extensions
+" git, css, pyright, marketplace, html, fzf-preview, terminal
 
-" coc.vim
-" coc needs these settings
+" coc.nvim
+" needed settings for coc
 set nobackup
 set nowritebackup
 set cmdheight=2
@@ -41,6 +40,8 @@ nmap <leader>run  :CocCommand python.execInTerminal<CR>
 nmap <leader>she  :CocCommand terminal.REPL<CR>
 " toggle terminal
 nmap <leader>ter  <Plug>(coc-terminal-toggle)
+" select python interpreter
+nmap <leader>pin  :CocCommand python.setInterpreter<CR>
 " functions
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -78,22 +79,40 @@ let g:coc_status_warning_sign = 'W'
 " show previews in bottom
 set splitbelow
 
-" TERMINUS
+" STARTIFY
+" functions
+" returns all modified files of the current git repo
+" `2>/dev/null` makes the command fail quietly, so that when we are not
+" in a git repo, the list will be empty
+function! s:gitModified()
+    let files = systemlist('git ls-files -m 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+" same as above, but show untracked files, honouring .gitignore
+function! s:gitUntracked()
+    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
 " variables
-" disable cursor shape changing in modes (Terminus)
-let g:TerminusCursorShape=0
-
-" INDENTLINE
-" variables
-" indent guid char
-let g:indentLine_char='┆'
-" enable showing leading spaces
-" let g:indentLine_leadingSpaceEnabled=1
-" leading spaces char
-" let g:indentLine_leadingSpaceChar='·'
-" keymaps
-" toggle indentline
-nnoremap <leader>ind  :IndentLinesToggle<CR>
+" custom ascii art for header
+let g:ascii = [
+      \ '            __',
+      \ '    .--.--.|__|.--------.',
+      \ '    |  |  ||  ||        |',
+      \ '     \___/ |__||__|__|__|',
+      \ '    '
+      \]
+" custom header
+let g:startify_custom_header = g:ascii
+" startify appearance
+let g:startify_lists = [
+        \ { 'type': 'files',     'header': ['    Most Recent Files']            },
+        \ { 'type': 'dir',       'header': ['    Most Recent Files in '. getcwd()] },
+        \ { 'type': function('s:gitModified'),  'header': ['    Modified Files In Git Repo']},
+        \ { 'type': function('s:gitUntracked'), 'header': ['    Untracked Files In Git Repo']},
+        \ ]
+" limt number of files shown
+let g:startify_files_number=5
 
 " FZF.VIM
 " keymaps
@@ -110,38 +129,6 @@ nnoremap <leader>tag  :Tags!<CR>
 " commits
 nnoremap <leader>com  :Commits!<CR>
 
-" VIM-STARTIFY
-" functions
-" get modified files in git
-function! s:gitModified()
-    let files = systemlist('git ls-files -m 2>/dev/null')
-    return map(files, "{'line': v:val, 'path': v:val}")
-endfunction
-" get untracked files in git
-function! s:gitUntracked()
-    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
-    return map(files, "{'line': v:val, 'path': v:val}")
-endfunction
-" variables
-" limit the number of shown files in startify
-let g:startify_files_number = 4
-" customizing startify's header
-" let g:startify_custom_header = 'startify#pad(startify#fortune#quote())'
-let g:ascii = [
-      \ '           __',
-      \ '   .--.--.|__|.--------.',
-      \ '   |  |  ||  ||        |',
-      \ '    \___/ |__||__|__|__|',
-      \ '   '
-      \]
-let g:startify_custom_header = g:ascii
-" startify appearance
-let g:startify_lists = [
-        \ { 'type': 'files',     'header': ['    Recent Files']            },
-        \ { 'type': function('s:gitModified'),  'header': ['    Git Modified Files ']},
-        \ { 'type': function('s:gitUntracked'), 'header': ['    Git Untracked Files']},
-        \ ]
-
 " GLOBAL
 " keymaps
 " swap selected lines above or under
@@ -153,6 +140,7 @@ nnoremap <Up>     :resize -2<CR>
 nnoremap <Left>   :vertical resize +2<CR>
 nnoremap <Right>  :vertical resize -2<CR>
 " disable these keys
+nnoremap q          <NOP>
 nnoremap Q          <NOP>
 nnoremap J          <NOP>
 nnoremap K          <NOP>
@@ -214,17 +202,18 @@ set guioptions-=m
 set guioptions-=T
 "disable scrollbar
 set guioptions-=r
-" merge sign column and number column
-set signcolumn=number
+" make SignColumn visible
+set signcolumn=yes
 " colors
 " enable syntax highlighting
 syntax on
 " necessery for base256 colorschemes
-let base16colorspace=256
+" let base16colorspace=256
 " setting colorscheme
 colorscheme jellybeans
-" same bg color for signcolumn
-highlight SignColumn ctermbg=bg
+" same bg color for gutter
+highlight clear SignColumn
+highlight clear LineNr
 " when openning a file, go to the same line where I left
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -236,22 +225,22 @@ endif
 " run above command and choose a color from the generated file
 set statusline +=%#String#
 " mode
-set statusline +=\[%{mode()}]
+set statusline +=\ %{mode()}
 " file path
-set statusline +=\[%F]
+set statusline +=\ %F
 " readonly flag
-set statusline +=\%r
+set statusline +=\ %r
 " modified flag
-set statusline +=\%m
+set statusline +=\ %m
 " second half (right side)
 set statusline +=%=
 " second half color
 set statusline +=%#Title#
 " column number
-set statusline +=\[%v]
+set statusline +=\ %v
 " file type
-set statusline +=\[%Y]
+set statusline +=\ %Y
 " linters status
-set statusline +=[%{StatusDiagnostic()}]
+set statusline +=\ %{StatusDiagnostic()}
 " git status
-set statusline +=[%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}]
+set statusline +=\ %{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
