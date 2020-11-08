@@ -10,7 +10,7 @@ Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 " coc extensions
-" git, css, pyright, marketplace, html, fzf-preview, terminal
+" git, css, pyright, marketplace, html, terminal
 
 " coc.nvim
 " needed settings for coc
@@ -25,23 +25,19 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " jump to defenition
-nmap <leader>def :call CocAction('jumpDefinition')<CR>
+nmap <silent><leader>def :call CocAction('jumpDefinition')<CR>
 " show refrence
-nmap <leader>ref <Plug>(coc-references)
+nmap <silent><leader>ref <Plug>(coc-references)
 " show documentation
-nnoremap <leader>doc :call <SID>show_documentation()<CR>
+nnoremap <silent><leader>doc :call <SID>show_documentation()<CR>
 " run coc actions
-nmap <leader>act <Plug>(coc-codeaction)
+nmap <silent><leader>act <Plug>(coc-codeaction)
 " rename a symbol
-nmap <leader>ren <Plug>(coc-rename)
-" run buffers code in vs terminal
-nmap <leader>run  :CocCommand python.execInTerminal<CR>
+nmap <silent><leader>ren <Plug>(coc-rename)
 " open a REPL
-nmap <leader>she  :CocCommand terminal.REPL<CR>
+nmap <silent><leader>she  :CocCommand terminal.REPL<CR>
 " toggle terminal
-nmap <leader>ter  <Plug>(coc-terminal-toggle)
-" select python interpreter
-nmap <leader>pin  :CocCommand python.setInterpreter<CR>
+nmap <silent><leader>ter  <Plug>(coc-terminal-toggle)
 " functions
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -74,7 +70,6 @@ endfunction
 " customize error and warning signs
 let g:coc_status_error_sign = 'E'
 let g:coc_status_warning_sign = 'W' 
-" customize git signs
 " options
 " show previews in bottom
 set splitbelow
@@ -117,30 +112,29 @@ let g:startify_files_number=5
 " FZF.VIM
 " keymaps
 " recently opened files
-nnoremap <leader>his  :History!<CR>
+nnoremap <silent><leader>his  :History!<CR>
 " files tracking by git
-nnoremap <leader>gfi  :GFiles!<CR>
+nnoremap <silent><leader>gfi  :GFiles!<CR>
 " git status
-nnoremap <leader>sta  :GFiles!?<CR>
+nnoremap <silent><leader>sta  :GFiles!?<CR>
 " lines of all buffers
-nnoremap <leader>lin  :Lines!<CR>
+nnoremap <silent><leader>lin  :Lines!<CR>
 " tags
-nnoremap <leader>tag  :Tags!<CR>
+nnoremap <silent><leader>tag  :Tags!<CR>
 " commits
-nnoremap <leader>com  :Commits!<CR>
+nnoremap <silent><leader>com  :Commits!<CR>
 
 " GLOBAL
 " keymaps
 " swap selected lines above or under
-xnoremap K          :move '<-2<CR>gv-gv
-xnoremap J          :move '>+1<CR>gv-gv
+xnoremap <silent>K          :move '<-2<CR>gv-gv
+xnoremap <silent>J          :move '>+1<CR>gv-gv
 " resize windows
-nnoremap <Down>   :resize +2<CR>
-nnoremap <Up>     :resize -2<CR>
-nnoremap <Left>   :vertical resize +2<CR>
-nnoremap <Right>  :vertical resize -2<CR>
+nnoremap <silent><Down>   :resize +2<CR>
+nnoremap <silent><Up>     :resize -2<CR>
+nnoremap <silent><Left>   :vertical resize +2<CR>
+nnoremap <silent><Right>  :vertical resize -2<CR>
 " disable these keys
-nnoremap q          <NOP>
 nnoremap Q          <NOP>
 nnoremap J          <NOP>
 nnoremap K          <NOP>
@@ -148,19 +142,19 @@ nnoremap K          <NOP>
 nnoremap H          gT
 nnoremap L          gt
 " toggle rtl mode
-nnoremap <leader>rtl  :set rl!<CR>
+nnoremap <silent><leader>rtl  :set rl!<CR>
 " file explorer in horizental split
-nnoremap <leader>sex  :Sexplore<CR>
+nnoremap <silent><leader>sex  :Sexplore<CR>
 " file explorer in vertical split
-nnoremap <leader>vex  :Vexplore<CR>
+nnoremap <silent><leader>vex  :Vexplore<CR>
 " file explorer in new tab
-nnoremap <leader>tex  :Texplore<CR>
+nnoremap <silent><leader>tex  :Texplore<CR>
 " file explorer in active window
-nnoremap <leader>exp  :Explore<CR>
+nnoremap <silent><leader>exp  :Explore<CR>
 " opened files history
-nnoremap <leader>pas  :set paste<CR>
+nnoremap <silent><leader>pas  :set paste<CR>
 " toggle searching highlight
-nnoremap <leader>hls  :set hlsearch!<CR>
+nnoremap <silent><leader>hls  :set hlsearch!<CR>
 " options
 " relative line numbers
 set number relativenumber

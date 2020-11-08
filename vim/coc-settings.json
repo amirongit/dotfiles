@@ -22,11 +22,12 @@
   "python.linting.enabled": true,
   "python.linting.pep8Enabled": true,
   "python.venvPath": "/home/amir/Dev/VirtualEnvironments",
-  "python.pythonPath": "/sbin/python",
   "reportMissingImports": false,
   "pythonVersion": "3.8",
   "suggest.enablePreview": true,
   "diagnostic.virtualText": true,
-  "diagnostic.virtualTextCurrentLineOnly": false,
-  "pyright.disableLanguageServices": false
+  "diagnostic.virtualTextCurrentLineOnly": true,
+  "pyright.disableLanguageServices": false,
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Path": "/home/amir/.local/bin/autopep8"
 }
