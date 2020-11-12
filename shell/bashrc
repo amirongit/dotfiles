@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export PATH=$PATH:~/.local/bin
+export VENV=/home/amir/Dev/VirtualEnvironments
 
 case $- in
   *i*) ;;
@@ -19,5 +20,3 @@ alias XLANG='setxkbmap -option grp:alt_shift_toggle us,ir'
 alias VPN='sudo python -m protonvpn_cli'
 alias EJECT='udisksctl power-off'
 alias vi='vim'
-
-
