@@ -7,72 +7,101 @@ Plug 'chriskempson/base16-vim'
 Plug 'jaredgorski/spacecamp'
 Plug 'nanotech/jellybeans.vim'
 Plug 'mhinz/vim-startify'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
+Plug 'dense-analysis/ale'
+Plug 'maralla/completor.vim'
 call plug#end()
-" coc extensions
-" git, css, pyright, marketplace, html, terminal
 
-" coc.nvim
-" needed settings for coc
-set nobackup
-set nowritebackup
-set cmdheight=2
-" keymaps
-" use tab to trigger auto complete
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" jump to defenition
-nmap <silent><leader>def :call CocAction('jumpDefinition')<CR>
-" show refrence
-nmap <silent><leader>ref <Plug>(coc-references)
-" show documentation
-nnoremap <silent><leader>doc :call <SID>show_documentation()<CR>
-" run coc actions
-nmap <silent><leader>act <Plug>(coc-codeaction)
-" rename a symbol
-nmap <silent><leader>ren <Plug>(coc-rename)
-" open a REPL
-nmap <silent><leader>she  :CocCommand terminal.REPL<CR>
-" toggle terminal
-nmap <silent><leader>ter  <Plug>(coc-terminal-toggle)
+" ALE
+" disable sign colors
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 " functions
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-" needed for showing document keymap
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-" get the linter's result in statusline
-function! StatusDiagnostic() abort
-  let info = get(b:, 'coc_diagnostic_info', {})
-  if empty(info) | return '' | endif
-  let msgs = []
-  if get(info, 'error', 0)
-    call add(msgs, 'E' . info['error'])
-  endif
-  if get(info, 'warning', 0)
-    call add(msgs, 'W' . info['warning'])
-  endif
-  return join(msgs, '0') . ' ' . get(g:, 'coc_status', '')
+" warnings in statusbar
+function! LinterStatus() abort
+    let l:counts=ale#statusline#Count(bufnr(''))
+    let l:all_errors=l:counts.error + l:counts.style_error
+    let l:all_non_errors=l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '[0W 0E]' : printf(
+    \   '[%dW %dE]',
+    \   all_non_errors,
+    \   all_errors
+    \)
 endfunction
 " variables
-" customize error and warning signs
-let g:coc_status_error_sign = 'E'
-let g:coc_status_warning_sign = 'W' 
-" options
-" show previews in bottom
+" disable ale on vim start
+let g:ale_lint_on_enter=0
+" linters
+let g:ale_linters={'python': ['pycodestyle'], 'javascript': ['eslint']}
+" ALE fix options
+let g:ale_fixers={'*': ['remove_trailing_lines', 'trim_whitespace']}
+" apply ALE fixers when saving a file
+let g:ale_fix_on_save=1
+" error sign
+let g:ale_sign_error='!'
+" warning sign
+let g:ale_sign_warning='?'
+" message format
+let g:ale_echo_msg_format='[%linter%] %s [%severity%]'
+" enable linting while typing
+let g:ale_lint_on_text_changed=1
+
+" GITGUTTER
+" reduce updatetime
+set updatetime=100
+" functions
+" modified, removed or added lines in statusbar
+function! GitStatus()
+    let [a,m,r]=GitGutterGetHunkSummary()
+    return printf('[+%d ~%d -%d]', a, m, r)
+endfunction
+" variables
+" add sign for git gutter
+let g:gitgutter_sign_added='+'
+" modified sign for git gutter
+let g:gitgutter_sign_modified='~'
+let g:gitgutter_sign_modified_removed='~'
+" removed sign for gitgutter
+let g:gitgutter_sign_removed='-'
+let g:gitgutter_sign_removed_first_line='-'
+" disable git gutter key maps
+let g:gitgutter_map_keys=0
+" avoid git gutter to change sign column bg colors
+let g:gitgutter_set_sign_backgrounds=1
+
+" COMPLETOR
+" open preview windows in bottom
 set splitbelow
+" variables
+" define lsp dict
+let g:completor_filetype_map = {}
+" python interpreter with jedi installed on it
+let g:completor_python_binary='/usr/bin/python'
+" enable LSP for python
+let g:completor_filetype_map.go = {'ft': 'lsp','cmd': 'pyls'}
+" completor options
+let g:completor_complete_options='menuone,noselect,preview'
+" keymaps
+" docstring or docs for a function
+noremap  <leader>doc  :call completor#do('doc')<CR>
+" jump to defenition of a function
+nnoremap <leader>def  :call completor#do('definition')<CR>
+" open definition in a new tab
+let g:completor_def_split = 'tab'
+" moving between auto completion suggestions with Tab and Shift Tab
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+
+" INDENTLINE
+" variables
+" indent guid char
+let g:indentLine_char='┊'
+" enable showing leading spaces
+let g:indentLine_leadingSpaceEnabled=1
+" leading spaces char
+let g:indentLine_leadingSpaceChar='·'
+
 
 " STARTIFY
 " functions
@@ -143,6 +172,8 @@ nnoremap H          gT
 nnoremap L          gt
 " toggle rtl mode
 nnoremap <silent><leader>rtl  :set rl!<CR>
+" open a terminal tab
+nnoremap <silent><leader>ter  :tab term<CR>
 " file explorer in horizental split
 nnoremap <silent><leader>sex  :Sexplore<CR>
 " file explorer in vertical split
@@ -155,7 +186,13 @@ nnoremap <silent><leader>exp  :Explore<CR>
 nnoremap <silent><leader>pas  :set paste<CR>
 " toggle searching highlight
 nnoremap <silent><leader>hls  :set hlsearch!<CR>
+" execute active buffer code
+autocmd FileType python map <buffer> <leader>run  :w<CR>:exec '!clear && python' shellescape(@%, 1)<CR>
+autocmd FileType javascript map <buffer> <leader>run  :w<CR>:exec '!clear && node' shellescape(@%, 1)<CR>
 " options
+" display EOL
+set listchars=eol:$,trail:⋅
+set list
 " relative line numbers
 set number relativenumber
 " always show the 3 lines bottom of cursor
@@ -184,8 +221,6 @@ set encoding=utf-8
 set t_Co=256
 " enable code folding
 set foldmethod=indent
-" set vim to fold only 2 levels of indents
-" set foldnestmax=2
 " disable folding when I open vim
 set nofoldenable
 " force status bar to show
@@ -204,7 +239,7 @@ syntax on
 " necessery for base256 colorschemes
 " let base16colorspace=256
 " setting colorscheme
-colorscheme jellybeans
+colorscheme base16-default-dark
 " same bg color for gutter
 highlight clear SignColumn
 highlight clear LineNr
@@ -214,27 +249,28 @@ if has("autocmd")
     \| exe "normal! g'\"" | endif
 endif
 
+
 " STATUSBAR
 " so $VIMRUNTIME/syntax/hitest.vim
 " run above command and choose a color from the generated file
 set statusline +=%#String#
 " mode
-set statusline +=\ %{mode()}
+set statusline +=\[%{mode()}]
 " file path
-set statusline +=\ %F
+set statusline +=\[%F]
 " readonly flag
-set statusline +=\ %r
+set statusline +=\%r
 " modified flag
-set statusline +=\ %m
+set statusline +=\%m
 " second half (right side)
 set statusline +=%=
 " second half color
 set statusline +=%#Title#
 " column number
-set statusline +=\ %v
+set statusline +=\[%v]
 " file type
-set statusline +=\ %Y
-" linters status
-set statusline +=\ %{StatusDiagnostic()}
-" git status
-set statusline +=\ %{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
+set statusline +=\[%Y]
+" call LinterStatus func
+set statusline +=%{LinterStatus()}
+" call GitStatus func
+set statusline +=%{GitStatus()}
