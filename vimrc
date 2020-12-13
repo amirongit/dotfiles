@@ -1,8 +1,8 @@
 call plug#begin('~/.vim/plugged')
 Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf'
 Plug 'chriskempson/base16-vim'
 Plug 'jaredgorski/spacecamp'
 Plug 'nanotech/jellybeans.vim'
