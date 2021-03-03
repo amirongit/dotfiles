@@ -7,6 +7,9 @@ Plug 'jaredgorski/spacecamp'
 Plug 'nanotech/jellybeans.vim'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim'
+Plug 'tomasiser/vim-code-dark'
+Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " coc.nvim
@@ -211,21 +214,23 @@ set guioptions-=T
 set guioptions-=r
 " make SignColumn visible
 set signcolumn=yes
-" colors
-" enable syntax highlighting
-syntax on
-" necessery for base256 colorschemes
-" let base16colorspace=256
-" setting colorscheme
-colorscheme jellybeans
-" same bg color for gutter
-highlight clear SignColumn
-highlight clear LineNr
 " when openning a file, go to the same line where I left
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
 endif
+" colors
+" enable syntax highlighting
+syntax on
+" more colors for codedark
+let g:codedark_conservative = 1
+" gruvbox contrast
+let g:gruvbox_contrast_dark = 'hard'
+" setting colorscheme
+colorscheme codedark
+" same bg color for gutter
+highlight clear SignColumn
+highlight clear LineNr
 
 
 " STATUSBAR
