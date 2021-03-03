@@ -1,0 +1,23 @@
+{
+  "coc.preferences.jumpCommand": "tab drop",
+  "coc.preferences.hoverTarget": "preview",
+  "suggest.floatEnable": false,
+  "signature.target": "echo",
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.errorSign": "e",
+  "diagnostic.warningSign": "w",
+  "diagnostic.infoSign": "I",
+  "diagnostic.hintSign": "H",
+  "git.branchCharacter": "B",
+  "git.changedDecorator": "C",
+  "git.conflictedDecorator": "X",
+  "git.stagedDecorator": "S",
+  "git.untrackedDecorator": "U",
+  "git.changedSign.text": "c",
+  "git.addedSign.text": "a",
+  "git.removedSign.text": "r",
+  "git.topRemovedSign.text": "r",
+  "git.changeRemovedSign.text": "c",
+  "python.venvPath": "/home/amir/Dev/VirtualEnvironments",
+  "python.linting.flake8Enabled": true
+}
