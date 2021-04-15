@@ -10,40 +10,28 @@ Plug 'neoclide/coc.nvim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
-" coc.nvim
-" needed settings for coc
 set nobackup
 set nowritebackup
 set cmdheight=2
-" keymaps
-" use tab to trigger auto complete
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" jump to defenition
 nmap <silent><leader>def :call CocAction('jumpDefinition')<CR>
-" show refrence
 nmap <silent><leader>ref <Plug>(coc-references)
-" show documentation
 nnoremap <silent><leader>doc :call <SID>show_documentation()<CR>
-" run coc actions
 nmap <silent><leader>act <Plug>(coc-codeaction)
-" rename a symbol
 nmap <silent><leader>ren <Plug>(coc-rename)
-" open a REPL
 nmap <silent><leader>she  :CocCommand terminal.REPL<CR>
-" toggle terminal
 nmap <silent><leader>ter  <Plug>(coc-terminal-toggle)
-" functions
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-" needed for showing document keymap
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -53,7 +41,6 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-" get the linter's result in statusline
 function! StatusDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
   if empty(info) | return '' | endif
@@ -66,38 +53,23 @@ function! StatusDiagnostic() abort
   endif
   return join(msgs, '0') . ' ' . get(g:, 'coc_status', '')
 endfunction
-" variables
-" customize error and warning signs
 let g:coc_status_error_sign = 'E'
 let g:coc_status_warning_sign = 'W'
 
-" INDENTLINE
-" variables
-" indent guid char
 " ['|', '¦', '┆', '┊']
-let g:indentLine_char='¦'
-" enable showing leading spaces
-let g:indentLine_leadingSpaceEnabled=1
-" leading spaces char
-let g:indentLine_leadingSpaceChar='·'
+let g:indentLine_char='┊'
+" let g:indentLine_leadingSpaceEnabled=1
+" let g:indentLine_leadingSpaceChar='·'
 
 
-" STARTIFY
-" functions
-" returns all modified files of the current git repo
-" `2>/dev/null` makes the command fail quietly, so that when we are not
-" in a git repo, the list will be empty
 function! s:gitModified()
     let files = systemlist('git ls-files -m 2>/dev/null')
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
-" same as above, but show untracked files, honouring .gitignore
 function! s:gitUntracked()
     let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
-" variables
-" custom ascii art for header
 let g:ascii = [
       \ '            __',
       \ '    .--.--.|__|.--------.',
@@ -105,155 +77,94 @@ let g:ascii = [
       \ '     \___/ |__||__|__|__|',
       \ '    '
       \]
-" custom header
 let g:startify_custom_header = g:ascii
-" startify appearance
 let g:startify_lists = [
         \ { 'type': 'files',     'header': ['    Most Recent Files']            },
         \ { 'type': 'dir',       'header': ['    Most Recent Files in '. getcwd()] },
         \ { 'type': function('s:gitModified'),  'header': ['    Modified Files In Git Repo']},
         \ { 'type': function('s:gitUntracked'), 'header': ['    Untracked Files In Git Repo']},
         \ ]
-" limt number of files shown
 let g:startify_files_number=5
 
-" FZF.VIM
-" keymaps
-" recently opened files
 nnoremap <silent><leader>his  :History!<CR>
-" files tracking by git
 nnoremap <silent><leader>gfi  :GFiles!<CR>
-" git status
 nnoremap <silent><leader>sta  :GFiles!?<CR>
-" lines of all buffers
 nnoremap <silent><leader>lin  :Lines!<CR>
-" tags
 nnoremap <silent><leader>tag  :Tags!<CR>
-" commits
 nnoremap <silent><leader>com  :Commits!<CR>
 
-" GLOBAL
-" keymaps
-" swap selected lines above or under
 xnoremap <silent>K          :move '<-2<CR>gv-gv
 xnoremap <silent>J          :move '>+1<CR>gv-gv
-" resize windows
 nnoremap <silent><Down>   :resize +2<CR>
 nnoremap <silent><Up>     :resize -2<CR>
 nnoremap <silent><Left>   :vertical resize +2<CR>
 nnoremap <silent><Right>  :vertical resize -2<CR>
-" disable these keys
 nnoremap Q          <NOP>
 nnoremap J          <NOP>
 nnoremap K          <NOP>
-" move to left or right tab
 nnoremap H          gT
 nnoremap L          gt
-" toggle rtl mode
 nnoremap <silent><leader>rtl  :set rl!<CR>
-" open a terminal tab
 nnoremap <silent><leader>ter  :tab term<CR>
-" file explorer in horizental split
 nnoremap <silent><leader>sex  :Sexplore<CR>
-" file explorer in vertical split
 nnoremap <silent><leader>vex  :Vexplore<CR>
-" file explorer in new tab
 nnoremap <silent><leader>tex  :Texplore<CR>
-" file explorer in active window
 nnoremap <silent><leader>exp  :Explore<CR>
-" opened files history
 nnoremap <silent><leader>pas  :set paste<CR>
-" toggle searching highlight
 nnoremap <silent><leader>hls  :set hlsearch!<CR>
-" execute active buffer code
 autocmd FileType python map <buffer> <leader>run  :w<CR>:exec '!clear && python' shellescape(@%, 1)<CR>
 autocmd FileType javascript map <buffer> <leader>run  :w<CR>:exec '!clear && node' shellescape(@%, 1)<CR>
-" options
-" display EOL
 set listchars=eol:$,trail:⋅
 set list
-" relative line numbers
 set number relativenumber
-" always show the 3 lines bottom of cursor
 set scrolloff=3
-" open windows for completors below
 set splitbelow
-" activate vim options
 set nocp
-" set soft tabs to be 4 spaces
 set tabstop=4
-" convert my tabs to spaces
 set expandtab
-" I am once again asking for my tabs to be 4 spaces
 set softtabstop=4
-" set indents to be 4 spaces
 set shiftwidth=4
-" this is required by some colorschemes to be dark
 set background=dark
-" ignore case sensetivity when searching
 set ignorecase
-" highlight when I start searching
 set incsearch
-" Avoid swap files
 set noswapfile
-" encoding method
 set encoding=utf-8
-" force vim to use 256 based colors
 set t_Co=256
-" enable code folding
 set foldmethod=indent
-" disable folding when I open vim
 set nofoldenable
-" force status bar to show
+set noshowmode
+set noshowcmd
+set shortmess+=F
 set laststatus=2
-"disable menu bar
 set guioptions-=m
-"disable toolbar
 set guioptions-=T
-"disable scrollbar
 set guioptions-=r
-" make SignColumn visible
+set guifont=mononoki\ 12
+set guicursor=n-v-c-i:block-Cursor
 set signcolumn=yes
-" when openning a file, go to the same line where I left
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
 endif
-" colors
-" enable syntax highlighting
 syntax on
-" more colors for codedark
+let g:dracula_colorterm = 0
 let g:codedark_conservative = 1
-" gruvbox contrast
 let g:gruvbox_contrast_dark = 'hard'
-" setting colorscheme
-colorscheme codedark
-" same bg color for gutter
+colorscheme dracula
 highlight clear SignColumn
 highlight clear LineNr
+highlight SignColumn guibg=bg
 
 
-" STATUSBAR
 " so $VIMRUNTIME/syntax/hitest.vim
-" run above command and choose a color from the generated file
 set statusline +=%#String#
-" mode
 set statusline +=\[%{mode()}]
-" file path
 set statusline +=\[%F]
-" readonly flag
 set statusline +=\%r
-" modified flag
 set statusline +=\%m
-" second half (right side)
 set statusline +=%=
-" second half color
 set statusline +=%#Title#
-" column number
 set statusline +=\[%v]
-" file type
 set statusline +=\[%Y]
-" linters status
 set statusline +=\ %{StatusDiagnostic()}
-" git status
 set statusline +=\ %{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
