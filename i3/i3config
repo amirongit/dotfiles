@@ -1,53 +1,53 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: mononoki 9
+font pango: PT Mono 9
 
 focus_follows_mouse yes
 #smart_gaps on
 #smart_borders on
-#for_window [class="."] border pixel 2
+for_window [class="."] border pixel 2
 
 new_window normal 0
 new_float normal 0
 
-#gaps inner 5
-#gaps outer 5
+gaps inner 7
+gaps outer 7
 
 #workspace_layout tabbed
 
-set $ActiveBorder       #b0b0b0
-set $ActiveBackGround   #b0b0b0
-set $ActiveText         #181818
+set $ActiveBorder       #d4d4d4
+set $ActiveBackGround   #d4d4d4
+set $ActiveText         #1c1c1c
 
-set $UnFocusedBorder       #252525
-set $UnFocusedBackGround   #252525
-set $UnFocusedText         #fdf6e3
+set $UnFocusedBorder       #808080
+set $UnFocusedBackGround   #808080
+set $UnFocusedText         #d4d4d4
 
-set $InActiveBorder       #252525
-set $InActiveBackGround   #252525
-set $InActiveText         #fdf6e3
+set $InActiveBorder       #808080
+set $InActiveBackGround   #808080
+set $InActiveText         #d4d4d4
 
-set $UrgentBorder      #ab4642
-set $UrgenBackGround   #ab4642
-set $UrgentText        #181818
+set $UrgentBorder      #f44747
+set $UrgenBackGround   #f44747
+set $UrgentText        #1c1c1c
 
-set $BarBackGround         #181818
-set $BarUrgentBackGround   #ab4642
+set $BarBackGround         #1c1c1c
+set $BarUrgentBackGround   #f44747
 
-set $BarActive       #90a959
-set $BarActiveText   #181818
+set $BarActive       #646695
+set $BarActiveText   #d4d4d4
 
-set $BarInActive       #202020
-set $BarInActiveText   #f5f5f5
+set $BarInActive       #1c1c1c
+set $BarInActiveText   #d4d4d4
 
 
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
-#exec_always --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
+exec_always --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p run: -nb '$InActiveBackGround' -sf '$ActiveText' -sb '$ActiveBackGround' -fn 'mononoki:pixelsize=12' -b
+bindsym $mod+d exec dmenu_run -p run: -nb '$BarBackGround' -sf '$InActiveText' -sb '$BarActive' -fn 'PT Mono:pixelsize=12' #-b
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
@@ -114,10 +114,12 @@ assign [class="discord"] $ws1
 assign [class="libreoffice*"] $ws4
 assign [class="Steam"] $ws4
 assign [class="Chromium"] $ws2
+assign [class="firefox"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws1
 assign [class="TelegramDesktop"] $ws1
 assign [class="Gimp"] $ws4
+assign [class="code-oss"] $ws3
 assign [class="Deluge"] $ws2
 assign [class="Uget-gtk"] $ws2
 assign [class="VirtualBox Machine"] $ws5
@@ -197,9 +199,10 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        position top
+        #position top
         status_command i3blocks
         separator_symbol "‌"
+        tray_output none
         #mode hide
         #height 20
         colors {
