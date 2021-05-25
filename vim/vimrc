@@ -12,6 +12,7 @@ Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'mattn/emmet-vim'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 set nobackup
@@ -28,7 +29,6 @@ nnoremap <silent><leader>doc :call <SID>show_documentation()<CR>
 nmap <silent><leader>act <Plug>(coc-codeaction)
 nmap <silent><leader>ren <Plug>(coc-rename)
 nmap <silent><leader>she  :CocCommand terminal.REPL<CR>
-nmap <silent><leader>ter  <Plug>(coc-terminal-toggle)
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -115,10 +115,10 @@ nnoremap <silent><leader>sex  :Sexplore<CR>
 nnoremap <silent><leader>vex  :Vexplore<CR>
 nnoremap <silent><leader>tex  :Texplore<CR>
 nnoremap <silent><leader>exp  :Explore<CR>
-nnoremap <silent><leader>pas  :set paste<CR>
+nnoremap <silent><leader>pas  "+gP
 nnoremap <silent><leader>hls  :set hlsearch!<CR>
-autocmd FileType python map <buffer> <leader>run  :w<CR>:exec '!clear && python -i' shellescape(@%, 1)<CR>
-autocmd FileType javascript map <buffer> <leader>run  :w<CR>:exec '!clear && node' shellescape(@%, 1)<CR>
+nmap <silent><leader>ter      :tab term<CR>
+tmap <silent><ESC>            <C-\><C-n>
 set listchars=eol:$,trail:·
 set list
 set number relativenumber
@@ -145,7 +145,8 @@ set laststatus=2
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
-set guifont=CascadiaCode\ 10
+set updatetime=100
+set guifont=UbuntuMono\ 11.5
 set guicursor=n-v-c-r-i:block-Cursor
 set signcolumn=yes
 if has("autocmd")
