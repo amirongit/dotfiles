@@ -3,21 +3,21 @@ env:
 
 font:
   normal:
-    family: Code New Roman
+    family: Ubuntu Mono
     style: Medium
   bold:
-    family: Code New Roman
+    family: Ubuntu Mono
     style: Bold
   italic:
-    family: Code New Roman
+    family: Ubuntu Mono
     style: Italic
   bold_italic:
-    family: Code New Roman
+    family: Ubuntu Mono
     style: Semibold Italic
   size: 8
 
 cursor:
-  style: Block
+  style: block
 
 mouse:
   hide_when_typing: true
@@ -35,4 +35,3 @@ selection:
 live_config_reload: true
 background_opacity: 1
 window.dynamic_title: true
-
