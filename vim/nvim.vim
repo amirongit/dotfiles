@@ -5,7 +5,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jaredgorski/spacecamp'
 Plug 'nanotech/jellybeans.vim'
-Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'morhetz/gruvbox'
@@ -23,13 +22,12 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-nmap <silent><leader>def :call CocAction('jumpDefinition')<CR>
-nmap <silent><leader>ref <Plug>(coc-references)
-nnoremap <silent><leader>doc :call <SID>show_documentation()<CR>
-nmap <silent><leader>act <Plug>(coc-codeaction)
-nmap <silent><leader>ren <Plug>(coc-rename)
-nmap <silent><leader>she  :CocCommand terminal.REPL<CR>
+imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+nmap <silent><leader>def  <Plug>(coc-definition)
+nmap <silent><leader>doc  :call<SID>show_documentation()<CR>
+nmap <silent><leader>dn  <Plug>(coc-diagnostic-prev)
+nmap <silent><leader>dp  <Plug>(coc-diagnostic-next)
+nnoremap <silent><leader>dis  :<C-u>CocList diagnostics<cr>
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -68,30 +66,6 @@ let g:indentLine_leadingSpaceEnabled=1
 let g:indentLine_leadingSpaceChar='·'
 
 
-function! s:gitModified()
-    let files = systemlist('git ls-files -m 2>/dev/null')
-    return map(files, "{'line': v:val, 'path': v:val}")
-endfunction
-function! s:gitUntracked()
-    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
-    return map(files, "{'line': v:val, 'path': v:val}")
-endfunction
-let g:ascii = [
-      \ '            __',
-      \ '    .--.--.|__|.--------.',
-      \ '    |  |  ||  ||        |',
-      \ '     \___/ |__||__|__|__|',
-      \ '    '
-      \]
-let g:startify_custom_header = g:ascii
-let g:startify_lists = [
-        \ { 'type': 'files',     'header': ['    Most Recent Files']            },
-        \ { 'type': 'dir',       'header': ['    Most Recent Files in '. getcwd()] },
-        \ { 'type': function('s:gitModified'),  'header': ['    Modified Files In Git Repo']},
-        \ { 'type': function('s:gitUntracked'), 'header': ['    Untracked Files In Git Repo']},
-        \ ]
-let g:startify_files_number=5
-
 nnoremap <silent><leader>his  :History!<CR>
 nnoremap <silent><leader>gfi  :GFiles!<CR>
 nnoremap <silent><leader>sta  :GFiles!?<CR>
@@ -111,14 +85,12 @@ nnoremap K          <NOP>
 nnoremap H          gT
 nnoremap L          gt
 nnoremap <silent><leader>rtl  :set rl!<CR>
-nnoremap <silent><leader>ter  :tab term<CR>
 nnoremap <silent><leader>sex  :Sexplore<CR>
 nnoremap <silent><leader>vex  :Vexplore<CR>
 nnoremap <silent><leader>tex  :Texplore<CR>
 nnoremap <silent><leader>exp  :Explore<CR>
 nnoremap <silent><leader>pas  "+gP
 nnoremap <silent><leader>hls  :set hlsearch!<CR>
-nmap <silent><leader>ter      :tab term<CR>
 tmap <silent><ESC>            <C-\><C-n>
 set listchars=eol:$,trail:·
 set list
