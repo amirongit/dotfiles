@@ -25,9 +25,9 @@ inoremap <silent><expr> <TAB>
 imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 nmap <silent><leader>def  <Plug>(coc-definition)
 nmap <silent><leader>doc  :call<SID>show_documentation()<CR>
-nmap <silent><leader>dn  <Plug>(coc-diagnostic-prev)
-nmap <silent><leader>dp  <Plug>(coc-diagnostic-next)
-nnoremap <silent><leader>dis  :<C-u>CocList diagnostics<cr>
+nmap <silent><leader>dn  <Plug>(coc-diagnostic-next)
+nmap <silent><leader>dp  <Plug>(coc-diagnostic-prev)
+nmap <silent><leader>dis  :<C-u>CocList diagnostics<cr>
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -66,31 +66,30 @@ let g:indentLine_leadingSpaceEnabled=1
 let g:indentLine_leadingSpaceChar='·'
 
 
-nnoremap <silent><leader>his  :History!<CR>
-nnoremap <silent><leader>gfi  :GFiles!<CR>
-nnoremap <silent><leader>sta  :GFiles!?<CR>
-nnoremap <silent><leader>lin  :Lines!<CR>
-nnoremap <silent><leader>tag  :Tags!<CR>
-nnoremap <silent><leader>com  :Commits!<CR>
+nmap <silent><leader>his  :History!<CR>
+nmap <silent><leader>gfi  :GFiles!<CR>
+nmap <silent><leader>sta  :GFiles!?<CR>
+nmap <silent><leader>lin  :Lines!<CR>
+nmap <silent><leader>tag  :Tags!<CR>
+nmap <silent><leader>com  :Commits!<CR>
 
-xnoremap <silent>K          :move '<-2<CR>gv-gv
-xnoremap <silent>J          :move '>+1<CR>gv-gv
-nnoremap <silent><Down>   :resize +2<CR>
-nnoremap <silent><Up>     :resize -2<CR>
-nnoremap <silent><Left>   :vertical resize +2<CR>
-nnoremap <silent><Right>  :vertical resize -2<CR>
-nnoremap Q          <NOP>
-nnoremap J          <NOP>
-nnoremap K          <NOP>
-nnoremap H          gT
-nnoremap L          gt
-nnoremap <silent><leader>rtl  :set rl!<CR>
-nnoremap <silent><leader>sex  :Sexplore<CR>
-nnoremap <silent><leader>vex  :Vexplore<CR>
-nnoremap <silent><leader>tex  :Texplore<CR>
-nnoremap <silent><leader>exp  :Explore<CR>
-nnoremap <silent><leader>pas  "+gP
-nnoremap <silent><leader>hls  :set hlsearch!<CR>
+xmap <silent>K          :move '<-2<CR>gv-gv
+xmap <silent>J          :move '>+1<CR>gv-gv
+nmap <silent><Down>   :resize +2<CR>
+nmap <silent><Up>     :resize -2<CR>
+nmap <silent><Left>   :vertical resize +2<CR>
+nmap <silent><Right>  :vertical resize -2<CR>
+nmap Q          <NOP>
+nmap J          <NOP>
+nmap K          <NOP>
+nmap H          gT
+nmap L          gt
+nmap <silent><leader>rtl  :set rl!<CR>
+nmap <silent><leader>sex  :Sexplore<CR>
+nmap <silent><leader>vex  :Vexplore<CR>
+nmap <silent><leader>tex  :Texplore<CR>
+nmap <silent><leader>exp  :Explore<CR>
+nmap <silent><leader>hls  :set hlsearch!<CR>
 tmap <silent><ESC>            <C-\><C-n>
 set listchars=eol:$,trail:·
 set list
@@ -98,6 +97,7 @@ set number relativenumber
 set scrolloff=1
 set splitbelow
 set nocp
+set clipboard=unnamed
 set tabstop=4
 set expandtab
 set softtabstop=4
@@ -123,7 +123,7 @@ syntax on
 let g:dracula_colorterm = 0
 let g:codedark_conservative = 0
 let g:gruvbox_contrast_dark = 'hard'
-colorscheme base16-default-dark
+colorscheme base16-classic-dark
 highlight clear SignColumn
 highlight clear LineNr
 highlight SignColumn guibg=bg ctermbg=bg
