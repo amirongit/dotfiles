@@ -11,36 +11,36 @@ smart_borders on
 new_window normal 0
 new_float normal 0
 
-gaps inner 5
-gaps outer 5
+#gaps inner 5
+#gaps outer 5
 
 workspace_layout tabbed
 
-set $base00 #1d2021
-set $base01 #3c3836
-set $base02 #504945
-set $base03 #665c54
-set $base04 #bdae93
-set $base05 #d5c4a1
-set $base06 #ebdbb2
-set $base07 #fbf1c7
-set $base08 #fb4934
-set $base09 #fe8019
-set $base0A #fabd2f
-set $base0B #b8bb26
-set $base0C #8ec07c
-set $base0D #83a598
-set $base0E #d3869b
-set $base0F #d65d0e
+set $base00 #151515
+set $base01 #202020
+set $base02 #303030
+set $base03 #505050
+set $base04 #B0B0B0
+set $base05 #D0D0D0
+set $base06 #E0E0E0
+set $base07 #F5F5F5
+set $base08 #AC4142
+set $base09 #D28445
+set $base0A #F4BF75
+set $base0B #90A959
+set $base0C #75B5AA
+set $base0D #6A9FB5
+set $base0E #AA759F
+set $base0F #8F5536
 
 
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
-exec_always --no-startup-id feh --bg-center /usr/share/backgrounds/loach_flowers_grass_175430_4000x6000.jpg
+exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/tumblr_nrzd7tgrgs1u6f2wfo1_1280.jpg
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p run: -nb '$base00' -sf '$base07' -sb '$base00' -fn 'Ubuntu mono:pixelsize=11' #-b
+bindsym $mod+d exec dmenu_run -p run: -nb '$base00' -sf '$base07' -sb '$base00' -fn 'Ubuntu mono:pixelsize=11' -b
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
@@ -198,8 +198,8 @@ bar {
         status_command i3blocks
         separator_symbol "‌"
         tray_output none
-        #mode hide
-        #height 20
+        mode hide
+        height 15
         colors {
             background $base00
             separator  $base01
