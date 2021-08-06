@@ -74,9 +74,6 @@ if has("autocmd")
 endif
 syntax on
 
-"terminal mode bindings
-tmap <silent><ESC>  <C-\><C-n>
-
 "visual mode bindings
 xmap <silent>K  :move '<-2<CR>gv-gv
 xmap <silent>J  :move '>+1<CR>gv-gv
@@ -99,7 +96,6 @@ nmap q  <NOP>
 nmap Q  <NOP>
 nmap H  gT
 nmap L  gt
-nmap <silent><leader>rtl  :set rl!<CR>
 nmap <silent><leader>sex  :Sexplore<CR>
 nmap <silent><leader>vex  :Vexplore<CR>
 nmap <silent><leader>tex  :Texplore<CR>
@@ -108,11 +104,13 @@ nmap <silent><leader>hls  :set hlsearch!<CR>
 nmap <silent><leader>def  <Plug>(coc-definition)
 nmap <silent><leader>doc  :call<SID>show_documentation()<CR>
 nmap <silent><leader>dia  :<C-u>CocList diagnostics<cr>
+nmap <silent><leader>com  <Plug>(coc-git-commit)
 nmap <silent><leader>lin  :Lines!<CR>
 nmap <silent><leader>tag  :Tags!<CR>
 
 "options
 set nobackup
+set hidden
 set nowritebackup
 set noswapfile
 set expandtab
@@ -160,12 +158,19 @@ set signcolumn=yes
 
 "appearance
 colorscheme base16-dracula
-highlight clear SignColumn
-highlight clear LineNr
-highlight SignColumn guibg=bg ctermbg=bg
-highlight EndOfBuffer ctermfg=bg ctermbg=bg
+hi clear SignColumn
+hi clear LineNr
+hi SignColumn guibg=bg ctermbg=bg
+hi EndOfBuffer ctermfg=bg ctermbg=bg
 "highlight clear PmenuThumb
-highlight clear PmenuSbar
+hi clear PmenuSbar
+hi DiffAdd ctermbg=None ctermfg=White
+hi DiffChange ctermbg=None ctermfg=White
+hi DiffDelete ctermbg=None ctermfg=White
+hi CocWarningLine ctermfg=White
+hi CocErrorSign ctermfg=White
+hi CocHintSign ctermfg=White
+
 
 "statusline
 "so $VIMRUNTIME/syntax/hitest.vim

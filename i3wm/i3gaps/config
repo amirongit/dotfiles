@@ -34,7 +34,6 @@ set $base0E #AA759F
 set $base0F #8F5536
 
 
-exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
 exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/tumblr_nrzd7tgrgs1u6f2wfo1_1280.jpg
