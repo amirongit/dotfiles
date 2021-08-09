@@ -46,8 +46,8 @@ function! s:gitUntracked()
 endfunction
 
 "variables
-let g:coc_status_error_sign = 'E'
-let g:coc_status_warning_sign = 'W'
+let g:coc_status_error_sign = '»'
+let g:coc_status_warning_sign = '›'
 let g:ascii = [
       \ '            __',
       \ '    .--.--.|__|.--------.',
@@ -110,14 +110,14 @@ nmap <silent><leader>tag  :Tags!<CR>
 
 "options
 set nobackup
-set hidden
+"set hidden
 set nowritebackup
 set noswapfile
 set expandtab
 set shiftround
 set smarttab
 set autoindent
-set list
+"set list
 set splitbelow
 set nocp
 set number relativenumber
@@ -128,7 +128,7 @@ set autoread
 set showmatch
 
 "options' values
-set listchars=trail:⋅,space:⋅,eol:¬,tab:→\ ,extends:❯,precedes:❮
+"set listchars=trail:⋅,space:⋅,eol:¬,tab:→\ ,extends:❯,precedes:❮
 set cmdheight=2
 set scrolloff=5
 set clipboard=unnamed,unnamedplus
@@ -157,17 +157,17 @@ set updatetime=100
 set signcolumn=yes
 
 "appearance
-colorscheme base16-dracula
+colorscheme base16-default-dark
 hi clear SignColumn
 hi clear LineNr
 hi SignColumn guibg=bg ctermbg=bg
 hi EndOfBuffer ctermfg=bg ctermbg=bg
-"highlight clear PmenuThumb
+highlight clear PmenuThumb
 hi clear PmenuSbar
 hi DiffAdd ctermbg=None ctermfg=White
 hi DiffChange ctermbg=None ctermfg=White
 hi DiffDelete ctermbg=None ctermfg=White
-hi CocWarningLine ctermfg=White
+hi CocWarningSign ctermfg=White
 hi CocErrorSign ctermfg=White
 hi CocHintSign ctermfg=White
 
