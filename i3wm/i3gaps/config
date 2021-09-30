@@ -1,7 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Ubuntu mono 8
+font pango: Blogger Sans Bold 8
 
 focus_follows_mouse yes
 #smart_gaps on
@@ -16,47 +16,50 @@ new_float normal 0
 
 workspace_layout tabbed
 
-set $base00 #151515
-set $base01 #202020
-set $base02 #303030
-set $base03 #505050
-set $base04 #B0B0B0
-set $base05 #D0D0D0
-set $base06 #E0E0E0
-set $base07 #F5F5F5
-set $base08 #AC4142
-set $base09 #D28445
-set $base0A #F4BF75
-set $base0B #90A959
-set $base0C #75B5AA
-set $base0D #6A9FB5
-set $base0E #AA759F
-set $base0F #8F5536
+set $ActiveBorder       #383838
+set $ActiveBackGround   #383838
+set $ActiveText         #f8f8f8
+
+set $UnFocusedBorder       #282828
+set $UnFocusedBackGround   #282828
+set $UnFocusedText         #f8f8f8
+
+set $InActiveBorder       #181818
+set $InActiveBackGround   #181818
+set $InActiveText         #f8f8f8
+
+set $UrgentBorder      #ab4642
+set $UrgenBackGround   #ab4642
+set $UrgentText        #f8f8f8
+
+set $BarBackGround         #181818
+
+set $BarActive       #a1b56c
+set $BarActiveText   #282828
+
+set $BarInActive       #181818
+set $BarInActiveText   #f8f8f8
 
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
-exec_always --no-startup-id setxkbmap -option grp:alt_shift_toggle us,ir
-exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/tumblr_nrzd7tgrgs1u6f2wfo1_1280.jpg
+exec_always --no-startup-id xset -b
+exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/minimalist-spacex-dragon-wallpaper-2-3840×2160.jpg
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p run: -nb '$base00' -sf '$base07' -sb '$base00' -fn 'Ubuntu mono:pixelsize=11' -b
-bindsym $mod+Return exec alacritty
+bindsym $mod+d exec dmenu_run -p run: -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Blogger Sans:pixelsize=11:style=bold' #-b
+bindsym $mod+Return exec alacritty --command 'tmux'
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
 
-bindsym $mod+F7 exec --no-startup-id xbacklight -inc 5
-bindsym $mod+F8 exec --no-startup-id xbacklight -dec 5
-bindsym $mod+F6 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym $mod+F5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-
-bindsym $mod+Shift+Right exec --no-startup-id cmus-remote -n
-bindsym $mod+Shift+Left exec --no-startup-id cmus-remote -r
-
-
+bindsym XF86Sleep exec --no-startup-id systemctl --user start redshift
+bindsym XF86AudioPause exec --no-startup-id cmus-remote -u
+bindsym XF86AudioPlay exec --no-startup-id cmus-remote -p
+bindsym XF86AudioNext exec --no-startup-id cmus-remote -n
+bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 bindsym $mod+h focus left
 bindsym $mod+l focus right
@@ -147,12 +150,10 @@ for_window [class="okular"] floating enable
 for_window [class="Sxiv"] floating enable
 
 
-client.focused          $base05 $base0D $base00 $base0D $base0C
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background       $base07
+client.focused            $ActiveBorder      $ActiveBackGround      $ActiveText      $ActiveBackGround
+client.focused_inactive   $InActiveBorder    $InActiveBackGround    $InActiveText    $InActiveBackGround
+client.unfocused          $UnFocusedBorder   $UnFocusedBackGround   $UnFocusedText   $UnFocusedBackGround
+client.urgent             $UrgentBorder      $UrgenBackGround       $UrgentText      $UrgenBackGround
 
 
 mode "resize" {
@@ -193,22 +194,17 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        #position top
+        position top
         status_command i3blocks
         separator_symbol "‌"
         tray_output none
-        mode hide
+        #mode hide
         height 15
         colors {
-            background $base00
-            separator  $base01
-            statusline $base04
-
-            # State             Border  BG      Text
-            focused_workspace   $base05 $base0D $base00
-            active_workspace    $base05 $base03 $base00
-            inactive_workspace  $base03 $base01 $base05
-            urgent_workspace    $base08 $base08 $base00
-            binding_mode        $base00 $base0A $base00
+            background $BarBackGround
+            separator #F6F6F6
+            focused_workspace  $BarActive       $BarActive       $BarActiveText
+            inactive_workspace $BarInActive     $BarInActive     $BarInActiveText
+            urgent_workspace   $UrgenBackGround $UrgenBackGround $UrgentText
         }
 }
