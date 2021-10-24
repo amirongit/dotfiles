@@ -4,9 +4,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim'
 Plug 'chriskempson/base16-vim'
 Plug 'mhinz/vim-startify'
+Plug 'dracula/vim'
+Plug 'ap/vim-css-color'
+Plug 'sheerun/vim-polyglot'
+Plug 'tomasiser/vim-code-dark'
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
-"functions
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -45,7 +50,6 @@ function! s:gitUntracked()
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
-"variables
 let g:coc_status_error_sign = '»'
 let g:coc_status_warning_sign = '›'
 let g:ascii = [
@@ -66,26 +70,25 @@ let g:startify_files_number=10
 let g:fzf_tags_command = 'ctags -R'
 let g:fzf_preview_window = []
 let g:netrw_banner = 0
+let gruvbox_contrast_dark = 'hard'
+let g:onedark_termcolors=16
+let g:onedark_hide_endofbuffer=1
 
-"configurations
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
 endif
 syntax on
 
-"visual mode bindings
 xmap <silent>K  :move '<-2<CR>gv-gv
 xmap <silent>J  :move '>+1<CR>gv-gv
 
-"insert mode bindings
 imap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-"normal mode bindings
 nmap <silent><Down>   :resize +2<CR>
 nmap <silent><Up>     :resize -2<CR>
 nmap <silent><Left>   :vertical resize +2<CR>
@@ -108,7 +111,6 @@ nmap <silent><leader>com  <Plug>(coc-git-commit)
 nmap <silent><leader>lin  :Lines!<CR>
 nmap <silent><leader>tag  :Tags!<CR>
 
-"options
 set nobackup
 "set hidden
 set nowritebackup
@@ -117,7 +119,7 @@ set expandtab
 set shiftround
 set smarttab
 set autoindent
-"set list
+set list
 set splitbelow
 set nocp
 set number relativenumber
@@ -126,11 +128,14 @@ set smartcase
 set incsearch
 set autoread
 set showmatch
+set noshowmode
 
-"options' values
-"set listchars=trail:⋅,space:⋅,eol:¬,tab:→\ ,extends:❯,precedes:❮
+set listchars=trail:⋅,space:⋅,eol:¬,tab:→\ ,extends:❯,precedes:❮
+"set listchars=trail:.,space:.,eol:$
+"set listchars=
 set cmdheight=2
-set scrolloff=5
+set showtabline=2
+set scrolloff=0
 set clipboard=unnamed,unnamedplus
 set tabstop=4
 set softtabstop=4
@@ -140,11 +145,11 @@ set encoding=utf-8
 set updatecount=0
 set wildmode=list:longest,list:full
 set t_Co=256
-set t_ut=
 set foldmethod=indent
 set foldlevelstart=0
 set foldnestmax=20
 set foldlevel=1
+"set nofoldenable
 set pastetoggle=<leader>p
 set backspace=indent,eol,start
 set laststatus=2
@@ -152,9 +157,10 @@ set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:block
 set guioptions-=T
 set guioptions-=m
 set guioptions-=r
-set guifont=Ubuntu\ mono\ 12
-set updatetime=100
+set guifont=Ubuntu\ mono\ 13
+set updatetime=300
 set signcolumn=yes
+"set termguicolors
 
 "appearance
 colorscheme base16-default-dark
@@ -162,35 +168,26 @@ hi clear SignColumn
 hi clear LineNr
 hi SignColumn guibg=bg ctermbg=bg
 hi EndOfBuffer ctermfg=bg ctermbg=bg
+hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+hi DiffAdd ctermbg=None ctermfg=white cterm=bold
+hi DiffChange ctermbg=None ctermfg=white cterm=bold
+hi DiffDelete ctermbg=None ctermfg=white cterm=bold
+hi CocWarningSign ctermfg=white cterm=bold
+hi CocErrorSign ctermfg=white cterm=bold
+hi CocHintSign ctermfg=white cterm=bold
 highlight clear PmenuThumb
 hi clear PmenuSbar
-hi DiffAdd ctermbg=None ctermfg=White
-hi DiffChange ctermbg=None ctermfg=White
-hi DiffDelete ctermbg=None ctermfg=White
-hi CocWarningSign ctermfg=White
-hi CocErrorSign ctermfg=White
-hi CocHintSign ctermfg=White
-
 
 "statusline
 "so $VIMRUNTIME/syntax/hitest.vim
-set statusline +=%#ModeMsg#
+set statusline +=%#Normal#
 set statusline +=\ %{mode()}
-set statusline +=%#MoreMsg#
 set statusline +=\ %B 
-set statusline +=%#Directory#
 set statusline +=\ %F 
-set statusline +=%#WarningMsg#
 set statusline +=\ %M
-set statusline +=%#Character#
 set statusline +=\ %R
-set statusline +=%#Title#
 set statusline +=%=
-set statusline +=%#Identifier#
 set statusline +=\ %v
-set statusline +=%#Title#
 set statusline +=\ %Y
-set statusline +=%#Statement#
 set statusline +=\ %{StatusDiagnostic()}
-set statusline +=%#Conditional#
 set statusline +=\ %{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
