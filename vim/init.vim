@@ -78,10 +78,16 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
 endif
-syntax on
+augroup mygroup
+  autocmd!
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-xmap <silent>K  :move '<-2<CR>gv-gv
-xmap <silent>J  :move '>+1<CR>gv-gv
+xmap <silent><silent>K    :move '<-2<CR>gv-gv
+xmap <silent><silent>J    :move '>+1<CR>gv-gv
+xmap <silent><leader>act  <Plug>(coc-codeaction-selected)
+xmap <silent><leader>for  <Plug>(coc-format-selected)
 
 imap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -89,27 +95,34 @@ imap <silent><expr> <TAB>
       \ coc#refresh()
 imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-nmap <silent><Down>   :resize +2<CR>
-nmap <silent><Up>     :resize -2<CR>
-nmap <silent><Left>   :vertical resize +2<CR>
-nmap <silent><Right>  :vertical resize -2<CR>
-nmap <silent>J  <Plug>(coc-diagnostic-next)
-nmap <silent>K  <Plug>(coc-diagnostic-prev)
-nmap q  <NOP>
-nmap Q  <NOP>
-nmap H  gT
-nmap L  gt
+nmap <silent><Down>       :resize +2<CR>
+nmap <silent><Up>         :resize -2<CR>
+nmap <silent><Left>       :vertical resize +2<CR>
+nmap <silent><Right>      :vertical resize -2<CR>
+nmap <silent>J            <Plug>(coc-diagnostic-next)
+nmap <silent>K            <Plug>(coc-diagnostic-prev)
+nmap q                    <NOP>
+nmap Q                    <NOP>
+nmap H                    gT
+nmap L                    gt
 nmap <silent><leader>sex  :Sexplore<CR>
 nmap <silent><leader>vex  :Vexplore<CR>
 nmap <silent><leader>tex  :Texplore<CR>
 nmap <silent><leader>exp  :Explore<CR>
 nmap <silent><leader>hls  :set hlsearch!<CR>
 nmap <silent><leader>def  <Plug>(coc-definition)
-nmap <silent><leader>doc  :call<SID>show_documentation()<CR>
+nmap <silent><leader>tef  <Plug>(coc-type-definition)
+nmap <silent><leader>imp  <Plug>(coc-implementation)
+nmap <silent><leader>ref  <Plug>(coc-refrences)
+nmap <silent><leader>doc  :call <SID>show_documentation()<CR>
 nmap <silent><leader>dia  :<C-u>CocList diagnostics<cr>
 nmap <silent><leader>com  <Plug>(coc-git-commit)
 nmap <silent><leader>lin  :Lines!<CR>
 nmap <silent><leader>tag  :Tags!<CR>
+nmap <silent><leader>act  <Plug>(coc-codeaction-selected)
+nmap <silent><leader>ren  <Plug>(coc-rename)
+nmap <silent><leader>for  <Plug>(coc-format-selected)
+nmap <silent><leader>fix  <Plug>(coc-fix-current)
 
 set nobackup
 "set hidden
@@ -159,10 +172,11 @@ set guioptions-=m
 set guioptions-=r
 set guifont=Ubuntu\ mono\ 13
 set updatetime=300
-set signcolumn=yes
+set signcolumn=number
 "set termguicolors
 
 "appearance
+syntax on
 colorscheme base16-default-dark
 hi clear SignColumn
 hi clear LineNr
@@ -180,7 +194,7 @@ hi clear PmenuSbar
 
 "statusline
 "so $VIMRUNTIME/syntax/hitest.vim
-set statusline +=%#Normal#
+set statusline +=%#ModeMsg#
 set statusline +=\ %{mode()}
 set statusline +=\ %B 
 set statusline +=\ %F 
