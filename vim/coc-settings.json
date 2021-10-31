@@ -16,17 +16,17 @@
   "git.branchCharacter": "⸙",
   "git.stagedDecorator": "+",
   "git.addedSign.text": "+",
-  "hover.target": "float",
-  "hover.autoHide": true,
+  "hover.target": "preview",
+  "hover.autoHide": false,
   "python.venvPath": "/home/amir/Dev/VirtualEnvironments",
   "python.analysis.autoImportCompletions": false,
   "python.formatting.autopep8Path": "autopep8",
-  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.typeCheckingMode": "basic",
   "python.formatting.provider": "autopep8",
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
   "signature.hideOnTextChange": true,
-  "suggest.echodocSupport": false,
-  "suggest.floatEnable": true,
-  "signature.target": "float"
+  "suggest.echodocSupport": true,
+  "suggest.floatEnable": false,
+  "signature.target": "echo"
 }
