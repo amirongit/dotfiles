@@ -95,34 +95,36 @@ imap <silent><expr> <TAB>
       \ coc#refresh()
 imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-nmap <silent><Down>       :resize +2<CR>
-nmap <silent><Up>         :resize -2<CR>
-nmap <silent><Left>       :vertical resize +2<CR>
-nmap <silent><Right>      :vertical resize -2<CR>
-nmap <silent>J            <Plug>(coc-diagnostic-next)
-nmap <silent>K            <Plug>(coc-diagnostic-prev)
-nmap q                    <NOP>
-nmap Q                    <NOP>
-nmap H                    gT
-nmap L                    gt
-nmap <silent><leader>sex  :Sexplore<CR>
-nmap <silent><leader>vex  :Vexplore<CR>
-nmap <silent><leader>tex  :Texplore<CR>
-nmap <silent><leader>exp  :Explore<CR>
-nmap <silent><leader>hls  :set hlsearch!<CR>
-nmap <silent><leader>def  <Plug>(coc-definition)
-nmap <silent><leader>tef  <Plug>(coc-type-definition)
-nmap <silent><leader>imp  <Plug>(coc-implementation)
-nmap <silent><leader>ref  <Plug>(coc-refrences)
-nmap <silent><leader>doc  :call <SID>show_documentation()<CR>
-nmap <silent><leader>dia  :<C-u>CocList diagnostics<cr>
-nmap <silent><leader>com  <Plug>(coc-git-commit)
-nmap <silent><leader>lin  :Lines!<CR>
-nmap <silent><leader>tag  :Tags!<CR>
-nmap <silent><leader>act  <Plug>(coc-codeaction-selected)
-nmap <silent><leader>ren  <Plug>(coc-rename)
-nmap <silent><leader>for  <Plug>(coc-format-selected)
-nmap <silent><leader>fix  <Plug>(coc-fix-current)
+nmap <silent><Down>           :resize +2<CR>
+nmap <silent><Up>             :resize -2<CR>
+nmap <silent><Left>           :vertical resize +2<CR>
+nmap <silent><Right>          :vertical resize -2<CR>
+nmap <silent>J                <Plug>(coc-diagnostic-next)
+nmap <silent>K                <Plug>(coc-diagnostic-prev)
+nmap q                        <NOP>
+nmap Q                        <NOP>
+nmap H                        gT
+nmap L                        gt
+nmap <silent><leader>sex      :Sexplore<CR>
+nmap <silent><leader>vex      :Vexplore<CR>
+nmap <silent><leader>tex      :Texplore<CR>
+nmap <silent><leader>exp      :Explore<CR>
+nmap <silent><leader>hls      :set hlsearch!<CR>
+nmap <silent><leader>def      <Plug>(coc-definition)
+nmap <silent><leader>tef      <Plug>(coc-type-definition)
+nmap <silent><leader>imp      <Plug>(coc-implementation)
+nmap <silent><leader>ref      <Plug>(coc-refrences)
+nmap <silent><leader>doc      :call <SID>show_documentation()<CR>
+nmap <silent><leader>dia      :<C-u>CocList diagnostics<cr>
+nmap <silent><leader>com      <Plug>(coc-git-commit)
+nmap <silent><leader>lin      :Lines!<CR>
+nmap <silent><leader>tag      :Tags!<CR>
+nmap <silent><leader>act      <Plug>(coc-codeaction-selected)
+nmap <silent><leader>ren      <Plug>(coc-rename)
+nmap <silent><leader>for      <Plug>(coc-format-selected)
+nmap <silent><leader>fix      <Plug>(coc-fix-current)
+nmap <silent><nowait><expr> E coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nmap <silent><nowait><expr> Y coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
 set nobackup
 "set hidden
@@ -189,8 +191,8 @@ hi DiffDelete ctermbg=None ctermfg=white cterm=bold
 hi CocWarningSign ctermfg=white cterm=bold
 hi CocErrorSign ctermfg=white cterm=bold
 hi CocHintSign ctermfg=white cterm=bold
-highlight clear PmenuThumb
-hi clear PmenuSbar
+"highlight clear PmenuThumb
+"hi clear PmenuSbar
 
 "statusline
 "so $VIMRUNTIME/syntax/hitest.vim

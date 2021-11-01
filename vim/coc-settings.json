@@ -1,6 +1,11 @@
 {
   "coc.preferences.jumpCommand": "tab drop",
-  "diagnostic.messageTarget": "echo",
+  "diagnostic.messageTarget": "float",
+  "diagnostic.floatConfig": {
+    "border": true,
+    "maxWidth": 100,
+    "maxHeight": 100
+  },
   "diagnostic.showUnused": true,
   "diagnostic.warningSign": "⮕",
   "diagnostic.errorSign": "⮞",
@@ -16,8 +21,13 @@
   "git.branchCharacter": "⸙",
   "git.stagedDecorator": "+",
   "git.addedSign.text": "+",
-  "hover.target": "preview",
-  "hover.autoHide": false,
+  "hover.target": "float",
+  "hover.floatConfig": {
+    "border": true,
+    "maxWidth": 100,
+    "maxHeight": 100
+  },
+  "hover.autoHide": true,
   "python.venvPath": "/home/amir/Dev/VirtualEnvironments",
   "python.analysis.autoImportCompletions": false,
   "python.formatting.autopep8Path": "autopep8",
@@ -27,6 +37,11 @@
   "python.linting.enabled": true,
   "signature.hideOnTextChange": true,
   "suggest.echodocSupport": true,
-  "suggest.floatEnable": false,
-  "signature.target": "echo"
+  "suggest.floatEnable": true,
+  "signature.target": "float",
+  "signature.floatConfig":{
+    "border": true,
+    "maxWidth": 100,
+    "maxHeight": 100
+  }
 }
