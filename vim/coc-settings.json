@@ -2,9 +2,10 @@
   "coc.preferences.jumpCommand": "tab drop",
   "diagnostic.messageTarget": "float",
   "diagnostic.floatConfig": {
-    "border": true,
-    "maxWidth": 100,
-    "maxHeight": 100
+    "highlight": "CocFloating",
+    "maxHeight": 70,
+    "maxWidth": 70,
+    "border": false
   },
   "diagnostic.showUnused": true,
   "diagnostic.warningSign": "⮕",
@@ -23,15 +24,16 @@
   "git.addedSign.text": "+",
   "hover.target": "float",
   "hover.floatConfig": {
-    "border": true,
-    "maxWidth": 100,
-    "maxHeight": 100
+    "highlight": "CocFloating",
+    "maxHeight": 70,
+    "maxWidth": 70,
+    "border": false
   },
   "hover.autoHide": true,
   "python.venvPath": "/home/amir/Dev/VirtualEnvironments",
   "python.analysis.autoImportCompletions": false,
   "python.formatting.autopep8Path": "autopep8",
-  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.typeCheckingMode": "off",
   "python.formatting.provider": "autopep8",
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
@@ -40,8 +42,9 @@
   "suggest.floatEnable": true,
   "signature.target": "float",
   "signature.floatConfig":{
-    "border": true,
-    "maxWidth": 100,
-    "maxHeight": 100
+    "highlight": "CocFloating",
+    "maxHeight": 70,
+    "maxWidth": 70,
+    "border": false
   }
 }

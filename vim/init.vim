@@ -9,7 +9,10 @@ Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
 Plug 'tomasiser/vim-code-dark'
 Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
+Plug 'jaredgorski/SpaceCamp'
+Plug 'cocopon/iceberg.vim'
+Plug 'whatyouhide/vim-gotham'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
 function! s:check_back_space() abort
@@ -174,25 +177,26 @@ set guioptions-=m
 set guioptions-=r
 set guifont=Ubuntu\ mono\ 13
 set updatetime=300
-set signcolumn=number
-"set termguicolors
+set signcolumn=yes
+set termguicolors
 
 "appearance
 syntax on
-colorscheme base16-default-dark
+colorscheme iceberg
 hi clear SignColumn
 hi clear LineNr
 hi SignColumn guibg=bg ctermbg=bg
-hi EndOfBuffer ctermfg=bg ctermbg=bg
+hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
 hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
-hi DiffAdd ctermbg=None ctermfg=white cterm=bold
-hi DiffChange ctermbg=None ctermfg=white cterm=bold
-hi DiffDelete ctermbg=None ctermfg=white cterm=bold
-hi CocWarningSign ctermfg=white cterm=bold
-hi CocErrorSign ctermfg=white cterm=bold
-hi CocHintSign ctermfg=white cterm=bold
-"highlight clear PmenuThumb
+hi DiffAdd ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
+hi DiffChange ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
+hi DiffDelete ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
+hi CocWarningSign ctermfg=white cterm=bold guifg=white gui=bold
+hi CocErrorSign ctermfg=white cterm=bold guifg=white gui=bold
+hi CocHintSign ctermfg=white cterm=bold guifg=white gui=bold
+"hi clear PmenuThumb
 "hi clear PmenuSbar
+"hi Pmenu ctermbg=black ctermfg=white guibg=black guifg=white
 
 "statusline
 "so $VIMRUNTIME/syntax/hitest.vim
