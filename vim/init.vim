@@ -1,6 +1,4 @@
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim'
 Plug 'chriskempson/base16-vim'
 Plug 'mhinz/vim-startify'
@@ -56,22 +54,23 @@ endfunction
 let g:coc_status_error_sign = '»'
 let g:coc_status_warning_sign = '›'
 let g:ascii = [
-      \ '            __',
-      \ '    .--.--.|__|.--------.',
-      \ '    |  |  ||  ||        |',
-      \ '     \___/ |__||__|__|__|',
-      \ '    '
-      \]
+    \'     .-._               ,-.-. .=-.-.',
+    \'    /==/ \  .-._ ,--.-./=/ ,//==/_ /',
+    \'    |==|, \/ /, /==/, ||=| -|==|, | ',
+    \'    |==|-  \|  |\==\,  \ / ,|==|  | ',
+    \'    |==| ,  | -| \==\ -   - /==|- | ',
+    \'    |==| -   _ |  \==\ ,   ||==| ,| ',
+    \'    |==|  /\ , |  |==| -  ,/|==|- | ',
+    \'    /==/, | |- |  \==\  _ / /==/. / ',
+    \'    `--`./  `--`   `--`--   `--`-`  ',
+        \]
 let g:startify_custom_header = g:ascii
 let g:startify_lists = [
         \ { 'type': 'files',     'header': ['    Most Recent Files']            },
-        \ { 'type': 'dir',       'header': ['    Most Recent Files in '. getcwd()] },
         \ { 'type': function('s:gitModified'),  'header': ['    Modified Files In Git Repo']},
         \ { 'type': function('s:gitUntracked'), 'header': ['    Untracked Files In Git Repo']},
         \ ]
-let g:startify_files_number=10
-let g:fzf_tags_command = 'ctags -R'
-let g:fzf_preview_window = []
+let g:startify_files_number=20
 let g:netrw_banner = 0
 let gruvbox_contrast_dark = 'hard'
 let g:onedark_termcolors=16
@@ -98,39 +97,38 @@ imap <silent><expr> <TAB>
       \ coc#refresh()
 imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-nmap <silent><Down>           :resize +2<CR>
-nmap <silent><Up>             :resize -2<CR>
-nmap <silent><Left>           :vertical resize +2<CR>
-nmap <silent><Right>          :vertical resize -2<CR>
-nmap <silent>J                <Plug>(coc-diagnostic-next)
-nmap <silent>K                <Plug>(coc-diagnostic-prev)
-nmap q                        <NOP>
-nmap Q                        <NOP>
-nmap H                        gT
-nmap L                        gt
-nmap <silent><leader>sex      :Sexplore<CR>
-nmap <silent><leader>vex      :Vexplore<CR>
-nmap <silent><leader>tex      :Texplore<CR>
-nmap <silent><leader>exp      :Explore<CR>
-nmap <silent><leader>hls      :set hlsearch!<CR>
-nmap <silent><leader>def      <Plug>(coc-definition)
-nmap <silent><leader>tef      <Plug>(coc-type-definition)
-nmap <silent><leader>imp      <Plug>(coc-implementation)
-nmap <silent><leader>ref      <Plug>(coc-refrences)
-nmap <silent><leader>doc      :call <SID>show_documentation()<CR>
-nmap <silent><leader>dia      :<C-u>CocList diagnostics<cr>
-nmap <silent><leader>com      <Plug>(coc-git-commit)
-nmap <silent><leader>lin      :Lines!<CR>
-nmap <silent><leader>tag      :Tags!<CR>
-nmap <silent><leader>act      <Plug>(coc-codeaction-selected)
-nmap <silent><leader>ren      <Plug>(coc-rename)
-nmap <silent><leader>for      <Plug>(coc-format-selected)
-nmap <silent><leader>fix      <Plug>(coc-fix-current)
-nmap <silent><nowait><expr> E coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nmap <silent><nowait><expr> Y coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+nmap <silent><Down>               :resize +2<CR>
+nmap <silent><Up>                 :resize -2<CR>
+nmap <silent><Left>               :vertical resize +2<CR>
+nmap <silent><Right>              :vertical resize -2<CR>
+nmap <silent>J                    <Plug>(coc-diagnostic-next)
+nmap <silent>K                    <Plug>(coc-diagnostic-prev)
+nmap q                            <NOP>
+nmap Q                            <NOP>
+nmap H                            gT
+nmap L                            gt
+nmap <silent><leader>sex          :Sexplore<CR>
+nmap <silent><leader>vex          :Vexplore<CR>
+nmap <silent><leader>tex          :Texplore<CR>
+nmap <silent><leader>exp          :Explore<CR>
+nmap <silent><leader>hls          :set hlsearch!<CR>
+nmap <silent><leader>def          <Plug>(coc-definition)
+nmap <silent><leader>tef          <Plug>(coc-type-definition)
+nmap <silent><leader>imp          <Plug>(coc-implementation)
+nmap <silent><leader>ref          <Plug>(coc-refrences)
+nmap <silent><leader>doc          :call <SID>show_documentation()<CR>
+nmap <silent><leader>dia          :<C-u>CocList diagnostics<cr>
+nmap <silent><leader>com          <Plug>(coc-git-commit)
+nmap <silent><leader>act          <Plug>(coc-codeaction-selected)
+nmap <silent><leader>ren          <Plug>(coc-rename)
+nmap <silent><leader>for          <Plug>(coc-format-selected)
+nmap <silent><leader>fix          <Plug>(coc-fix-current)
+nmap <silent><nowait><expr><C-J>  coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nmap <silent><nowait><expr><C-K>  coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
 set nobackup
-"set hidden
+set shortmess=aFc
+set hidden
 set nowritebackup
 set noswapfile
 set expandtab
@@ -182,7 +180,7 @@ set termguicolors
 
 "appearance
 syntax on
-colorscheme iceberg
+colorscheme gruvbox
 hi clear SignColumn
 hi clear LineNr
 hi SignColumn guibg=bg ctermbg=bg

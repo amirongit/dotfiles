@@ -1,22 +1,103 @@
+env:
+  TERM: xterm-256color
+  WINIT_UNIX_BACKEND: x11
+
+font:
+  normal:
+    family: ComicMono
+    style: Medium
+  bold:
+    family: ComicMono
+    style: Bold
+  italic:
+    family: ComicMono
+    style: Italic
+  bold_italic:
+    family: ComicMono
+    style: Bold Italic
+  size: 8
+
+cursor:
+  style:
+    shape: Block
+    blinking: Always
+
+mouse:
+  hide_when_typing: true
+
+window:
+  padding:
+    x: 0
+    y: 0
+  dynamic_padding: true
+
+scrolling:
+  history: 500
+  multiplier: 3
+
+key_bindings:
+  - {key: V, mods: Control|Shift, action: Paste}
+
+selection:
+  save_to_clipboard: true
+
+live_config_reload: true
+background_opacity: 1
+window.dynamic_title: true
+
 colors:
   primary:
-    background: '#1c1c1c'
-    foreground: '0xd4be98'
-  normal:
-    black:   '0x32302f'
-    red:     '0xea6962'
-    green:   '0xa9b665'
-    yellow:  '0xd8a657'
-    blue:    '0x7daea3'
-    magenta: '0xd3869b'
-    cyan:    '0x89b482'
-    white:   '0xd4be98'
+    background:        '#1d2021'
+    foreground:        '#ebdbb2'
+    bright_foreground: '#fbf1c7'
+    dim_foreground:    '#a89984'
+  cursor:
+    text:   CellBackground
+    cursor: CellForeground
+  vi_mode_cursor:
+    text:   CellBackground
+    cursor: CellForeground
+    search:
+      matches:
+        foreground: '#000000'
+        background: '#ffffff'
+      focused_match:
+       foreground: CellBackground
+       background: CellForeground
+      bar:
+        background: ''
+        foreground: ''
+    line_indicator:
+      foreground: None
+      background: None
+  selection:
+    text:       CellBackground
+    background: CellForeground
   bright:
-    black:   '0x32302f'
-    red:     '0xea6962'
-    green:   '0xa9b665'
-    yellow:  '0xd8a657'
-    blue:    '0x7daea3'
-    magenta: '0xd3869b'
-    cyan:    '0x89b482'
-    white:   '0xd4be98'
+    black:   '#928374'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
+    magenta: '#d3869b'
+    cyan:    '#8ec07c'
+    white:   '#ebdbb2'
+  normal:
+    black:   '#1d2021'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#a89984'
+  dim:
+    black:   '#32302f'
+    red:     '#9d0006'
+    green:   '#79740e'
+    yellow:  '#b57614'
+    blue:    '#076678'
+    magenta: '#8f3f71'
+    cyan:    '#427b58'
+    white:   '#928374'
+  # indexed_colors: []

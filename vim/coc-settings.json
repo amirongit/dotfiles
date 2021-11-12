@@ -5,7 +5,7 @@
     "highlight": "CocFloating",
     "maxHeight": 70,
     "maxWidth": 70,
-    "border": false
+    "border": true
   },
   "diagnostic.showUnused": true,
   "diagnostic.warningSign": "⮕",
@@ -27,7 +27,7 @@
     "highlight": "CocFloating",
     "maxHeight": 70,
     "maxWidth": 70,
-    "border": false
+    "border": true
   },
   "hover.autoHide": true,
   "python.venvPath": "/home/amir/Dev/VirtualEnvironments",
@@ -37,7 +37,7 @@
   "python.formatting.provider": "autopep8",
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
-  "signature.hideOnTextChange": true,
+  "signature.hideOnTextChange": false,
   "suggest.echodocSupport": true,
   "suggest.floatEnable": true,
   "signature.target": "float",
@@ -45,6 +45,6 @@
     "highlight": "CocFloating",
     "maxHeight": 70,
     "maxWidth": 70,
-    "border": false
+    "border": true
   }
 }
