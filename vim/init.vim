@@ -180,7 +180,7 @@ set termguicolors
 
 "appearance
 syntax on
-colorscheme gruvbox
+colorscheme base16-default-dark
 hi clear SignColumn
 hi clear LineNr
 hi SignColumn guibg=bg ctermbg=bg

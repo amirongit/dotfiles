@@ -5,49 +5,51 @@ font pango: Blogger Sans Bold 8
 
 focus_follows_mouse yes
 #smart_gaps on
-smart_borders on
+#smart_borders on
 #for_window [class="."] border pixel 2
 
 new_window normal 0
 new_float normal 0
 
-#gaps inner 5
-#gaps outer 5
+gaps inner 10
+gaps outer 8
 
 workspace_layout tabbed
 
-set $ActiveBorder       #383838
-set $ActiveBackGround   #383838
-set $ActiveText         #f8f8f8
+set $ActiveBorder       #a1b56c
+set $ActiveBackGround   #a1b56c
+set $ActiveText         #181818
 
 set $UnFocusedBorder       #282828
 set $UnFocusedBackGround   #282828
 set $UnFocusedText         #f8f8f8
 
-set $InActiveBorder       #181818
-set $InActiveBackGround   #181818
+set $InActiveBorder       #282828
+set $InActiveBackGround   #282828
 set $InActiveText         #f8f8f8
 
 set $UrgentBorder      #ab4642
 set $UrgenBackGround   #ab4642
 set $UrgentText        #f8f8f8
 
-set $BarBackGround         #181818
+set $BarBackGround         #282828
 
-set $BarActive       #a1b56c
-set $BarActiveText   #282828
+set $BarActive       #ba8baf
+set $BarActiveText   #181818
 
-set $BarInActive       #181818
+set $BarInActive       #282828
 set $BarInActiveText   #f8f8f8
 
 
-exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
-exec_always --no-startup-id xset -b
-exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/minimalist-spacex-dragon-wallpaper-2-3840×2160.jpg
+exec_always picom --config /home/amir/.config/picom/picom.conf
+exec_always xset -b
+exec_always hsetroot -solid '$BarBackGround'
+exec_always feh --bg-fill /usr/share/backgrounds/aaron-bean-QNp2SqCrsxA-unsplash.jpg
+exec_always setxkbmap -option grp:alt_shift_toggle us,ir
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p run: -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Blogger Sans:pixelsize=11:style=bold' #-b
-bindsym $mod+Return exec alacritty --command 'tmux'
+bindsym $mod+d exec dmenu_run -p "run: " -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Blogger Sans:pixelsize=11:style=bold' #-b
+bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
 
@@ -108,46 +110,30 @@ assign [class="Inkscape"] $ws4
 assign [class="discord"] $ws1
 assign [class="libreoffice*"] $ws4
 assign [class="Steam"] $ws4
-assign [class="Chromium"] $ws2
+assign [class="Brave-browser"] $ws2
+assign [class="Brave"] $ws2
 assign [class="firefox"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws1
 assign [class="TelegramDesktop"] $ws1
+assign [class="Skype"] $ws1
 assign [class="Gimp"] $ws4
 assign [class="code-oss"] $ws3
 assign [class="Deluge"] $ws2
 assign [class="Uget-gtk"] $ws2
-assign [class="VirtualBox Machine"] $ws5
-assign [class="VirtualBox Manager"] $ws5
+assign [class="Virt-manager"] $ws5
 assign [class="Atom"] $ws3
 
-for_window [class="VirtualBox Machine"] floating disable
-for_window [class="VirtualBox Manager"] floating disable
 
 
-for_window [class="Gnome-system-monitor"] floating enable
-for_window [class="Gcolor3"] floating enable
-for_window [class="Thunderbird"] floating enable
-for_window [class="TelegramDesktop"] floating enable
-for_window [class="discord"] floating enable
-for_window [class="mpv"] floating enable
-for_window [class="Connman-gtk"] floating enable
+for_window [class="Virt-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
 for_window [class="Inkscape"] floating enable
-for_window [class="Nitrogen"] floating enable
 for_window [class="Steam"] floating enable
-for_window [class="Uget-gtk"] floating enable
 for_window [class="Gimp"] floating enable
-for_window [class="vlc"] floating enable
 for_window [class="Lxappearance"] floating enable
-for_window [class="Evince"] floating enable
-for_window [class="DB Browser for SQLite"] floating enable
-for_window [class="qt5ct"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
-for_window [class="Deluge"] floating enable
-#for_window [class="Org.gnome.Nautilus"] floating enable
-for_window [class="Leafpad"] floating enable
-for_window [class="okular"] floating enable
-for_window [class="Sxiv"] floating enable
+for_window [class="feh"] floating enable
 
 
 client.focused            $ActiveBorder      $ActiveBackGround      $ActiveText      $ActiveBackGround
@@ -196,9 +182,9 @@ mode "$mode_gaps_outer" {
 bar {
         position top
         status_command i3blocks
-        separator_symbol "‌"
+        separator_symbol "/"
         tray_output none
-        #mode hide
+        mode hide
         height 15
         colors {
             background $BarBackGround
