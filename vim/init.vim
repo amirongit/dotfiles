@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim'
 Plug 'chriskempson/base16-vim'
 Plug 'mhinz/vim-startify'
-Plug 'dracula/vim'
 Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
 Plug 'tomasiser/vim-code-dark'
@@ -70,7 +69,7 @@ let g:startify_lists = [
         \ { 'type': function('s:gitModified'),  'header': ['    Modified Files In Git Repo']},
         \ { 'type': function('s:gitUntracked'), 'header': ['    Untracked Files In Git Repo']},
         \ ]
-let g:startify_files_number=20
+let g:startify_files_number=11
 let g:netrw_banner = 0
 let gruvbox_contrast_dark = 'hard'
 let g:onedark_termcolors=16
@@ -147,8 +146,8 @@ set showmatch
 set noshowmode
 
 set listchars=trail:⋅,space:⋅,eol:¬,tab:→\ ,extends:❯,precedes:❮
-"set listchars=trail:.,space:.,eol:$
-"set listchars=
+" set listchars=trail:.,space:.,eol:$
+" set listchars=
 set cmdheight=2
 set showtabline=2
 set scrolloff=0
@@ -165,7 +164,7 @@ set foldmethod=indent
 set foldlevelstart=0
 set foldnestmax=20
 set foldlevel=1
-"set nofoldenable
+set nofoldenable
 set pastetoggle=<leader>p
 set backspace=indent,eol,start
 set laststatus=2
@@ -178,33 +177,33 @@ set updatetime=300
 set signcolumn=yes
 set termguicolors
 
-"appearance
+" appearance
 syntax on
 colorscheme base16-default-dark
 hi clear SignColumn
 hi clear LineNr
-hi SignColumn guibg=bg ctermbg=bg
+hi SignColumn ctermfg=8 ctermbg=10
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
-hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 hi DiffAdd ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
 hi DiffChange ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
 hi DiffDelete ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
 hi CocWarningSign ctermfg=white cterm=bold guifg=white gui=bold
 hi CocErrorSign ctermfg=white cterm=bold guifg=white gui=bold
 hi CocHintSign ctermfg=white cterm=bold guifg=white gui=bold
-"hi clear PmenuThumb
-"hi clear PmenuSbar
-"hi Pmenu ctermbg=black ctermfg=white guibg=black guifg=white
+" hi clear PmenuThumb
+" hi clear PmenuSbar
+" hi Pmenu ctermbg=black ctermfg=white guibg=black guifg=white
 
-"statusline
-"so $VIMRUNTIME/syntax/hitest.vim
-set statusline +=%#ModeMsg#
+" statusline
+" so $VIMRUNTIME/syntax/hitest.vim
+set statusline +=%#CursorLineNr#
 set statusline +=\ %{mode()}
 set statusline +=\ %B 
 set statusline +=\ %F 
 set statusline +=\ %M
 set statusline +=\ %R
 set statusline +=%=
+set statusline +=%#TermCursor#
 set statusline +=\ %v
 set statusline +=\ %Y
 set statusline +=\ %{StatusDiagnostic()}
