@@ -127,7 +127,7 @@ nmap <silent><nowait><expr><C-K>  coc#float#has_scroll() ? coc#float#scroll(0) :
 
 set nobackup
 set shortmess=aFc
-set hidden
+set nohidden
 set nowritebackup
 set noswapfile
 set expandtab
@@ -144,6 +144,8 @@ set incsearch
 set autoread
 set showmatch
 set noshowmode
+set wrap
+set linebreak
 
 set listchars=trail:⋅,space:⋅,eol:¬,tab:→\ ,extends:❯,precedes:❮
 " set listchars=trail:.,space:.,eol:$
@@ -175,14 +177,13 @@ set guioptions-=r
 set guifont=Ubuntu\ mono\ 13
 set updatetime=300
 set signcolumn=yes
-set termguicolors
+" set termguicolors
 
 " appearance
 syntax on
 colorscheme base16-default-dark
 hi clear SignColumn
 hi clear LineNr
-hi SignColumn ctermfg=8 ctermbg=10
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
 hi DiffAdd ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
 hi DiffChange ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
