@@ -129,11 +129,11 @@ nmap <silent><leader>for          <Plug>(coc-format-selected)
 nmap <silent><leader>fix          <Plug>(coc-fix-current)
 nmap <silent><nowait><expr><C-J>  coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nmap <silent><nowait><expr><C-K>  coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-nmap <silent><leader>fhi          :History<CR>
-nmap <silent><leader>fgf          :GFiles<CR>
-nmap <silent><leader>fgs          :GFiles?<CR>
-nmap <silent><leader>fta          :Tags<CR>
-nmap <silent><leader>fco          :Commits<CR>
+nmap <silent><leader>fzh          :History<CR>
+nmap <silent><leader>fzg          :GFiles<CR>
+nmap <silent><leader>fzs          :GFiles?<CR>
+nmap <silent><leader>fzt          :Tags<CR>
+nmap <silent><leader>fzc          :Commits<CR>
 
 set nobackup
 set shortmess=aFc
