@@ -10,6 +10,9 @@ Plug 'jaredgorski/SpaceCamp'
 Plug 'cocopon/iceberg.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'nanotech/jellybeans.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 function! s:check_back_space() abort
@@ -74,6 +77,8 @@ let g:netrw_banner = 0
 let gruvbox_contrast_dark = 'hard'
 let g:onedark_termcolors=16
 let g:onedark_hide_endofbuffer=1
+let g:fzf_tags_command = 'ctags -R'
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -124,6 +129,11 @@ nmap <silent><leader>for          <Plug>(coc-format-selected)
 nmap <silent><leader>fix          <Plug>(coc-fix-current)
 nmap <silent><nowait><expr><C-J>  coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nmap <silent><nowait><expr><C-K>  coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+nmap <silent><leader>fhi          :History<CR>
+nmap <silent><leader>fgf          :GFiles<CR>
+nmap <silent><leader>fgs          :GFiles?<CR>
+nmap <silent><leader>fta          :Tags<CR>
+nmap <silent><leader>fco          :Commits<CR>
 
 set nobackup
 set shortmess=aFc
@@ -197,7 +207,7 @@ hi CocHintSign ctermfg=white cterm=bold guifg=white gui=bold
 
 " statusline
 " so $VIMRUNTIME/syntax/hitest.vim
-set statusline +=%#CursorLineNr#
+set statusline +=%#StatusLine#
 set statusline +=\ %{mode()}
 set statusline +=\ %B 
 set statusline +=\ %F 
