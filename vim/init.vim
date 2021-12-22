@@ -13,6 +13,8 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 function! s:check_back_space() abort
@@ -53,20 +55,16 @@ function! s:gitUntracked()
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
-let g:coc_status_error_sign = '»'
-let g:coc_status_warning_sign = '›'
-let g:ascii = [
-    \'     .-._               ,-.-. .=-.-.',
-    \'    /==/ \  .-._ ,--.-./=/ ,//==/_ /',
-    \'    |==|, \/ /, /==/, ||=| -|==|, | ',
-    \'    |==|-  \|  |\==\,  \ / ,|==|  | ',
-    \'    |==| ,  | -| \==\ -   - /==|- | ',
-    \'    |==| -   _ |  \==\ ,   ||==| ,| ',
-    \'    |==|  /\ , |  |==| -  ,/|==|- | ',
-    \'    /==/, | |- |  \==\  _ / /==/. / ',
-    \'    `--`./  `--`   `--`--   `--`-`  ',
-        \]
-let g:startify_custom_header = g:ascii
+let g:coc_status_error_sign = 'e '
+let g:coc_status_warning_sign = 'w '
+let g:airline_skip_empty_sections = 1
+let g:airline#extensions#fzf#enabled = 1
+let g:airline_left_sep="\uE0B0"
+let g:airline_right_sep="\uE0B2"
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep ="\uE0B0"
+" let g:airline#extensions#tabline#right_sep ="\uE0B2"
+let g:startify_custom_header = startify#pad(startify#fortune#quote())
 let g:startify_lists = [
         \ { 'type': 'files',     'header': ['    Most Recent Files']            },
         \ { 'type': function('s:gitModified'),  'header': ['    Modified Files In Git Repo']},
@@ -89,6 +87,7 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
 
 xmap <silent><silent>K    :move '<-2<CR>gv-gv
 xmap <silent><silent>J    :move '>+1<CR>gv-gv
@@ -135,8 +134,8 @@ nmap <silent><leader>fzs          :GFiles?<CR>
 nmap <silent><leader>fzt          :Tags<CR>
 nmap <silent><leader>fzc          :Commits<CR>
 
+
 set nobackup
-set shortmess=aFc
 set nohidden
 set nowritebackup
 set noswapfile
@@ -154,6 +153,8 @@ set incsearch
 set autoread
 set showmatch
 set noshowmode
+set noruler
+set noshowcmd
 set wrap
 set linebreak
 
@@ -175,18 +176,15 @@ set t_Co=256
 set foldmethod=indent
 set foldlevelstart=0
 set foldnestmax=20
-set foldlevel=1
-set nofoldenable
+" set foldlevel=1
+" set nofoldenable
 set pastetoggle=<leader>p
 set backspace=indent,eol,start
-set laststatus=2
+set shortmess=
 set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:block
-set guioptions-=T
-set guioptions-=m
-set guioptions-=r
-set guifont=Ubuntu\ mono\ 13
 set updatetime=300
 set signcolumn=yes
+set laststatus=0
 " set termguicolors
 
 " appearance
@@ -207,15 +205,27 @@ hi CocHintSign ctermfg=white cterm=bold guifg=white gui=bold
 
 " statusline
 " so $VIMRUNTIME/syntax/hitest.vim
-set statusline +=%#StatusLine#
-set statusline +=\ %{mode()}
-set statusline +=\ %B 
-set statusline +=\ %F 
-set statusline +=\ %M
-set statusline +=\ %R
-set statusline +=%=
-set statusline +=%#TermCursor#
-set statusline +=\ %v
-set statusline +=\ %Y
-set statusline +=\ %{StatusDiagnostic()}
-set statusline +=\ %{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
+" set statusline +=%#StatusLine#
+" set statusline +=\ %{mode()}
+" set statusline +=\ %B 
+" set statusline +=\ %F 
+" set statusline +=\ %M
+" set statusline +=\ %R
+" set statusline +=%=
+" set statusline +=%#TermCursor#
+" set statusline +=\ %v
+" set statusline +=\ %Y
+" set statusline +=\ %{StatusDiagnostic()}
+" set statusline +=\ %{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
+
+function! AirlineOverride(...)
+    call a:1.add_section('airline_a', ' %{mode()} %B ')
+    call a:1.add_section('airline_b', ' %F %M %R ')
+    call a:1.split()
+    call a:1.add_section('airline_z', ' %v %Y ')
+    call a:1.add_section('airline_error', ' %{coc#status()}%{get(b:,"coc_current_function","")} ')
+    call a:1.add_section('airline_warning', '%{get(g:,"coc_git_status","")} ')
+    return 1
+endfunction
+
+call airline#add_statusline_func('AirlineOverride')
