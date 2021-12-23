@@ -55,8 +55,8 @@ function! s:gitUntracked()
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
-let g:coc_status_error_sign = 'e '
-let g:coc_status_warning_sign = 'w '
+let g:coc_status_error_sign = '🅴 '
+let g:coc_status_warning_sign = '🆆 '
 let g:airline_skip_empty_sections = 1
 let g:airline#extensions#fzf#enabled = 1
 let g:airline_left_sep="\uE0B0"
@@ -189,7 +189,7 @@ set laststatus=0
 
 " appearance
 syntax on
-colorscheme base16-default-dark
+colorscheme base16-google-dark
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
