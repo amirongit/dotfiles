@@ -1,65 +1,64 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Blogger Sans Bold 8
+font pango: Operator Mono Medium 8
 
 focus_follows_mouse yes
-#smart_gaps on
-#smart_borders on
-#for_window [class="."] border pixel 2
+# smart_gaps on
+# smart_borders on
+# for_window [class="."] border pixel 2
 
 new_window normal 0
 new_float normal 0
+title_align center
 
-gaps inner 10
-gaps outer 8
+# gaps inner 10
+# gaps outer 8
 
-workspace_layout tabbed
+# workspace_layout stacked
 
-set $ActiveBorder       #a1b56c
-set $ActiveBackGround   #a1b56c
-set $ActiveText         #181818
+set $ActiveBorder       #707880
+set $ActiveBackGround   #707880
+set $ActiveText         #ffffff
 
-set $UnFocusedBorder       #282828
-set $UnFocusedBackGround   #282828
-set $UnFocusedText         #f8f8f8
+set $UnFocusedBorder       #37474f
+set $UnFocusedBackGround   #37474f
+set $UnFocusedText         #ffffff
 
-set $InActiveBorder       #282828
-set $InActiveBackGround   #282828
-set $InActiveText         #f8f8f8
+set $InActiveBorder       #2c393f
+set $InActiveBackGround   #2c393f
+set $InActiveText         #ffffff
 
-set $UrgentBorder      #ab4642
-set $UrgenBackGround   #ab4642
-set $UrgentText        #f8f8f8
+set $UrgentBorder      #ec5f67
+set $UrgenBackGround   #ec5f67
+set $UrgentText        #263238
 
-set $BarBackGround         #282828
+set $BarBackGround         #000000
 
-set $BarActive       #ba8baf
-set $BarActiveText   #181818
+set $BarActive       #285577
+set $BarActiveText   #ffffff
 
-set $BarInActive       #282828
-set $BarInActiveText   #f8f8f8
+set $BarInActive       #263238
+set $BarInActiveText   #ffffff
 
 
 exec_always picom --config /home/amir/.config/picom/picom.conf
 exec_always xset -b
 exec_always hsetroot -solid '$BarBackGround'
-exec_always feh --bg-fill /usr/share/backgrounds/aaron-bean-QNp2SqCrsxA-unsplash.jpg
-exec_always setxkbmap -option grp:alt_shift_toggle us,ir
+# exec_always feh --bg-scale .local/share/backgrounds/b16bg.png
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p "run: " -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Blogger Sans:pixelsize=11:style=bold' #-b
+bindsym $mod+d exec dmenu_run -p "run: " -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Operator Mono:pixelsize=9:style=Bold' #-b
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
 
-bindsym XF86Sleep exec --no-startup-id systemctl --user start redshift
 bindsym XF86AudioPause exec --no-startup-id cmus-remote -u
 bindsym XF86AudioPlay exec --no-startup-id cmus-remote -p
 bindsym XF86AudioNext exec --no-startup-id cmus-remote -n
 bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec brightnessctl -d "intel_backlight" set 50+ > /dev/null
+bindsym XF86MonBrightnessDown exec brightnessctl -d "intel_backlight" set 50- > /dev/null
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 
@@ -88,11 +87,11 @@ bindsym $mod+e layout toggle split
 
 bindsym $mod+space bar mode toggle
 
-set $ws1 "Arch"
-set $ws2 "Internet"
-set $ws3 "Development"
-set $ws4 "Graphics"
-set $ws5 "System"
+set $ws1 "RCH"
+set $ws2 "WWW"
+set $ws3 "DEV"
+set $ws4 "GFX"
+set $ws5 "SYS"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -112,6 +111,7 @@ assign [class="libreoffice*"] $ws4
 assign [class="Steam"] $ws4
 assign [class="Brave-browser"] $ws2
 assign [class="Brave"] $ws2
+assign [class="Chromium"] $ws2
 assign [class="firefox"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws1
@@ -136,10 +136,10 @@ for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="feh"] floating enable
 
 
-client.focused            $ActiveBorder      $ActiveBackGround      $ActiveText      $ActiveBackGround
-client.focused_inactive   $InActiveBorder    $InActiveBackGround    $InActiveText    $InActiveBackGround
-client.unfocused          $UnFocusedBorder   $UnFocusedBackGround   $UnFocusedText   $UnFocusedBackGround
-client.urgent             $UrgentBorder      $UrgenBackGround       $UrgentText      $UrgenBackGround
+# client.focused            $ActiveBorder      $ActiveBackGround      $ActiveText      $ActiveBackGround
+# client.focused_inactive   $InActiveBorder    $InActiveBackGround    $InActiveText    $InActiveBackGround
+# client.unfocused          $UnFocusedBorder   $UnFocusedBackGround   $UnFocusedText   $UnFocusedBackGround
+# client.urgent             $UrgentBorder      $UrgenBackGround       $UrgentText      $UrgenBackGround
 
 
 mode "resize" {
@@ -182,15 +182,15 @@ mode "$mode_gaps_outer" {
 bar {
         position top
         status_command i3blocks
-        separator_symbol "/"
+        separator_symbol ", "
         tray_output none
-        mode hide
+        # mode hide
         height 15
-        colors {
-            background $BarBackGround
-            separator #F6F6F6
-            focused_workspace  $BarActive       $BarActive       $BarActiveText
-            inactive_workspace $BarInActive     $BarInActive     $BarInActiveText
-            urgent_workspace   $UrgenBackGround $UrgenBackGround $UrgentText
-        }
+#         colors {
+#             background $BarBackGround
+#             separator #F6F6F6
+#             focused_workspace  $BarActive       $BarActive       $BarActiveText
+#             inactive_workspace $BarInActive     $BarInActive     $BarInActiveText
+#             urgent_workspace   $UrgenBackGround $UrgenBackGround $UrgentText
+#         }
 }

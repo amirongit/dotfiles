@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim'
-Plug 'chriskempson/base16-vim'
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
@@ -189,7 +188,7 @@ set laststatus=0
 
 " appearance
 syntax on
-colorscheme base16-google-dark
+colorscheme codedark
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
@@ -224,7 +223,7 @@ function! AirlineOverride(...)
     call a:1.split()
     call a:1.add_section('airline_z', ' %v %Y ')
     call a:1.add_section('airline_error', ' %{coc#status()}%{get(b:,"coc_current_function","")} ')
-    call a:1.add_section('airline_warning', '%{get(g:,"coc_git_status","")} ')
+    call a:1.add_section('airline_tab', '%{get(g:,"coc_git_status","")} ')
     return 1
 endfunction
 
