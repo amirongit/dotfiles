@@ -1,0 +1,18 @@
+let g:netrw_banner = 0
+
+nmap <silent><Down>               :resize +2<CR>
+nmap <silent><Up>                 :resize -2<CR>
+nmap <silent><Left>               :vertical resize +2<CR>
+nmap <silent><Right>              :vertical resize -2<CR>
+nmap q                            <NOP>
+nmap Q                            <NOP>
+nmap H                            gT
+nmap L                            gt
+nmap <silent><leader>sex          :Sexplore<CR>
+nmap <silent><leader>vex          :Vexplore<CR>
+nmap <silent><leader>tex          :Texplore<CR>
+nmap <silent><leader>exp          :Explore<CR>
+nmap <silent><leader>hls          :set hlsearch!<CR>
+
+set relativenumber
+syntax on
