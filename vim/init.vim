@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
@@ -12,8 +12,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 function! s:check_back_space() abort
@@ -54,20 +52,13 @@ function! s:gitUntracked()
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
-let g:coc_status_error_sign = '🅴 '
-let g:coc_status_warning_sign = '🆆 '
-let g:airline_skip_empty_sections = 1
-let g:airline#extensions#fzf#enabled = 1
-let g:airline_left_sep="\uE0B0"
-let g:airline_right_sep="\uE0B2"
-let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep ="\uE0B0"
-" let g:airline#extensions#tabline#right_sep ="\uE0B2"
+let g:coc_status_error_sign = 'e'
+let g:coc_status_warning_sign = 'w'
 let g:startify_custom_header = startify#pad(startify#fortune#quote())
 let g:startify_lists = [
-        \ { 'type': 'files',     'header': ['    Most Recent Files']            },
-        \ { 'type': function('s:gitModified'),  'header': ['    Modified Files In Git Repo']},
-        \ { 'type': function('s:gitUntracked'), 'header': ['    Untracked Files In Git Repo']},
+        \ { 'type': 'files',     'header': ['    Recent']},
+        \ { 'type': function('s:gitModified'),  'header': ['    Modified']},
+        \ { 'type': function('s:gitUntracked'), 'header': ['    Untracked']},
         \ ]
 let g:startify_files_number=11
 let g:netrw_banner = 0
@@ -174,7 +165,7 @@ set wildmode=list:longest,list:full
 set t_Co=256
 set foldmethod=indent
 set foldlevelstart=0
-set foldnestmax=20
+set foldnestmax=5
 " set foldlevel=1
 " set nofoldenable
 set pastetoggle=<leader>p
@@ -183,8 +174,8 @@ set shortmess=
 set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:block
 set updatetime=300
 set signcolumn=yes
-set laststatus=0
-" set termguicolors
+set laststatus=2
+set termguicolors
 
 " appearance
 syntax on
@@ -204,27 +195,15 @@ hi CocHintSign ctermfg=white cterm=bold guifg=white gui=bold
 
 " statusline
 " so $VIMRUNTIME/syntax/hitest.vim
-" set statusline +=%#StatusLine#
-" set statusline +=\ %{mode()}
-" set statusline +=\ %B 
-" set statusline +=\ %F 
-" set statusline +=\ %M
-" set statusline +=\ %R
-" set statusline +=%=
-" set statusline +=%#TermCursor#
-" set statusline +=\ %v
-" set statusline +=\ %Y
-" set statusline +=\ %{StatusDiagnostic()}
-" set statusline +=\ %{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
-
-function! AirlineOverride(...)
-    call a:1.add_section('airline_a', ' %{mode()} %B ')
-    call a:1.add_section('airline_b', ' %F %M %R ')
-    call a:1.split()
-    call a:1.add_section('airline_z', ' %v %Y ')
-    call a:1.add_section('airline_error', ' %{coc#status()}%{get(b:,"coc_current_function","")} ')
-    call a:1.add_section('airline_tab', '%{get(g:,"coc_git_status","")} ')
-    return 1
-endfunction
-
-call airline#add_statusline_func('AirlineOverride')
+set statusline +=%#StatusLine#
+set statusline +=\ %{mode()}
+set statusline +=\ %B 
+set statusline +=\ %F 
+set statusline +=\ %M
+set statusline +=\ %R
+set statusline +=%=
+set statusline +=%#TermCursor#
+set statusline +=\ %v
+set statusline +=\ %Y
+set statusline +=\ %{StatusDiagnostic()}
+set statusline +=\ %{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
