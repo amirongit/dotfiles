@@ -1,18 +1,32 @@
 let g:netrw_banner = 0
 
-nmap <silent><Down>               :resize +2<CR>
-nmap <silent><Up>                 :resize -2<CR>
-nmap <silent><Left>               :vertical resize +2<CR>
-nmap <silent><Right>              :vertical resize -2<CR>
-nmap q                            <NOP>
-nmap Q                            <NOP>
-nmap H                            gT
-nmap L                            gt
-nmap <silent><leader>sex          :Sexplore<CR>
-nmap <silent><leader>vex          :Vexplore<CR>
-nmap <silent><leader>tex          :Texplore<CR>
-nmap <silent><leader>exp          :Explore<CR>
-nmap <silent><leader>hls          :set hlsearch!<CR>
+nmap <silent><Down>       :resize +2<CR>
+nmap <silent><Up>         :resize -2<CR>
+nmap <silent><Left>       :vertical resize +2<CR>
+nmap <silent><Right>      :vertical resize -2<CR>
+nmap q                    <NOP>
+nmap Q                    <NOP>
+nmap H                    gT
+nmap L                    gt
+nmap <silent><leader>sex  :Sexplore<CR>
+nmap <silent><leader>vex  :Vexplore<CR>
+nmap <silent><leader>tex  :Texplore<CR>
+nmap <silent><leader>exp  :Explore<CR>
+nmap <silent><leader>hls  :set hlsearch!<CR>
+xmap <silent><silent>K    :move '<-2<CR>gv-gv
+xmap <silent><silent>J    :move '>+1<CR>gv-gv
 
 set relativenumber
+set shiftround
+set shiftwidth=4
+set expandtab
+set smarttab
+set autoindent
+set tabstop=4
+set softtabstop=4
 syntax on
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
