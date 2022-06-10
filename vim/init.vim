@@ -3,15 +3,8 @@ Plug 'neoclide/coc.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
-Plug 'tomasiser/vim-code-dark'
-Plug 'morhetz/gruvbox'
-Plug 'jaredgorski/SpaceCamp'
-Plug 'cocopon/iceberg.vim'
-Plug 'whatyouhide/vim-gotham'
-Plug 'nanotech/jellybeans.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 function! s:check_back_space() abort
@@ -62,11 +55,10 @@ let g:startify_lists = [
         \ ]
 let g:startify_files_number=11
 let g:netrw_banner = 0
+let g:netrw_liststyle = 3
 let gruvbox_contrast_dark = 'hard'
 let g:onedark_termcolors=16
 let g:onedark_hide_endofbuffer=1
-let g:fzf_tags_command = 'ctags -R'
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -116,8 +108,6 @@ nmap <silent><leader>act          <Plug>(coc-codeaction-selected)
 nmap <silent><leader>ren          <Plug>(coc-rename)
 nmap <silent><leader>for          <Plug>(coc-format-selected)
 nmap <silent><leader>fix          <Plug>(coc-fix-current)
-nmap <silent><nowait><expr><C-J>  coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nmap <silent><nowait><expr><C-K>  coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 nmap <silent><leader>fzh          :History<CR>
 nmap <silent><leader>fzg          :GFiles<CR>
 nmap <silent><leader>fzs          :GFiles?<CR>
@@ -167,7 +157,7 @@ set foldmethod=indent
 set foldlevelstart=0
 set foldnestmax=5
 " set foldlevel=1
-" set nofoldenable
+set nofoldenable
 set pastetoggle=<leader>p
 set backspace=indent,eol,start
 set shortmess=
@@ -175,11 +165,11 @@ set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:block
 set updatetime=300
 set signcolumn=yes
 set laststatus=2
-set termguicolors
+" set termguicolors
 
 " appearance
 syntax on
-colorscheme codedark
+colorscheme base16-default-dark
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg

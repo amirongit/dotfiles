@@ -3,18 +3,18 @@ env:
 
 font:
   normal:
-    family: mononoki
-    style: Bold
+    family: Ubuntu mono
+    style: Regular
   bold:
-    family: mononoki
+    family: Ubuntu mono
     style: Bold
   italic:
-    family: mononoki
+    family: Ubuntu mono
     style: Italic
   bold_italic:
-    family: mononoki
+    family: Ubuntu mono
     style: Bold Italic
-  size: 8
+  size: 11.5
 
 cursor:
   style:
@@ -28,7 +28,7 @@ window:
   padding:
     x: 3
     y: 3
-  dynamic_padding: true
+  dynamic_padding: false
 
 scrolling:
   history: 500
@@ -41,9 +41,10 @@ selection:
   save_to_clipboard: true
 
 live_config_reload: true
-background_opacity: 1
 window.dynamic_title: true
 
+# Base16 Default Dark - alacritty color config
+# Chris Kempson (http://chriskempson.com)
 colors:
   # Default colors
   primary:
