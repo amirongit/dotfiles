@@ -1,4 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
@@ -45,6 +47,11 @@ function! s:gitUntracked()
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
+function! CheckBackSpace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
 let g:coc_status_error_sign = 'e'
 let g:coc_status_warning_sign = 'w'
 let g:startify_custom_header = startify#pad(startify#fortune#quote())
@@ -59,6 +66,8 @@ let g:netrw_liststyle = 3
 let gruvbox_contrast_dark = 'hard'
 let g:onedark_termcolors=16
 let g:onedark_hide_endofbuffer=1
+let g:fzf_tags_command = 'ctags -R'
+let g:fzf_layout = {'down':  '30%'}
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -76,11 +85,6 @@ xmap <silent><silent>J    :move '>+1<CR>gv-gv
 xmap <silent><leader>act  <Plug>(coc-codeaction-selected)
 xmap <silent><leader>for  <Plug>(coc-format-selected)
 
-imap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 nmap <silent><Down>               :resize +2<CR>
 nmap <silent><Up>                 :resize -2<CR>
@@ -108,12 +112,21 @@ nmap <silent><leader>act          <Plug>(coc-codeaction-selected)
 nmap <silent><leader>ren          <Plug>(coc-rename)
 nmap <silent><leader>for          <Plug>(coc-format-selected)
 nmap <silent><leader>fix          <Plug>(coc-fix-current)
-nmap <silent><leader>fzh          :History<CR>
-nmap <silent><leader>fzg          :GFiles<CR>
-nmap <silent><leader>fzs          :GFiles?<CR>
 nmap <silent><leader>fzt          :Tags<CR>
+nmap <silent><leader>fzh          :History<CR>
 nmap <silent><leader>fzc          :Commits<CR>
+nmap <silent><leader>fzf          :Files<CR>
 
+" inoremap <silent><expr> <TAB>
+"       \ coc#pum#visible() ? coc#pum#next(1):
+"       \ CheckBackSpace() ? "\<Tab>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() :
+"         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+inoremap <silent><expr> <TAB> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() :
+        \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 set nobackup
 set nohidden
@@ -154,10 +167,10 @@ set updatecount=0
 set wildmode=list:longest,list:full
 set t_Co=256
 set foldmethod=indent
-set foldlevelstart=0
+set foldlevelstart=1
 set foldnestmax=5
 " set foldlevel=1
-set nofoldenable
+" set nofoldenable
 set pastetoggle=<leader>p
 set backspace=indent,eol,start
 set shortmess=
@@ -165,6 +178,7 @@ set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:block
 set updatetime=300
 set signcolumn=yes
 set laststatus=2
+" set colorcolumn=120
 " set termguicolors
 
 " appearance
@@ -179,9 +193,10 @@ hi DiffDelete ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=b
 hi CocWarningSign ctermfg=white cterm=bold guifg=white gui=bold
 hi CocErrorSign ctermfg=white cterm=bold guifg=white gui=bold
 hi CocHintSign ctermfg=white cterm=bold guifg=white gui=bold
-" hi clear PmenuThumb
-" hi clear PmenuSbar
-" hi Pmenu ctermbg=black ctermfg=white guibg=black guifg=white
+hi clear PmenuThumb
+hi clear PmenuSbar
+hi clear PmenuSel
+hi Pmenu ctermbg=black ctermfg=white guibg=black guifg=white
 
 " statusline
 " so $VIMRUNTIME/syntax/hitest.vim
