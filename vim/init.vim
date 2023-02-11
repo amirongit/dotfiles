@@ -7,6 +7,7 @@ Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'chriskempson/base16-vim'
+Plug 'thaerkh/vim-indentguides'
 call plug#end()
 
 function! s:check_back_space() abort
@@ -107,6 +108,7 @@ nmap <silent><leader>imp          <Plug>(coc-implementation)
 nmap <silent><leader>ref          <Plug>(coc-refrences)
 nmap <silent><leader>doc          :call <SID>show_documentation()<CR>
 nmap <silent><leader>dia          :<C-u>CocList diagnostics<cr>
+nmap <silent><leader>sym          :<C-u>CocList symbols<cr>
 nmap <silent><leader>com          <Plug>(coc-git-commit)
 nmap <silent><leader>act          <Plug>(coc-codeaction-selected)
 nmap <silent><leader>ren          <Plug>(coc-rename)
@@ -117,11 +119,11 @@ nmap <silent><leader>fzh          :History<CR>
 nmap <silent><leader>fzc          :Commits<CR>
 nmap <silent><leader>fzf          :Files<CR>
 
-" inoremap <silent><expr> <TAB>
-"       \ coc#pum#visible() ? coc#pum#next(1):
-"       \ CheckBackSpace() ? "\<Tab>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackSpace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() :
 "         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
