@@ -33,18 +33,19 @@
   "python.venvPath": "/home/amir/Dev/VirtualEnvironments",
   "python.analysis.autoImportCompletions": false,
   "python.formatting.autopep8Path": "autopep8",
-  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.typeCheckingMode": "basic",
   "python.formatting.provider": "autopep8",
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
+  "python.linting.flake8Args": ["--max-line-length=120"],
   "signature.hideOnTextChange": false,
-  "suggest.echodocSupport": true,
-  "suggest.floatEnable": true,
   "signature.target": "float",
   "signature.floatConfig":{
     "highlight": "CocFloating",
     "maxHeight": 70,
     "maxWidth": 70,
     "border": true
-  }
+  },
+  "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk/",
+  "inlayHint.enable": false
 }

@@ -3,11 +3,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim'
 Plug 'mhinz/vim-startify'
-Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'chriskempson/base16-vim'
-Plug 'thaerkh/vim-indentguides'
+Plug 'tomasiser/vim-code-dark'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 function! s:check_back_space() abort
@@ -53,6 +53,7 @@ function! CheckBackSpace() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
+let g:dracula_italic = 0
 let g:coc_status_error_sign = 'e'
 let g:coc_status_warning_sign = 'w'
 let g:startify_custom_header = startify#pad(startify#fortune#quote())
@@ -124,8 +125,6 @@ inoremap <silent><expr> <TAB>
       \ CheckBackSpace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-" inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() :
-"         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 inoremap <silent><expr> <TAB> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() :
         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -172,7 +171,7 @@ set foldmethod=indent
 set foldlevelstart=1
 set foldnestmax=5
 " set foldlevel=1
-" set nofoldenable
+set nofoldenable
 set pastetoggle=<leader>p
 set backspace=indent,eol,start
 set shortmess=
@@ -185,7 +184,7 @@ set laststatus=2
 
 " appearance
 syntax on
-colorscheme base16-default-dark
+colorscheme gruvbox
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg

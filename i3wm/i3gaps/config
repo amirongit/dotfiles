@@ -1,7 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Operator Mono Medium 8
+font pango: Cascadia Code 8
 
 focus_follows_mouse yes
 # smart_gaps on
@@ -12,55 +12,57 @@ new_window normal 0
 new_float normal 0
 title_align center
 
-# gaps inner 10
-# gaps outer 8
+# gaps inner 12
+# gaps outer 10
 
 # workspace_layout stacked
 
-set $ActiveBorder       #707880
-set $ActiveBackGround   #707880
-set $ActiveText         #ffffff
+set $ActiveBorder       #a89984
+set $ActiveBackGround   #a89984
+set $ActiveText         #1c1c1c
 
-set $UnFocusedBorder       #37474f
-set $UnFocusedBackGround   #37474f
-set $UnFocusedText         #ffffff
+set $UnFocusedBorder       #3c3836
+set $UnFocusedBackGround   #3c3836
+set $UnFocusedText         #fbf1c7
 
-set $InActiveBorder       #2c393f
-set $InActiveBackGround   #2c393f
-set $InActiveText         #ffffff
+set $InActiveBorder       #282828
+set $InActiveBackGround   #282828
+set $InActiveText         #fbf1c7
 
-set $UrgentBorder      #ec5f67
-set $UrgenBackGround   #ec5f67
-set $UrgentText        #263238
+set $UrgentBorder      #9d0006
+set $UrgenBackGround   #9d0006
+set $UrgentText        #fbf1c7
 
-set $BarBackGround         #000000
+set $BarBackGround         #1c1c1c
 
-set $BarActive       #285577
-set $BarActiveText   #ffffff
+set $BarActive       #427b58
+set $BarActiveText   #fbf1c7
 
-set $BarInActive       #263238
-set $BarInActiveText   #ffffff
+set $BarInActive       #1c1c1c
+set $BarInActiveText   #fbf1c7
 
 
 exec_always picom --config /home/amir/.config/picom/picom.conf
 exec_always xset -b
-exec_always hsetroot -solid '$BarBackGround'
-# exec_always feh --bg-scale .local/share/backgrounds/b16bg.png
+# exec_always hsetroot -solid '$BarBackGround'
+exec_always feh --bg-scale ~/.local/share/backgrounds/art_48.png
+# exec_always feh --bg-scale --randomize ~/.local/share/backgrounds/*
+exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -p "run: " -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Operator Mono:pixelsize=9:style=Bold' #-b
+bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Cascadia Code:pixelsize=11:style=Bold' #-b
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
-bindsym $mod+Shift+r reload
+bindsym $mod+Shift+r restart
 
-bindsym XF86AudioPause exec --no-startup-id cmus-remote -u
-bindsym XF86AudioPlay exec --no-startup-id cmus-remote -p
-bindsym XF86AudioNext exec --no-startup-id cmus-remote -n
-bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r
-bindsym XF86MonBrightnessUp exec brightnessctl -d "intel_backlight" set 50+ > /dev/null
-bindsym XF86MonBrightnessDown exec brightnessctl -d "intel_backlight" set 50- > /dev/null
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioPause exec --no-startup-id cmus-remote -u && notify-send "pause/play: $(cmus-remote -Q | grep file | awk -F/ '{print $NF}')"
+# bindsym XF86AudioPlay exec --no-startup-id cmus-remote -p && notify-send "pause: $(cmus-remote -Q | grep file | awk -F/ '{print $NF}')"
+bindsym XF86AudioNext exec --no-startup-id cmus-remote -n && notify-send "next: $(cmus-remote -Q | grep file | awk -F/ '{print $NF}')"
+bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && notify-send "previous: $(cmus-remote -Q | grep file | awk -F/ '{print $NF}')"
+# bindsym XF86MonBrightnessUp exec brightnessctl -d "intel_backlight" set 50+ > /dev/null
+# bindsym XF86MonBrightnessDown exec brightnessctl -d "intel_backlight" set 50- > /dev/null
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send "volume: $(pamixer --get-volume)%"
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send "volume: $(pamixer --get-volume)%"
 
 bindsym $mod+h focus left
 bindsym $mod+l focus right
@@ -85,7 +87,7 @@ bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
-bindsym $mod+space bar mode toggle
+# bindsym $mod+space bar mode toggle
 
 set $ws1 "RCH"
 set $ws2 "WWW"
@@ -134,12 +136,17 @@ for_window [class="Gimp"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="feh"] floating enable
+for_window [class="Gcolor3"] floating enable
+for_window [class="Gpicview"] floating enable
+for_window [class="Pcmanfm"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="lximage-qt"] floating enable
 
 
-# client.focused            $ActiveBorder      $ActiveBackGround      $ActiveText      $ActiveBackGround
-# client.focused_inactive   $InActiveBorder    $InActiveBackGround    $InActiveText    $InActiveBackGround
-# client.unfocused          $UnFocusedBorder   $UnFocusedBackGround   $UnFocusedText   $UnFocusedBackGround
-# client.urgent             $UrgentBorder      $UrgenBackGround       $UrgentText      $UrgenBackGround
+client.focused            $ActiveBorder      $ActiveBackGround      $ActiveText      $ActiveBackGround
+client.focused_inactive   $InActiveBorder    $InActiveBackGround    $InActiveText    $InActiveBackGround
+client.unfocused          $UnFocusedBorder   $UnFocusedBackGround   $UnFocusedText   $UnFocusedBackGround
+client.urgent             $UrgentBorder      $UrgenBackGround       $UrgentText      $UrgenBackGround
 
 
 mode "resize" {
@@ -182,15 +189,15 @@ mode "$mode_gaps_outer" {
 bar {
         position top
         status_command i3blocks
-        separator_symbol ", "
+        separator_symbol ","
         tray_output none
         # mode hide
         height 15
-#         colors {
-#             background $BarBackGround
-#             separator #F6F6F6
-#             focused_workspace  $BarActive       $BarActive       $BarActiveText
-#             inactive_workspace $BarInActive     $BarInActive     $BarInActiveText
-#             urgent_workspace   $UrgenBackGround $UrgenBackGround $UrgentText
-#         }
+        colors {
+            background $BarBackGround
+            separator #F6F6F6
+            focused_workspace  $BarActive       $BarActive       $BarActiveText
+            inactive_workspace $BarInActive     $BarInActive     $BarInActiveText
+            urgent_workspace   $UrgenBackGround $UrgenBackGround $UrgentText
+        }
 }
