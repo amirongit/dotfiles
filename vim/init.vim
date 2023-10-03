@@ -8,6 +8,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'chriskempson/base16-vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'morhetz/gruvbox'
+Plug 'nordtheme/vim'
 call plug#end()
 
 function! s:check_back_space() abort
@@ -75,11 +76,16 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
 endif
+if (has("termguicolors"))
+  set termguicolors
+endif
 augroup mygroup
   autocmd!
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd BufWritePre *.py :silent call CocAction('runCommand', 'python.sortImports')
+
 
 
 xmap <silent><silent>K    :move '<-2<CR>gv-gv
@@ -119,14 +125,15 @@ nmap <silent><leader>fzt          :Tags<CR>
 nmap <silent><leader>fzh          :History<CR>
 nmap <silent><leader>fzc          :Commits<CR>
 nmap <silent><leader>fzf          :Files<CR>
+nmap <expr> <c-e> (line('w$') != line('$'))? "\<c-e>" : ''
 
-inoremap <silent><expr> <TAB>
+imap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1):
       \ CheckBackSpace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+imap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-inoremap <silent><expr> <TAB> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() :
+imap <silent><expr> <TAB> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() :
         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 set nobackup
@@ -180,24 +187,23 @@ set updatetime=300
 set signcolumn=yes
 set laststatus=2
 " set colorcolumn=120
-" set termguicolors
 
 " appearance
 syntax on
-colorscheme gruvbox
+colorscheme base16-irblack
 hi clear SignColumn
 hi clear LineNr
-hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
+" hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
 hi DiffAdd ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
 hi DiffChange ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
 hi DiffDelete ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
 hi CocWarningSign ctermfg=white cterm=bold guifg=white gui=bold
 hi CocErrorSign ctermfg=white cterm=bold guifg=white gui=bold
 hi CocHintSign ctermfg=white cterm=bold guifg=white gui=bold
-hi clear PmenuThumb
-hi clear PmenuSbar
-hi clear PmenuSel
-hi Pmenu ctermbg=black ctermfg=white guibg=black guifg=white
+" hi clear PmenuThumb
+" hi clear PmenuSbar
+" hi clear PmenuSel
+" hi Pmenu ctermbg=black ctermfg=white guibg=black guifg=white
 
 " statusline
 " so $VIMRUNTIME/syntax/hitest.vim

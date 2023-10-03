@@ -3,18 +3,18 @@ env:
 
 font:
   normal:
-    family: Ubuntu mono
-    style: Regular
+    family: Intel One Mono
+    style: Medium
   bold:
-    family: Ubuntu mono
+    family: Intel One Mono
     style: Bold
   italic:
-    family: Ubuntu mono
+    family: Intel One Mono
     style: Italic
   bold_italic:
-    family: Ubuntu mono
+    family: Intel One Mono
     style: Bold Italic
-  size: 11.5
+  size: 11
 
 cursor:
   style:
@@ -26,8 +26,8 @@ mouse:
 
 window:
   padding:
-    x: 3
-    y: 3
+    x: 0
+    y: 0
   dynamic_padding: false
 
 scrolling:
@@ -43,39 +43,37 @@ selection:
 live_config_reload: true
 window.dynamic_title: true
 
-# Base16 Default Dark - alacritty color config
-# Chris Kempson (http://chriskempson.com)
 colors:
   # Default colors
   primary:
-    background: '0x181818'
-    foreground: '0xd8d8d8'
+    background: '0x000000'
+    foreground: '0xb5b3aa'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x181818'
-    cursor: '0xd8d8d8'
+    text: '0x000000'
+    cursor: '0xb5b3aa'
 
   # Normal colors
   normal:
-    black:   '0x181818'
-    red:     '0xab4642'
-    green:   '0xa1b56c'
-    yellow:  '0xf7ca88'
-    blue:    '0x7cafc2'
-    magenta: '0xba8baf'
-    cyan:    '0x86c1b9'
-    white:   '0xd8d8d8'
+    black:   '0x000000'
+    red:     '0xff6c60'
+    green:   '0xa8ff60'
+    yellow:  '0xffffb6'
+    blue:    '0x96cbfe'
+    magenta: '0xff73fd'
+    cyan:    '0xc6c5fe'
+    white:   '0xb5b3aa'
 
   # Bright colors
   bright:
-    black:   '0x585858'
-    red:     '0xdc9656'
-    green:   '0x282828'
-    yellow:  '0x383838'
-    blue:    '0xb8b8b8'
-    magenta: '0xe8e8e8'
-    cyan:    '0xa16946'
-    white:   '0xf8f8f8'
+    black:   '0x6c6c66'
+    red:     '0xe9c062'
+    green:   '0x242422'
+    yellow:  '0x484844'
+    blue:    '0x918f88'
+    magenta: '0xd9d7cc'
+    cyan:    '0xb18a3d'
+    white:   '0xfdfbee'
 
 draw_bold_text_with_bright_colors: false
