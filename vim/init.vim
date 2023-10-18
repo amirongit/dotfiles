@@ -1,15 +1,13 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
-Plug 'chriskempson/base16-vim'
-Plug 'tomasiser/vim-code-dark'
-Plug 'morhetz/gruvbox'
-Plug 'nordtheme/vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
+
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -54,7 +52,9 @@ function! CheckBackSpace() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-let g:dracula_italic = 0
+let g:fzf_preview_window = []
+let g:fzf_tags_command = 'ctags -R'
+let g:fzf_layout = {'down':  '40%'}
 let g:coc_status_error_sign = 'e'
 let g:coc_status_warning_sign = 'w'
 let g:startify_custom_header = startify#pad(startify#fortune#quote())
@@ -66,11 +66,6 @@ let g:startify_lists = [
 let g:startify_files_number=11
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let gruvbox_contrast_dark = 'hard'
-let g:onedark_termcolors=16
-let g:onedark_hide_endofbuffer=1
-let g:fzf_tags_command = 'ctags -R'
-let g:fzf_layout = {'down':  '30%'}
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -87,54 +82,39 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd BufWritePre *.py :silent call CocAction('runCommand', 'python.sortImports')
 
 
-
 xmap <silent><silent>K    :move '<-2<CR>gv-gv
 xmap <silent><silent>J    :move '>+1<CR>gv-gv
 xmap <silent><leader>act  <Plug>(coc-codeaction-selected)
 xmap <silent><leader>for  <Plug>(coc-format-selected)
+nmap <silent><Down>       :resize +2<CR>
+nmap <silent><Up>         :resize -2<CR>
+nmap <silent><Left>       :vertical resize +2<CR>
+nmap <silent><Right>      :vertical resize -2<CR>
+nmap <silent>J            <Plug>(coc-diagnostic-next)
+nmap <silent>K            <Plug>(coc-diagnostic-prev)
+nmap q                    <NOP>
+nmap Q                    <NOP>
+nmap H                    gT
+nmap L                    gt
+nmap <silent><leader>sex  :Sexplore<CR>
+nmap <silent><leader>vex  :Vexplore<CR>
+nmap <silent><leader>tex  :Texplore<CR>
+nmap <silent><leader>exp  :Explore<CR>
+nmap <silent><leader>hls  :set hlsearch!<CR>
+nmap <silent><leader>def  <Plug>(coc-definition)
+nmap <silent><leader>imp  <Plug>(coc-implementation)
+nmap <silent><leader>doc  :call <SID>show_documentation()<CR>
+nmap <silent><leader>dia  :<C-u>CocList diagnostics<cr>
+nmap <silent><leader>sym  :<C-u>CocList symbols<cr>
+nmap <silent><leader>act  <Plug>(coc-codeaction-selected)
+nmap <silent><leader>ren  <Plug>(coc-rename)
+nmap <silent><leader>gre  :Rg<CR>
+nmap <silent><leader>fnd  :Files<CR>
+" nmap <silent><expr><c-e>  (line('w$') != line('$'))? "\<c-e>" : ''
+imap <silent><expr><C-j>  coc#pum#visible() ? coc#pum#next(1) : coc#refresh()
+imap <silent><expr><C-k>  coc#pum#visible() ? coc#pum#prev(1) : coc#refresh()
+imap <silent><expr><TAB>  coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
 
-
-nmap <silent><Down>               :resize +2<CR>
-nmap <silent><Up>                 :resize -2<CR>
-nmap <silent><Left>               :vertical resize +2<CR>
-nmap <silent><Right>              :vertical resize -2<CR>
-nmap <silent>J                    <Plug>(coc-diagnostic-next)
-nmap <silent>K                    <Plug>(coc-diagnostic-prev)
-nmap q                            <NOP>
-nmap Q                            <NOP>
-nmap H                            gT
-nmap L                            gt
-nmap <silent><leader>sex          :Sexplore<CR>
-nmap <silent><leader>vex          :Vexplore<CR>
-nmap <silent><leader>tex          :Texplore<CR>
-nmap <silent><leader>exp          :Explore<CR>
-nmap <silent><leader>hls          :set hlsearch!<CR>
-nmap <silent><leader>def          <Plug>(coc-definition)
-nmap <silent><leader>tef          <Plug>(coc-type-definition)
-nmap <silent><leader>imp          <Plug>(coc-implementation)
-nmap <silent><leader>ref          <Plug>(coc-refrences)
-nmap <silent><leader>doc          :call <SID>show_documentation()<CR>
-nmap <silent><leader>dia          :<C-u>CocList diagnostics<cr>
-nmap <silent><leader>sym          :<C-u>CocList symbols<cr>
-nmap <silent><leader>com          <Plug>(coc-git-commit)
-nmap <silent><leader>act          <Plug>(coc-codeaction-selected)
-nmap <silent><leader>ren          <Plug>(coc-rename)
-nmap <silent><leader>for          <Plug>(coc-format-selected)
-nmap <silent><leader>fix          <Plug>(coc-fix-current)
-nmap <silent><leader>fzt          :Tags<CR>
-nmap <silent><leader>fzh          :History<CR>
-nmap <silent><leader>fzc          :Commits<CR>
-nmap <silent><leader>fzf          :Files<CR>
-nmap <expr> <c-e> (line('w$') != line('$'))? "\<c-e>" : ''
-
-imap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1):
-      \ CheckBackSpace() ? "\<Tab>" :
-      \ coc#refresh()
-imap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-imap <silent><expr> <TAB> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() :
-        \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 set nobackup
 set nohidden
@@ -158,6 +138,7 @@ set noruler
 set noshowcmd
 set wrap
 set linebreak
+set termguicolors
 
 set listchars=trail:⋅,space:⋅,eol:¬,tab:→\ ,extends:❯,precedes:❮
 " set listchars=trail:.,space:.,eol:$
@@ -190,7 +171,7 @@ set laststatus=2
 
 " appearance
 syntax on
-colorscheme base16-irblack
+colorscheme jellybeans
 hi clear SignColumn
 hi clear LineNr
 " hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
@@ -200,21 +181,24 @@ hi DiffDelete ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=b
 hi CocWarningSign ctermfg=white cterm=bold guifg=white gui=bold
 hi CocErrorSign ctermfg=white cterm=bold guifg=white gui=bold
 hi CocHintSign ctermfg=white cterm=bold guifg=white gui=bold
+hi TabLineFill guifg=Gray guibg=bg
+hi TabLine guifg=Gray guibg=bg
+hi TabLineSel guifg=DarkYellow guibg=bg
 " hi clear PmenuThumb
 " hi clear PmenuSbar
 " hi clear PmenuSel
 " hi Pmenu ctermbg=black ctermfg=white guibg=black guifg=white
 
-" statusline
+
 " so $VIMRUNTIME/syntax/hitest.vim
-set statusline +=%#StatusLine#
+set statusline +=%#CocListGreenBlack#
 set statusline +=\ %{mode()}
 set statusline +=\ %B 
 set statusline +=\ %F 
 set statusline +=\ %M
 set statusline +=\ %R
 set statusline +=%=
-set statusline +=%#TermCursor#
+set statusline +=%#CocListBlueBlack#
 set statusline +=\ %v
 set statusline +=\ %Y
 set statusline +=\ %{StatusDiagnostic()}
