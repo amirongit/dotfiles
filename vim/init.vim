@@ -5,7 +5,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'nanotech/jellybeans.vim'
+Plug 'jaredgorski/SpaceCamp'
 call plug#end()
 
 
@@ -171,7 +171,7 @@ set laststatus=2
 
 " appearance
 syntax on
-colorscheme jellybeans
+colorscheme spacecamp
 hi clear SignColumn
 hi clear LineNr
 " hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
