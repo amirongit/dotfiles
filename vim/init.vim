@@ -52,6 +52,7 @@ function! CheckBackSpace() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
+
 let g:fzf_preview_window = []
 let g:fzf_tags_command = 'ctags -R'
 let g:fzf_layout = {'down':  '40%'}
@@ -158,8 +159,8 @@ set t_Co=256
 set foldmethod=indent
 set foldlevelstart=1
 set foldnestmax=5
-" set foldlevel=1
-set nofoldenable
+set foldlevel=1
+" set nofoldenable
 set pastetoggle=<leader>p
 set backspace=indent,eol,start
 set shortmess=
