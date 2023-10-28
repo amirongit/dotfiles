@@ -6,6 +6,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jaredgorski/SpaceCamp'
+Plug 'chriskempson/base16-vim'
+Plug 'jaxbot/semantic-highlight.vim'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 
@@ -80,7 +83,8 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 autocmd CursorHold * silent call CocActionAsync('highlight')
-autocmd BufWritePre *.py :silent call CocAction('runCommand', 'python.sortImports')
+autocmd BufWritePre *.py :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufEnter *.* :SemanticHighlight
 
 
 xmap <silent><silent>K    :move '<-2<CR>gv-gv
@@ -104,6 +108,7 @@ nmap <silent><leader>exp  :Explore<CR>
 nmap <silent><leader>hls  :set hlsearch!<CR>
 nmap <silent><leader>def  <Plug>(coc-definition)
 nmap <silent><leader>imp  <Plug>(coc-implementation)
+nmap <silent><leader>ref  <Plug>(coc-references)
 nmap <silent><leader>doc  :call <SID>show_documentation()<CR>
 nmap <silent><leader>dia  :<C-u>CocList diagnostics<cr>
 nmap <silent><leader>sym  :<C-u>CocList symbols<cr>
@@ -111,7 +116,7 @@ nmap <silent><leader>act  <Plug>(coc-codeaction-selected)
 nmap <silent><leader>ren  <Plug>(coc-rename)
 nmap <silent><leader>gre  :Rg<CR>
 nmap <silent><leader>fnd  :Files<CR>
-" nmap <silent><expr><c-e>  (line('w$') != line('$'))? "\<c-e>" : ''
+nmap <silent><leader>iso  :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 imap <silent><expr><C-j>  coc#pum#visible() ? coc#pum#next(1) : coc#refresh()
 imap <silent><expr><C-k>  coc#pum#visible() ? coc#pum#prev(1) : coc#refresh()
 imap <silent><expr><TAB>  coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
@@ -172,10 +177,10 @@ set laststatus=2
 
 " appearance
 syntax on
-colorscheme spacecamp
+colorscheme base16-irblack
 hi clear SignColumn
 hi clear LineNr
-" hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
+hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
 hi DiffAdd ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
 hi DiffChange ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
 hi DiffDelete ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
