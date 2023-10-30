@@ -165,7 +165,7 @@ set foldmethod=indent
 set foldlevelstart=1
 set foldnestmax=5
 set foldlevel=1
-" set nofoldenable
+set nofoldenable
 set pastetoggle=<leader>p
 set backspace=indent,eol,start
 set shortmess=
@@ -177,7 +177,7 @@ set laststatus=2
 
 " appearance
 syntax on
-colorscheme base16-irblack
+colorscheme base16-materia
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
@@ -190,6 +190,7 @@ hi CocHintSign ctermfg=white cterm=bold guifg=white gui=bold
 hi TabLineFill guifg=Gray guibg=bg
 hi TabLine guifg=Gray guibg=bg
 hi TabLineSel guifg=DarkYellow guibg=bg
+hi NonText gui=None
 " hi clear PmenuThumb
 " hi clear PmenuSbar
 " hi clear PmenuSel

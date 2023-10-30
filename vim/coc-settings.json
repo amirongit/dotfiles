@@ -1,6 +1,11 @@
 {
   "coc.preferences.jumpCommand": "tab drop",
-  "diagnostic.messageTarget": "echo",
+  "diagnostic.messageTarget": "float",
+  "diagnostic.floatConfig": {
+    "border": true,
+    "maxWidth": 90,
+    "maxHeight": 90
+  },
   "diagnostic.showUnused": true,
   "diagnostic.warningSign": ">",
   "diagnostic.errorSign": "*",
@@ -16,19 +21,35 @@
   "git.branchCharacter": "b",
   "git.stagedDecorator": "+",
   "git.addedSign.text": "+",
-  "hover.target": "preview",
+  "hover.target": "float",
+  "hover.floatConfig": {
+    "border": true,
+    "maxWidth": 90,
+    "maxHeight": 90
+  },
   "hover.autoHide": true,
-  "pyright.organizeimports.provider": "isort",
-  "python.analysis.autoImportCompletions": false,
-  "python.formatting.autopep8Path": "autopep8",
+  "pyright.organizeimports.provider": "pyright",
+  "python.sortImports.args": ["--up", "-l 120"],
+  "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "off",
-  "python.formatting.provider": "autopep8",
-  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Enabled": false,
   "python.linting.enabled": true,
   "python.linting.flake8Args": ["--max-line-length=120"],
   "python.linting.mypyEnabled": true,
   "python.linting.mypyPath": "mypy",
+  "python.linting.mypyArgs": [
+      "--no-pretty",
+      "--ignore-missing-imports",
+      "--follow-imports=silent",
+      "--show-column-numbers"
+  ],
   "signature.hideOnTextChange": false,
-  "signature.target": "echo",
-  "inlayHint.enable": false
+  "signature.target": "float",
+  "signature.floatConfig": {
+    "border": true,
+    "maxWidth": 90,
+    "maxHeight": 90
+  },
+  "inlayHint.enable": false,
+  "python.analysis.diagnosticMode": "workspace",
 }
