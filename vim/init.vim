@@ -84,7 +84,7 @@ augroup mygroup
 augroup end
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd BufWritePre *.py :silent call CocAction('runCommand', 'editor.action.organizeImport')
-autocmd BufEnter *.* :SemanticHighlight
+" autocmd BufEnter *.* :SemanticHighlight
 
 
 xmap <silent><silent>K    :move '<-2<CR>gv-gv
@@ -117,6 +117,7 @@ nmap <silent><leader>ren  <Plug>(coc-rename)
 nmap <silent><leader>gre  :Rg<CR>
 nmap <silent><leader>fnd  :Files<CR>
 nmap <silent><leader>iso  :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+nmap <silent><leader>rnb  :SemanticHighlightToggle<CR>
 imap <silent><expr><C-j>  coc#pum#visible() ? coc#pum#next(1) : coc#refresh()
 imap <silent><expr><C-k>  coc#pum#visible() ? coc#pum#prev(1) : coc#refresh()
 imap <silent><expr><TAB>  coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
@@ -177,7 +178,7 @@ set laststatus=2
 
 " appearance
 syntax on
-colorscheme base16-materia
+colorscheme base16-oceanicnext
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
