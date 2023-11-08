@@ -118,6 +118,7 @@ nmap <silent><leader>gre  :Rg<CR>
 nmap <silent><leader>fnd  :Files<CR>
 nmap <silent><leader>iso  :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 nmap <silent><leader>rnb  :SemanticHighlightToggle<CR>
+nmap <silent><leader>clk  <Plug>(coc-codelens-action)
 imap <silent><expr><C-j>  coc#pum#visible() ? coc#pum#next(1) : coc#refresh()
 imap <silent><expr><C-k>  coc#pum#visible() ? coc#pum#prev(1) : coc#refresh()
 imap <silent><expr><TAB>  coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"

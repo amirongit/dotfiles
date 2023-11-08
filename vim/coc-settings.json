@@ -34,6 +34,7 @@
   "python.sortImports.args": ["--up", "-l 120"],
   "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "off",
+  "python.analysis.diagnosticMode": "workspace",
   "python.linting.flake8Enabled": false,
   "python.linting.enabled": true,
   "python.linting.flake8Args": ["--max-line-length=120"],
@@ -45,6 +46,9 @@
       "--follow-imports=silent",
       "--show-column-numbers"
   ],
+  "lua.enable": true,
+  "Lua.codeLens.enable": true,
+  "Lua.completion.showWord": "Disable",
   "signature.hideOnTextChange": false,
   "signature.target": "float",
   "signature.floatConfig": {
@@ -58,5 +62,4 @@
   "inlayHint.refreshOnInsertMode": true,
   "codeLens.enable": true,
   "codeLens.position": "right_align",
-  "python.analysis.diagnosticMode": "workspace",
 }
