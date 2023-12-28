@@ -3,18 +3,18 @@ env:
 
 font:
   normal:
-    family: JetBrains Mono
+    family: mononoki
     style: Medium
   bold:
-    family: JetBrains Mono
-    style: SemiBold
+    family: mononoki
+    style: Bold
   italic:
-    family: JetBrains Mono
-    style: Medium Italic
+    family: mononoki
+    style: Bold Italic
   bold_italic:
-    family: JetBrains Mono
-    style: SemiBold Italic
-  size: 11
+    family: mononoki
+    style: Bold Italic
+  size: 12
 
 cursor:
   style:
@@ -41,39 +41,29 @@ selection:
   save_to_clipboard: true
 
 live_config_reload: true
-window.dynamic_title: true
+
 
 colors:
-  # Default colors
   primary:
-    background: '0x1b2b34'
-    foreground: '0xc0c5ce'
+    background: '#1c1c1c'
+    foreground: '#d4d4d4'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x1b2b34'
-    cursor: '0xc0c5ce'
-
-  # Normal colors
   normal:
-    black:   '0x1b2b34'
-    red:     '0xec5f67'
-    green:   '0x99c794'
-    yellow:  '0xfac863'
-    blue:    '0x6699cc'
-    magenta: '0xc594c5'
-    cyan:    '0x5fb3b3'
-    white:   '0xc0c5ce'
+    black:   '#1e1e1e'
+    red:     '#f44747'
+    green:   '#608b43'
+    yellow:  '#d7ba7d'
+    blue:    '#569cd6'
+    magenta: '#646695'
+    cyan:    '#4ec9b0'
+    white:   '#d4d4d4'
 
-  # Bright colors
   bright:
-    black:   '0x65737e'
-    red:     '0xf99157'
-    green:   '0x343d46'
-    yellow:  '0x4f5b66'
-    blue:    '0xa7adba'
-    magenta: '0xcdd3de'
-    cyan:    '0xab7967'
-    white:   '0xd8dee9'
-
-draw_bold_text_with_bright_colors: false
+    black:   '#808080'
+    red:     '#d16969'
+    green:   '#b5cea8'
+    yellow:  '#dcdcaa'
+    blue:    '#9cdcfe'
+    magenta: '#c586c0'
+    cyan:    '#4ec9b0'
+    white:   '#d4d4d4'
