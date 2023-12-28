@@ -9,6 +9,7 @@ Plug 'jaredgorski/SpaceCamp'
 Plug 'chriskempson/base16-vim'
 Plug 'jaxbot/semantic-highlight.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 
@@ -179,7 +180,7 @@ set laststatus=2
 
 " appearance
 syntax on
-colorscheme base16-oceanicnext
+colorscheme codedark
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
