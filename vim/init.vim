@@ -10,6 +10,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'jaxbot/semantic-highlight.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomasiser/vim-code-dark'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
 call plug#end()
 
 
@@ -63,14 +65,23 @@ let g:fzf_layout = {'down':  '40%'}
 let g:coc_status_error_sign = 'e'
 let g:coc_status_warning_sign = 'w'
 let g:startify_custom_header = startify#pad(startify#fortune#quote())
-let g:startify_lists = [
-        \ { 'type': 'files',     'header': ['    Recent']},
-        \ { 'type': function('s:gitModified'),  'header': ['    Modified']},
-        \ { 'type': function('s:gitUntracked'), 'header': ['    Untracked']},
-        \ ]
+let g:startify_lists = [{ 'type': 'files',     'header': ['    Recent']},]
 let g:startify_files_number=11
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
+let g:db_ui_icons = {
+    \ 'expanded': '+',
+    \ 'collapsed': '-',
+    \ 'saved_query': '*',
+    \ 'new_query': '+',
+    \ 'tables': '~',
+    \ 'buffers': '>',
+    \ 'connection_ok': '+',
+    \ 'connection_error': '!',
+    \ }
+let g:db_ui_show_help = 0
+let g:db_ui_disable_mappings = 0
+
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -119,6 +130,7 @@ nmap <silent><leader>gre  :Rg<CR>
 nmap <silent><leader>fnd  :Files<CR>
 nmap <silent><leader>iso  :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 nmap <silent><leader>rnb  :SemanticHighlightToggle<CR>
+nmap <silent><leader>dbu  :DBUIToggle<CR>
 nmap <silent><leader>clk  <Plug>(coc-codelens-action)
 imap <silent><expr><C-j>  coc#pum#visible() ? coc#pum#next(1) : coc#refresh()
 imap <silent><expr><C-k>  coc#pum#visible() ? coc#pum#prev(1) : coc#refresh()
@@ -155,7 +167,8 @@ set listchars=trail:⋅,space:⋅,eol:¬,tab:→\ ,extends:❯,precedes:❮
 set cmdheight=2
 set showtabline=2
 set scrolloff=0
-set clipboard=unnamed,unnamedplus
+" set clipboard=unnamed,unnamedplus
+set clipboard+=unnamedplus
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
