@@ -193,7 +193,7 @@ set laststatus=2
 
 " appearance
 syntax on
-colorscheme codedark
+colorscheme base16-grayscale-dark
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
