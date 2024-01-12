@@ -1,6 +1,6 @@
 {
   "coc.preferences.jumpCommand": "tab drop",
-  "diagnostic.messageTarget": "float",
+  "diagnostic.messageTarget": "echo",
   "diagnostic.floatConfig": {
     "border": true,
     "maxWidth": 90,
@@ -21,7 +21,7 @@
   "git.branchCharacter": "b",
   "git.stagedDecorator": "+",
   "git.addedSign.text": "+",
-  "hover.target": "float",
+  "hover.target": "preview",
   "hover.floatConfig": {
     "border": true,
     "maxWidth": 90,
@@ -33,7 +33,7 @@
   "pyright.inlayHints.functionReturnTypes": false,
   "python.sortImports.args": ["--up", "-l 120"],
   "python.analysis.autoImportCompletions": true,
-  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.typeCheckingMode": "basic",
   "python.analysis.diagnosticMode": "workspace",
   "python.linting.flake8Enabled": false,
   "python.linting.enabled": true,
@@ -50,7 +50,7 @@
   "Lua.codeLens.enable": true,
   "Lua.completion.showWord": "Disable",
   "signature.hideOnTextChange": false,
-  "signature.target": "float",
+  "signature.target": "echo",
   "signature.floatConfig": {
     "border": true,
     "maxWidth": 90,
