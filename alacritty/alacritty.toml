@@ -1,0 +1,84 @@
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = false
+
+# Default colors
+[colors.primary]
+background = '0x101010'
+foreground = '0xb9b9b9'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x101010'
+cursor = '0xb9b9b9'
+
+# Normal colors
+[colors.normal]
+black = '0x101010'
+red = '0x7c7c7c'
+green = '0x8e8e8e'
+yellow = '0xa0a0a0'
+blue = '0x686868'
+magenta = '0x747474'
+cyan = '0x868686'
+white = '0xb9b9b9'
+
+# Bright colors
+[colors.bright]
+black = '0x525252'
+red = '0x999999'
+green = '0x252525'
+yellow = '0x464646'
+blue = '0xababab'
+magenta = '0xe3e3e3'
+cyan = '0x5e5e5e'
+white = '0xf7f7f7'
+
+[cursor.style]
+blinking = "Always"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 13
+
+[font.bold]
+family = "agave Nerd Font"
+style = "Medium"
+
+[font.bold_italic]
+family = "agave Nerd Font"
+style = "Medium Italic"
+
+[font.italic]
+family = "agave Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "agave Nerd Font"
+style = "Medium"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 500
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[window]
+dynamic_padding = false
+
+[window.padding]
+x = 0
+y = 0
