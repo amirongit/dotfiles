@@ -5,35 +5,35 @@ draw_bold_text_with_bright_colors = false
 
 # Default colors
 [colors.primary]
-background = '0x101010'
-foreground = '0xb9b9b9'
+background = '0x2e3440'
+foreground = '0xe5e9f0'
 
 # Colors the cursor will use if `custom_cursor_colors` is true
 [colors.cursor]
-text = '0x101010'
-cursor = '0xb9b9b9'
+text = '0x2e3440'
+cursor = '0xe5e9f0'
 
 # Normal colors
 [colors.normal]
-black = '0x101010'
-red = '0x7c7c7c'
-green = '0x8e8e8e'
-yellow = '0xa0a0a0'
-blue = '0x686868'
-magenta = '0x747474'
-cyan = '0x868686'
-white = '0xb9b9b9'
+black = '0x2e3440'
+red = '0xbf616a'
+green = '0xa3be8c'
+yellow = '0xebcb8b'
+blue = '0x81a1c1'
+magenta = '0xb48ead'
+cyan = '0x88c0d0'
+white = '0xe5e9f0'
 
 # Bright colors
 [colors.bright]
-black = '0x525252'
-red = '0x999999'
-green = '0x252525'
-yellow = '0x464646'
-blue = '0xababab'
-magenta = '0xe3e3e3'
-cyan = '0x5e5e5e'
-white = '0xf7f7f7'
+black = '0x4c566a'
+red = '0xd08770'
+green = '0x3b4252'
+yellow = '0x434c5e'
+blue = '0xd8dee9'
+magenta = '0xeceff4'
+cyan = '0x5e81ac'
+white = '0x8fbcbb'
 
 [cursor.style]
 blinking = "Always"
@@ -43,22 +43,22 @@ shape = "Block"
 TERM = "xterm-256color"
 
 [font]
-size = 13
+size = 12
 
 [font.bold]
-family = "agave Nerd Font"
-style = "Medium"
+family = "Comic Shanns Mono Nerd Font"
+style = "Bold"
 
 [font.bold_italic]
-family = "agave Nerd Font"
-style = "Medium Italic"
+family = "Comic Shanns Mono Nerd Font"
+style = "Bold Italic"
 
 [font.italic]
-family = "agave Nerd Font"
+family = "Comic Shanns Mono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "agave Nerd Font"
+family = "Comic Shanns Mono Nerd Font"
 style = "Medium"
 
 [[keyboard.bindings]]

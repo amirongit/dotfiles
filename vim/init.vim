@@ -94,8 +94,9 @@ augroup mygroup
   autocmd!
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-autocmd CursorHold * silent call CocActionAsync('highlight')
-autocmd BufWritePre *.py :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd CursorHold * silent! call CocActionAsync('highlight')
+autocmd BufWritePre *.py :silent! call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.py :silent! call CocAction('runCommand', 'editor.action.format')
 " autocmd BufEnter *.* :SemanticHighlight
 
 
@@ -193,7 +194,7 @@ set laststatus=2
 
 " appearance
 syntax on
-colorscheme base16-grayscale-dark
+colorscheme base16-nord
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
