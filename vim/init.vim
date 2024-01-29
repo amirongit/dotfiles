@@ -12,6 +12,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'samoshkin/vim-mergetool'
 call plug#end()
 
 
@@ -194,7 +195,7 @@ set laststatus=2
 
 " appearance
 syntax on
-colorscheme base16-nord
+colorscheme base16-default-dark
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
