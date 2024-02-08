@@ -1,42 +1,39 @@
 live_config_reload = true
 
-# Base16 Default Dark - alacritty color config
-# Chris Kempson (http://chriskempson.com)
-
 [colors]
 draw_bold_text_with_bright_colors = false
 
 # Default colors
 [colors.primary]
-background = '0x181818'
-foreground = '0xd8d8d8'
+background = '0x1d2021'
+foreground = '0xd5c4a1'
 
 # Colors the cursor will use if `custom_cursor_colors` is true
 [colors.cursor]
-text = '0x181818'
-cursor = '0xd8d8d8'
+text = '0x1d2021'
+cursor = '0xd5c4a1'
 
 # Normal colors
 [colors.normal]
-black = '0x181818'
-red = '0xab4642'
-green = '0xa1b56c'
-yellow = '0xf7ca88'
-blue = '0x7cafc2'
-magenta = '0xba8baf'
-cyan = '0x86c1b9'
-white = '0xd8d8d8'
+black = '0x1d2021'
+red = '0xfb4934'
+green = '0xb8bb26'
+yellow = '0xfabd2f'
+blue = '0x83a598'
+magenta = '0xd3869b'
+cyan = '0x8ec07c'
+white = '0xd5c4a1'
 
 # Bright colors
 [colors.bright]
-black = '0x585858'
-red = '0xdc9656'
-green = '0x282828'
-yellow = '0x383838'
-blue = '0xb8b8b8'
-magenta = '0xe8e8e8'
-cyan = '0xa16946'
-white = '0xf8f8f8'
+black = '0x665c54'
+red = '0xfe8019'
+green = '0x3c3836'
+yellow = '0x504945'
+blue = '0xbdae93'
+magenta = '0xebdbb2'
+cyan = '0xd65d0e'
+white = '0xfbf1c7'
 
 [cursor.style]
 blinking = "Always"
@@ -46,22 +43,22 @@ shape = "Block"
 TERM = "xterm-256color"
 
 [font]
-size = 12
+size = 11
 
 [font.bold]
-family = "agave Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "agave Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "agave Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "agave Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Medium"
 
 [[keyboard.bindings]]

@@ -12,7 +12,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
-Plug 'samoshkin/vim-mergetool'
+Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 
@@ -60,9 +61,10 @@ function! CheckBackSpace() abort
 endfunction
 
 
-let g:fzf_preview_window = []
+let g:fzf_preview_window = ['right,50%,noborder', 'ctrl-/']
 let g:fzf_tags_command = 'ctags -R'
 let g:fzf_layout = {'down':  '40%'}
+let g:fzf_action = {'enter': 'tab split'}
 let g:coc_status_error_sign = 'e'
 let g:coc_status_warning_sign = 'w'
 let g:startify_custom_header = startify#pad(startify#fortune#quote())
@@ -70,18 +72,8 @@ let g:startify_lists = [{ 'type': 'files',     'header': ['    Recent']},]
 let g:startify_files_number=11
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:db_ui_icons = {
-    \ 'expanded': '+',
-    \ 'collapsed': '-',
-    \ 'saved_query': '*',
-    \ 'new_query': '+',
-    \ 'tables': '~',
-    \ 'buffers': '>',
-    \ 'connection_ok': '+',
-    \ 'connection_error': '!',
-    \ }
-let g:db_ui_show_help = 0
-let g:db_ui_disable_mappings = 0
+let g:mundo_preview_bottom = 1
+let g:CtrlSpaceDefaultMappingKey = "<C-space> "
 
 
 if has("autocmd")
@@ -105,10 +97,6 @@ xmap <silent><silent>K    :move '<-2<CR>gv-gv
 xmap <silent><silent>J    :move '>+1<CR>gv-gv
 xmap <silent><leader>act  <Plug>(coc-codeaction-selected)
 xmap <silent><leader>for  <Plug>(coc-format-selected)
-nmap <silent><Down>       :resize +2<CR>
-nmap <silent><Up>         :resize -2<CR>
-nmap <silent><Left>       :vertical resize +2<CR>
-nmap <silent><Right>      :vertical resize -2<CR>
 nmap <silent>J            <Plug>(coc-diagnostic-next)
 nmap <silent>K            <Plug>(coc-diagnostic-prev)
 nmap q                    <NOP>
@@ -130,6 +118,7 @@ nmap <silent><leader>act  <Plug>(coc-codeaction-selected)
 nmap <silent><leader>ren  <Plug>(coc-rename)
 nmap <silent><leader>gre  :Rg<CR>
 nmap <silent><leader>fnd  :Files<CR>
+nmap <silent><leader>wnd  :Windows<CR>
 nmap <silent><leader>iso  :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 nmap <silent><leader>rnb  :SemanticHighlightToggle<CR>
 nmap <silent><leader>dbu  :DBUIToggle<CR>
@@ -139,8 +128,11 @@ imap <silent><expr><C-k>  coc#pum#visible() ? coc#pum#prev(1) : coc#refresh()
 imap <silent><expr><TAB>  coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
 
 
+set nocompatible
+" set undofile
+" set undodir=~/Development/.nvim-cache
 set nobackup
-set nohidden
+set hidden
 set nowritebackup
 set noswapfile
 set expandtab
@@ -167,7 +159,7 @@ set listchars=trail:⋅,space:⋅,eol:¬,tab:→\ ,extends:❯,precedes:❮
 " set listchars=trail:.,space:.,eol:$
 " set listchars=
 set cmdheight=2
-set showtabline=2
+set showtabline=0
 set scrolloff=0
 " set clipboard=unnamed,unnamedplus
 set clipboard+=unnamedplus
@@ -189,22 +181,22 @@ set backspace=indent,eol,start
 set shortmess=
 set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:block
 set updatetime=300
-set signcolumn=yes
+set signcolumn=number
 set laststatus=2
 " set colorcolumn=120
 
 " appearance
 syntax on
-colorscheme base16-default-dark
+colorscheme base16-gruvbox-dark-hard
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
-hi DiffAdd ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
-hi DiffChange ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
-hi DiffDelete ctermbg=None ctermfg=white cterm=bold guibg=None guifg=white gui=bold
-hi CocWarningSign ctermfg=white cterm=bold guifg=white gui=bold
-hi CocErrorSign ctermfg=white cterm=bold guifg=white gui=bold
-hi CocHintSign ctermfg=white cterm=bold guifg=white gui=bold
+hi DiffAdd ctermbg=None ctermfg=green cterm=bold guibg=None guifg=green gui=bold
+hi DiffChange ctermbg=None ctermfg=yellow cterm=bold guibg=None guifg=yellow gui=bold
+hi DiffDelete ctermbg=None ctermfg=red cterm=bold guibg=None guifg=red gui=bold
+hi CocWarningSign ctermfg=yellow cterm=bold guifg=yellow gui=bold
+hi CocErrorSign ctermfg=red cterm=bold guifg=red gui=bold
+hi CocHintSign ctermfg=blue cterm=bold guifg=blue gui=bold
 hi TabLineFill guifg=Gray guibg=bg
 hi TabLine guifg=Gray guibg=bg
 hi TabLineSel guifg=DarkYellow guibg=bg
@@ -216,15 +208,18 @@ hi NonText gui=None
 
 
 " so $VIMRUNTIME/syntax/hitest.vim
-set statusline +=%#CocListGreenBlack#
+set statusline +=%#Keyword#
 set statusline +=\ %{mode()}
-set statusline +=\ %B 
-set statusline +=\ %F 
-set statusline +=\ %M
-set statusline +=\ %R
+set statusline +=\ %n
+set statusline +=\ %t
+set statusline +=\ %c
+set statusline +=%#String#
+set statusline +=\ %L
+set statusline +=\ %m
+set statusline +=\ %r
+set statusline +=\ %h
+set statusline +=\ %w
 set statusline +=%=
 set statusline +=%#CocListBlueBlack#
-set statusline +=\ %v
 set statusline +=\ %Y
 set statusline +=\ %{StatusDiagnostic()}
-set statusline +=\ %{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
