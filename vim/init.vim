@@ -14,6 +14,8 @@ Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'cocopon/iceberg.vim'
+Plug 'jaredgorski/spacecamp'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
 
@@ -185,18 +187,18 @@ set signcolumn=number
 set laststatus=2
 " set colorcolumn=120
 
-" appearance
+" so $VIMRUNTIME/syntax/colortest.vim
 syntax on
-colorscheme base16-gruvbox-dark-hard
+colorscheme iceberg
 hi clear SignColumn
 hi clear LineNr
 hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
-hi DiffAdd ctermbg=None ctermfg=green cterm=bold guibg=None guifg=green gui=bold
-hi DiffChange ctermbg=None ctermfg=yellow cterm=bold guibg=None guifg=yellow gui=bold
-hi DiffDelete ctermbg=None ctermfg=red cterm=bold guibg=None guifg=red gui=bold
-hi CocWarningSign ctermfg=yellow cterm=bold guifg=yellow gui=bold
-hi CocErrorSign ctermfg=red cterm=bold guifg=red gui=bold
-hi CocHintSign ctermfg=blue cterm=bold guifg=blue gui=bold
+hi DiffAdd guibg=darkcyan guifg=white cterm=bold gui=bold
+hi DiffChange guibg=darkmagenta guifg=white cterm=bold gui=bold
+hi DiffDelete guibg=darkred guifg=white cterm=bold gui=bold
+hi CocWarningSign guibg=brown guifg=white cterm=bold gui=bold
+hi CocErrorSign guibg=darkred guifg=white cterm=bold gui=bold
+hi CocHintSign guibg=lightblue guifg=white cterm=bold gui=bold
 hi TabLineFill guifg=Gray guibg=bg
 hi TabLine guifg=Gray guibg=bg
 hi TabLineSel guifg=DarkYellow guibg=bg

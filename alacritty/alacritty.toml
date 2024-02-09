@@ -3,37 +3,36 @@ live_config_reload = true
 [colors]
 draw_bold_text_with_bright_colors = false
 
-# Default colors
 [colors.primary]
-background = '0x1d2021'
-foreground = '0xd5c4a1'
+background = '#161821'
+foreground = '#d2d4de'
 
 # Colors the cursor will use if `custom_cursor_colors` is true
 [colors.cursor]
-text = '0x1d2021'
-cursor = '0xd5c4a1'
+text = '#161821'
+cursor = '#c6c8d1'
 
 # Normal colors
 [colors.normal]
-black = '0x1d2021'
-red = '0xfb4934'
-green = '0xb8bb26'
-yellow = '0xfabd2f'
-blue = '0x83a598'
-magenta = '0xd3869b'
-cyan = '0x8ec07c'
-white = '0xd5c4a1'
+black = '#161821'
+red = '#e27878'
+green = '#b4be82'
+yellow = '#e2a478'
+blue = '#84a0c6'
+magenta = '#a093c7'
+cyan = '#89b8c2'
+white = '#c6c8d1'
 
 # Bright colors
 [colors.bright]
-black = '0x665c54'
-red = '0xfe8019'
-green = '0x3c3836'
-yellow = '0x504945'
-blue = '0xbdae93'
-magenta = '0xebdbb2'
-cyan = '0xd65d0e'
-white = '0xfbf1c7'
+black = '#6b7089'
+red = '#e98989'
+green = '#c0ca8e'
+yellow = '#e9b189'
+blue = '#91acd1'
+magenta = '#ada0d3'
+cyan = '#95c4ce'
+white = '#d2d4de'
 
 [cursor.style]
 blinking = "Always"
