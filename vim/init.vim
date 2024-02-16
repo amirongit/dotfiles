@@ -1,19 +1,15 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'neoclide/coc.nvim'
-Plug 'mhinz/vim-startify'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'jaredgorski/SpaceCamp'
-Plug 'chriskempson/base16-vim'
-Plug 'jaxbot/semantic-highlight.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tomasiser/vim-code-dark'
+Plug 'neoclide/coc.nvim'
 Plug 'tpope/vim-dadbod'
-Plug 'kristijanhusak/vim-dadbod-ui'
-Plug 'vim-ctrlspace/vim-ctrlspace'
-Plug 'cocopon/iceberg.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'jiangmiao/auto-pairs'
+Plug 'mhinz/vim-startify'
+Plug 'sheerun/vim-polyglot'
+Plug 'jaxbot/semantic-highlight.vim'
+Plug 'jaredgorski/SpaceCamp'
+Plug 'tomasiser/vim-code-dark'
 Plug 'jaredgorski/spacecamp'
 Plug 'nanotech/jellybeans.vim'
 call plug#end()
@@ -74,8 +70,6 @@ let g:startify_lists = [{ 'type': 'files',     'header': ['    Recent']},]
 let g:startify_files_number=11
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:mundo_preview_bottom = 1
-let g:CtrlSpaceDefaultMappingKey = "<C-space> "
 
 
 if has("autocmd")
@@ -92,7 +86,7 @@ augroup end
 autocmd CursorHold * silent! call CocActionAsync('highlight')
 autocmd BufWritePre *.py :silent! call CocAction('runCommand', 'editor.action.organizeImport')
 autocmd BufWritePre *.py :silent! call CocAction('runCommand', 'editor.action.format')
-" autocmd BufEnter *.* :SemanticHighlight
+autocmd BufEnter *.* :SemanticHighlight
 
 
 xmap <silent><silent>K    :move '<-2<CR>gv-gv
@@ -131,6 +125,7 @@ imap <silent><expr><TAB>  coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
 
 
 set nocompatible
+set cursorline
 " set undofile
 " set undodir=~/Development/.nvim-cache
 set nobackup
@@ -156,7 +151,7 @@ set noshowcmd
 set wrap
 set linebreak
 set termguicolors
-
+set mouse=
 set listchars=trail:⋅,space:⋅,eol:¬,tab:→\ ,extends:❯,precedes:❮
 " set listchars=trail:.,space:.,eol:$
 " set listchars=
@@ -189,10 +184,10 @@ set laststatus=2
 
 " so $VIMRUNTIME/syntax/colortest.vim
 syntax on
-colorscheme iceberg
+colorscheme jellybeans
 hi clear SignColumn
 hi clear LineNr
-hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
+" hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
 hi DiffAdd guibg=darkcyan guifg=white cterm=bold gui=bold
 hi DiffChange guibg=darkmagenta guifg=white cterm=bold gui=bold
 hi DiffDelete guibg=darkred guifg=white cterm=bold gui=bold
