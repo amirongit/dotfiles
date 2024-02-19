@@ -62,7 +62,7 @@ endfunction
 let g:fzf_preview_window = ['right,50%,noborder', 'ctrl-/']
 let g:fzf_tags_command = 'ctags -R'
 let g:fzf_layout = {'down':  '40%'}
-let g:fzf_action = {'enter': 'tab split'}
+let g:fzf_action = {'enter': 'tab split', 'ctrl-x': 'split', 'ctrl-v': 'vsplit'}
 let g:coc_status_error_sign = 'e'
 let g:coc_status_warning_sign = 'w'
 let g:startify_custom_header = startify#pad(startify#fortune#quote())
