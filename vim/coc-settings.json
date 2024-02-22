@@ -66,4 +66,11 @@
   "inlayHint.refreshOnInsertMode": true,
   "codeLens.enable": true,
   "codeLens.position": "right_align",
+  "languageserver": {
+    "csharp-ls": {
+      "command": "csharp-ls",
+      "filetypes": ["cs"],
+      "rootPatterns": ["*.csproj", ".git/"]
+    }
+  }
 }
