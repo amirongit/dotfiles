@@ -1,4 +1,6 @@
 {
+  "suggest.noselect": false,
+  "coc.preferences.formatOnSaveFiletypes":  ["*"],
   "coc.preferences.jumpCommand": "tab drop",
   "diagnostic.messageTarget": "echo",
   "diagnostic.floatConfig": {
@@ -70,7 +72,7 @@
     "csharp-ls": {
       "command": "csharp-ls",
       "filetypes": ["cs"],
-      "rootPatterns": ["*.csproj", ".git/"]
+      "rootPatterns": ["*.csproj", ".git/", "*.sln"]
     }
   }
 }
