@@ -1,0 +1,6 @@
+require("cfgpkg.builtins")
+require("cfgpkg.packages")
+require("cfgpkg.treesittercfg")
+require("cfgpkg.fzfcfg")
+require("cfgpkg.uicfg")
+require("cfgpkg.coccfg")
