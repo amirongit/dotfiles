@@ -1,4 +1,4 @@
--- autocommands
+-- highlights
 vim.api.nvim_create_augroup("CocGroup", {})
 vim.api.nvim_create_autocmd("CursorHold", {
     group = "CocGroup",

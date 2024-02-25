@@ -1,7 +1,6 @@
 -- highlight groups
 vim.cmd("hi clear SignColumn")
 vim.cmd("hi clear LineNr")
--- vim.cmd("hi EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg")
 vim.cmd("hi DiffAdd guibg=darkcyan guifg=white cterm=bold gui=bold")
 vim.cmd("hi DiffChange guibg=darkmagenta guifg=white cterm=bold gui=bold")
 vim.cmd("hi DiffDelete guibg=darkred guifg=white cterm=bold gui=bold")
@@ -14,19 +13,19 @@ vim.cmd("hi TabLineSel guifg=DarkYellow guibg=bg")
 vim.cmd("hi NonText gui=None")
 
 -- colorscheme
-vim.cmd("colorscheme jellybeans")
+vim.cmd("colorscheme codedark")
 
 -- functions
 local function get_mode_color()
     local current_mode = vim.api.nvim_get_mode().mode
 
     if current_mode == "i" or current_mode == "ic" or current_mode == "R" then
-        return "%#ErrorMsg#"
+        return "%#IncSearch#"
     elseif current_mode == "v" or current_mode == "V" or current_mode == "" or current_mode == "t" then
-        return "%#DbgBreakPt#"
+        return "%#CocMenuSel#"
     end
 
-    return "%#DiffChange#"
+    return "%#Visual#"
 end
 
 local function get_status_line_items()
@@ -39,10 +38,8 @@ local function get_status_line_items()
         " %r",
         " %h",
         " %w",
-        --" %#CocSymbolKeyword#",
         " %=",
         " %c",
-        --" %#CocSymbolObject#",
         " %Y ",
     }
 end
