@@ -1,78 +1,93 @@
 {
-  "suggest.noselect": false,
-  "coc.preferences.formatOnSaveFiletypes":  ["*"],
-  "coc.preferences.jumpCommand": "tab drop",
-  "diagnostic.messageTarget": "echo",
-  "diagnostic.floatConfig": {
-    "border": true,
-    "maxWidth": 90,
-    "maxHeight": 90
-  },
-  "diagnostic.showUnused": true,
-  "diagnostic.warningSign": "",
-  "diagnostic.errorSign": "",
-  "diagnostic.infoSign": "",
-  "diagnostic.hintSign": "",
-  "git.enableGutters": false,
-  "git.changeRemovedSign.text":"C",
-  "git.conflictedDecorator": "C",
-  "git.topRemovedSign.text": "R",
-  "git.untrackedDecorator": "U",
-  "git.changedDecorator": "C",
-  "git.changedSign.text": "C",
-  "git.removedSign.text": "R",
-  "git.branchCharacter": "B",
-  "git.stagedDecorator": "S",
-  "git.addedSign.text": "A",
-  "hover.target": "preview",
-  "hover.floatConfig": {
-    "border": true,
-    "maxWidth": 90,
-    "maxHeight": 90
-  },
-  "hover.autoHide": false,
-  "pyright.organizeimports.provider": "isort",
-  "pyright.inlayHints.variableTypes": false,
-  "pyright.inlayHints.functionReturnTypes": false,
-  "python.formatting.provider": "black",
-  "python.formatting.blackArgs": ["-l 120"],
-  "python.formatting.autopep8Args": ["-l 120", ],
-  "python.sortImports.args": ["--up", "-l 120"],
-  "python.analysis.autoImportCompletions": true,
-  "python.analysis.typeCheckingMode": "basic",
-  "python.analysis.diagnosticMode": "workspace",
-  "python.linting.flake8Enabled": false,
-  "python.linting.enabled": true,
-  "python.linting.flake8Args": ["--max-line-length=120"],
-  "python.linting.mypyEnabled": true,
-  "python.linting.mypyPath": "mypy",
-  "python.linting.mypyArgs": [
-      "--no-pretty",
-      "--ignore-missing-imports",
-      "--follow-imports=silent",
-      "--show-column-numbers"
-  ],
-  "lua.enable": true,
-  "Lua.codeLens.enable": true,
-  "Lua.completion.showWord": "Disable",
-  "signature.hideOnTextChange": false,
-  "signature.target": "echo",
-  "signature.floatConfig": {
-    "border": true,
-    "maxWidth": 90,
-    "maxHeight": 90
-  },
-  "inlayHint.display": true,
-  "inlayHint.enable": true,
-  "inlayHint.enableParameter": true,
-  "inlayHint.refreshOnInsertMode": true,
-  "codeLens.enable": true,
-  "codeLens.position": "right_align",
-  "languageserver": {
-    "csharp-ls": {
-      "command": "csharp-ls",
-      "filetypes": ["cs"],
-      "rootPatterns": ["*.csproj", ".git/", "*.sln"]
+    "suggest.noselect": false,
+    "coc.preferences.formatOnSave": true,
+    "coc.preferences.jumpCommand": "tab drop",
+    "diagnostic.messageTarget": "echo",
+    "diagnostic.floatConfig": {
+        "border": true,
+        "maxWidth": 90,
+        "maxHeight": 90
+    },
+    "diagnostic.showUnused": true,
+    "diagnostic.warningSign": "",
+    "diagnostic.errorSign": "",
+    "diagnostic.infoSign": "",
+    "diagnostic.hintSign": "",
+    "git.enableGutters": false,
+    "git.changeRemovedSign.text": "C",
+    "git.conflictedDecorator": "C",
+    "git.topRemovedSign.text": "R",
+    "git.untrackedDecorator": "U",
+    "git.changedDecorator": "C",
+    "git.changedSign.text": "C",
+    "git.removedSign.text": "R",
+    "git.branchCharacter": "B",
+    "git.stagedDecorator": "S",
+    "git.addedSign.text": "A",
+    "hover.target": "preview",
+    "hover.floatConfig": {
+        "border": true,
+        "maxWidth": 90,
+        "maxHeight": 90
+    },
+    "hover.autoHide": false,
+    "pyright.organizeimports.provider": "isort",
+    "pyright.inlayHints.variableTypes": false,
+    "pyright.inlayHints.functionReturnTypes": false,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "-l 120"
+    ],
+    "python.formatting.autopep8Args": [
+        "-l 120",
+    ],
+    "python.sortImports.args": [
+        "--up",
+        "-l 120"
+    ],
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.diagnosticMode": "workspace",
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyPath": "mypy",
+    "python.linting.mypyArgs": [
+        "--no-pretty",
+        "--ignore-missing-imports",
+        "--follow-imports=silent",
+        "--show-column-numbers"
+    ],
+    "lua.enable": true,
+    "Lua.codeLens.enable": true,
+    "Lua.completion.showWord": "Disable",
+    "signature.hideOnTextChange": false,
+    "signature.target": "echo",
+    "signature.floatConfig": {
+        "border": true,
+        "maxWidth": 90,
+        "maxHeight": 90
+    },
+    "inlayHint.display": true,
+    "inlayHint.enable": true,
+    "inlayHint.enableParameter": true,
+    "inlayHint.refreshOnInsertMode": true,
+    "codeLens.enable": true,
+    "codeLens.position": "right_align",
+    "languageserver": {
+        "csharp-ls": {
+            "command": "csharp-ls",
+            "filetypes": [
+                "cs"
+            ],
+            "rootPatterns": [
+                "*.csproj",
+                ".git/",
+                "*.sln"
+            ]
+        }
     }
-  }
 }
