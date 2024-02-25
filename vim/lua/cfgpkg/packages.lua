@@ -6,12 +6,14 @@ require('pckr').add(
         'jaredgorski/SpaceCamp',
         'tomasiser/vim-code-dark',
         'nanotech/jellybeans.vim',
-        { 'goolord/alpha-nvim', requires = { 'nvim-tree/nvim-web-devicons' } },
+        { 'goolord/alpha-nvim',           requires = { 'nvim-tree/nvim-web-devicons' } },
         {
             'nvim-treesitter/nvim-treesitter-context',
             requires = { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
         },
-        { 'junegunn/fzf.vim',   requires = { 'junegunn/fzf', run = ':call fzf#install()' } },
-        { 'neoclide/coc.nvim',  branch = 'release' }
+        { 'junegunn/fzf.vim',             requires = { 'junegunn/fzf', run = ':call fzf#install()' } },
+        { 'neoclide/coc.nvim',            branch = 'release' },
+        { 'rcarriga/nvim-dap-ui',         requires = { 'mfussenegger/nvim-dap' } },
+        { 'mfussenegger/nvim-dap-python', requires = { 'mfussenegger/nvim-dap' } }
     }
 )

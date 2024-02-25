@@ -12,7 +12,6 @@ vim.api.nvim_create_autocmd("User", {
     desc = "Update signature help on jump placeholder"
 })
 
-
 -- functions
 function _G.show_docs()
     local cw = vim.fn.expand('<cword>')
@@ -44,3 +43,5 @@ vim.keymap.set("i", "<c-space>", "coc#refresh()", { silent = true, expr = true }
 -- settings
 vim.g.coc_status_error_sign = 'e'
 vim.g.coc_status_warning_sign = 'w'
+vim.g.coc_global_extensions = { 'coc-pyright', 'coc-toml', 'coc-xml', 'coc-json', 'coc-marketplace', 'coc-yaml',
+    'coc-lua', 'coc-docker' }

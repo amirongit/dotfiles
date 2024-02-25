@@ -39,10 +39,10 @@ local function get_status_line_items()
         " %r",
         " %h",
         " %w",
-        " %#CocSymbolKeyword#",
+        --" %#CocSymbolKeyword#",
         " %=",
         " %c",
-        " %#CocSymbolObject#",
+        --" %#CocSymbolObject#",
         " %Y ",
     }
 end
