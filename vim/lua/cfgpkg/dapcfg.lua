@@ -1,8 +1,9 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
--- setup
+-- settings
 require("dap-python").setup("python")
+
 dapui.setup(
     {
         controls = {
@@ -62,7 +63,6 @@ dapui.setup(
     }
 )
 
--- settings
 dap.listeners.before.attach.dapui_config = dapui.open
 dap.listeners.before.launch.dapui_config = dapui.open
 dap.listeners.before.event_terminated.dapui_config = dapui.close
@@ -82,6 +82,12 @@ dap.configurations.cs = {
         end,
     },
 }
+
+vim.fn.sign_define('DapBreakpoint', { text = '●' })
+vim.fn.sign_define('DapBreakpointCondition', { text = '◍', texthl = 'red', linehl = '', numhl = '' })
+vim.fn.sign_define('DapLogPoint', { text = '◉', texthl = 'red', linehl = '', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '➲', texthl = 'red', linehl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpointRejected', { text = '○', texthl = 'red', linehl = '', numhl = '' })
 
 -- keymaps
 vim.keymap.set("n", "<leader>brk", "<CMD>DapToggleBreakpoint<CR>", { silent = true })
