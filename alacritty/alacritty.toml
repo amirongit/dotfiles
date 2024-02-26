@@ -1,7 +1,7 @@
 live_config_reload = true
 
 [colors.primary]
-background = '#1c1c1c'
+background = '#1e1e1e'
 foreground = '#d4d4d4'
 
 # Colors the cursor will use if `custom_cursor_colors` is true
