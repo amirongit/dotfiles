@@ -50,4 +50,4 @@ vim.keymap.set("i", "<c-space>", "coc#refresh()", { silent = true, expr = true }
 vim.g.coc_status_error_sign = 'e'
 vim.g.coc_status_warning_sign = 'w'
 vim.g.coc_global_extensions = { 'coc-pyright', 'coc-toml', 'coc-xml', 'coc-json', 'coc-marketplace', 'coc-yaml',
-    'coc-lua', 'coc-docker' }
+    'coc-lua', 'coc-docker', 'coc-sql' }
