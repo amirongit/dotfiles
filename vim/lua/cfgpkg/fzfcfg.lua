@@ -1,3 +1,5 @@
+require('pckr').add({ { 'junegunn/fzf.vim', requires = { 'junegunn/fzf', run = ':call fzf#install()' } }, })
+
 -- keymaps
 vim.keymap.set("n", "<leader>gre", ":Rg<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fnd", ":Files<CR>", { silent = true })

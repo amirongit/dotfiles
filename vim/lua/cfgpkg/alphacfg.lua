@@ -1,3 +1,5 @@
+require('pckr').add({ { 'goolord/alpha-nvim', requires = { 'nvim-tree/nvim-web-devicons' } } })
+
 local dashboard = require('alpha.themes.dashboard')
 
 dashboard.section.header.val = {

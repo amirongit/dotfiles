@@ -1,3 +1,9 @@
+require('pckr').add(
+    {
+        { 'neoclide/coc.nvim', branch = 'release' },
+    }
+)
+
 -- highlights
 vim.api.nvim_create_augroup("CocGroup", {})
 vim.api.nvim_create_autocmd("CursorHold", {
