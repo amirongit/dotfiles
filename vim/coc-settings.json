@@ -65,7 +65,7 @@
     "inlayHint.enableParameter": true,
     "inlayHint.refreshOnInsertMode": true,
     "codeLens.enable": true,
-    "codeLens.position": "right_align",
+    "codeLens.position": "top",
     "languageserver": {
         "csharp-ls": {
             "command": "csharp-ls",
