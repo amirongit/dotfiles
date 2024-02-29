@@ -1,8 +1,12 @@
 {
     "suggest.noselect": false,
+    "suggest.virtualText": true,
     "coc.preferences.formatOnSave": true,
     "coc.preferences.jumpCommand": "tab drop",
     "diagnostic.messageTarget": "echo",
+    "diagnostic.enableMessage": "never",
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": false,
     "diagnostic.floatConfig": {
         "border": true,
         "maxWidth": 90,
