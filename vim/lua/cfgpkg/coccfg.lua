@@ -32,23 +32,50 @@ end
 
 -- keymaps
 vim.keymap.set("n", "<leader>doc", "<CMD>lua _G.show_docs()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>dia", ":<C-u>CocList diagnostics<CR>", { silent = true })
-vim.keymap.set("n", "<leader>sym", ":<C-u>CocList symbols<CR>", { silent = true })
 vim.keymap.set("n", "<leader>def", "<Plug>(coc-definition)", { silent = true })
 vim.keymap.set("n", "<leader>imp", "<Plug>(coc-implementation)", { silent = true })
 vim.keymap.set("n", "<leader>ref", "<Plug>(coc-references)", { silent = true })
-vim.keymap.set("n", "<leader>act", "<Plug>(coc-codeaction-selected)", { silent = true })
 vim.keymap.set("n", "<leader>ren", "<Plug>(coc-rename)", { silent = true })
-vim.keymap.set("n", "<leader>for", "<Plug>(coc-format-selected)", { silent = true })
-vim.keymap.set("n", "<leader>clk", "<Plug>(coc-codelens-action)", { silent = true })
+vim.keymap.set("n", "<leader>sym", ":<C-u>CocList symbols<CR>", { silent = true })
+
+vim.keymap.set("n", "<leader>dia", ":<C-u>CocList diagnostics<CR>", { silent = true })
 vim.keymap.set("n", "J", "<Plug>(coc-diagnostic-next)", { silent = true })
 vim.keymap.set("n", "K", "<Plug>(coc-diagnostic-prev)", { silent = true })
+
+vim.keymap.set("x", "<leader>act", "<Plug>(coc-codeaction-selected)", { silent = true })
+vim.keymap.set("x", "<leader>for", "<Plug>(coc-format-selected)", { silent = true })
+vim.keymap.set("x", "<leader>rfc", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+
+vim.keymap.set("n", "<leader>cln", "<Plug>(coc-codelens-action)", { silent = true })
+
 vim.keymap.set("i", "<TAB>", [[coc#pum#visible() ? coc#pum#next(1) : "<TAB>"]], { silent = true, expr = true })
 vim.keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "<TAB>"]], { silent = true, expr = true })
 vim.keymap.set("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 
+vim.keymap.set(
+    "i",
+    "<C-j>",
+    [[coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<CR>" : ""]],
+    { silent = true, expr = true }
+)
+vim.keymap.set(
+    "i",
+    "<C-k>",
+    [[coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<CR>" : ""]],
+    { silent = true, expr = true }
+)
+
 -- settings
 vim.g.coc_status_error_sign = 'e'
 vim.g.coc_status_warning_sign = 'w'
-vim.g.coc_global_extensions = { 'coc-pyright', 'coc-toml', 'coc-xml', 'coc-json', 'coc-marketplace', 'coc-yaml',
-    'coc-lua', 'coc-docker', 'coc-sql' }
+vim.g.coc_global_extensions = {
+    'coc-pyright',
+    'coc-toml',
+    'coc-xml',
+    'coc-json',
+    'coc-marketplace',
+    'coc-yaml',
+    'coc-lua',
+    'coc-docker',
+    'coc-sql'
+}
