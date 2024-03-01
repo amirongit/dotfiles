@@ -1,7 +1,1 @@
-require('pckr').add(
-    {
-        'tpope/vim-dadbod',
-        'tpope/vim-fugitive',
-        'jiangmiao/auto-pairs',
-    }
-)
+require('pckr').add({ 'tpope/vim-dadbod', 'tpope/vim-fugitive', })

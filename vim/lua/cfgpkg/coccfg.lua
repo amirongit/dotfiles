@@ -43,7 +43,8 @@ vim.keymap.set("n", "<leader>for", "<Plug>(coc-format-selected)", { silent = tru
 vim.keymap.set("n", "<leader>clk", "<Plug>(coc-codelens-action)", { silent = true })
 vim.keymap.set("n", "J", "<Plug>(coc-diagnostic-next)", { silent = true })
 vim.keymap.set("n", "K", "<Plug>(coc-diagnostic-prev)", { silent = true })
-vim.keymap.set("i", "<TAB>", [[coc#pum#visible() ? coc#pum#confirm() : "<TAB>"]], { silent = true, expr = true })
+vim.keymap.set("i", "<TAB>", [[coc#pum#visible() ? coc#pum#next(1) : "<TAB>"]], { silent = true, expr = true })
+vim.keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "<TAB>"]], { silent = true, expr = true })
 vim.keymap.set("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 
 -- settings

@@ -6,13 +6,14 @@ require('pckr').add(
     }
 )
 
+
 -- highlight groups
-vim.cmd("hi clear SignColumn")
 vim.cmd("hi clear LineNr")
+vim.cmd("hi clear SignColumn")
 vim.cmd("hi DiffAdd guibg=darkcyan guifg=white cterm=bold gui=bold")
 vim.cmd("hi DiffChange guibg=darkmagenta guifg=white cterm=bold gui=bold")
 vim.cmd("hi DiffDelete guibg=darkred guifg=white cterm=bold gui=bold")
-vim.cmd("hi CocWarningSign guibg=brown guifg=white cterm=bold gui=bold")
+vim.cmd("hi CocWarningSign guibg=darkbrown guifg=white cterm=bold gui=bold")
 vim.cmd("hi CocErrorSign guibg=darkred guifg=white cterm=bold gui=bold")
 vim.cmd("hi CocHintSign guibg=lightblue guifg=white cterm=bold gui=bold")
 vim.cmd("hi TabLineFill guifg=Gray guibg=bg")

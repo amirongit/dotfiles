@@ -5,9 +5,9 @@ vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", { silent = true })
 vim.keymap.set("n", "H", "gT")
 vim.keymap.set("n", "L", "gt")
 
-vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", { silent = true })
-vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", { silent = true })
-vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", { silent = true })
 

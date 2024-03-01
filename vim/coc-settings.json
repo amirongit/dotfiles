@@ -1,5 +1,5 @@
 {
-    "suggest.noselect": false,
+    "suggest.noselect": true,
     "suggest.virtualText": true,
     "coc.preferences.formatOnSave": true,
     "coc.preferences.jumpCommand": "tab drop",
@@ -7,21 +7,17 @@
     "diagnostic.enableMessage": "never",
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextCurrentLineOnly": false,
-    "diagnostic.floatConfig": {
-        "border": true,
-        "maxWidth": 90,
-        "maxHeight": 90
-    },
     "diagnostic.showUnused": true,
     "diagnostic.warningSign": "",
     "diagnostic.errorSign": "",
     "diagnostic.infoSign": "",
     "diagnostic.hintSign": "",
-    "hover.target": "preview",
+    "hover.target": "float",
     "hover.floatConfig": {
         "border": true,
         "maxWidth": 90,
-        "maxHeight": 90
+        "maxHeight": 90,
+        "winblend": 10
     },
     "hover.autoHide": false,
     "pyright.organizeimports.provider": "isort",
@@ -58,11 +54,12 @@
     "Lua.codeLens.enable": true,
     "Lua.completion.showWord": "Disable",
     "signature.hideOnTextChange": false,
-    "signature.target": "echo",
+    "signature.target": "float",
     "signature.floatConfig": {
         "border": true,
         "maxWidth": 90,
-        "maxHeight": 90
+        "maxHeight": 90,
+        "winblend": 10
     },
     "inlayHint.display": true,
     "inlayHint.enable": true,
