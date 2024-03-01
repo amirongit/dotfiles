@@ -10,4 +10,4 @@ vim.keymap.set("n", "<leader>hst", ":History<CR>", { silent = true })
 vim.g.fzf_preview_window = { 'right,50%,noborder', 'ctrl-/' }
 vim.g.fzf_tags_command = 'ctags -R'
 vim.g.fzf_layout = { down = '30%' }
-vim.g.fzf_action = { enter = 'tab split', ['ctrl-x'] = 'split', ['ctrl-v'] = 'vsplit' }
+vim.g.fzf_action = { enter = 'tab split', ['ctrl-x'] = 'split', ['ctrl-v'] = 'vsplit', ['ctrl-e'] = 'e' }
