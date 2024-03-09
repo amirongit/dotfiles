@@ -38,7 +38,7 @@ vim.opt.showcmd = false
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.mouse = ""
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 1
 vim.opt.showtabline = 0
 vim.opt.scrolloff = 0
 vim.opt.clipboard:append("unnamedplus")
