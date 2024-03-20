@@ -1,12 +1,3 @@
-require('pckr').add(
-    {
-        'jaredgorski/SpaceCamp',
-        'tomasiser/vim-code-dark',
-        'nanotech/jellybeans.vim',
-    }
-)
-
-
 -- highlight groups
 vim.cmd("hi clear LineNr")
 vim.cmd("hi clear SignColumn")

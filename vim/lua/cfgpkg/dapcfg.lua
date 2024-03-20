@@ -1,10 +1,3 @@
-require('pckr').add(
-    {
-        { 'rcarriga/nvim-dap-ui',         requires = { 'mfussenegger/nvim-dap' } },
-        { 'mfussenegger/nvim-dap-python', requires = { 'mfussenegger/nvim-dap' } }
-    }
-)
-
 local dap = require("dap")
 local dapui = require("dapui")
 

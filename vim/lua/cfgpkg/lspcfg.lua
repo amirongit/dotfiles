@@ -1,21 +1,9 @@
-require('pckr').add(
-    {
-        'neovim/nvim-lspconfig',
-        'williamboman/mason-lspconfig.nvim',
-        'williamboman/mason.nvim',
-        'hrsh7th/nvim-cmp',
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'hrsh7th/cmp-cmdline',
-        'Decodetalkers/csharpls-extended-lsp.nvim'
-    }
-)
-
 local servers = {
     'csharp_ls', 'diagnosticls', 'docker_compose_language_service', 'dockerls', 'fsautocomplete',
     'jsonls', 'lua_ls', 'pyright', 'sqlls', 'taplo', 'lemminx', 'yamlls'
 }
+
+
 local lspconfig = require('lspconfig')
 local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('mason').setup()
@@ -46,8 +34,6 @@ cmp.setup(
                     function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
-                        elseif luasnip.expand_or_jumpable() then
-                            luasnip.expand_or_jump()
                         else
                             fallback()
                         end
@@ -58,8 +44,6 @@ cmp.setup(
                     function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
-                        elseif luasnip.jumpable(-1) then
-                            luasnip.jump(-1)
                         else
                             fallback()
                         end
@@ -68,7 +52,7 @@ cmp.setup(
                 ),
             }
         ),
-        sources = { { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' }, { name = 'cmdline' } }
+        sources = { { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' } }
     }
 )
 
@@ -86,6 +70,17 @@ vim.keymap.set('n', 'J', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>ren', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>doc', vim.lsp.buf.hover)
 vim.keymap.set('n', '<leader>sig', vim.lsp.buf.signature_help)
+vim.keymap.set('n', '<leader>def', vim.lsp.buf.definition)
+vim.keymap.set('n', '<leader>imp', vim.lsp.buf.implementation)
+vim.keymap.set('n', '<leader>ref', vim.lsp.buf.references)
+vim.keymap.set(
+    'n',
+    '<leader>for',
+    function()
+      vim.lsp.buf.format({ async = true })
+    end
+)
+
 
 -- settings
 for _, diag in ipairs({ 'Error', 'Warn', 'Info', 'Hint' }) do
@@ -101,7 +96,7 @@ vim.diagnostic.config(
     {
         virtual_text = false,
         signs = true,
-        underline = true,
+        underline = false,
         update_in_insert = false,
         severity_sort = false,
     }
