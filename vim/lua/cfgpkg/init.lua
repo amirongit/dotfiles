@@ -1,7 +1,7 @@
 require('cfgpkg.builtins')
-require('cfgpkg.fzfcfg')
 require('cfgpkg.uicfg')
 require('cfgpkg.lspcfg')
+require('cfgpkg.fzfcfg')
 require('cfgpkg.alphacfg')
 require('cfgpkg.dapcfg')
 require('cfgpkg.indentblanklinecfg')
