@@ -42,4 +42,13 @@
         "asvetliakov.vscode-neovim": 1
     },
     "vscode-neovim.neovimInitVimPaths.linux": "/home/amir/.config/nvim/init.vim",
+    "python.defaultInterpreterPath": "/home/amir/.pyenv/versions/3.12.1/bin/python",
+    "ruff.codeAction.disableRuleComment": {
+        "enable": false
+    },
+    "ruff.codeAction.fixViolation": {
+        "enable": false
+    },
+    "ruff.lint.run": "onSave",
+    "git.openRepositoryInParentFolders": "never"
 }
