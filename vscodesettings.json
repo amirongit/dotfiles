@@ -43,6 +43,7 @@
     },
     "vscode-neovim.neovimInitVimPaths.linux": "/home/amir/.config/nvim/init.vim",
     "python.defaultInterpreterPath": "/home/amir/.pyenv/versions/3.12.1/bin/python",
+    "python.analysis.typeCheckingMode": "strict",
     "ruff.codeAction.disableRuleComment": {
         "enable": false
     },
