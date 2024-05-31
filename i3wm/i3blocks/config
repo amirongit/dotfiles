@@ -1,20 +1,3 @@
-[iface]
-command=scripts/iface/iface
-IFACE=wlo1
-color=#00FF00
-interval=10
-color=#FFFFFF
-LABEL=IP
-
-[bandwidth]
-command=scripts/bandwidth/bandwidth
-interval=5
-
-[essid]
-command=scripts/essid/essid
-interval=60
-INTERFACE=wlo1
-
 [volume]
 command=scripts/volume/volume
 interval=2
@@ -22,25 +5,26 @@ signal=10
 STEP=5%
 LABEL=VOL
 
-[battery]
-command=scripts/battery/battery
+[disk]
+command=scripts/disk/disk
+LABEL=/HOME 
 interval=30
-LABEL=BAT
-color=#FFFFFF
+instance=/home
 
 [disk]
 command=scripts/disk/disk
-LABEL=DISK
+LABEL=/HDD 
 interval=30
+instance=/hdd
 
 [memory]
 command=scripts/memory/memory
-label=MEM
+label=MEM 
 interval=30
 
 [cpu]
 command=scripts/cpu_usage/cpu_usage
-LABEL=CPU
+LABEL=CPU 
 interval=10
 
 [time]

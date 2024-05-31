@@ -21,6 +21,8 @@ require('pckr').add(
         'jaredgorski/SpaceCamp',
         'tomasiser/vim-code-dark',
         'nanotech/jellybeans.vim',
+        'rose-pine/neovim',
+        'RRethy/base16-nvim',
 
         'lukas-reineke/indent-blankline.nvim',
 

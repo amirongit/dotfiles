@@ -67,21 +67,6 @@ dap.listeners.before.attach.dapui_config = dapui.open
 dap.listeners.before.launch.dapui_config = dapui.open
 dap.listeners.before.event_terminated.dapui_config = dapui.close
 dap.listeners.before.event_exited.dapui_config = dapui.close
-dap.adapters.coreclr = {
-    type = 'executable',
-    command = 'netcoredbg',
-    args = { '--interpreter=vscode' }
-}
-dap.configurations.cs = {
-    {
-        type = "coreclr",
-        name = "launch - netcoredbg",
-        request = "launch",
-        program = function()
-            return vim.fn.input('DLL: ', vim.fn.getcwd() .. '/bin/Debug/', 'file')
-        end,
-    },
-}
 
 vim.fn.sign_define('DapBreakpoint', { text = '●' })
 vim.fn.sign_define('DapBreakpointCondition', { text = '◍', texthl = 'red', linehl = '', numhl = '' })

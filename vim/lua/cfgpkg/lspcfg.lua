@@ -1,5 +1,5 @@
 local servers = {
-    'csharp_ls', 'diagnosticls', 'docker_compose_language_service', 'dockerls', 'fsautocomplete',
+    'diagnosticls', 'docker_compose_language_service', 'dockerls', 'fsautocomplete',
     'jsonls', 'lua_ls', 'pyright', 'sqlls', 'taplo', 'lemminx', 'yamlls'
 }
 
@@ -9,19 +9,7 @@ local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('mason').setup()
 require('mason-lspconfig').setup({ ensure_installed = servers })
 for _, lsp in ipairs(servers) do
-    if lsp == 'csharp_ls' then
-        lspconfig[lsp].setup(
-            {
-                capabilities = cmp_capabilities,
-                handlers = {
-                    ['textDocument/definition'] = require('csharpls_extended').handler,
-                    ['textDocument/typeDefinition'] = require('csharpls_extended').handler,
-                }
-            }
-        )
-    else
-        lspconfig[lsp].setup({ capabilities = cmp_capabilities })
-    end
+    lspconfig[lsp].setup({ capabilities = cmp_capabilities })
 end
 local cmp = require('cmp')
 cmp.setup(
@@ -105,15 +93,17 @@ vim.diagnostic.config(
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts = opts or {}
+
+    opts.winblend = 10
     opts.border = {
+        {'┎', 'FloatBorder'},
         {' ', 'FloatBorder'},
-        {'-', 'FloatBorder'},
+        {'┒', 'FloatBorder'},
         {' ', 'FloatBorder'},
-        {'|', 'FloatBorder'},
+        {'┚', 'FloatBorder'},
         {' ', 'FloatBorder'},
-        {'-', 'FloatBorder'},
+        {'┖', 'FloatBorder'},
         {' ', 'FloatBorder'},
-        {'|', 'FloatBorder'},
     }
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end

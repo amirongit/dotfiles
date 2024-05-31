@@ -13,7 +13,7 @@ vim.cmd("hi TabLineSel guifg=DarkYellow guibg=bg")
 vim.cmd("hi NonText gui=None")
 
 -- colorscheme
-vim.cmd("colorscheme codedark")
+vim.cmd("colorscheme base16-default-dark")
 
 -- functions
 local function get_mode_color()

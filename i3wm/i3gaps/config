@@ -1,7 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Cascadia Code 8
+font pango: Agave Nerd Font 9
 
 focus_follows_mouse yes
 # smart_gaps on
@@ -10,47 +10,47 @@ focus_follows_mouse yes
 
 new_window normal 0
 new_float normal 0
-title_align center
+title_align left
 
-# gaps inner 12
-# gaps outer 10
+gaps inner 8
+gaps outer 5
 
-# workspace_layout stacked
+workspace_layout tabbed
 
-set $ActiveBorder       #a89984
-set $ActiveBackGround   #a89984
-set $ActiveText         #1c1c1c
+set $ActiveBorder        #a1b56c
+set $ActiveBackGround    #a1b56c
+set $ActiveText          #181818
 
-set $UnFocusedBorder       #3c3836
-set $UnFocusedBackGround   #3c3836
-set $UnFocusedText         #fbf1c7
+set $UnFocusedBorder     #383838
+set $UnFocusedBackGround #383838
+set $UnFocusedText       #d4d4d4
 
-set $InActiveBorder       #282828
-set $InActiveBackGround   #282828
-set $InActiveText         #fbf1c7
+set $InActiveBorder      #181818
+set $InActiveBackGround  #181818
+set $InActiveText        #d4d4d4
 
-set $UrgentBorder      #9d0006
-set $UrgenBackGround   #9d0006
-set $UrgentText        #fbf1c7
+set $UrgentBorder        #ab4642
+set $UrgenBackGround     #ab4642
+set $UrgentText          #181818
 
-set $BarBackGround         #1c1c1c
+set $BarBackGround       #181818
 
-set $BarActive       #427b58
-set $BarActiveText   #fbf1c7
+set $BarActive           #a1b56c
+set $BarActiveText       #181818
 
-set $BarInActive       #1c1c1c
-set $BarInActiveText   #fbf1c7
+set $BarInActive         #a16946
+set $BarInActiveText     #181818
 
 
 exec_always picom --config /home/amir/.config/picom/picom.conf
-exec_always xset -b
+# exec_always xset -b
 # exec_always hsetroot -solid '$BarBackGround'
-exec_always feh --bg-scale ~/.local/share/backgrounds/art_48.png
+exec_always feh --bg-scale ~/.local/share/backgrounds/jonathan-borba-x_sa53wZEiQ-unsplash.jpg
 # exec_always feh --bg-scale --randomize ~/.local/share/backgrounds/*
 exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Cascadia Code:pixelsize=11:style=Bold' #-b
+bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Agave Nerd Font:pixelsize=12:style=Bold' -b
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
@@ -141,6 +141,9 @@ for_window [class="Gpicview"] floating enable
 for_window [class="Pcmanfm"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="lximage-qt"] floating enable
+# for_window [class="nekoray"] floating enable
+# for_window [class="TelegramDesktop"] floating enable
+
 
 
 client.focused            $ActiveBorder      $ActiveBackGround      $ActiveText      $ActiveBackGround
@@ -187,7 +190,7 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        position top
+        position bottom
         status_command i3blocks
         separator_symbol ","
         tray_output none

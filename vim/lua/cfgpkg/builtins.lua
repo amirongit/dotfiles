@@ -8,9 +8,9 @@ vim.keymap.set("n", "<leader>nt", "gt")
 vim.keymap.set("n", "<leader>nb", "<CMD>bnext<CR>")
 vim.keymap.set("n", "<leader>pb", "<CMD>bprevious<CR>")
 
--- vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", { silent = true })
+vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", { silent = true })
+vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", { silent = true })
+vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>hs", ":set hlsearch!<CR>", { silent = true })
 
@@ -58,7 +58,7 @@ vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 5
 vim.opt.foldlevel = 1
 vim.opt.foldenable = false
-vim.opt.pastetoggle = "<leader>p"
+-- vim.opt.pastetoggle = "<leader>p"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.shortmess = ""
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
