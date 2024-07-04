@@ -1,16 +1,18 @@
 local servers = {
-    'diagnosticls', 'docker_compose_language_service', 'dockerls', 'fsautocomplete',
-    'jsonls', 'lua_ls', 'pyright', 'sqlls', 'taplo', 'lemminx', 'yamlls'
+    'docker_compose_language_service', 'dockerls', 'fsautocomplete',
+    'jsonls', 'pyright', 'sqlls', 'taplo', 'lemminx', 'yamlls',
+    'docker_compose_language_service', 'dockerls'
 }
-
 
 local lspconfig = require('lspconfig')
 local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('mason').setup()
 require('mason-lspconfig').setup({ ensure_installed = servers })
+
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({ capabilities = cmp_capabilities })
 end
+
 local cmp = require('cmp')
 cmp.setup(
     {
@@ -45,16 +47,17 @@ cmp.setup(
 )
 
 -- autocommands
-vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-  group = vim.api.nvim_create_augroup('float_diagnostic_cursor', { clear = true }),
-  callback = function ()
-    vim.diagnostic.open_float(nil, {focus=false, scope='cursor'})
-  end
-})
+-- vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+--   group = vim.api.nvim_create_augroup('float_diagnostic_cursor', { clear = true }),
+--   callback = function ()
+--     -- vim.diagnostic.open_float(nil, {focus=false, scope='cursor'})
+--   end
+-- })
 
 -- keymaps
 vim.keymap.set('n', 'K', vim.diagnostic.goto_prev)
 vim.keymap.set('n', 'J', vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>res", ":LspRestart<CR>", { silent = true })
 vim.keymap.set('n', '<leader>ren', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>doc', vim.lsp.buf.hover)
 vim.keymap.set('n', '<leader>sig', vim.lsp.buf.signature_help)
@@ -82,7 +85,7 @@ end
 
 vim.diagnostic.config(
     {
-        virtual_text = false,
+        virtual_text = true,
         signs = true,
         underline = false,
         update_in_insert = false,

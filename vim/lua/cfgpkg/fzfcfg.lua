@@ -20,8 +20,8 @@ vim.g.fzf_action = { ['ctrl-x'] = 'split', ['ctrl-v'] = 'vsplit', ['ctrl-t'] = '
 -- keymaps
 vim.keymap.set("n", "<leader>gre", ":Rg<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fnd", ":Files<CR>", { silent = true })
-vim.keymap.set("n", "<leader>buf", ":Buffers<CR>", { silent = true })
-vim.keymap.set("n", "<leader>wnd", ":Windows<CR>", { silent = true })
 vim.keymap.set("n", "<leader>hst", ":History<CR>", { silent = true })
+vim.keymap.set("n", "<leader>buf", ":Buffers<CR>", { silent = true })
+vim.keymap.set("n", "<leader>win", ":Windows<CR>", { silent = true })
 vim.keymap.set("n", "<leader>dib", ":LspDiagnostics 0<CR>", { silent = true })
 vim.keymap.set("n", "<leader>dia", ":LspDiagnosticsAll<CR>", { silent = true })

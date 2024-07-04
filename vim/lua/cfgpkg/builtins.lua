@@ -2,21 +2,18 @@
 vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", { silent = true })
 vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", { silent = true })
 
-vim.keymap.set("n", "<leader>pt", "gT")
-vim.keymap.set("n", "<leader>nt", "gt")
-
-vim.keymap.set("n", "<leader>nb", "<CMD>bnext<CR>")
-vim.keymap.set("n", "<leader>pb", "<CMD>bprevious<CR>")
+vim.keymap.set("n", "H", "gT")
+vim.keymap.set("n", "L", "gt")
 
 vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", { silent = true })
 vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", { silent = true })
 vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>hs", ":set hlsearch!<CR>", { silent = true })
+vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", { silent = true })
 
 -- settings
 vim.opt.compatible = false
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.backup = false
 vim.opt.hidden = true
 vim.opt.writebackup = false
@@ -42,7 +39,7 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.mouse = ""
 vim.opt.cmdheight = 1
-vim.opt.showtabline = 0
+vim.opt.showtabline = 2
 vim.opt.scrolloff = 0
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.tabstop = 4
