@@ -1,58 +1,23 @@
 local servers = {
     'docker_compose_language_service', 'dockerls', 'fsautocomplete',
     'jsonls', 'pyright', 'sqlls', 'taplo', 'lemminx', 'yamlls',
-    'docker_compose_language_service', 'dockerls'
+    'docker_compose_language_service', 'dockerls', 'lua_ls',
+    'bashls'
 }
 
-local lspconfig = require('lspconfig')
-local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+require('mini.cursorword').setup()
+require('mini.completion').setup()
 require('mason').setup()
 require('mason-lspconfig').setup({ ensure_installed = servers })
 
+local lspconfig = require('lspconfig')
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup({ capabilities = cmp_capabilities })
+    lspconfig[lsp].setup({})
 end
 
-local cmp = require('cmp')
-cmp.setup(
-    {
-        mapping = cmp.mapping.preset.insert(
-            {
-                ['<C-Space>'] = cmp.mapping.complete(),
-                ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-                ['<Tab>'] = cmp.mapping(
-                    function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item()
-                        else
-                            fallback()
-                        end
-                    end,
-                    { 'i', 's' }
-                ),
-                ['<S-Tab>'] = cmp.mapping(
-                    function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item()
-                        else
-                            fallback()
-                        end
-                    end,
-                    { 'i', 's' }
-                ),
-            }
-        ),
-        sources = { { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' } }
-    }
-)
-
--- autocommands
--- vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
---   group = vim.api.nvim_create_augroup('float_diagnostic_cursor', { clear = true }),
---   callback = function ()
---     -- vim.diagnostic.open_float(nil, {focus=false, scope='cursor'})
---   end
--- })
+-- highlight groups
+vim.cmd("hi MiniCursorword gui=reverse cterm=reverse")
+vim.cmd("hi clear MiniCursorwordCurrent")
 
 -- keymaps
 vim.keymap.set('n', 'K', vim.diagnostic.goto_prev)
@@ -61,17 +26,6 @@ vim.keymap.set("n", "<leader>res", ":LspRestart<CR>", { silent = true })
 vim.keymap.set('n', '<leader>ren', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>doc', vim.lsp.buf.hover)
 vim.keymap.set('n', '<leader>sig', vim.lsp.buf.signature_help)
-vim.keymap.set('n', '<leader>def', vim.lsp.buf.definition)
-vim.keymap.set('n', '<leader>imp', vim.lsp.buf.implementation)
-vim.keymap.set('n', '<leader>ref', vim.lsp.buf.references)
-vim.keymap.set(
-    'n',
-    '<leader>for',
-    function()
-      vim.lsp.buf.format({ async = true })
-    end
-)
-
 
 -- settings
 for _, diag in ipairs({ 'Error', 'Warn', 'Info', 'Hint' }) do

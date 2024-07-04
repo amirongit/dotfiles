@@ -1,62 +1,62 @@
-local function bootstrap_pckr()
-  local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
-
-  if not vim.loop.fs_stat(pckr_path) then
-    vim.fn.system({
-      'git',
-      'clone',
-      "--filter=blob:none",
-      'https://github.com/lewis6991/pckr.nvim',
-      pckr_path
-    })
-  end
-
-  vim.opt.rtp:prepend(pckr_path)
+local path_package = vim.fn.stdpath('data') .. '/site'
+local mini_path = path_package .. '/pack/deps/start/mini.nvim'
+if not vim.loop.fs_stat(mini_path) then
+  vim.cmd('echo "Installing `mini.nvim`" | redraw')
+  local clone_cmd = {
+    'git', 'clone', '--filter=blob:none',
+    '--branch', 'stable',
+    'https://github.com/echasnovski/mini.nvim', mini_path
+  }
+  vim.fn.system(clone_cmd)
+  vim.cmd('packadd mini.nvim | helptags ALL')
 end
 
-bootstrap_pckr()
+require('mini.deps').setup({ path = { package = path_package } })
 
-require('pckr').add(
+local add = MiniDeps.add
+
+
+add('RRethy/base16-nvim')
+add('tpope/vim-fugitive')
+add('tpope/vim-dadbod')
+add(
     {
-        'jaredgorski/SpaceCamp',
-        'tomasiser/vim-code-dark',
-        'nanotech/jellybeans.vim',
-        'rose-pine/neovim',
-        'RRethy/base16-nvim',
-
-        'lukas-reineke/indent-blankline.nvim',
-
-        'tpope/vim-dadbod',
-        'tpope/vim-fugitive',
-        'goolord/alpha-nvim',
-
-        { 'junegunn/fzf.vim', requires = { 'junegunn/fzf', run = ':call fzf#install()' } },
-        'ojroques/nvim-lspfuzzy',
-
-        { 'mfussenegger/nvim-dap', requires = 'nvim-neotest/nvim-nio' },
-        'mfussenegger/nvim-dap-python',
-        'rcarriga/nvim-dap-ui',
-
-        {
-            'williamboman/mason.nvim',
-            requires = { 'williamboman/mason-lspconfig.nvim', 'neovim/nvim-lspconfig' }
-        },
-        'Decodetalkers/csharpls-extended-lsp.nvim',
-
-        {
-            'hrsh7th/cmp-nvim-lsp',
-            requires = {
-                'hrsh7th/nvim-cmp',
-                'hrsh7th/cmp-buffer',
-                'hrsh7th/cmp-path',
+        source = 'ojroques/nvim-lspfuzzy',
+        depends = {
+            {
+                source = 'junegunn/fzf.vim',
+                dependes = {
+                    {
+                        source = 'junegunn/fzf',
+                        hooks = {post_checkout = function() vim.cmd('fzf#install()') end}
+                    }
+                }
             }
-        },
-
-        {
-            'nvim-treesitter/nvim-treesitter-context',
-            requires = { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+        }
+    }
+)
+add({source = 'mfussenegger/nvim-dap', depends = {{source = 'nvim-neotest/nvim-nio'}}})
+add({source = 'mfussenegger/nvim-dap-python'})
+add({source = 'rcarriga/nvim-dap-ui'})
+add(
+    {
+        source = 'williamboman/mason.nvim',
+        depends = {
+            {source = 'williamboman/mason-lspconfig.nvim'},
+            {source = 'neovim/nvim-lspconfig'}
+        }
+    }
+)
+add(
+    {
+        source = 'nvim-treesitter/nvim-treesitter-context',
+        depends = {
+            {
+                source = 'nvim-treesitter/nvim-treesitter',
+                hooks = {post_checkout = function() vim.cmd('TSUpdate') end}
+            }
         }
     }
 )
 
-require("cfgpkg")
+require('cfgpkg')

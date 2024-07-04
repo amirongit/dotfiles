@@ -1,6 +1,6 @@
 -- keymaps
-vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", { silent = true })
-vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", { silent = true })
+-- vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", { silent = true })
+-- vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", { silent = true })
 
 vim.keymap.set("n", "H", "gT")
 vim.keymap.set("n", "L", "gt")
@@ -9,7 +9,16 @@ vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", { silent = true })
 vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", { silent = true })
 vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", { silent = true })
 
+vim.keymap.set('i', '<Tab>', function()
+  return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
+end, { expr = true, silent = true })
+
+vim.keymap.set('i', '<S-Tab>', function()
+  return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
+end, { expr = true, silent = true })
+
 vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", { silent = true })
+
 
 -- settings
 vim.opt.compatible = false

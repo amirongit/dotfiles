@@ -1,3 +1,42 @@
+-- colorscheme
+vim.cmd("colorscheme base16-gruvbox-dark-hard")
+
+-- animations
+require('mini.animate').setup()
+
+-- highlight patterns
+local hipatterns = require('mini.hipatterns')
+hipatterns.setup({
+  highlighters = {
+    -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+    fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+    hack  = { pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'  },
+    todo  = { pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'  },
+    note  = { pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'  },
+
+    -- Highlight hex color strings (`#rrggbb`) using that color
+    hex_color = hipatterns.gen_highlighter.hex_color(),
+  },
+})
+
+-- scope guides
+require('mini.indentscope').setup(
+    {
+    draw = {
+        delay = 100,
+        animation = require('mini.indentscope').gen_animation.quadratic({ easing = 'out', duration = 500, unit = 'total' }),
+        priority = 2,
+    },
+    mappings = {},
+    options = {
+        border = 'both',
+        indent_at_cursor = true,
+        try_as_border = false,
+    },
+    symbol = '>',
+    }
+)
+
 -- highlight groups
 vim.cmd("hi clear LineNr")
 vim.cmd("hi clear SignColumn")
@@ -11,9 +50,6 @@ vim.cmd("hi TabLineFill guifg=Gray guibg=bg")
 vim.cmd("hi TabLine guifg=Gray guibg=bg")
 vim.cmd("hi TabLineSel guifg=DarkYellow guibg=bg")
 vim.cmd("hi NonText gui=None")
-
--- colorscheme
-vim.cmd("colorscheme base16-gruvbox-dark-hard")
 
 -- functions
 local function get_mode_color()
