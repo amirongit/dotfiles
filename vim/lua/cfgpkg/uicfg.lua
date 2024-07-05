@@ -36,32 +36,33 @@ require('mini.indentscope').setup(
     symbol = '>',
     }
 )
+require("ibl").setup({ scope = { enabled = false } })
 
 -- highlight groups
-vim.cmd("hi clear LineNr")
-vim.cmd("hi clear SignColumn")
-vim.cmd("hi DiffAdd guibg=darkcyan guifg=white cterm=bold gui=bold")
-vim.cmd("hi DiffChange guibg=darkmagenta guifg=white cterm=bold gui=bold")
-vim.cmd("hi DiffDelete guibg=darkred guifg=white cterm=bold gui=bold")
-vim.cmd("hi CocWarningSign guibg=darkbrown guifg=white cterm=bold gui=bold")
-vim.cmd("hi CocErrorSign guibg=darkred guifg=white cterm=bold gui=bold")
-vim.cmd("hi CocHintSign guibg=lightblue guifg=white cterm=bold gui=bold")
-vim.cmd("hi TabLineFill guifg=Gray guibg=bg")
-vim.cmd("hi TabLine guifg=Gray guibg=bg")
-vim.cmd("hi TabLineSel guifg=DarkYellow guibg=bg")
-vim.cmd("hi NonText gui=None")
+vim.api.nvim_set_hl(0, 'LineNr', {})
+vim.api.nvim_set_hl(0, 'SignColumn', {})
+vim.api.nvim_set_hl(0, 'DiffAdd', { bg = 'darkcyan', fg = 'white', bold = true })
+vim.api.nvim_set_hl(0, 'DiffChange', { bg = 'darkmagenta', fg = 'white', bold = true })
+vim.api.nvim_set_hl(0, 'DiffDelete', { bg = 'darkred', fg = 'white', bold = true })
+vim.api.nvim_set_hl(0, 'CocWarningSign', { bg = 'brown', fg = 'white', bold = true })
+vim.api.nvim_set_hl(0, 'CocErrorSign', { bg = 'darkred', fg = 'white', bold = true })
+vim.api.nvim_set_hl(0, 'CocHintSign', { bg = 'lightblue', fg = 'white', bold = true })
+vim.api.nvim_set_hl(0, 'TabLineFill', { fg = 'Gray', bg = 'bg' })
+vim.api.nvim_set_hl(0, 'TabLine', { fg = 'Gray', bg = 'bg' })
+vim.api.nvim_set_hl(0, 'TabLineSel', { fg = 'DarkYellow', bg = 'bg' })
+vim.api.nvim_set_hl(0, 'NonText', { bold = false, italic = false, underline = false })
 
 -- functions
 local function get_mode_color()
     local current_mode = vim.api.nvim_get_mode().mode
 
     if current_mode == "i" or current_mode == "ic" or current_mode == "R" then
-        return "%#IncSearch#"
+        return "%#RedrawDebugComposed#"
     elseif current_mode == "v" or current_mode == "V" or current_mode == "" or current_mode == "t" then
-        return "%#CocMenuSel#"
+        return "%#User2#"
     end
 
-    return "%#Visual#"
+    return "%#FloatShadow#"
 end
 
 local function get_status_line_items()

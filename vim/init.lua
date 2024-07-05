@@ -19,6 +19,7 @@ local add = MiniDeps.add
 add('RRethy/base16-nvim')
 add('tpope/vim-fugitive')
 add('tpope/vim-dadbod')
+add('lukas-reineke/indent-blankline.nvim')
 add(
     {
         source = 'ojroques/nvim-lspfuzzy',

@@ -16,8 +16,8 @@ for _, lsp in ipairs(servers) do
 end
 
 -- highlight groups
-vim.cmd("hi MiniCursorword gui=reverse cterm=reverse")
-vim.cmd("hi clear MiniCursorwordCurrent")
+vim.api.nvim_set_hl(0, 'MiniCursorword', { bold = true })
+vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
 
 -- keymaps
 vim.keymap.set('n', 'K', vim.diagnostic.goto_prev)
