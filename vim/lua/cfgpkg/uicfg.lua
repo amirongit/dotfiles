@@ -51,6 +51,8 @@ vim.api.nvim_set_hl(0, 'TabLineFill', { fg = 'Gray', bg = 'bg' })
 vim.api.nvim_set_hl(0, 'TabLine', { fg = 'Gray', bg = 'bg' })
 vim.api.nvim_set_hl(0, 'TabLineSel', { fg = 'DarkYellow', bg = 'bg' })
 vim.api.nvim_set_hl(0, 'NonText', { bold = false, italic = false, underline = false })
+vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', { fg = 'Gray', bold = true })
+vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', { fg = 'Gray', bold = true })
 
 -- functions
 local function get_mode_color()
