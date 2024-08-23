@@ -1,8 +1,8 @@
 local servers = {
-    'docker_compose_language_service', 'dockerls', 'fsautocomplete',
-    'jsonls', 'pyright', 'sqlls', 'taplo', 'lemminx', 'yamlls',
+    'docker_compose_language_service', 'dockerls',
+    'jsonls', 'sqlls', 'taplo', 'lemminx', 'yamlls',
     'docker_compose_language_service', 'dockerls', 'lua_ls',
-    'bashls'
+    'bashls', 'pyright',
 }
 
 require('mini.cursorword').setup()
@@ -53,14 +53,14 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 
     opts.winblend = 10
     opts.border = {
-        {'┎', 'FloatBorder'},
         {' ', 'FloatBorder'},
-        {'┒', 'FloatBorder'},
+        {'…', 'FloatBorder'},
         {' ', 'FloatBorder'},
-        {'┚', 'FloatBorder'},
+        {'⸽', 'FloatBorder'},
         {' ', 'FloatBorder'},
-        {'┖', 'FloatBorder'},
+        {'…', 'FloatBorder'},
         {' ', 'FloatBorder'},
+        {'⸽', 'FloatBorder'},
     }
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end

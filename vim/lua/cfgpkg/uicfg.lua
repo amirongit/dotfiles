@@ -1,20 +1,23 @@
 -- colorscheme
-vim.cmd("colorscheme base16-gruvbox-dark-hard")
+vim.cmd("colorscheme base16-classic-dark")
 
 -- animations
 require('mini.animate').setup()
+
+-- icons
+-- require('mini.icons').setup()
+-- MiniDeps.later(MiniIcons.tweak_lsp_kind)
 
 -- highlight patterns
 local hipatterns = require('mini.hipatterns')
 hipatterns.setup({
   highlighters = {
-    -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
     fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-    hack  = { pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'  },
-    todo  = { pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'  },
-    note  = { pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'  },
+    hack = { pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack' },
+    todo = { pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo' },
+    note = { pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote' },
+    warning = { pattern = '%f[%w]()WARNING()%f[%W]', group = 'MiniHipatternsFixme' },
 
-    -- Highlight hex color strings (`#rrggbb`) using that color
     hex_color = hipatterns.gen_highlighter.hex_color(),
   },
 })
@@ -54,46 +57,27 @@ vim.api.nvim_set_hl(0, 'NonText', { bold = false, italic = false, underline = fa
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', { fg = 'Gray', bold = true })
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', { fg = 'Gray', bold = true })
 
--- functions
-local function get_mode_color()
-    local current_mode = vim.api.nvim_get_mode().mode
-
-    if current_mode == "i" or current_mode == "ic" or current_mode == "R" then
-        return "%#RedrawDebugComposed#"
-    elseif current_mode == "v" or current_mode == "V" or current_mode == "" or current_mode == "t" then
-        return "%#User2#"
-    end
-
-    return "%#FloatShadow#"
-end
-
-local function get_status_line_items()
-    return table.concat {
-        "%#DiffChange#",
-        get_mode_color(),
-        " %{mode()}",
-        " %t",
-        " %m",
-        " %r",
-        " %h",
-        " %w",
-        " %=",
-        " %c",
-        " %Y ",
-    }
-end
-
 -- statusline
 -- colors: so $VIMRUNTIME/syntax/hitest.vim
-Statusline = {}
-
-Statusline.active = get_status_line_items
-
-vim.api.nvim_exec([[
-  augroup Statusline
-  au!
-  au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
-  au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.active()
-  au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.active()
-  augroup END
-]], false)
+require('mini.statusline').setup(
+    {
+        content = {
+            active = function()
+                return MiniStatusline.combine_groups({
+                    { hl = 'Conditional', strings = { '%{mode()} %t %m %r %h %w' } },
+                    '%=',
+                    { hl = 'Question', strings = { '%c %y' } },
+                })
+            end,
+            inactive = function()
+                return MiniStatusline.combine_groups({
+                    { hl = 'PmenuThumb', strings = { '%t %m' } },
+                    '%=',
+                    { hl = 'Question', strings = { '%y' } },
+                })
+            end,
+        },
+        use_icons = false,
+        set_vim_settings = true,
+    }
+)

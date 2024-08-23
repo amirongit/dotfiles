@@ -67,6 +67,7 @@ pick.setup(
 -- keymaps
 vim.keymap.set("n", "<leader>gre", ":Pick grep_live<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fnd", ":Pick files<CR>", { silent = true })
+vim.keymap.set("n", "<leader>map", ":Pick keymaps<CR>", { silent = true })
 vim.keymap.set("n", "<leader>dia", ":Pick diagnostic<CR>", { silent = true })
 vim.keymap.set("n", "<leader>def", ":Pick lsp scope='definition'<CR>", { silent = true })
 vim.keymap.set("n", "<leader>dec", ":Pick lsp scope='declaration'<CR>", { silent = true })

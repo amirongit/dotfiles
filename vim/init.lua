@@ -4,7 +4,7 @@ if not vim.loop.fs_stat(mini_path) then
   vim.cmd('echo "Installing `mini.nvim`" | redraw')
   local clone_cmd = {
     'git', 'clone', '--filter=blob:none',
-    '--branch', 'stable',
+    -- '--branch', 'stable',
     'https://github.com/echasnovski/mini.nvim', mini_path
   }
   vim.fn.system(clone_cmd)
@@ -14,6 +14,8 @@ end
 require('mini.deps').setup({ path = { package = path_package } })
 
 local add = MiniDeps.add
+local update = MiniDeps.update
+local later = MiniDeps.later
 
 
 add('RRethy/base16-nvim')
@@ -59,5 +61,7 @@ add(
         }
     }
 )
+
+-- update(nil, { force = true })
 
 require('cfgpkg')
