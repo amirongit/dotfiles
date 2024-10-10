@@ -1,12 +1,12 @@
 -- colorscheme
-vim.cmd("colorscheme base16-classic-dark")
+vim.cmd("colorscheme base16-gruvbox-dark-hard")
 
 -- animations
 require('mini.animate').setup()
 
--- icons
--- require('mini.icons').setup()
--- MiniDeps.later(MiniIcons.tweak_lsp_kind)
+-- highlight cursor word
+require('mini.cursorword').setup()
+
 
 -- highlight patterns
 local hipatterns = require('mini.hipatterns')
@@ -26,8 +26,9 @@ hipatterns.setup({
 require('mini.indentscope').setup(
     {
     draw = {
-        delay = 100,
-        animation = require('mini.indentscope').gen_animation.quadratic({ easing = 'out', duration = 500, unit = 'total' }),
+        delay = 250,
+        -- animation = require('mini.indentscope').gen_animation.quadratic({ easing = 'out', duration = 500, unit = 'total' }),
+        animation = require('mini.indentscope').gen_animation.none(),
         priority = 2,
     },
     mappings = {},
@@ -56,6 +57,8 @@ vim.api.nvim_set_hl(0, 'TabLineSel', { fg = 'DarkYellow', bg = 'bg' })
 vim.api.nvim_set_hl(0, 'NonText', { bold = false, italic = false, underline = false })
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', { fg = 'Gray', bold = true })
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', { fg = 'Gray', bold = true })
+vim.api.nvim_set_hl(0, 'MiniCursorword', { underline = true })
+vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
 
 -- statusline
 -- colors: so $VIMRUNTIME/syntax/hitest.vim
@@ -64,16 +67,16 @@ require('mini.statusline').setup(
         content = {
             active = function()
                 return MiniStatusline.combine_groups({
-                    { hl = 'Conditional', strings = { '%{mode()} %t %m %r %h %w' } },
+                    { hl = 'StatusLine', strings = { '%{mode()} %t %m %r %h %w' } },
                     '%=',
-                    { hl = 'Question', strings = { '%c %y' } },
+                    { hl = 'MatchParen', strings = { '%c %y' } },
                 })
             end,
             inactive = function()
                 return MiniStatusline.combine_groups({
-                    { hl = 'PmenuThumb', strings = { '%t %m' } },
+                    { hl = 'CursorLineNr', strings = { '%t %m' } },
                     '%=',
-                    { hl = 'Question', strings = { '%y' } },
+                    { hl = 'MatchParen', strings = { '%y' } },
                 })
             end,
         },
