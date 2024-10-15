@@ -146,7 +146,7 @@ vim.fn.sign_define('DapLogPoint', { text = '◉', texthl = 'red', linehl = '', n
 vim.fn.sign_define('DapStopped', { text = '➲', texthl = 'red', linehl = '', numhl = '' })
 vim.fn.sign_define('DapBreakpointRejected', { text = '○', texthl = 'red', linehl = '', numhl = '' })
 
--- builtins
+-- options
 vim.opt.compatible = false
 vim.opt.cursorline = false
 vim.opt.backup = false
@@ -199,38 +199,23 @@ vim.opt.laststatus = 2
 vim.opt.syntax = "on"
 vim.opt.fillchars = { eob = " " }
 
+-- diagnostics
+vim.diagnostic.config(
+    {
+        virtual_text = true,
+        signs = true,
+        underline = false,
+        update_in_insert = false,
+        severity_sort = false,
+    }
+)
+
 -- explorer
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
 -- colorscheme
 vim.cmd("colorscheme base16-gruvbox-dark-hard")
-
--- animations
-require('mini.animate').setup()
-
--- highlight cursor word
-require('mini.cursorword').setup({ delay = 500 })
-
--- scope guides
-require('mini.indentscope').setup(
-    {
-    draw = {
-        delay = 250,
-        -- animation = require('mini.indentscope').gen_animation.quadratic({ easing = 'out', duration = 500, unit = 'total' }),
-        animation = require('mini.indentscope').gen_animation.none(),
-        priority = 2,
-    },
-    mappings = {},
-    options = {
-        border = 'both',
-        indent_at_cursor = true,
-        try_as_border = false,
-    },
-    symbol = '>',
-    }
-)
-require("ibl").setup({ scope = { enabled = false } })
 
 -- highlight groups
 vim.api.nvim_set_hl(0, 'LineNr', {})
@@ -262,31 +247,6 @@ hipatterns.setup({
   },
 })
 
--- statusline
--- colors: so $VIMRUNTIME/syntax/hitest.vim
-require('mini.statusline').setup(
-    {
-        content = {
-            active = function()
-                return MiniStatusline.combine_groups({
-                    { hl = 'StatusLine', strings = { '%{mode()} %t %m %r %h %w' } },
-                    '%=',
-                    { hl = 'MatchParen', strings = { '%c %y' } },
-                })
-            end,
-            inactive = function()
-                return MiniStatusline.combine_groups({
-                    { hl = 'CursorLineNr', strings = { '%t %m' } },
-                    '%=',
-                    { hl = 'MatchParen', strings = { '%y' } },
-                })
-            end,
-        },
-        use_icons = false,
-        set_vim_settings = true,
-    }
-)
-
 -- language servers
 local servers = {
     'docker_compose_language_service', 'dockerls',
@@ -294,29 +254,14 @@ local servers = {
     'docker_compose_language_service', 'dockerls', 'lua_ls',
     'bashls', 'pyright',
 }
-require('mason').setup()
-require('mason-lspconfig').setup({ ensure_installed = servers })
 local lspconfig = require('lspconfig')
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({})
 end
-vim.diagnostic.config(
-    {
-        virtual_text = true,
-        signs = true,
-        underline = false,
-        update_in_insert = false,
-        severity_sort = false,
-    }
-)
-
--- completion
-require('mini.completion').setup()
 
 -- debugging
 local dap = require("dap")
 local dapui = require("dapui")
-require("dap-python").setup("python")
 dapui.setup(
     {
         controls = {element = "repl", enabled = false,},
@@ -338,16 +283,6 @@ dap.listeners.before.attach.dapui_config = dapui.open
 dap.listeners.before.launch.dapui_config = dapui.open
 dap.listeners.before.event_terminated.dapui_config = dapui.close
 dap.listeners.before.event_exited.dapui_config = dapui.close
-
--- treesitter
-require('nvim-treesitter.configs').setup(
-    {
-        ensure_installed = { "python", "bash", "json", "toml", "xml", "yaml" },
-        sync_install = true,
-        auto_install = true,
-        highlight = { enable = true },
-    }
-)
 
 -- picker
 local pick = require('mini.pick')
@@ -426,6 +361,38 @@ require('mini.extra').setup()
 require('mini.move').setup()
 require('mini.pairs').setup()
 require('mini.trailspace').setup()
+require('mini.animate').setup()
+require('mini.cursorword').setup({ delay = 500 })
+require('mason').setup()
+require('mason-lspconfig').setup({ ensure_installed = servers })
+require('mini.completion').setup()
+require("dap-python").setup("python")
+require('nvim-treesitter.configs').setup(
+    {
+        ensure_installed = { "python", "bash", "json", "toml", "xml", "yaml" },
+        sync_install = true,
+        auto_install = true,
+        highlight = { enable = true },
+    }
+)
+require("ibl").setup({ scope = { enabled = false } })
+require('mini.indentscope').setup(
+    {
+    draw = {
+        delay = 250,
+        -- animation = require('mini.indentscope').gen_animation.quadratic({ easing = 'out', duration = 500, unit = 'total' }),
+        animation = require('mini.indentscope').gen_animation.none(),
+        priority = 2,
+    },
+    mappings = {},
+    options = {
+        border = 'both',
+        indent_at_cursor = true,
+        try_as_border = false,
+    },
+    symbol = '>',
+    }
+)
 require('mini.splitjoin').setup(
     {
         mappings = {
@@ -446,5 +413,27 @@ require('mini.splitjoin').setup(
             hooks_pre = {},
             hooks_post = {},
         },
+    }
+)
+require('mini.statusline').setup(
+    {
+        content = {
+            active = function()
+                return MiniStatusline.combine_groups({
+                    { hl = 'StatusLine', strings = { '%{mode()} %t %m %r %h %w' } },
+                    '%=',
+                    { hl = 'MatchParen', strings = { '%c %y' } },
+                })
+            end,
+            inactive = function()
+                return MiniStatusline.combine_groups({
+                    { hl = 'CursorLineNr', strings = { '%t %m' } },
+                    '%=',
+                    { hl = 'MatchParen', strings = { '%y' } },
+                })
+            end,
+        },
+        use_icons = false,
+        set_vim_settings = true,
     }
 )
