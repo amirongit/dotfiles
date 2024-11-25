@@ -176,11 +176,13 @@ vim.opt.encoding = "utf-8"
 vim.opt.updatecount = 0
 vim.opt.wildmode = {"list:longest", "list:full"}
 vim.opt.termguicolors = true
-vim.opt.foldmethod = "indent"
-vim.opt.foldlevelstart = 1
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = ""
+vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 5
-vim.opt.foldlevel = 1
-vim.opt.foldenable = false
+vim.opt.foldlevel = 99
+vim.opt.foldenable = true
 vim.opt.backspace = "indent,eol,start"
 vim.opt.shortmess = ""
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
@@ -204,7 +206,7 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
 -- colorscheme
-vim.cmd("colorscheme base16-gruvbox-dark-hard")
+vim.cmd("colorscheme base16-black-metal")
 
 -- highlight groups
 vim.api.nvim_set_hl(0, 'LineNr', {})
@@ -221,7 +223,7 @@ vim.api.nvim_set_hl(0, 'TabLineSel', {fg = 'DarkYellow', bg = 'bg'})
 vim.api.nvim_set_hl(0, 'NonText', {bold = false, italic = false, underline = false})
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', {fg = 'Gray', bold = true})
-vim.api.nvim_set_hl(0, 'MiniCursorword', {reverse = true})
+vim.api.nvim_set_hl(0, 'MiniCursorword', {underline = true})
 vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
 local hipatterns = require('mini.hipatterns')
 hipatterns.setup({
@@ -240,7 +242,7 @@ local servers = {
     'docker_compose_language_service', 'dockerls',
     'jsonls', 'sqlls', 'taplo', 'lemminx', 'yamlls',
     'docker_compose_language_service', 'dockerls', 'lua_ls',
-    'bashls', 'pyright',
+    'bashls', 'pyright', 'csharp_ls'
 }
 local lspconfig = require('lspconfig')
 for _, lsp in ipairs(servers) do

@@ -2,12 +2,10 @@
 background = '#151515'
 foreground = '#a9a9a9'
 
-# Colors the cursor will use if `custom_cursor_colors` is true
 [colors.cursor]
 text = '#393939'
 cursor = '#a9a9a9'
 
-# Normal colors
 [colors.normal]
 black = '#393939'
 red = '#ca674a'
@@ -18,7 +16,6 @@ magenta = '#9c35ac'
 cyan = '#6eb5f3'
 white = '#a9a9a9'
 
-# Bright colors
 [colors.bright]
 black = '#535551'
 red = '#ea2828'
