@@ -1,11 +1,13 @@
 {
+    "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.lua",
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
+    "vscode-neovim.neovimClean": false,
     "http.proxy": "socks5://localhost:2080",
     "window.titleBarStyle": "custom",
     "files.autoSave": "onWindowChange",
-    "editor.fontSize": 14,
+    "editor.fontSize": 16,
     "editor.renderWhitespace": "all",
     "editor.cursorStyle": "block",
     "editor.codeActionWidget.includeNearbyQuickFixes": false,
@@ -38,11 +40,7 @@
     "window.autoDetectColorScheme": true,
     "window.dialogStyle": "custom",
     "workbench.startupEditor": "none",
-    "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
     "editor.wordWrap": "on",
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": "always"
-    },
     "editor.formatOnSave": true,
     "editor.codeLens": true,
     "editor.lightbulb.enabled": "off",
@@ -50,19 +48,49 @@
     "terminal.integrated.enablePersistentSessions": false,
     "workbench.editor.empty.hint": "hidden",
     "editor.semanticHighlighting.enabled": true,
-    "vscode-neovim.neovimClean": true,
     "editor.showFoldingControls": "always",
     "editor.smoothScrolling": true,
-    "editor.stablePeek": true,
+    "editor.stablePeek": false,
     "editor.stickyScroll.enabled": false,
     "editor.tabCompletion": "on",
     "editor.useTabStops": false,
     "security.workspace.trust.banner": "never",
     "security.workspace.trust.untrustedFiles": "open",
     "editor.acceptSuggestionOnCommitCharacter": false,
-    "editor.inlineSuggest.fontFamily": "JetBrains Mono",
-    "workbench.activityBar.location": "top",
-    "python.defaultInterpreterPath": "/home/amir/.pyenv/versions/3.12.1/bin/python",
-    "python.analysis.typeCheckingMode": "strict",
-    "git.openRepositoryInParentFolders": "never"
+    "workbench.activityBar.location": "default",
+    "python.defaultInterpreterPath": "/usr/sbin/python",
+    "python.analysis.typeCheckingMode": "off",
+    "git.openRepositoryInParentFolders": "never",
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.wordBasedSuggestions": "off",
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        }
+    },
+    "mypy-type-checker.args": [
+        "--config-file=pyproject.toml"
+    ],
+    "pylint.args": [
+        "--rcfile=pyproject.toml"
+    ],
+    "black-formatter.args": [
+        "--config",
+        "pyproject.toml"
+    ],
+    "isort.args": [
+        "--settings-file",
+        "pyproject.toml"
+    ],
+    "mypy-type-checker.showNotifications": "onError",
+    "mypy-type-checker.reportingScope": "file",
+    "mypy-type-checker.preferDaemon": false,
+    "workbench.editor.enablePreview": true,
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "editor.gotoLocation.multipleReferences": "goto"
 }
