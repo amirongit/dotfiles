@@ -55,6 +55,8 @@ vim.opt.fillchars = { eob = " " }
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
+vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", { silent = true })
+
 if vim.g.vscode then
     vim.keymap.set("n", "H", ":Tabprevious<CR>")
     vim.keymap.set("n", "L", ":Tabnext<CR>")
@@ -147,5 +149,4 @@ else
     vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", { silent = true })
     vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", { silent = true })
     vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", { silent = true })
-    vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", { silent = true })
 end
