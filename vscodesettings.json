@@ -5,7 +5,8 @@
     },
     "vscode-neovim.neovimClean": false,
     "http.proxy": "socks5://localhost:2080",
-    "window.titleBarStyle": "custom",
+    "window.titleBarStyle": "native",
+    "window.dialogStyle": "native",
     "files.autoSave": "onWindowChange",
     "editor.fontSize": 16,
     "editor.renderWhitespace": "all",
@@ -38,7 +39,6 @@
     "workbench.editor.scrollToSwitchTabs": true,
     "zenMode.hideLineNumbers": false,
     "window.autoDetectColorScheme": true,
-    "window.dialogStyle": "custom",
     "workbench.startupEditor": "none",
     "editor.wordWrap": "on",
     "editor.formatOnSave": true,
@@ -67,8 +67,8 @@
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": "always"
-        }
+            "source.organizeImports": "always",
+        },
     },
     "mypy-type-checker.args": [
         "--config-file=pyproject.toml"
@@ -92,5 +92,9 @@
     "editor.gotoLocation.multipleDefinitions": "goto",
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
     "editor.gotoLocation.multipleImplementations": "goto",
-    "editor.gotoLocation.multipleReferences": "goto"
+    "editor.gotoLocation.multipleReferences": "goto",
+    "extensions.autoUpdate": false,
+    "window.menuBarVisibility": "hidden",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
 }
