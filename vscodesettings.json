@@ -8,16 +8,28 @@
     "window.titleBarStyle": "native",
     "window.dialogStyle": "native",
     "files.autoSave": "onWindowChange",
-    "editor.fontSize": 16,
     "editor.renderWhitespace": "all",
-    "editor.cursorStyle": "block",
     "editor.codeActionWidget.includeNearbyQuickFixes": false,
     "editor.codeActionWidget.showHeaders": false,
     "editor.accessibilitySupport": "off",
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "python.analysis.autoImportCompletions": true,
-    "editor.fontFamily": "Fira Code Medium",
-    "editor.fontLigatures": "'cv01', 'cv02', 'zero', 'cv11', 'cv14', 'onum', 'cv16', 'cv29', 'cv31'",
+    "editor.fontSize": 18,
+    "terminal.integrated.fontSize": 18,
+    /* "editor.fontFamily": "Recursive Mn Lnr St",
+    "editor.fontLigatures": "'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss08', 'ss10', 'ss11', 'ss12'", */
+    /* "editor.fontFamily": "Recursive Mn Csl St",
+    "editor.fontLigatures": "'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss08', 'ss10', 'ss11', 'ss12'", */
+    /* "editor.fontFamily": "Cascadia Code",
+    "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss20'", */
+    "editor.fontFamily": "Victor mono semiBold",
+    "editor.fontLigatures": "'ss01', 'ss04', 'ss06'",
+    /* "editor.fontFamily": "Iosevka Medium Extended",
+    "editor.fontLigatures": "'dlig', 'ss12'", */
+    /* "editor.fontFamily": "Fira Code Medium",
+    "editor.fontLigatures": "'cv01', 'cv02', 'zero', 'cv11', 'cv14', 'onum', 'cv16', 'cv29', 'cv31'", */
+    /* "editor.fontFamily": "JetBrains Mono Medium",
+    "editor.fontLigatures": "'cv02', 'cv03', 'cv04', 'cv05', 'cv06', 'cv07', 'cv08', 'cv10', 'cv11', 'cv12', 'cv14', 'cv15', 'cv16', 'cv17', 'cv18', 'cv19', 'cv20'", */
     "editor.copyWithSyntaxHighlighting": false,
     "editor.dragAndDrop": false,
     "editor.dropIntoEditor.enabled": false,
@@ -53,11 +65,10 @@
     "editor.stablePeek": false,
     "editor.stickyScroll.enabled": false,
     "editor.tabCompletion": "on",
-    "editor.useTabStops": false,
     "security.workspace.trust.banner": "never",
     "security.workspace.trust.untrustedFiles": "open",
     "editor.acceptSuggestionOnCommitCharacter": false,
-    "workbench.activityBar.location": "default",
+    "workbench.activityBar.location": "top",
     "python.defaultInterpreterPath": "/usr/sbin/python",
     "python.analysis.typeCheckingMode": "off",
     "git.openRepositoryInParentFolders": "never",
@@ -67,14 +78,11 @@
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": "always",
-        },
+            "source.organizeImports": "always"
+        }
     },
     "mypy-type-checker.args": [
         "--config-file=pyproject.toml"
-    ],
-    "pylint.args": [
-        "--rcfile=pyproject.toml"
     ],
     "black-formatter.args": [
         "--config",
@@ -87,7 +95,7 @@
     "mypy-type-checker.showNotifications": "onError",
     "mypy-type-checker.reportingScope": "file",
     "mypy-type-checker.preferDaemon": false,
-    "workbench.editor.enablePreview": true,
+    "workbench.editor.enablePreview": false,
     "editor.gotoLocation.multipleDeclarations": "goto",
     "editor.gotoLocation.multipleDefinitions": "goto",
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
@@ -97,4 +105,6 @@
     "window.menuBarVisibility": "hidden",
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
+    "editor.suggest.showIcons": false,
+    "workbench.editor.showTabs": "none",
 }
