@@ -44,7 +44,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldenable = true
 vim.opt.backspace = "indent,eol,start"
 vim.opt.shortmess = ""
-vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
+-- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
 vim.opt.updatetime = 300
 vim.opt.signcolumn = "number"
 vim.opt.laststatus = 2
@@ -124,6 +124,12 @@ if vim.g.vscode then
         'n',
         '<leader>sym',
         ":lua require('vscode').call('workbench.action.gotoSymbol') <CR>",
+        { silent = true }
+    )
+    vim.api.nvim_set_keymap(
+        'n',
+        '<leader>bar',
+        ":lua require('vscode').call('workbench.action.toggleSidebarVisibility') <CR>",
         { silent = true }
     )
 
