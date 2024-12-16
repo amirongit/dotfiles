@@ -16,19 +16,21 @@
     "python.analysis.autoImportCompletions": true,
     "editor.fontSize": 18,
     "terminal.integrated.fontSize": 18,
+    /* "editor.fontFamily": "Agave", */
+    /* "editor.fontFamily": "Syne Mono", */
     /* "editor.fontFamily": "Recursive Mn Lnr St",
     "editor.fontLigatures": "'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss08', 'ss10', 'ss11', 'ss12'", */
     /* "editor.fontFamily": "Recursive Mn Csl St",
     "editor.fontLigatures": "'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss08', 'ss10', 'ss11', 'ss12'", */
     /* "editor.fontFamily": "Cascadia Code",
     "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss20'", */
-    /* "editor.fontFamily": "Victor mono semiBold",
-    "editor.fontLigatures": "'ss01', 'ss04', 'ss06'", */
+    "editor.fontFamily": "Victor mono semiBold",
+    "editor.fontLigatures": "'ss01', 'ss04', 'ss06'",
     /* "editor.fontFamily": "Iosevka Medium Extended",
     "editor.fontLigatures": "'dlig', 'ss12'", */
-    "editor.fontFamily": "Fira Code Retina",
-    "editor.fontLigatures": "'cv01', 'cv02', 'zero', 'cv11', 'cv14', 'onum', 'cv16', 'cv29', 'cv31'",
-    /* "editor.fontFamily": "JetBrains Mono Medium",
+    /* "editor.fontFamily": "Fira Code Retina",
+    "editor.fontLigatures": "'cv01', 'cv02', 'zero', 'cv11', 'cv14', 'onum', 'cv16', 'cv29', 'cv31'", */
+    /* "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": "'cv02', 'cv03', 'cv04', 'cv05', 'cv06', 'cv07', 'cv08', 'cv10', 'cv11', 'cv12', 'cv14', 'cv15', 'cv16', 'cv17', 'cv18', 'cv19', 'cv20'", */
     "editor.copyWithSyntaxHighlighting": false,
     "editor.dragAndDrop": false,
@@ -48,6 +50,8 @@
     "workbench.tips.enabled": false,
     "workbench.editor.scrollToSwitchTabs": true,
     "zenMode.hideLineNumbers": false,
+    "zenMode.centerLayout": false,
+    "zenMode.showTabs": "none",
     "window.autoDetectColorScheme": true,
     "workbench.startupEditor": "none",
     "editor.wordWrap": "on",
@@ -106,4 +110,6 @@
     "workbench.layoutControl.enabled": false,
     "window.commandCenter": false,
     "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.sideBar.location": "right",
+    "workbench.preferredDarkColorTheme": "Default Dark+",
 }
