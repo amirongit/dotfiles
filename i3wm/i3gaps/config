@@ -1,7 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Agave Nerd Font 9
+font pango: Ubuntu Condensed Bold 8
 
 focus_follows_mouse yes
 # smart_gaps on
@@ -12,45 +12,45 @@ new_window normal 0
 new_float normal 0
 title_align left
 
-gaps inner 8
-gaps outer 5
+gaps inner 0
+gaps outer 0
 
 workspace_layout tabbed
 
-set $ActiveBorder        #a1b56c
-set $ActiveBackGround    #a1b56c
-set $ActiveText          #181818
+set $ActiveBorder        #83a598
+set $ActiveBackGround    #83a598
+set $ActiveText          #1d2021
 
-set $UnFocusedBorder     #383838
-set $UnFocusedBackGround #383838
-set $UnFocusedText       #d4d4d4
+set $UnFocusedBorder     #1d2021
+set $UnFocusedBackGround #1d2021
+set $UnFocusedText       #fbf1c7
 
-set $InActiveBorder      #181818
-set $InActiveBackGround  #181818
-set $InActiveText        #d4d4d4
+set $InActiveBorder      #1d2021
+set $InActiveBackGround  #1d2021
+set $InActiveText        #fbf1c7
 
-set $UrgentBorder        #ab4642
-set $UrgenBackGround     #ab4642
-set $UrgentText          #181818
+set $UrgentBorder        #d3869b
+set $UrgenBackGround     #d3869b
+set $UrgentText          #1d2021
 
-set $BarBackGround       #181818
+set $BarBackGround       #1d2021
 
-set $BarActive           #a1b56c
-set $BarActiveText       #181818
+set $BarActive           #d3869b
+set $BarActiveText       #1d2021
 
-set $BarInActive         #a16946
-set $BarInActiveText     #181818
+set $BarInActive         #1d2021
+set $BarInActiveText     #fbf1c7
 
 
 exec_always picom --config /home/amir/.config/picom/picom.conf
 # exec_always xset -b
-# exec_always hsetroot -solid '$BarBackGround'
-exec_always feh --bg-scale ~/.local/share/backgrounds/jonathan-borba-x_sa53wZEiQ-unsplash.jpg
+exec_always hsetroot -solid '$BarBackGround'
+# exec_always feh --bg-scale ~/.local/share/backgrounds/jonathan-borba-x_sa53wZEiQ-unsplash.jpg
 # exec_always feh --bg-scale --randomize ~/.local/share/backgrounds/*
 exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Agave Nerd Font:pixelsize=12:style=Bold' -b
+bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Ubuntu Mono:pixelsize=12:style=Bold' #-b
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
@@ -190,7 +190,7 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        position bottom
+        position top
         status_command i3blocks
         separator_symbol ","
         tray_output none

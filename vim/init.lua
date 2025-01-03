@@ -206,7 +206,7 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
 -- colorscheme
-vim.cmd("colorscheme base16-black-metal")
+vim.cmd("colorscheme base16-gruvbox-dark-hard")
 
 -- highlight groups
 vim.api.nvim_set_hl(0, 'LineNr', {})
@@ -239,15 +239,30 @@ hipatterns.setup({
 
 -- language servers
 local servers = {
-    'docker_compose_language_service', 'dockerls',
-    'jsonls', 'sqlls', 'taplo', 'lemminx', 'yamlls',
-    'docker_compose_language_service', 'dockerls', 'lua_ls',
-    'bashls', 'pyright', 'csharp_ls'
+    'lua_ls', 'csharp_ls', 'pyright',
+    'dockerls', 'docker_compose_language_service'
 }
 local lspconfig = require('lspconfig')
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup({})
-end
+lspconfig['lua_ls'].setup({})
+lspconfig['csharp_ls'].setup({})
+lspconfig['pyright'].setup(
+    {
+        settings = {
+            python = {
+                analysis = {
+                    autoSearchPaths = true,
+                    diagnosticMode = "workspace",
+                    useLibraryCodeForTypes = true,
+                    typeCheckingMode = "strict",
+                    typeCheckingBehavior = "strict",
+                    reportMissingType = true,
+                }
+            }
+        }
+    }
+)
+lspconfig['dockerls'].setup({})
+lspconfig['docker_compose_language_service'].setup({})
 
 -- debugging
 local dap = require("dap")

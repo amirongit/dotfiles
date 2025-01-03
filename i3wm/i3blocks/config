@@ -1,34 +1,41 @@
 [volume]
-command=scripts/volume/volume
+command=i3blocks-contrib/volume/volume
 interval=2
 signal=10
 STEP=5%
-LABEL=VOL
+LABEL=VOL 
 
 [disk]
-command=scripts/disk/disk
+command=i3blocks-contrib/disk/disk
 LABEL=/HOME 
 interval=30
 instance=/home
 
 [disk]
-command=scripts/disk/disk
+command=i3blocks-contrib/disk/disk
 LABEL=/HDD 
 interval=30
 instance=/hdd
 
 [memory]
-command=scripts/memory/memory
+command=i3blocks-contrib/memory/memory
 label=MEM 
 interval=30
 
 [cpu]
-command=scripts/cpu_usage/cpu_usage
+command=i3blocks-contrib/cpu_usage/cpu_usage
 LABEL=CPU 
 interval=10
 
+[iface]
+command=i3blocks-contrib/iface/iface
+LABEL=NIC 
+interval=10
+display_wifi_name=0
+
 [time]
-command=scripts/time/time
+command=i3blocks-contrib/time/time
 interval=30
-STRFTIME_FORMAT=TIME %Y-%m-%d %H:%M
+STRFTIME_FORMAT=%Y-%m-%d %H:%M
 TZ_LABELS=
+
