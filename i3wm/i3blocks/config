@@ -28,9 +28,11 @@ LABEL=CPU
 interval=10
 
 [iface]
-command=i3blocks-contrib/iface/iface
+command=output=$(i3blocks-contrib/iface/iface); [ -z "$output" ] && echo "NIC down" || echo "$output"
 LABEL=NIC 
+color=#FF0000
 interval=10
+ADDRESS_FAMILY=inet
 display_wifi_name=0
 
 [time]

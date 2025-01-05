@@ -124,11 +124,14 @@ assign [class="code-oss"] $ws3
 assign [class="Deluge"] $ws2
 assign [class="Uget-gtk"] $ws2
 assign [class="Virt-manager"] $ws5
+assign [class="VirtualBox Manager"] $ws5
+assign [class="VirtualBox"] $ws5
 assign [class="Atom"] $ws3
 
 
-
 for_window [class="Virt-manager"] floating enable
+for_window [class="VirtualBox"] floating enable
+for_window [class="VirtualBox Manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Inkscape"] floating enable
 for_window [class="Steam"] floating enable

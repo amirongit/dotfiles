@@ -101,7 +101,9 @@ vim.keymap.set('n', 'J', vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>res", ":LspRestart<CR>", {silent = true})
 vim.keymap.set('n', '<leader>ren', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>doc', vim.lsp.buf.hover)
+vim.keymap.set('n', '<leader>for', vim.lsp.buf.format)
 vim.keymap.set('n', '<leader>sig', vim.lsp.buf.signature_help)
+vim.keymap.set('n', '<leader>act', vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>brk", "<CMD>DapToggleBreakpoint<CR>", {silent = true})
 vim.keymap.set("n", "<leader>dbc", "<CMD>DapContinue<CR>", {silent = true})
 vim.keymap.set("n", "<leader>dbi", "<CMD>DapStepInto<CR>", {silent = true})
@@ -240,27 +242,24 @@ hipatterns.setup({
 -- language servers
 local servers = {
     'lua_ls', 'csharp_ls', 'pyright',
-    'dockerls', 'docker_compose_language_service'
+    'dockerls', 'docker_compose_language_service', 'ruff'
 }
 local lspconfig = require('lspconfig')
 lspconfig['lua_ls'].setup({})
 lspconfig['csharp_ls'].setup({})
-lspconfig['pyright'].setup(
-    {
-        settings = {
-            python = {
-                analysis = {
-                    autoSearchPaths = true,
-                    diagnosticMode = "workspace",
-                    useLibraryCodeForTypes = true,
-                    typeCheckingMode = "strict",
-                    typeCheckingBehavior = "strict",
-                    reportMissingType = true,
-                }
+lspconfig['pyright'].setup({
+    settings = {
+        pyright = {disableOrganizeImports = true},
+        python = {
+            analysis = {
+                autoImportCompletions = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
             }
         }
     }
-)
+})
+lspconfig['ruff'].setup({})
 lspconfig['dockerls'].setup({})
 lspconfig['docker_compose_language_service'].setup({})
 
@@ -332,6 +331,7 @@ pick.setup({
     options = {content_from_bottom = false, use_cache = false,},
     window = {config = win_config, prompt_cursor = '█', prompt_prefix = '> ',},
 })
+vim.ui.select = pick.ui_select
 
 -- start page
 local starter = require('mini.starter')
