@@ -11,11 +11,11 @@ if not vim.loop.fs_stat(mini_path) then
     vim.cmd('packadd mini.nvim | helptags ALL')
 end
 
-require('mini.deps').setup({path = {package = path_package } })
-
-local add = MiniDeps.add
-local update = MiniDeps.update
-local later = MiniDeps.later
+local mini_depth = require('mini.deps')
+mini_depth.setup({path = {package = path_package } })
+local add = mini_depth.add
+-- local update = MiniDeps.update
+-- local later = MiniDeps.later
 
 add('RRethy/base16-nvim')
 add('tpope/vim-fugitive')
@@ -38,7 +38,6 @@ add({
 
 -- update(nil, {force = true})
 
--- functions
 local keycode = vim.keycode or function(x)
     return vim.api.nvim_replace_termcodes(x, true, true, true)
 end
@@ -82,7 +81,6 @@ local win_config = function()
     }
 end
 
--- keymaps
 vim.keymap.set("n", "H", "gT")
 vim.keymap.set("n", "L", "gt")
 vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", {silent = true})
@@ -124,7 +122,6 @@ vim.keymap.set("n", "<leader>ref", ":Pick lsp scope='references'<CR>", {silent =
 vim.keymap.set("n", "<leader>dym", ":Pick lsp scope='document_symbol'<CR>", {silent = true})
 vim.keymap.set("n", "<leader>wym", ":Pick lsp scope='workspace_symbol'<CR>", {silent = true})
 
--- sign column
 for _, diag in ipairs({'Error', 'Warn', 'Info', 'Hint'}) do
     vim.fn.sign_define('DiagnosticSign' .. diag, {
         text = '',
@@ -139,7 +136,6 @@ vim.fn.sign_define('DapLogPoint', {text = '◉', texthl = 'red', linehl = '', nu
 vim.fn.sign_define('DapStopped', {text = '➲', texthl = 'red', linehl = '', numhl = ''})
 vim.fn.sign_define('DapBreakpointRejected', {text = '○', texthl = 'red', linehl = '', numhl = ''})
 
--- options
 vim.opt.compatible = false
 vim.opt.cursorline = false
 vim.opt.backup = false
@@ -194,7 +190,6 @@ vim.opt.laststatus = 2
 vim.opt.syntax = "on"
 vim.opt.fillchars = {eob = " "}
 
--- diagnostics
 vim.diagnostic.config({
     virtual_text = true,
     signs = true,
@@ -203,14 +198,11 @@ vim.diagnostic.config({
     severity_sort = false,
 })
 
--- explorer
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
--- colorscheme
-vim.cmd("colorscheme base16-gruvbox-dark-hard")
+vim.cmd("colorscheme base16-tokyo-night-terminal-storm")
 
--- highlight groups
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
 vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})
@@ -239,14 +231,18 @@ hipatterns.setup({
     }
 })
 
--- language servers
 local servers = {
-    'lua_ls', 'csharp_ls', 'pyright',
-    'dockerls', 'docker_compose_language_service', 'ruff'
+    'lua_ls', 'csharp_ls', 'bashls',
+    'dockerls', 'yamlls',
+    'ruff', 'pyright', 'taplo'
 }
 local lspconfig = require('lspconfig')
 lspconfig['lua_ls'].setup({})
 lspconfig['csharp_ls'].setup({})
+lspconfig['bashls'].setup({})
+lspconfig['dockerls'].setup({})
+lspconfig['yamlls'].setup({})
+lspconfig['ruff'].setup({})
 lspconfig['pyright'].setup({
     settings = {
         pyright = {disableOrganizeImports = true},
@@ -259,11 +255,8 @@ lspconfig['pyright'].setup({
         }
     }
 })
-lspconfig['ruff'].setup({})
-lspconfig['dockerls'].setup({})
-lspconfig['docker_compose_language_service'].setup({})
+lspconfig['taplo'].setup({})
 
--- debugging
 local dap = require("dap")
 local dapui = require("dapui")
 dapui.setup({
@@ -286,7 +279,6 @@ dap.listeners.before.launch.dapui_config = dapui.open
 dap.listeners.before.event_terminated.dapui_config = dapui.close
 dap.listeners.before.event_exited.dapui_config = dapui.close
 
--- picker
 local pick = require('mini.pick')
 pick.setup({
     delay = {async = 10, busy = 50,},
@@ -333,21 +325,19 @@ pick.setup({
 })
 vim.ui.select = pick.ui_select
 
--- start page
 local starter = require('mini.starter')
 starter.setup({
     autoopen = true,
     evaluate_single = false,
     items = {starter.sections.builtin_actions()},
     header = [[
-╭━━━╮    ╭╮  ╭╮    ╭━━━╮     ╭╮╭━╮╭━╮   ╭╮ ╭╮       ╭╮╭━━━┳╮
-┃╭━╮┃    ┃╰╮╭╯┃    ┃╭━━╯     ┃┃┃┃╰╯┃┃   ┃┃ ┃┃      ╭╯╰┫╭━╮┃┃
-┃┃ ╰╋━━┳━╋╮╰╯╭┻━┳╮╭┫╰━━┳━━┳━━┫┃┃╭╮╭╮┣╮ ╭┫╰━╯┣━━┳━━┳┻╮╭┻╯╭╯┃┃
-┃┃ ╭┫╭╮┃╭╮╋╮╭┫╭╮┃┃┃┃╭━━┫┃━┫┃━┫┃┃┃┃┃┃┃┃ ┃┃╭━╮┃┃━┫╭╮┃╭┫┃  ┃╭┻╯
-┃╰━╯┃╭╮┃┃┃┃┃┃┃╰╯┃╰╯┃┃  ┃┃━┫┃━┫╰┫┃┃┃┃┃╰━╯┃┃ ┃┃┃━┫╭╮┃┃┃╰╮ ╭╮╭╮
-╰━━━┻╯╰┻╯╰╯╰╯╰━━┻━━┻╯  ╰━━┻━━┻━┻╯╰╯╰┻━╮╭┻╯ ╰┻━━┻╯╰┻╯╰━╯ ╰╯╰╯
-                                    ╭━╯┃
-                                    ╰━━╯
+                                (_50)
+                                /   \
+            (_25)                                   (_75)
+            /   \                                   /   \
+    (_15)                                   (_65)               (_85)
+    /   \                                   /   \               /   \
+(_10)     (_20)                         (_60)     (_70)               (_90)
     ]],
     footer = "",
     content_hooks = nil,
@@ -355,7 +345,6 @@ starter.setup({
     silent = true,
 })
 
--- utility
 require('mini.extra').setup()
 require('mini.move').setup()
 require('mini.pairs').setup()
@@ -367,7 +356,7 @@ require('mason-lspconfig').setup({ensure_installed = servers})
 require('mini.completion').setup()
 require("dap-python").setup("python")
 require('nvim-treesitter.configs').setup({
-    ensure_installed = {"python", "bash", "json", "toml", "xml", "yaml"},
+    ensure_installed = {"python", "bash", "json", "toml", "xml", "yaml", "markdown", "markdown_inline"},
     sync_install = true,
     auto_install = true,
     highlight = {enable = true},
