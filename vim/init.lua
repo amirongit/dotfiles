@@ -201,7 +201,7 @@ vim.diagnostic.config({
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
-vim.cmd("colorscheme base16-tokyo-night-terminal-storm")
+vim.cmd("colorscheme base16-darcula")
 
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
