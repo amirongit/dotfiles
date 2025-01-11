@@ -74,6 +74,15 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     } ]]--
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+local win_config = function()
+    height = math.floor(0.618 * vim.o.lines)
+    width = math.floor(0.618 * vim.o.columns)
+    return {
+        anchor = 'NW', height = height, width = width,
+        row = math.floor(0.5 * (vim.o.lines - height)),
+        col = math.floor(0.5 * (vim.o.columns - width)),
+    }
+end
 
 vim.keymap.set("n", "H", "gT")
 vim.keymap.set("n", "L", "gt")
@@ -177,7 +186,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldenable = true
 vim.opt.backspace = "indent,eol,start"
 vim.opt.shortmess = ""
-vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
+-- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
 vim.opt.updatetime = 300
 vim.opt.signcolumn = "number"
 vim.opt.laststatus = 2
@@ -318,15 +327,6 @@ pick.setup({
     window = {config = win_config, prompt_cursor = '█', prompt_prefix = '> ',},
 })
 vim.ui.select = pick.ui_select
-local win_config = function()
-    height = math.floor(0.618 * vim.o.lines)
-    width = math.floor(0.618 * vim.o.columns)
-    return {
-        anchor = 'NW', height = height, width = width,
-        row = math.floor(0.5 * (vim.o.lines - height)),
-        col = math.floor(0.5 * (vim.o.columns - width)),
-    }
-end
 
 
 local cmpt = require('mini.completion')
