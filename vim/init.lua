@@ -58,27 +58,21 @@ local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts = opts or {}
 
-    opts.winblend = 10
-    opts.border = {
-        {' ', 'FloatBorder'},
-        {'-', 'FloatBorder'},
-        {' ', 'FloatBorder'},
-        {'|', 'FloatBorder'},
-        {' ', 'FloatBorder'},
-        {'-', 'FloatBorder'},
-        {' ', 'FloatBorder'},
-        {'|', 'FloatBorder'},
-    }
+    opts.max_height = 25
+    opts.max_width = 75
+    opts.anchor_bias = 'below'
+    opts.border = 'single'
+    --[[ opts.border = {
+        {'┏', 'FloatBorder'},
+        {'╍', 'FloatBorder'},
+        {'┓', 'FloatBorder'},
+        {'┋', 'FloatBorder'},
+        {'┛', 'FloatBorder'},
+        {'╍', 'FloatBorder'},
+        {'┗', 'FloatBorder'},
+        {'┋', 'FloatBorder'},
+    } ]]--
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-local win_config = function()
-    height = math.floor(0.618 * vim.o.lines)
-    width = math.floor(0.618 * vim.o.columns)
-    return {
-        anchor = 'NW', height = height, width = width,
-        row = math.floor(0.5 * (vim.o.lines - height)),
-        col = math.floor(0.5 * (vim.o.columns - width)),
-    }
 end
 
 vim.keymap.set("n", "H", "gT")
@@ -267,7 +261,7 @@ dapui.setup({
     force_buffers = true,
     icons = {collapsed = "", current_frame = "", expanded = ""},
     layouts = {{
-        elements = {{id = "breakpoints", size = 0.15}, {id = "stacks", size = 0.15}, {id = "watches", size = 0.70}},
+        elements = {{id = "breakpoints", size = 0.30}, {id = "stacks", size = 0.30}, {id = "watches", size = 0.40}},
         position = "left",
         size = 40
     }, {elements = {{id = "repl", size = 0.7}, {id = "console", size = 0.3}}, position = "bottom", size = 10}},
@@ -324,6 +318,35 @@ pick.setup({
     window = {config = win_config, prompt_cursor = '█', prompt_prefix = '> ',},
 })
 vim.ui.select = pick.ui_select
+local win_config = function()
+    height = math.floor(0.618 * vim.o.lines)
+    width = math.floor(0.618 * vim.o.columns)
+    return {
+        anchor = 'NW', height = height, width = width,
+        row = math.floor(0.5 * (vim.o.lines - height)),
+        col = math.floor(0.5 * (vim.o.columns - width)),
+    }
+end
+
+
+local cmpt = require('mini.completion')
+cmpt.setup({
+    delay = { completion = 100, info = 100, signature = 50 },
+    window = {
+        --[[info = { height = 25, width = 80, border = {'┏', '╍', '┓', '┋', '┛', '╍', '┗', '┋'} },
+        signature = { height = 25, width = 80, border = {'┏', '╍', '┓', '┋', '┛', '╍', '┗', '┋'} }, ]]--
+        info = { height = 25, width = 80, border = 'single' },
+        signature = { height = 25, width = 80, border = 'single' },
+    },
+    lsp_completion = {
+        source_func = 'completefunc',
+        auto_setup = true,
+        process_items = cmpt.default_process_items,
+    },
+    mappings = {},
+    set_vim_settings = true,
+})
+
 
 local starter = require('mini.starter')
 starter.setup({
@@ -353,8 +376,7 @@ require('mini.animate').setup()
 require('mini.cursorword').setup({delay = 500})
 require('mason').setup()
 require('mason-lspconfig').setup({ensure_installed = servers})
-require('mini.completion').setup()
-require("dap-python").setup("python")
+require("dap-python").setup("uv")
 require('nvim-treesitter.configs').setup({
     ensure_installed = {"python", "bash", "json", "toml", "xml", "yaml", "markdown", "markdown_inline"},
     sync_install = true,
