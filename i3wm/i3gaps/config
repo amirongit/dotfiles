@@ -1,12 +1,12 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Averia Sans Libre Bold 9
+font pango: Recursive Sn Csl St Semi Bold 9
 
 focus_follows_mouse yes
 # smart_gaps on
 # smart_borders on
-# for_window [class="."] border pixel 0
+# for_window [class="."] border pixel 2
 
 new_window normal 0
 new_float normal 0
@@ -51,7 +51,7 @@ exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
 # bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Ubuntu Mono:pixelsize=15:style=Bold' #-b
-bindsym $mod+d exec dmenu_run -nb '#000000' -sf '#fbfbfc' -sb '#900000' -fn 'Averia Sans Libre:pixelsize=12:style=Bold' # -l 1 #-b
+bindsym $mod+d exec dmenu_run -nb '#000000' -sf '#fbfbfc' -sb '#900000' -fn 'Recursive Sn Csl St:pixelsize=12:style=Bold' # -b # -l 1 -b
 # bindsym $mod+Return exec alacritty
 bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+q kill
@@ -89,8 +89,6 @@ bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
-bindsym $mod+space bar mode toggle
-
 set $ws1 "1:RCH"
 set $ws2 "2:WWW"
 set $ws3 "3:DEV"
@@ -119,7 +117,7 @@ assign [class="Chromium"] $ws2
 assign [class="firefox"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws1
-assign [class="TelegramDesktop"] $ws1
+assign [class="TelegramDesktop"] $ws2
 assign [class="Skype"] $ws1
 assign [class="Gimp"] $ws4
 assign [class="code-oss"] $ws3
@@ -147,7 +145,7 @@ for_window [class="Pcmanfm"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="lximage-qt"] floating enable
 for_window [class="nekoray"] floating enable
-for_window [class="TelegramDesktop"] floating enable
+# for_window [class="TelegramDesktop"] floating enable
 
 
 

@@ -204,7 +204,7 @@ vim.diagnostic.config({
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
-vim.cmd("colorscheme base16-darcula")
+vim.cmd("colorscheme base16-tomorrow-night")
 
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
@@ -248,13 +248,16 @@ lspconfig['yamlls'].setup({})
 lspconfig['ruff'].setup({})
 lspconfig['pyright'].setup({
     settings = {
-        pyright = {disableOrganizeImports = true},
+        pyright = {
+            disableOrganizeImports = true,
+            disableTaggedHints = true
+        },
         python = {
             analysis = {
                 autoImportCompletions = true,
                 diagnosticMode = "workspace",
                 useLibraryCodeForTypes = true,
-            }
+            },
         }
     }
 })
@@ -401,13 +404,14 @@ require('mini.splitjoin').setup({
     split = {hooks_pre = {}, hooks_post = {},},
     join = {hooks_pre = {}, hooks_post = {},},
 })
+-- :source $VIMRUNTIME/syntax/hitest.vim
 require('mini.statusline').setup({
     content = {
         active = function()
             return MiniStatusline.combine_groups({
-                {hl = 'StatusLine', strings = {'%{mode()} %t %m %r %h %w'}},
+                {hl = 'TSVariable', strings = {'%{mode()} %t %m %r %h %w'}},
                 '%=',
-                {hl = 'MatchParen', strings = {'%c %y'}},
+                {hl = 'TSTitle', strings = {'%c %y'}},
             })
         end,
         inactive = function()
