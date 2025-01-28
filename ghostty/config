@@ -6,6 +6,14 @@
 # font-style-bold = Retina
 # font-style-italic = Retina
 # font-style-bold-italic = Retina
+# font-family = Writer
+# font-family-bold = Writer
+# font-family-italic = Writer
+# font-family-bold-italic = Writer
+# font-style = Medium
+# font-style-bold = SemiBold
+# font-style-italic = Medium Italic
+# font-style-bold-italic = SemiBold Italic
 # font-family = JetBrains Mono
 # font-family-bold = JetBrains Mono
 # font-family-italic = JetBrains Mono
@@ -14,22 +22,22 @@
 # font-style-bold = semiBold
 # font-style-italic = semiBold
 # font-style-bold-italic = semiBold
-# font-family = Victor Mono
-# font-family-bold = Victor Mono
-# font-family-italic = Victor Mono
-# font-family-bold-italic = Victor Mono
-# font-style = semiBold
-# font-style-bold = Bold
-# font-style-italic = semiBold Italic
-# font-style-bold-italic = Bold Italic
-font-family = Cascadia Code
-font-family-bold = Cascadia Code
-font-family-italic = Cascadia Code
-font-family-bold-italic = Cascadia Code
-font-style = SemiLight
-font-style-bold = Regular
-font-style-italic = SemiLight Italic
-font-style-bold-italic = Italic
+font-family = Victor Mono
+font-family-bold = Victor Mono
+font-family-italic = Victor Mono
+font-family-bold-italic = Victor Mono
+font-style = semiBold
+font-style-bold = Bold
+font-style-italic = semiBold Italic
+font-style-bold-italic = Bold Italic
+# font-family = Cascadia Code
+# font-family-bold = Cascadia Code
+# font-family-italic = Cascadia Code
+# font-family-bold-italic = Cascadia Code
+# font-style = SemiLight
+# font-style-bold = Regular
+# font-style-italic = SemiLight Italic
+# font-style-bold-italic = Italic
 # font-family = Recursive Mn Csl St
 # font-family-bold = Recursive Mn Csl St
 # font-family-italic = Recursive Mn Csl St
@@ -59,6 +67,9 @@ font-feature = -calt
 # font-feature = 'cv17'
 # font-feature = 'cv29'
 # font-feature = 'cv31'
+# Writer
+# font-feature = 'ss01'
+# font-feature = 'ss02'
 # JetBrainsMono
 # font-feature = 'cv02'
 # font-feature = 'cv03'
@@ -77,12 +88,12 @@ font-feature = -calt
 # font-feature = 'cv19'
 # font-feature = 'cv20'
 # VictorMono
-# font-feature = 'ss01'
-# font-feature = 'ss04'
-# font-feature = 'ss06'
-# Cascadia Code
 font-feature = 'ss01'
-font-feature = 'ss03'
+font-feature = 'ss04'
+font-feature = 'ss06'
+# Cascadia Code
+# font-feature = 'ss01'
+# font-feature = 'ss03'
 # RecursiveMono
 # font-feature = -dlig
 # font-feature = 'ss01'
