@@ -16,6 +16,18 @@ mini_depth.setup({path = {package = path_package } })
 local add = mini_depth.add
 -- local update = MiniDeps.update
 -- local later = MiniDeps.later
+local function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
 
 add('RRethy/base16-nvim')
 add('tpope/vim-fugitive')
@@ -23,6 +35,7 @@ add('tpope/vim-dadbod')
 add('lukas-reineke/indent-blankline.nvim')
 add('mfussenegger/nvim-dap-python')
 add('rcarriga/nvim-dap-ui')
+add('Decodetalkers/csharpls-extended-lsp.nvim')
 add({source = 'mfussenegger/nvim-dap', depends = {{source = 'nvim-neotest/nvim-nio'}}})
 add({
     source = 'williamboman/mason.nvim',
@@ -37,6 +50,15 @@ add({
 })
 
 -- update(nil, {force = true})
+local starter = require('mini.starter')
+local cmpt = require('mini.completion')
+local pick = require('mini.pick')
+local dap = require("dap")
+local dapui = require("dapui")
+local lspconfig = require('lspconfig')
+local hipatterns = require('mini.hipatterns')
+local cslsex = require('csharpls_extended')
+local cslsex_utils = require("csharpls_extended.utils")
 
 local keycode = vim.keycode or function(x)
     return vim.api.nvim_replace_termcodes(x, true, true, true)
@@ -62,16 +84,6 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts.max_width = 75
     -- opts.anchor_bias = 'top'
     opts.border = 'single'
-    --[[ opts.border = {
-        {'┏', 'FloatBorder'},
-        {'╍', 'FloatBorder'},
-        {'┓', 'FloatBorder'},
-        {'┋', 'FloatBorder'},
-        {'┛', 'FloatBorder'},
-        {'╍', 'FloatBorder'},
-        {'┗', 'FloatBorder'},
-        {'┋', 'FloatBorder'},
-    } ]]--
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 local win_config = function()
@@ -82,6 +94,46 @@ local win_config = function()
         row = math.floor(0.5 * (vim.o.lines - height)),
         col = math.floor(0.5 * (vim.o.columns - width)),
     }
+end
+local function cslsex_handler(err, result, ctx)
+    local client = cslsex.get_csharpls_client()
+    local fetched = {}
+    local offset_encoding = vim.lsp.get_client_by_id(ctx.client_id).offset_encoding
+    local locations = cslsex.textdocument_definition_to_locations(result)
+    for _, loc in ipairs(locations) do
+        local uri = cslsex_utils.urldecode(loc.uri)
+        if not cslsex.is_lsp_url(uri) then
+            table.insert(fetched, {
+                path = vim.uri_to_fname(loc.uri),
+                lnum = loc.range.start.line + 1,
+                col = loc.range.start.character + 1,
+                -- range = loc.range,
+                uri = loc.uri, -- maybe use this as path i really don't have any idea
+            })
+            goto continue
+        end
+        local res, er = client.request_sync(
+            "csharp/metadata",
+            {timeout = 5000, textDocument = {uri = uri}},
+            10000,
+            0
+        )
+        if not er and res ~= nil then
+            local bufnr = cslsex.buf_from_metadata(res.result, client.id)
+            loc.uri = vim.uri_from_bufnr(bufnr)
+            table.insert(fetched, {
+                path = vim.uri_to_fname(loc.uri),
+                lnum = loc.range.start.line + 1,
+                col = loc.range.start.character + 1,
+                bufnr = bufnr,
+                uri = loc.uri,
+            })
+        end
+        ::continue::
+    end
+    if #locations > 0 then
+        pick.start(({ source = { items = fetched, names = 'Definition' } }))
+    end
 end
 
 vim.keymap.set("n", "H", "gT")
@@ -222,7 +274,6 @@ vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniCursorword', {underline = true})
 vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
-local hipatterns = require('mini.hipatterns')
 hipatterns.setup({
     highlighters = {
         fixme = {pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme'},
@@ -239,9 +290,13 @@ local servers = {
     'dockerls', 'yamlls',
     'ruff', 'pyright', 'taplo'
 }
-local lspconfig = require('lspconfig')
 lspconfig['lua_ls'].setup({})
-lspconfig['csharp_ls'].setup({})
+lspconfig['csharp_ls'].setup({
+    handlers = {
+        ["textDocument/definition"] = cslsex_handler,
+        ["textDocument/typeDefinition"] = cslsex_handler,
+    },
+})
 lspconfig['bashls'].setup({})
 lspconfig['dockerls'].setup({})
 lspconfig['yamlls'].setup({})
@@ -263,8 +318,6 @@ lspconfig['pyright'].setup({
 })
 lspconfig['taplo'].setup({})
 
-local dap = require("dap")
-local dapui = require("dapui")
 dapui.setup({
     controls = {element = "repl", enabled = false,},
     element_mappings = {},
@@ -285,7 +338,6 @@ dap.listeners.before.launch.dapui_config = dapui.open
 dap.listeners.before.event_terminated.dapui_config = dapui.close
 dap.listeners.before.event_exited.dapui_config = dapui.close
 
-local pick = require('mini.pick')
 pick.setup({
     delay = {async = 10, busy = 50,},
     mappings = {
@@ -332,12 +384,9 @@ pick.setup({
 vim.ui.select = pick.ui_select
 
 
-local cmpt = require('mini.completion')
 cmpt.setup({
     delay = {completion = 100, info = 100, signature = 50},
     window = {
-        --[[info = {height = 25, width = 80, border = {'┏', '╍', '┓', '┋', '┛', '╍', '┗', '┋'}},
-        signature = {height = 25, width = 80, border = {'┏', '╍', '┓', '┋', '┛', '╍', '┗', '┋'}}, ]]--
         info = {height = 25, width = 80, border = 'single'},
         signature = {height = 25, width = 80, border = 'single'},
     },
@@ -351,7 +400,6 @@ cmpt.setup({
 })
 
 
-local starter = require('mini.starter')
 starter.setup({
     autoopen = true,
     evaluate_single = false,
