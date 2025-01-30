@@ -13,7 +13,6 @@
     "editor.codeActionWidget.showHeaders": false,
     "editor.accessibilitySupport": "off",
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-    "python.analysis.autoImportCompletions": true,
     "editor.fontSize": 18,
     "terminal.integrated.fontSize": 18,
     /* "editor.fontFamily": "Agave", */
@@ -71,32 +70,20 @@
     "security.workspace.trust.untrustedFiles": "open",
     "editor.acceptSuggestionOnCommitCharacter": false,
     "workbench.activityBar.location": "top",
-    "python.defaultInterpreterPath": "/usr/sbin/python",
-    "python.analysis.typeCheckingMode": "off",
     "git.openRepositoryInParentFolders": "never",
     "[python]": {
         "diffEditor.ignoreTrimWhitespace": false,
         "editor.wordBasedSuggestions": "off",
-        "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.organizeImports": "always"
-        }
+        },
     },
-    "mypy-type-checker.args": [
-        "--config-file=pyproject.toml"
-    ],
-    "black-formatter.args": [
-        "--config",
-        "pyproject.toml"
-    ],
-    "isort.args": [
-        "--settings-file",
-        "pyproject.toml"
-    ],
-    "mypy-type-checker.showNotifications": "onError",
-    "mypy-type-checker.reportingScope": "file",
-    "mypy-type-checker.preferDaemon": false,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.useLibraryCodeForTypes": true,
+    "pyright.disableOrganizeImports": true,
     "workbench.editor.enablePreview": false,
     "editor.gotoLocation.multipleDeclarations": "goto",
     "editor.gotoLocation.multipleDefinitions": "goto",
@@ -112,4 +99,5 @@
     "workbench.editor.editorActionsLocation": "hidden",
     "workbench.sideBar.location": "right",
     "workbench.preferredDarkColorTheme": "Default Dark+",
+    "window.customTitleBarVisibility": "auto",
 }
