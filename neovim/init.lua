@@ -1,34 +1,19 @@
-local path_package = vim.fn.stdpath('data') .. '/site'
-local mini_path = path_package .. '/pack/deps/start/mini.nvim'
-if not vim.loop.fs_stat(mini_path) then
+local package_directory = vim.fn.stdpath('data') .. '/site'
+local mini_directory_path = package_directory .. '/pack/deps/start/mini.nvim'
+if not vim.loop.fs_stat(mini_directory_path) then
     vim.cmd('echo "Installing `mini.nvim`" | redraw')
     local clone_cmd = {
       'git', 'clone', '--filter=blob:none',
-      -- '--branch', 'stable',
-      'https://github.com/echasnovski/mini.nvim', mini_path
+      'https://github.com/echasnovski/mini.nvim', mini_directory_path
     }
     vim.fn.system(clone_cmd)
     vim.cmd('packadd mini.nvim | helptags ALL')
 end
-
-local mini_depth = require('mini.deps')
-mini_depth.setup({path = {package = path_package } })
-local add = mini_depth.add
--- local update = MiniDeps.update
--- local later = MiniDeps.later
-local function dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
-end
-
+local mn_deps = require('mini.deps')
+mn_deps.setup({path = {package = package_directory } })
+local add = mn_deps.add
+local update = MiniDeps.update
+local later = MiniDeps.later
 add('RRethy/base16-nvim')
 add('tpope/vim-fugitive')
 add('tpope/vim-dadbod')
@@ -39,7 +24,10 @@ add('Decodetalkers/csharpls-extended-lsp.nvim')
 add({source = 'mfussenegger/nvim-dap', depends = {{source = 'nvim-neotest/nvim-nio'}}})
 add({
     source = 'williamboman/mason.nvim',
-    depends = {{source = 'williamboman/mason-lspconfig.nvim'}, {source = 'neovim/nvim-lspconfig'}}
+    depends = {
+        {source = 'williamboman/mason-lspconfig.nvim'},
+        {source = 'neovim/nvim-lspconfig'}
+    }
 })
 add({
     source = 'nvim-treesitter/nvim-treesitter-context',
@@ -48,18 +36,30 @@ add({
         hooks = {post_checkout = function() vim.cmd('TSUpdate') end}
     }}
 })
-
 -- update(nil, {force = true})
-local starter = require('mini.starter')
-local cmpt = require('mini.completion')
-local pick = require('mini.pick')
-local dap = require("dap")
-local dapui = require("dapui")
-local lspconfig = require('lspconfig')
-local hipatterns = require('mini.hipatterns')
-local cslsex = require('csharpls_extended')
-local cslsex_utils = require("csharpls_extended.utils")
-
+local dap = require('dap')
+local dapui = require('dapui')
+local dap_py = require("dap-python")
+local lspcfg = require('lspconfig')
+local csls_ex = require('csharpls_extended')
+local csls_ex_utils = require('csharpls_extended.utils')
+local ibl = require('ibl')
+local mason = require('mason')
+local mason_lspcfg = require('mason-lspconfig')
+local treesitter_cfg = require('nvim-treesitter.configs')
+local mn_starter = require('mini.starter')
+local mn_completion = require('mini.completion')
+local mn_pick = require('mini.pick')
+local mn_hipatterns = require('mini.hipatterns')
+local mn_statusline = require('mini.statusline')
+local mn_splitjoin = require('mini.splitjoin')
+local mn_indentscope = require('mini.indentscope')
+local mn_extra = require('mini.extra')
+local mn_move = require('mini.move')
+local mn_pairs = require('mini.pairs')
+local mn_trailspace = require('mini.trailspace')
+local mn_animate = require('mini.animate')
+local mn_cursorword = require('mini.cursorword')
 local keycode = vim.keycode or function(x)
     return vim.api.nvim_replace_termcodes(x, true, true, true)
 end
@@ -87,8 +87,8 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 local win_config = function()
-    height = math.floor(0.618 * vim.o.lines)
-    width = math.floor(0.618 * vim.o.columns)
+    local height = math.floor(0.618 * vim.o.lines)
+    local width = math.floor(0.618 * vim.o.columns)
     return {
         anchor = 'NW', height = height, width = width,
         row = math.floor(0.5 * (vim.o.lines - height)),
@@ -96,19 +96,20 @@ local win_config = function()
     }
 end
 local function cslsex_handler(err, result, ctx)
-    local client = cslsex.get_csharpls_client()
+    if err ~= nil then error(string.format('Error code %s. %s', err.code, err.message)) end
+    local client = csls_ex.get_csharpls_client()
     local fetched = {}
     local offset_encoding = vim.lsp.get_client_by_id(ctx.client_id).offset_encoding
-    local locations = cslsex.textdocument_definition_to_locations(result)
+    local locations = csls_ex.textdocument_definition_to_locations(result)
     for _, loc in ipairs(locations) do
-        local uri = cslsex_utils.urldecode(loc.uri)
-        if not cslsex.is_lsp_url(uri) then
+        local uri = csls_ex_utils.urldecode(loc.uri)
+        if not csls_ex.is_lsp_url(uri) then
             table.insert(fetched, {
                 path = vim.uri_to_fname(loc.uri),
                 lnum = loc.range.start.line + 1,
                 col = loc.range.start.character + 1,
                 -- range = loc.range,
-                uri = loc.uri, -- maybe use this as path i really don't have any idea
+                uri = loc.uri,
             })
             goto continue
         end
@@ -119,7 +120,7 @@ local function cslsex_handler(err, result, ctx)
             0
         )
         if not er and res ~= nil then
-            local bufnr = cslsex.buf_from_metadata(res.result, client.id)
+            local bufnr = csls_ex.buf_from_metadata(res.result, client.id)
             loc.uri = vim.uri_from_bufnr(bufnr)
             table.insert(fetched, {
                 path = vim.uri_to_fname(loc.uri),
@@ -132,21 +133,26 @@ local function cslsex_handler(err, result, ctx)
         ::continue::
     end
     if #locations > 0 then
-        pick.start(({ source = { items = fetched, names = 'Definition' } }))
+        mn_pick.start(({ source = { items = fetched, name = 'LSP (definition)' } }))
     end
 end
-
 vim.keymap.set("n", "H", "gT")
 vim.keymap.set("n", "L", "gt")
 vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", {silent = true})
 vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", {silent = true})
 vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", {silent = true})
-vim.keymap.set('i', '<Tab>', function()
-    return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
-end, {expr = true, silent = true})
-vim.keymap.set('i', '<S-Tab>', function()
-    return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
-end, {expr = true, silent = true})
+vim.keymap.set(
+    'i',
+    '<Tab>',
+    function()return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"end,
+    {expr = true, silent = true}
+)
+vim.keymap.set(
+    'i',
+    '<S-Tab>',
+    function()return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"end,
+    {expr = true, silent = true}
+)
 vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", {silent = true})
 vim.keymap.set('i', '<CR>', 'v:lua._G.cr_action()', {expr = true})
 vim.keymap.set('n', 'K', vim.diagnostic.goto_prev)
@@ -163,20 +169,49 @@ vim.keymap.set("n", "<leader>dbi", "<CMD>DapStepInto<CR>", {silent = true})
 vim.keymap.set("n", "<leader>dbo", "<CMD>DapStepOut<CR>", {silent = true})
 vim.keymap.set("n", "<leader>dbn", "<CMD>DapStepOver<CR>", {silent = true})
 vim.keymap.set("n", "<leader>dbx", "<CMD>DapTerminate<CR>", {silent = true})
-vim.keymap.set("n", "<leader>trm", function() vim.cmd('lua MiniTrailspace.trim()') end, {silent = true})
-vim.keymap.set("n", "<leader>cln", function() vim.cmd('lua MiniTrailspace.trim_last_lines()') end, {silent = true})
+vim.keymap.set(
+    "n",
+    "<leader>trm",
+    function() vim.cmd('lua MiniTrailspace.trim()') end,
+    {silent = true}
+)
+vim.keymap.set(
+    "n",
+    "<leader>cln",
+    function() vim.cmd('lua MiniTrailspace.trim_last_lines()') end,
+    {silent = true}
+)
 vim.keymap.set("n", "<leader>gre", ":Pick grep_live<CR>", {silent = true})
 vim.keymap.set("n", "<leader>fnd", ":Pick files<CR>", {silent = true})
 vim.keymap.set("n", "<leader>map", ":Pick keymaps<CR>", {silent = true})
 vim.keymap.set("n", "<leader>dia", ":Pick diagnostic<CR>", {silent = true})
 vim.keymap.set("n", "<leader>def", ":Pick lsp scope='definition'<CR>", {silent = true})
 vim.keymap.set("n", "<leader>dec", ":Pick lsp scope='declaration'<CR>", {silent = true})
-vim.keymap.set("n", "<leader>tdf", ":Pick lsp scope='type_definition'<CR>", {silent = true})
-vim.keymap.set("n", "<leader>imp", ":Pick lsp scope='implementation'<CR>", {silent = true})
+vim.keymap.set(
+    "n",
+    "<leader>tdf",
+    ":Pick lsp scope='type_definition'<CR>",
+    {silent = true}
+)
+vim.keymap.set(
+    "n",
+    "<leader>imp",
+    ":Pick lsp scope='implementation'<CR>",
+    {silent = true}
+)
 vim.keymap.set("n", "<leader>ref", ":Pick lsp scope='references'<CR>", {silent = true})
-vim.keymap.set("n", "<leader>dym", ":Pick lsp scope='document_symbol'<CR>", {silent = true})
-vim.keymap.set("n", "<leader>wym", ":Pick lsp scope='workspace_symbol'<CR>", {silent = true})
-
+vim.keymap.set(
+    "n",
+    "<leader>dym",
+    ":Pick lsp scope='document_symbol'<CR>",
+    {silent = true}
+)
+vim.keymap.set(
+    "n",
+    "<leader>wym",
+    ":Pick lsp scope='workspace_symbol'<CR>",
+    {silent = true}
+)
 for _, diag in ipairs({'Error', 'Warn', 'Info', 'Hint'}) do
     vim.fn.sign_define('DiagnosticSign' .. diag, {
         text = '',
@@ -186,10 +221,16 @@ for _, diag in ipairs({'Error', 'Warn', 'Info', 'Hint'}) do
     })
 end
 vim.fn.sign_define('DapBreakpoint', {text = '●'})
-vim.fn.sign_define('DapBreakpointCondition', {text = '◍', texthl = 'red', linehl = '', numhl = ''})
+vim.fn.sign_define(
+    'DapBreakpointCondition',
+    {text = '◍', texthl = 'red', linehl = '', numhl = ''}
+)
 vim.fn.sign_define('DapLogPoint', {text = '◉', texthl = 'red', linehl = '', numhl = ''})
 vim.fn.sign_define('DapStopped', {text = '➲', texthl = 'red', linehl = '', numhl = ''})
-vim.fn.sign_define('DapBreakpointRejected', {text = '○', texthl = 'red', linehl = '', numhl = ''})
+vim.fn.sign_define(
+    'DapBreakpointRejected',
+    {text = '○', texthl = 'red', linehl = '', numhl = ''}
+)
 
 vim.opt.compatible = false
 vim.opt.cursorline = false
@@ -238,13 +279,12 @@ vim.opt.foldlevel = 99
 vim.opt.foldenable = true
 vim.opt.backspace = "indent,eol,start"
 vim.opt.shortmess = ""
--- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
 vim.opt.updatetime = 300
 vim.opt.signcolumn = "number"
 vim.opt.laststatus = 2
 vim.opt.syntax = "on"
 vim.opt.fillchars = {eob = " "}
-
 vim.diagnostic.config({
     virtual_text = true,
     signs = true,
@@ -252,12 +292,10 @@ vim.diagnostic.config({
     update_in_insert = false,
     severity_sort = false,
 })
-
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
-
+vim.ui.select = mn_pick.ui_select
 vim.cmd("colorscheme base16-darcula")
-
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
 vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})
@@ -274,34 +312,38 @@ vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniCursorword', {underline = true})
 vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
-hipatterns.setup({
+mn_hipatterns.setup({
     highlighters = {
         fixme = {pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme'},
         hack = {pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'},
         todo = {pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'},
         note = {pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'},
         warning = {pattern = '%f[%w]()WARNING()%f[%W]', group = 'MiniHipatternsFixme'},
-        hex_color = hipatterns.gen_highlighter.hex_color(),
+        hex_color = mn_hipatterns.gen_highlighter.hex_color(),
     }
 })
-
 local servers = {
-    'lua_ls', 'csharp_ls', 'bashls',
-    'dockerls', 'yamlls',
-    'ruff', 'pyright', 'taplo'
+    'lua_ls',
+    'csharp_ls',
+    'bashls',
+    'dockerls',
+    'yamlls',
+    'ruff',
+    'pyright',
+    'taplo'
 }
-lspconfig['lua_ls'].setup({})
-lspconfig['csharp_ls'].setup({
+lspcfg['lua_ls'].setup({})
+lspcfg['csharp_ls'].setup({
     handlers = {
         ["textDocument/definition"] = cslsex_handler,
         ["textDocument/typeDefinition"] = cslsex_handler,
     },
 })
-lspconfig['bashls'].setup({})
-lspconfig['dockerls'].setup({})
-lspconfig['yamlls'].setup({})
-lspconfig['ruff'].setup({})
-lspconfig['pyright'].setup({
+lspcfg['bashls'].setup({})
+lspcfg['dockerls'].setup({})
+lspcfg['yamlls'].setup({})
+lspcfg['ruff'].setup({})
+lspcfg['pyright'].setup({
     settings = {
         pyright = {
             disableOrganizeImports = true,
@@ -316,8 +358,7 @@ lspconfig['pyright'].setup({
         }
     }
 })
-lspconfig['taplo'].setup({})
-
+lspcfg['taplo'].setup({})
 dapui.setup({
     controls = {element = "repl", enabled = false,},
     element_mappings = {},
@@ -326,19 +367,33 @@ dapui.setup({
     force_buffers = true,
     icons = {collapsed = "", current_frame = "", expanded = ""},
     layouts = {{
-        elements = {{id = "breakpoints", size = 0.30}, {id = "stacks", size = 0.30}, {id = "watches", size = 0.40}},
+        elements = {
+            {id = "breakpoints", size = 0.20},
+            {id = "stacks", size = 0.20},
+            {id = "watches", size = 0.60}
+        },
         position = "left",
         size = 40
-    }, {elements = {{id = "repl", size = 0.7}, {id = "console", size = 0.3}}, position = "bottom", size = 10}},
-    mappings = {edit = "e", expand = {"<CR>", "<2-LeftMouse>"}, open = "o", remove = "d", repl = "r", toggle = "t"},
+    }, {
+        elements = {{id = "repl", size = 0.5}, {id = "console", size = 0.5}},
+        position = "bottom",
+        size = 10
+    }},
+    mappings = {
+        edit = "e",
+        expand = "<CR>",
+        open = "o",
+        remove = "d",
+        repl = "r",
+        toggle = "t"
+    },
     render = {indent = 1, max_value_lines = 100}
 })
 dap.listeners.before.attach.dapui_config = dapui.open
 dap.listeners.before.launch.dapui_config = dapui.open
 dap.listeners.before.event_terminated.dapui_config = dapui.close
 dap.listeners.before.event_exited.dapui_config = dapui.close
-
-pick.setup({
+mn_pick.setup({
     delay = {async = 10, busy = 50,},
     mappings = {
         caret_left  = '<Left>',
@@ -373,7 +428,7 @@ pick.setup({
         name = nil,
         cwd = nil,
         match = nil,
-        show = pick.default_show,
+        show = mn_pick.default_show,
         preview = nil,
         choose = nil,
         choose_marked = nil,
@@ -381,10 +436,7 @@ pick.setup({
     options = {content_from_bottom = false, use_cache = false,},
     window = {config = win_config, prompt_cursor = '█', prompt_prefix = '> ',},
 })
-vim.ui.select = pick.ui_select
-
-
-cmpt.setup({
+mn_completion.setup({
     delay = {completion = 100, info = 100, signature = 50},
     window = {
         info = {height = 25, width = 80, border = 'single'},
@@ -393,14 +445,12 @@ cmpt.setup({
     lsp_completion = {
         source_func = 'completefunc',
         auto_setup = true,
-        process_items = cmpt.default_process_items,
+        process_items = mn_completion.default_process_items,
     },
-    mappings = {},
+    mappings = {force_twostep = '<C-Space>',},
     set_vim_settings = true,
 })
-
-
-starter.setup({
+mn_starter.setup({
     autoopen = true,
     evaluate_single = false,
     items = {
@@ -436,27 +486,34 @@ get_height(root.right, current))
     query_updaters = 'abcdefghijklmnopqrstuvwxyz0123456789_-.',
     silent = true,
 })
-
-require('mini.extra').setup()
-require('mini.move').setup()
-require('mini.pairs').setup()
-require('mini.trailspace').setup()
-require('mini.animate').setup()
-require('mini.cursorword').setup({delay = 500})
-require('mason').setup()
-require('mason-lspconfig').setup({ensure_installed = servers})
-require("dap-python").setup("uv")
-require('nvim-treesitter.configs').setup({
-    ensure_installed = {"python", "bash", "json", "toml", "xml", "yaml", "markdown", "markdown_inline"},
+mn_extra.setup()
+mn_move.setup()
+mn_pairs.setup()
+mn_trailspace.setup()
+mn_animate.setup()
+mn_cursorword.setup({delay = 500})
+mason.setup()
+mason_lspcfg.setup({ensure_installed = servers})
+dap_py.setup("uv")
+treesitter_cfg.setup({
+    ensure_installed = {
+        "python",
+        "bash",
+        "json",
+        "toml",
+        "xml",
+        "yaml",
+        "markdown",
+        "markdown_inline"
+    },
     sync_install = true,
     auto_install = true,
     highlight = {enable = true},
 })
-require("ibl").setup({scope = {enabled = false}})
-require('mini.indentscope').setup({
+ibl.setup({scope = {enabled = false}})
+mn_indentscope.setup({
     draw = {
         delay = 250,
-        -- animation = require('mini.indentscope').gen_animation.quadratic({easing = 'out', duration = 500, unit = 'total'}),
         animation = require('mini.indentscope').gen_animation.none(),
         priority = 2,
     },
@@ -464,24 +521,24 @@ require('mini.indentscope').setup({
     options = {border = 'both', indent_at_cursor = true, try_as_border = false,},
     symbol = '>',
 })
-require('mini.splitjoin').setup({
+mn_splitjoin.setup({
     mappings = {toggle = '<leader>tas', split = '', join = '',},
     detect = {brackets = nil, separator = ',', exclude_regions = nil,},
     split = {hooks_pre = {}, hooks_post = {},},
     join = {hooks_pre = {}, hooks_post = {},},
 })
 -- :source $VIMRUNTIME/syntax/hitest.vim
-require('mini.statusline').setup({
+mn_statusline.setup({
     content = {
         active = function()
-            return MiniStatusline.combine_groups({
+            return mn_statusline.combine_groups({
                 {hl = 'TSVariable', strings = {'%{mode()} %t %m %r %h %w'}},
                 '%=',
                 {hl = 'TSTitle', strings = {'%c %y'}},
             })
         end,
         inactive = function()
-            return MiniStatusline.combine_groups({
+            return mn_statusline.combine_groups({
                 {hl = 'CursorLineNr', strings = {'%t %m'}},
                 '%=',
                 {hl = 'MatchParen', strings = {'%y'}},
