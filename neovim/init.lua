@@ -73,7 +73,8 @@ _G.cr_action = function()
         local item_selected = vim.fn.complete_info()['selected'] ~= -1
         return item_selected and keys['ctrl-y'] or keys['ctrl-y_cr']
     else
-        return keys['cr']
+        -- return keys['cr']
+        return require('mini.pairs').cr()
     end
 end
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -136,192 +137,6 @@ local function cslsex_handler(err, result, ctx)
         mn_pick.start(({ source = { items = fetched, name = 'LSP (definition)' } }))
     end
 end
-vim.keymap.set("n", "H", "gT")
-vim.keymap.set("n", "L", "gt")
-vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", {silent = true})
-vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", {silent = true})
-vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", {silent = true})
-vim.keymap.set(
-    'i',
-    '<Tab>',
-    function()return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"end,
-    {expr = true, silent = true}
-)
-vim.keymap.set(
-    'i',
-    '<S-Tab>',
-    function()return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"end,
-    {expr = true, silent = true}
-)
-vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", {silent = true})
-vim.keymap.set('i', '<CR>', 'v:lua._G.cr_action()', {expr = true})
-vim.keymap.set('n', 'K', vim.diagnostic.goto_prev)
-vim.keymap.set('n', 'J', vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>res", ":LspRestart<CR>", {silent = true})
-vim.keymap.set('n', '<leader>ren', vim.lsp.buf.rename)
-vim.keymap.set('n', '<leader>doc', vim.lsp.buf.hover)
-vim.keymap.set('n', '<leader>for', vim.lsp.buf.format)
-vim.keymap.set('n', '<leader>sig', vim.lsp.buf.signature_help)
-vim.keymap.set('n', '<leader>act', vim.lsp.buf.code_action)
-vim.keymap.set("n", "<leader>brk", "<CMD>DapToggleBreakpoint<CR>", {silent = true})
-vim.keymap.set("n", "<leader>dbc", "<CMD>DapContinue<CR>", {silent = true})
-vim.keymap.set("n", "<leader>dbi", "<CMD>DapStepInto<CR>", {silent = true})
-vim.keymap.set("n", "<leader>dbo", "<CMD>DapStepOut<CR>", {silent = true})
-vim.keymap.set("n", "<leader>dbn", "<CMD>DapStepOver<CR>", {silent = true})
-vim.keymap.set("n", "<leader>dbx", "<CMD>DapTerminate<CR>", {silent = true})
-vim.keymap.set(
-    "n",
-    "<leader>trm",
-    function() vim.cmd('lua MiniTrailspace.trim()') end,
-    {silent = true}
-)
-vim.keymap.set(
-    "n",
-    "<leader>cln",
-    function() vim.cmd('lua MiniTrailspace.trim_last_lines()') end,
-    {silent = true}
-)
-vim.keymap.set("n", "<leader>gre", ":Pick grep_live<CR>", {silent = true})
-vim.keymap.set("n", "<leader>fnd", ":Pick files<CR>", {silent = true})
-vim.keymap.set("n", "<leader>map", ":Pick keymaps<CR>", {silent = true})
-vim.keymap.set("n", "<leader>dia", ":Pick diagnostic<CR>", {silent = true})
-vim.keymap.set("n", "<leader>def", ":Pick lsp scope='definition'<CR>", {silent = true})
-vim.keymap.set("n", "<leader>dec", ":Pick lsp scope='declaration'<CR>", {silent = true})
-vim.keymap.set(
-    "n",
-    "<leader>tdf",
-    ":Pick lsp scope='type_definition'<CR>",
-    {silent = true}
-)
-vim.keymap.set(
-    "n",
-    "<leader>imp",
-    ":Pick lsp scope='implementation'<CR>",
-    {silent = true}
-)
-vim.keymap.set("n", "<leader>ref", ":Pick lsp scope='references'<CR>", {silent = true})
-vim.keymap.set(
-    "n",
-    "<leader>dym",
-    ":Pick lsp scope='document_symbol'<CR>",
-    {silent = true}
-)
-vim.keymap.set(
-    "n",
-    "<leader>wym",
-    ":Pick lsp scope='workspace_symbol'<CR>",
-    {silent = true}
-)
-for _, diag in ipairs({'Error', 'Warn', 'Info', 'Hint'}) do
-    vim.fn.sign_define('DiagnosticSign' .. diag, {
-        text = '',
-        texthl = 'DiagnosticSign' .. diag,
-        linehl = '',
-        numhl = 'DiagnosticSign' .. diag,
-    })
-end
-vim.fn.sign_define('DapBreakpoint', {text = '●'})
-vim.fn.sign_define(
-    'DapBreakpointCondition',
-    {text = '◍', texthl = 'red', linehl = '', numhl = ''}
-)
-vim.fn.sign_define('DapLogPoint', {text = '◉', texthl = 'red', linehl = '', numhl = ''})
-vim.fn.sign_define('DapStopped', {text = '➲', texthl = 'red', linehl = '', numhl = ''})
-vim.fn.sign_define(
-    'DapBreakpointRejected',
-    {text = '○', texthl = 'red', linehl = '', numhl = ''}
-)
-
-vim.opt.compatible = false
-vim.opt.cursorline = false
-vim.opt.backup = false
-vim.opt.hidden = true
-vim.opt.writebackup = false
-vim.opt.swapfile = false
-vim.opt.expandtab = true
-vim.opt.shiftround = true
-vim.opt.smarttab = true
-vim.opt.autoindent = true
-vim.opt.list = false
-vim.opt.splitbelow = true
-vim.opt.cp = false
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.incsearch = true
-vim.opt.autoread = true
-vim.opt.showmatch = true
-vim.opt.showmode = false
-vim.opt.ruler = false
-vim.opt.showcmd = false
-vim.opt.wrap = true
-vim.opt.linebreak = true
-vim.opt.mouse = ""
-vim.opt.cmdheight = 1
-vim.opt.showtabline = 2
-vim.opt.scrolloff = 0
-vim.opt.clipboard:append("unnamedplus")
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.background = "dark"
-vim.opt.encoding = "utf-8"
-vim.opt.updatecount = 0
-vim.opt.wildmode = {"list:longest", "list:full"}
-vim.opt.termguicolors = true
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldtext = ""
-vim.opt.foldlevelstart = 99
-vim.opt.foldnestmax = 5
-vim.opt.foldlevel = 99
-vim.opt.foldenable = true
-vim.opt.backspace = "indent,eol,start"
-vim.opt.shortmess = ""
-vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
-vim.opt.updatetime = 300
-vim.opt.signcolumn = "number"
-vim.opt.laststatus = 2
-vim.opt.syntax = "on"
-vim.opt.fillchars = {eob = " "}
-vim.diagnostic.config({
-    virtual_text = true,
-    signs = true,
-    underline = false,
-    update_in_insert = false,
-    severity_sort = false,
-})
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3
-vim.ui.select = mn_pick.ui_select
-vim.cmd("colorscheme base16-darcula")
-vim.api.nvim_set_hl(0, 'LineNr', {})
-vim.api.nvim_set_hl(0, 'SignColumn', {})
-vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})
-vim.api.nvim_set_hl(0, 'DiffChange', {bg = 'darkmagenta', fg = 'white', bold = true})
-vim.api.nvim_set_hl(0, 'DiffDelete', {bg = 'darkred', fg = 'white', bold = true})
-vim.api.nvim_set_hl(0, 'CocWarningSign', {bg = 'brown', fg = 'white', bold = true})
-vim.api.nvim_set_hl(0, 'CocErrorSign', {bg = 'darkred', fg = 'white', bold = true})
-vim.api.nvim_set_hl(0, 'CocHintSign', {bg = 'lightblue', fg = 'white', bold = true})
-vim.api.nvim_set_hl(0, 'TabLineFill', {fg = 'Gray', bg = 'bg' })
-vim.api.nvim_set_hl(0, 'TabLine', {fg = 'Gray', bg = 'bg'})
-vim.api.nvim_set_hl(0, 'TabLineSel', {fg = 'DarkYellow', bg = 'bg'})
-vim.api.nvim_set_hl(0, 'NonText', {bold = false, italic = false, underline = false})
-vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', {fg = 'Gray', bold = true})
-vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', {fg = 'Gray', bold = true})
-vim.api.nvim_set_hl(0, 'MiniCursorword', {underline = true})
-vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
-mn_hipatterns.setup({
-    highlighters = {
-        fixme = {pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme'},
-        hack = {pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'},
-        todo = {pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'},
-        note = {pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'},
-        warning = {pattern = '%f[%w]()WARNING()%f[%W]', group = 'MiniHipatternsFixme'},
-        hex_color = mn_hipatterns.gen_highlighter.hex_color(),
-    }
-})
 local servers = {
     'lua_ls',
     'csharp_ls',
@@ -548,3 +363,195 @@ mn_statusline.setup({
     use_icons = false,
     set_vim_settings = true,
 })
+
+vim.keymap.set("n", "H", "gT")
+vim.keymap.set("n", "L", "gt")
+vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", {silent = true})
+vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", {silent = true})
+vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", {silent = true})
+vim.keymap.set(
+    'i',
+    '<Tab>',
+    function()return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"end,
+    {expr = true, silent = true}
+)
+vim.keymap.set(
+    'i',
+    '<S-Tab>',
+    function()return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"end,
+    {expr = true, silent = true}
+)
+vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", {silent = true})
+vim.keymap.set('i', '<CR>', 'v:lua._G.cr_action()', {expr = true, noremap = true})
+vim.keymap.set('n', 'K', vim.diagnostic.goto_prev)
+vim.keymap.set('n', 'J', vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>res", ":LspRestart<CR>", {silent = true})
+vim.keymap.set('n', '<leader>ren', vim.lsp.buf.rename)
+vim.keymap.set('n', '<leader>doc', vim.lsp.buf.hover)
+vim.keymap.set('n', '<leader>for', vim.lsp.buf.format)
+vim.keymap.set('n', '<leader>sig', vim.lsp.buf.signature_help)
+vim.keymap.set('n', '<leader>act', vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>brk", "<CMD>DapToggleBreakpoint<CR>", {silent = true})
+vim.keymap.set("n", "<leader>dbc", "<CMD>DapContinue<CR>", {silent = true})
+vim.keymap.set("n", "<leader>dbi", "<CMD>DapStepInto<CR>", {silent = true})
+vim.keymap.set("n", "<leader>dbo", "<CMD>DapStepOut<CR>", {silent = true})
+vim.keymap.set("n", "<leader>dbn", "<CMD>DapStepOver<CR>", {silent = true})
+vim.keymap.set("n", "<leader>dbx", "<CMD>DapTerminate<CR>", {silent = true})
+vim.keymap.set(
+    "n",
+    "<leader>trm",
+    function() vim.cmd('lua MiniTrailspace.trim()') end,
+    {silent = true}
+)
+vim.keymap.set(
+    "n",
+    "<leader>cln",
+    function() vim.cmd('lua MiniTrailspace.trim_last_lines()') end,
+    {silent = true}
+)
+vim.keymap.set("n", "<leader>gre", ":Pick grep_live<CR>", {silent = true})
+vim.keymap.set("n", "<leader>fnd", ":Pick files<CR>", {silent = true})
+vim.keymap.set("n", "<leader>map", ":Pick keymaps<CR>", {silent = true})
+vim.keymap.set("n", "<leader>dia", ":Pick diagnostic<CR>", {silent = true})
+vim.keymap.set("n", "<leader>def", ":Pick lsp scope='definition'<CR>", {silent = true})
+vim.keymap.set("n", "<leader>dec", ":Pick lsp scope='declaration'<CR>", {silent = true})
+vim.keymap.set(
+    "n",
+    "<leader>tdf",
+    ":Pick lsp scope='type_definition'<CR>",
+    {silent = true}
+)
+vim.keymap.set(
+    "n",
+    "<leader>imp",
+    ":Pick lsp scope='implementation'<CR>",
+    {silent = true}
+)
+vim.keymap.set("n", "<leader>ref", ":Pick lsp scope='references'<CR>", {silent = true})
+vim.keymap.set(
+    "n",
+    "<leader>dym",
+    ":Pick lsp scope='document_symbol'<CR>",
+    {silent = true}
+)
+vim.keymap.set(
+    "n",
+    "<leader>wym",
+    ":Pick lsp scope='workspace_symbol'<CR>",
+    {silent = true}
+)
+
+vim.opt.compatible = false
+vim.opt.cursorline = false
+vim.opt.backup = false
+vim.opt.hidden = true
+vim.opt.writebackup = false
+vim.opt.swapfile = false
+vim.opt.expandtab = true
+vim.opt.shiftround = true
+vim.opt.smarttab = true
+vim.opt.autoindent = true
+vim.opt.list = false
+vim.opt.splitbelow = true
+vim.opt.cp = false
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.incsearch = true
+vim.opt.autoread = true
+vim.opt.showmatch = true
+vim.opt.showmode = false
+vim.opt.ruler = false
+vim.opt.showcmd = false
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.mouse = ""
+vim.opt.cmdheight = 1
+vim.opt.showtabline = 2
+vim.opt.scrolloff = 0
+vim.opt.clipboard:append("unnamedplus")
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.background = "dark"
+vim.opt.encoding = "utf-8"
+vim.opt.updatecount = 0
+vim.opt.wildmode = {"list:longest", "list:full"}
+vim.opt.termguicolors = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = ""
+vim.opt.foldlevelstart = 99
+vim.opt.foldnestmax = 5
+vim.opt.foldlevel = 99
+vim.opt.foldenable = true
+vim.opt.backspace = "indent,eol,start"
+vim.opt.shortmess = ""
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
+vim.opt.updatetime = 300
+vim.opt.signcolumn = "number"
+vim.opt.laststatus = 2
+vim.opt.syntax = "on"
+vim.opt.fillchars = {eob = " "}
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    underline = false,
+    update_in_insert = false,
+    severity_sort = false,
+})
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
+vim.ui.select = mn_pick.ui_select
+vim.cmd("colorscheme base16-tomorrow-night")
+vim.api.nvim_set_hl(0, 'LineNr', {})
+vim.api.nvim_set_hl(0, 'SignColumn', {})
+vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})
+vim.api.nvim_set_hl(0, 'DiffChange', {bg = 'darkmagenta', fg = 'white', bold = true})
+vim.api.nvim_set_hl(0, 'DiffDelete', {bg = 'darkred', fg = 'white', bold = true})
+vim.api.nvim_set_hl(0, 'CocWarningSign', {bg = 'brown', fg = 'white', bold = true})
+vim.api.nvim_set_hl(0, 'CocErrorSign', {bg = 'darkred', fg = 'white', bold = true})
+vim.api.nvim_set_hl(0, 'CocHintSign', {bg = 'lightblue', fg = 'white', bold = true})
+vim.api.nvim_set_hl(0, 'TabLineFill', {fg = 'Gray', bg = 'bg' })
+vim.api.nvim_set_hl(0, 'TabLine', {fg = 'Gray', bg = 'bg'})
+vim.api.nvim_set_hl(0, 'TabLineSel', {fg = 'DarkYellow', bg = 'bg'})
+vim.api.nvim_set_hl(0, 'NonText', {bold = false, italic = false, underline = false})
+vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', {fg = 'Gray', bold = true})
+vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', {fg = 'Gray', bold = true})
+vim.api.nvim_set_hl(0, 'MiniCursorword', {underline = true})
+vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
+mn_hipatterns.setup({
+    highlighters = {
+        ufixme = {pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme'},
+        uhack = {pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'},
+        utodo = {pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'},
+        unote = {pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'},
+        uwarning = {pattern = '%f[%w]()WARNING()%f[%W]', group = 'MiniHipatternsFixme'},
+        fixme = {pattern = '%f[%w]()fixme()%f[%W]', group = 'MiniHipatternsFixme'},
+        hack = {pattern = '%f[%w]()hack()%f[%W]',  group = 'MiniHipatternsHack'},
+        todo = {pattern = '%f[%w]()todo()%f[%W]',  group = 'MiniHipatternsTodo'},
+        note = {pattern = '%f[%w]()note()%f[%W]',  group = 'MiniHipatternsNote'},
+        warning = {pattern = '%f[%w]()warning()%f[%W]', group = 'MiniHipatternsFixme'},
+        hex_color = mn_hipatterns.gen_highlighter.hex_color(),
+    }
+})
+for _, diag in ipairs({'Error', 'Warn', 'Info', 'Hint'}) do
+    vim.fn.sign_define('DiagnosticSign' .. diag, {
+        text = '',
+        texthl = 'DiagnosticSign' .. diag,
+        linehl = '',
+        numhl = 'DiagnosticSign' .. diag,
+    })
+end
+vim.fn.sign_define('DapBreakpoint', {text = '●'})
+vim.fn.sign_define(
+    'DapBreakpointCondition',
+    {text = '◍', texthl = 'red', linehl = '', numhl = ''}
+)
+vim.fn.sign_define('DapLogPoint', {text = '◉', texthl = 'red', linehl = '', numhl = ''})
+vim.fn.sign_define('DapStopped', {text = '➲', texthl = 'red', linehl = '', numhl = ''})
+vim.fn.sign_define(
+    'DapBreakpointRejected',
+    {text = '○', texthl = 'red', linehl = '', numhl = ''}
+)
