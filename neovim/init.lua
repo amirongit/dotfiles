@@ -334,7 +334,7 @@ treesitter_ctx.setup({
     line_numbers = true,
     multiline_threshold = 1,
     trim_scope = 'outer',
-    mode = 'topline',
+    mode = 'cursor',
     separator = '─',
     zindex = 20,
     on_attach = nil,
