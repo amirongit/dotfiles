@@ -47,6 +47,7 @@ local ibl = require('ibl')
 local mason = require('mason')
 local mason_lspcfg = require('mason-lspconfig')
 local treesitter_cfg = require('nvim-treesitter.configs')
+local treesitter_ctx = require('treesitter-context')
 local mn_starter = require('mini.starter')
 local mn_completion = require('mini.completion')
 local mn_pick = require('mini.pick')
@@ -324,6 +325,19 @@ treesitter_cfg.setup({
     sync_install = true,
     auto_install = true,
     highlight = {enable = true},
+})
+treesitter_ctx.setup({
+    enable = true,
+    multiwindow = false,
+    max_lines = 0,
+    min_window_height = 0,
+    line_numbers = true,
+    multiline_threshold = 1,
+    trim_scope = 'outer',
+    mode = 'topline',
+    separator = '─',
+    zindex = 20,
+    on_attach = nil,
 })
 ibl.setup({scope = {enabled = false}})
 mn_indentscope.setup({
