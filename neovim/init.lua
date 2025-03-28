@@ -138,16 +138,6 @@ local function cslsex_handler(err, result, ctx)
         mn_pick.start(({ source = { items = fetched, name = 'LSP (definition)' } }))
     end
 end
-local servers = {
-    'lua_ls',
-    'csharp_ls',
-    'bashls',
-    'dockerls',
-    'yamlls',
-    'ruff',
-    'pyright',
-    'taplo'
-}
 lspcfg['lua_ls'].setup({})
 lspcfg['csharp_ls'].setup({
     handlers = {
@@ -309,7 +299,18 @@ mn_trailspace.setup()
 mn_animate.setup()
 mn_cursorword.setup({delay = 500})
 mason.setup()
-mason_lspcfg.setup({ensure_installed = servers})
+mason_lspcfg.setup({
+    ensure_installed = {
+        'lua_ls',
+        'csharp_ls',
+        'bashls',
+        'dockerls',
+        'yamlls',
+        'ruff',
+        'pyright',
+        'taplo'
+    }
+})
 dap_py.setup("uv")
 treesitter_cfg.setup({
     ensure_installed = {
@@ -320,7 +321,8 @@ treesitter_cfg.setup({
         "xml",
         "yaml",
         "markdown",
-        "markdown_inline"
+        "markdown_inline",
+        "vimdoc"
     },
     sync_install = true,
     auto_install = true,
@@ -360,15 +362,24 @@ mn_splitjoin.setup({
 mn_statusline.setup({
     content = {
         active = function()
+            local git           = mn_statusline.section_git({ trunc_width = 40 });
+            local diff          = mn_statusline.section_diff({ trunc_width = 75 });
+            local diagnostics   = mn_statusline.section_diagnostics({ trunc_width = 75 });
+            local lsp           = mn_statusline.section_lsp({ trunc_width = 75 });
+            local filename      = mn_statusline.section_filename({ trunc_width = 140 });
+            local fileinfo      = mn_statusline.section_fileinfo({ trunc_width = 120 });
+            local location      = mn_statusline.section_location({ trunc_width = 75 });
+
             return mn_statusline.combine_groups({
-                {hl = 'TSVariable', strings = {'%{mode()} %t %m %r %h %w'}},
+                -- {hl = 'TSVariable', strings = {'%{mode()} %t %m %r %h %w'}},
+                {hl = 'TSVariable', strings = { filename, diff, '%r' }},
                 '%=',
-                {hl = 'TSTitle', strings = {'%c %y'}},
+                {hl = 'TSTitle', strings = { git, location, lsp, diagnostics, fileinfo }},
             })
         end,
         inactive = function()
             return mn_statusline.combine_groups({
-                {hl = 'CursorLineNr', strings = {'%t %m'}},
+                {hl = 'CursorLineNr', strings = {'%t %m %y'}},
                 '%=',
                 {hl = 'MatchParen', strings = {'%y'}},
             })
@@ -377,9 +388,26 @@ mn_statusline.setup({
     use_icons = false,
     set_vim_settings = true,
 })
+mn_hipatterns.setup({
+    highlighters = {
+        ufixme = {pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme'},
+        uhack = {pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'},
+        utodo = {pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'},
+        unote = {pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'},
+        uwarning = {pattern = '%f[%w]()WARNING()%f[%W]', group = 'MiniHipatternsFixme'},
+        fixme = {pattern = '%f[%w]()fixme()%f[%W]', group = 'MiniHipatternsFixme'},
+        hack = {pattern = '%f[%w]()hack()%f[%W]',  group = 'MiniHipatternsHack'},
+        todo = {pattern = '%f[%w]()todo()%f[%W]',  group = 'MiniHipatternsTodo'},
+        note = {pattern = '%f[%w]()note()%f[%W]',  group = 'MiniHipatternsNote'},
+        warning = {pattern = '%f[%w]()warning()%f[%W]', group = 'MiniHipatternsFixme'},
+        hex_color = mn_hipatterns.gen_highlighter.hex_color(),
+    }
+})
 
-vim.keymap.set("n", "H", "gT")
-vim.keymap.set("n", "L", "gt")
+-- vim.keymap.set("n", "H", "gT")
+-- vim.keymap.set("n", "L", "gt")
+vim.keymap.set("n", "H", ":bprevious<CR>", {silent = true})
+vim.keymap.set("n", "L", ":bnext<CR>", {silent = true})
 vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", {silent = true})
 vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", {silent = true})
 vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", {silent = true})
@@ -425,10 +453,10 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>gre", ":Pick grep_live<CR>", {silent = true})
 vim.keymap.set("n", "<leader>fnd", ":Pick files<CR>", {silent = true})
-vim.keymap.set("n", "<leader>map", ":Pick keymaps<CR>", {silent = true})
 vim.keymap.set("n", "<leader>dia", ":Pick diagnostic<CR>", {silent = true})
 vim.keymap.set("n", "<leader>def", ":Pick lsp scope='definition'<CR>", {silent = true})
 vim.keymap.set("n", "<leader>dec", ":Pick lsp scope='declaration'<CR>", {silent = true})
+vim.keymap.set("n", "<leader>buf", ":Pick buffers<CR>", {silent = true})
 vim.keymap.set(
     "n",
     "<leader>tdf",
@@ -482,7 +510,7 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.mouse = ""
 vim.opt.cmdheight = 1
-vim.opt.showtabline = 2
+vim.opt.showtabline = 0
 vim.opt.scrolloff = 0
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.tabstop = 4
@@ -501,7 +529,7 @@ vim.opt.foldnestmax = 5
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
 vim.opt.backspace = "indent,eol,start"
-vim.opt.shortmess = ""
+vim.opt.shortmess:append("C")
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
 vim.opt.updatetime = 300
 vim.opt.signcolumn = "number"
@@ -518,7 +546,7 @@ vim.diagnostic.config({
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.ui.select = mn_pick.ui_select
-vim.cmd("colorscheme base16-tomorrow-night")
+vim.cmd("colorscheme base16-tokyo-night-terminal-dark")
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
 vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})
@@ -535,21 +563,6 @@ vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniCursorword', {underline = true})
 vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
-mn_hipatterns.setup({
-    highlighters = {
-        ufixme = {pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme'},
-        uhack = {pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'},
-        utodo = {pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'},
-        unote = {pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'},
-        uwarning = {pattern = '%f[%w]()WARNING()%f[%W]', group = 'MiniHipatternsFixme'},
-        fixme = {pattern = '%f[%w]()fixme()%f[%W]', group = 'MiniHipatternsFixme'},
-        hack = {pattern = '%f[%w]()hack()%f[%W]',  group = 'MiniHipatternsHack'},
-        todo = {pattern = '%f[%w]()todo()%f[%W]',  group = 'MiniHipatternsTodo'},
-        note = {pattern = '%f[%w]()note()%f[%W]',  group = 'MiniHipatternsNote'},
-        warning = {pattern = '%f[%w]()warning()%f[%W]', group = 'MiniHipatternsFixme'},
-        hex_color = mn_hipatterns.gen_highlighter.hex_color(),
-    }
-})
 for _, diag in ipairs({'Error', 'Warn', 'Info', 'Hint'}) do
     vim.fn.sign_define('DiagnosticSign' .. diag, {
         text = '',
