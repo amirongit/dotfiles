@@ -10,7 +10,7 @@ if not vim.loop.fs_stat(mini_directory_path) then
     vim.cmd('packadd mini.nvim | helptags ALL')
 end
 local mn_deps = require('mini.deps')
-mn_deps.setup({path = {package = package_directory } })
+mn_deps.setup({path = {package = package_directory}})
 local add = mn_deps.add
 local update = MiniDeps.update
 local later = MiniDeps.later
@@ -61,6 +61,7 @@ local mn_pairs = require('mini.pairs')
 local mn_trailspace = require('mini.trailspace')
 local mn_animate = require('mini.animate')
 local mn_cursorword = require('mini.cursorword')
+local mn_icons = require('mini.icons')
 local keycode = vim.keycode or function(x)
     return vim.api.nvim_replace_termcodes(x, true, true, true)
 end
@@ -74,8 +75,7 @@ _G.cr_action = function()
         local item_selected = vim.fn.complete_info()['selected'] ~= -1
         return item_selected and keys['ctrl-y'] or keys['ctrl-y_cr']
     else
-        -- return keys['cr']
-        return require('mini.pairs').cr()
+        return mn_pairs.cr()
     end
 end
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -135,7 +135,7 @@ local function cslsex_handler(err, result, ctx)
         ::continue::
     end
     if #locations > 0 then
-        mn_pick.start(({ source = { items = fetched, name = 'LSP (definition)' } }))
+        mn_pick.start(({source = {items = fetched, name = 'LSP (definition)'}}))
     end
 end
 lspcfg['lua_ls'].setup({})
@@ -166,24 +166,39 @@ lspcfg['pyright'].setup({
 })
 lspcfg['taplo'].setup({})
 dapui.setup({
-    controls = {element = "repl", enabled = false,},
+    controls = {
+        element = "repl",
+        enabled = false,
+        icons = {
+            disconnect = "",
+            pause = "",
+            play = "",
+            run_last = "",
+            step_back = "",
+            step_into = "",
+            step_out = "",
+            step_over = "",
+            terminate = ""
+        }
+    },
     element_mappings = {},
     expand_lines = false,
     floating = {border = "single", mappings = {close = {"q", "<Esc>"}}},
     force_buffers = true,
-    icons = {collapsed = "", current_frame = "", expanded = ""},
+    icons = {collapsed = "", current_frame = "", expanded = ""},
     layouts = {{
-        elements = {
-            {id = "breakpoints", size = 0.20},
-            {id = "stacks", size = 0.20},
-            {id = "watches", size = 0.60}
+            elements = {
+                {id = "breakpoints", size = 0.20},
+                {id = "stacks", size = 0.20},
+                {id = "watches", size = 0.60}
+            },
+            position = "left",
+            size = 40
         },
-        position = "left",
-        size = 40
-    }, {
-        elements = {{id = "repl", size = 0.5}, {id = "console", size = 0.5}},
-        position = "bottom",
-        size = 10
+        {
+            elements = {{id = "repl", size = 0.5}, {id = "console", size = 0.5}},
+            position = "bottom",
+            size = 10
     }},
     mappings = {
         edit = "e",
@@ -234,13 +249,13 @@ mn_pick.setup({
         name = nil,
         cwd = nil,
         match = nil,
-        show = mn_pick.default_show,
+        show = nil,
         preview = nil,
         choose = nil,
         choose_marked = nil,
     },
     options = {content_from_bottom = false, use_cache = false,},
-    window = {config = win_config, prompt_cursor = '█', prompt_prefix = '> ',},
+    window = {config = win_config, prompt_cursor = '█', prompt_prefix = '➜ ',},
 })
 mn_completion.setup({
     delay = {completion = 100, info = 100, signature = 50},
@@ -261,8 +276,9 @@ mn_starter.setup({
     evaluate_single = false,
     items = {
         {
+            {name = 'Blank', action = 'enew', section = 'Actions'},
+            {name = 'Explore', action = 'Pick files', section = 'Actions'},
             {name = 'Quit', action = 'q', section = 'Actions'},
-            {name = 'Explore', action = 'Explore', section = 'Actions'},
         }
     },
     header = [=[
@@ -297,6 +313,8 @@ mn_move.setup()
 mn_pairs.setup()
 mn_trailspace.setup()
 mn_animate.setup()
+mn_icons.setup()
+mn_icons.tweak_lsp_kind('replace')
 mn_cursorword.setup({delay = 500})
 mason.setup()
 mason_lspcfg.setup({
@@ -345,12 +363,12 @@ ibl.setup({scope = {enabled = false}})
 mn_indentscope.setup({
     draw = {
         delay = 250,
-        animation = require('mini.indentscope').gen_animation.none(),
+        animation = mn_indentscope.gen_animation.quadratic({easing = 'out', duration = 1000, unit = 'total'}),
         priority = 2,
     },
     mappings = {},
     options = {border = 'both', indent_at_cursor = true, try_as_border = false,},
-    symbol = '>',
+    symbol = '›',
 })
 mn_splitjoin.setup({
     mappings = {toggle = '<leader>tas', split = '', join = '',},
@@ -362,19 +380,19 @@ mn_splitjoin.setup({
 mn_statusline.setup({
     content = {
         active = function()
-            local git           = mn_statusline.section_git({ trunc_width = 40 });
-            local diff          = mn_statusline.section_diff({ trunc_width = 75 });
-            local diagnostics   = mn_statusline.section_diagnostics({ trunc_width = 75 });
-            local lsp           = mn_statusline.section_lsp({ trunc_width = 75 });
-            local filename      = mn_statusline.section_filename({ trunc_width = 140 });
-            local fileinfo      = mn_statusline.section_fileinfo({ trunc_width = 120 });
-            local location      = mn_statusline.section_location({ trunc_width = 75 });
+            local git           = mn_statusline.section_git({trunc_width = 40});
+            local diff          = mn_statusline.section_diff({trunc_width = 75});
+            local diagnostics   = mn_statusline.section_diagnostics({trunc_width = 75});
+            local lsp           = mn_statusline.section_lsp({trunc_width = 75});
+            local filename      = mn_statusline.section_filename({trunc_width = 120});
+            local fileinfo      = mn_statusline.section_fileinfo({trunc_width = 120});
+            local location      = mn_statusline.section_location({trunc_width = 75});
 
             return mn_statusline.combine_groups({
                 -- {hl = 'TSVariable', strings = {'%{mode()} %t %m %r %h %w'}},
-                {hl = 'TSVariable', strings = { filename, diff, '%r' }},
+                {hl = 'TSVariable', strings = {filename, diff, '%r'}},
                 '%=',
-                {hl = 'TSTitle', strings = { git, location, lsp, diagnostics, fileinfo }},
+                {hl = 'TSTitle', strings = {git, location, lsp, diagnostics, fileinfo}},
             })
         end,
         inactive = function()
@@ -385,7 +403,7 @@ mn_statusline.setup({
             })
         end,
     },
-    use_icons = false,
+    use_icons = true,
     set_vim_settings = true,
 })
 mn_hipatterns.setup({
@@ -484,7 +502,7 @@ vim.keymap.set(
 )
 
 vim.opt.compatible = false
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.backup = false
 vim.opt.hidden = true
 vim.opt.writebackup = false
@@ -493,14 +511,22 @@ vim.opt.expandtab = true
 vim.opt.shiftround = true
 vim.opt.smarttab = true
 vim.opt.autoindent = true
-vim.opt.list = false
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = '▸ ',
+    trail = '܁',
+    extends = '➔',
+    precedes = '➔',
+    space = '܁',
+    eol = '¬',
+}
 vim.opt.splitbelow = true
 vim.opt.cp = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.incsearch = true
+vim.opt.incsearch = false
 vim.opt.autoread = true
 vim.opt.showmatch = true
 vim.opt.showmode = false
@@ -528,6 +554,7 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 5
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
+vim.opt.virtualedit = "onemore"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.shortmess:append("C")
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
@@ -546,7 +573,7 @@ vim.diagnostic.config({
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.ui.select = mn_pick.ui_select
-vim.cmd("colorscheme base16-tokyo-night-terminal-dark")
+vim.cmd("colorscheme base16-default-dark")
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
 vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})
@@ -555,10 +582,10 @@ vim.api.nvim_set_hl(0, 'DiffDelete', {bg = 'darkred', fg = 'white', bold = true}
 vim.api.nvim_set_hl(0, 'CocWarningSign', {bg = 'brown', fg = 'white', bold = true})
 vim.api.nvim_set_hl(0, 'CocErrorSign', {bg = 'darkred', fg = 'white', bold = true})
 vim.api.nvim_set_hl(0, 'CocHintSign', {bg = 'lightblue', fg = 'white', bold = true})
-vim.api.nvim_set_hl(0, 'TabLineFill', {fg = 'Gray', bg = 'bg' })
+vim.api.nvim_set_hl(0, 'TabLineFill', {fg = 'Gray', bg = 'bg'})
 vim.api.nvim_set_hl(0, 'TabLine', {fg = 'Gray', bg = 'bg'})
 vim.api.nvim_set_hl(0, 'TabLineSel', {fg = 'DarkYellow', bg = 'bg'})
-vim.api.nvim_set_hl(0, 'NonText', {bold = false, italic = false, underline = false})
+vim.api.nvim_set_hl(0, 'NonText', {bold = false, italic = false, underline = false, fg = 'Gray'})
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniCursorword', {underline = true})
