@@ -44,6 +44,7 @@ local lspcfg = require('lspconfig')
 local csls_ex = require('csharpls_extended')
 local csls_ex_utils = require('csharpls_extended.utils')
 local ibl = require('ibl')
+local ibl_hooks = require("ibl.hooks")
 local mason = require('mason')
 local mason_lspcfg = require('mason-lspconfig')
 local treesitter_cfg = require('nvim-treesitter.configs')
@@ -359,7 +360,25 @@ treesitter_ctx.setup({
     zindex = 20,
     on_attach = nil,
 })
-ibl.setup({scope = {enabled = false}})
+local ibl_highlight = {
+    "RainbowRed",
+    "RainbowYellow",
+    "RainbowBlue",
+    "RainbowOrange",
+    "RainbowGreen",
+    "RainbowViolet",
+    "RainbowCyan",
+}
+ibl_hooks.register(ibl_hooks.type.HIGHLIGHT_SETUP, function()
+    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+    vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+    vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+end)
+ibl.setup({scope = {enabled = false}, indent = {highlight = ibl_highlight}})
 mn_indentscope.setup({
     draw = {
         delay = 250,
@@ -513,12 +532,12 @@ vim.opt.smarttab = true
 vim.opt.autoindent = true
 vim.opt.list = true
 vim.opt.listchars = {
-    tab = '▸ ',
+    tab = '→ ',
     trail = '܁',
-    extends = '➔',
-    precedes = '➔',
+    -- extends = '➔',
+    -- precedes = '➔',
     space = '܁',
-    eol = '¬',
+    eol = '∎',
 }
 vim.opt.splitbelow = true
 vim.opt.cp = false
