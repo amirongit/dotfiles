@@ -537,7 +537,7 @@ vim.opt.listchars = {
     -- extends = '➔',
     -- precedes = '➔',
     space = '܁',
-    eol = '∎',
+    eol = '↓',
 }
 vim.opt.splitbelow = true
 vim.opt.cp = false
