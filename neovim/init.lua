@@ -539,6 +539,7 @@ vim.opt.listchars = {
     space = '܁',
     eol = '↓',
 }
+vim.opt.fillchars = {eob = " ", fold = " "}
 vim.opt.splitbelow = true
 vim.opt.cp = false
 vim.opt.number = true
@@ -569,9 +570,10 @@ vim.opt.termguicolors = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = ""
-vim.opt.foldlevelstart = 99
+vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 5
-vim.opt.foldlevel = 99
+vim.opt.foldlevel = 1
+vim.opt.foldcolumn = "0"
 vim.opt.foldenable = true
 vim.opt.virtualedit = "all"
 vim.opt.backspace = "indent,eol,start"
@@ -581,7 +583,6 @@ vim.opt.updatetime = 300
 vim.opt.signcolumn = "number"
 vim.opt.laststatus = 2
 vim.opt.syntax = "on"
-vim.opt.fillchars = {eob = " "}
 vim.diagnostic.config({
     virtual_text = true,
     signs = true,
@@ -592,7 +593,7 @@ vim.diagnostic.config({
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.ui.select = mn_pick.ui_select
-vim.cmd("colorscheme base16-default-dark")
+vim.cmd("colorscheme base16-darcula")
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
 vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})
