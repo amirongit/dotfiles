@@ -573,7 +573,7 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 5
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
-vim.opt.virtualedit = "onemore"
+vim.opt.virtualedit = "all"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.shortmess:append("C")
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
