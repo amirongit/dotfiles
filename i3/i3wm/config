@@ -6,18 +6,18 @@ font pango: Averia Sans Libre 9
 focus_follows_mouse yes
 # smart_gaps on
 # smart_borders on
-# for_window [class="."] border pixel 2
+for_window [class="."] border pixel 2
 
-new_window normal 0
-new_float normal 0
+# new_window normal 0
+# new_float normal 0
 title_align left
 
-gaps inner 0
-gaps outer 0
+gaps inner 8
+gaps outer 2
 
 workspace_layout default
 
-set $ActiveBackGround      #bbb529
+set $ActiveBackGround      #4eade5
 set $ActiveBorder          #00000000
 set $ActiveText            #2b2b2b
 
@@ -29,13 +29,13 @@ set $InActiveBackGround    #808080
 set $InActiveBorder        #00000000
 set $InActiveText          #ffffff
 
-set $UrgentBackGround      #cc7832
+set $UrgentBackGround      #ff0000
 set $UrgentBorder          #00000000
-set $UrgentText            #ffffff
+set $UrgentText            #2b2b2b
 
 set $BarBackGround         #2b2b2b
 
-set $BarActiveBackGround   #4eade5
+set $BarActiveBackGround   #bbb529
 set $BarActiveBorder       #00000000
 set $BarActiveText         #2b2b2b
 
@@ -47,12 +47,12 @@ set $BarInActiveText       #ffffff
 exec_always picom --config /home/amir/.config/picom/picom.conf
 # exec_always xset -b
 # exec_always hsetroot -solid '#000000'
-exec_always feh --bg-fill ~/.local/share/backgrounds/shavr-ik-r6fBLCriUgg-unsplash.jpg
+exec_always feh --bg-fill ~/.local/share/backgrounds/shavr-ik-Mv_e78hOVkE-unsplash.jpg
 exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
 
 bindsym Print exec maim ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
 # bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Ubuntu Mono:pixelsize=15:style=Bold' #-b
-bindsym $mod+d exec dmenu_run -nb '#000000' -sf '#fbfbfc' -sb '#900000' -fn 'Averia Sans Libre:pixelsize=12:style=Regular' # -b # -l 1 -b
+bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$ActiveText' -sb '$BarActiveBackGround' -fn 'Averia Sans Libre:pixelsize=12:style=Regular' # -b # -l 1 -b
 # bindsym $mod+Return exec alacritty
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
@@ -86,8 +86,8 @@ bindsym $mod+Tab focus mode_toggle
 bindsym $mod+Down split v
 bindsym $mod+Right split h
 
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
+# bindsym $mod+s layout stacking
+# bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 set $ws1 "1:RCH"
@@ -151,10 +151,10 @@ for_window [class="nekoray"] floating enable
 
 
 
-client.focused            $ActiveBorder      $ActiveBackGround      $ActiveText      $ActiveBackGround
-client.focused_inactive   $InActiveBorder    $InActiveBackGround    $InActiveText    $InActiveBackGround
-client.unfocused          $UnFocusedBorder   $UnFocusedBackGround   $UnFocusedText   $UnFocusedBackGround
-client.urgent             $UrgentBorder      $UrgenBackGround       $UrgentText      $UrgenBackGround
+client.focused            $ActiveBorder    $ActiveBackGround    $ActiveText    $ActiveBackGround
+client.focused_inactive   $InActiveBorder  $InActiveBackGround  $InActiveText  $InActiveBackGround
+client.unfocused          $UnFocusedBorder $UnFocusedBackGround $UnFocusedText $UnFocusedBackGround
+client.urgent             $UrgentBorder    $UrgentBackGround    $UrgentText    $UrgentBackGround
 
 
 mode "RESIZE" {
@@ -204,8 +204,8 @@ bar {
         colors {
             background $BarBackGround
             separator #F6F6F6
-            focused_workspace  $BarActiveBorder       $BarActiveBackGround   $BarActiveText
+            focused_workspace  $BarActiveBorder   $BarActiveBackGround   $BarActiveText
             inactive_workspace $BarInActiveBorder $BarInActiveBackGround $BarInActiveText
-            urgent_workspace   $UrgentBackGround      $UrgentBorder      $UrgentText
+            urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
         }
 }
