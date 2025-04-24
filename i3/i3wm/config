@@ -50,6 +50,7 @@ exec_always picom --config /home/amir/.config/picom/picom.conf
 exec_always feh --bg-fill ~/.local/share/backgrounds/shavr-ik-Mv_e78hOVkE-unsplash.jpg
 exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
 exec_always xrandr --output eDP-1 --auto --right-of HDMI-1
+exec_always xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym Print exec maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
 # bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$BarActiveText' -sb '$BarActive' -fn 'Ubuntu Mono:pixelsize=15:style=Bold' #-b
