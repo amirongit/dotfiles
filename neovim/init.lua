@@ -574,7 +574,7 @@ vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 5
 vim.opt.foldlevel = 1
 vim.opt.foldcolumn = "0"
-vim.opt.foldenable = true
+vim.opt.foldenable = false
 vim.opt.virtualedit = "all"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.shortmess:append("C")
