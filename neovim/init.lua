@@ -256,7 +256,7 @@ mn_pick.setup({
         choose_marked = nil,
     },
     options = {content_from_bottom = false, use_cache = false,},
-    window = {config = win_config, prompt_cursor = '█', prompt_prefix = '➜ ',},
+    window = {config = win_config, prompt_caret = '█', prompt_prefix = '➜ ',},
 })
 mn_completion.setup({
     delay = {completion = 100, info = 100, signature = 50},
@@ -585,7 +585,7 @@ vim.opt.laststatus = 2
 vim.opt.syntax = "on"
 vim.diagnostic.config({
     virtual_text = true,
-    signs = true,
+    signs = false,
     underline = false,
     update_in_insert = false,
     severity_sort = false,
@@ -610,14 +610,6 @@ vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniCursorword', {underline = true})
 vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
-for _, diag in ipairs({'Error', 'Warn', 'Info', 'Hint'}) do
-    vim.fn.sign_define('DiagnosticSign' .. diag, {
-        text = '',
-        texthl = 'DiagnosticSign' .. diag,
-        linehl = '',
-        numhl = 'DiagnosticSign' .. diag,
-    })
-end
 vim.fn.sign_define('DapBreakpoint', {text = '●'})
 vim.fn.sign_define(
     'DapBreakpointCondition',
