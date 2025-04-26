@@ -6,8 +6,8 @@ export GPG_TTY=$(tty)
 source $HOME/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-autosuggestions
-# antigen theme frisk
-antigen theme agnoster
+antigen theme afowler
+# antigen theme agnoster
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4e5165"
 antigen apply
 
