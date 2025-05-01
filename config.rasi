@@ -1,0 +1,59 @@
+configuration {
+    modei: "run";
+    display-run: "run";
+    font: "PT Serif 12";
+    fixed-num-lines: true;
+    show-icons: false;
+    terminal: "kitty";
+}
+
+/**
+ * Base16 Darcula ROFI Color theme
+ *
+ * Authors
+ *  Scheme: jetbrains
+ *  Template: Tinted Theming (https://github.com/tinted-theming)
+ */
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+    separator: false;
+    red:                         rgba ( 78, 173, 229, 100 % );
+    blue:                        rgba ( 152, 118, 170, 100 % );
+    lightfg:                     rgba ( 255, 198, 109, 100 % );
+    lightbg:                     rgba ( 50, 50, 50, 100 % );
+    foreground:                  rgba ( 169, 183, 198, 100 % );
+    background:                  rgba ( 43, 43, 43, 100 % );
+    background-color:            rgba ( 43, 43, 43, 0 % );
+    separatorcolor:              rgba ( 00, 00, 00, 0 % );
+    border-color:                @foreground;
+    selected-normal-foreground:  @lightbg;
+    selected-normal-background:  @lightfg;
+    selected-active-foreground:  @background;
+    selected-active-background:  @blue;
+    selected-urgent-foreground:  @background;
+    selected-urgent-background:  @red;
+    normal-foreground:           @foreground;
+    normal-background:           @background;
+    active-foreground:           @blue;
+    active-background:           @background;
+    urgent-foreground:           @red;
+    urgent-background:           @background;
+    alternate-normal-foreground: @foreground;
+    alternate-normal-background: @lightbg;
+    alternate-active-foreground: @blue;
+    alternate-active-background: @lightbg;
+    alternate-urgent-foreground: @red;
+    alternate-urgent-background: @lightbg;
+}
+
+window {
+    width: 40%;
+}
+
+listview {
+    scrollbar: false;
+}
