@@ -256,7 +256,7 @@ mn_pick.setup({
         choose_marked = nil,
     },
     options = {content_from_bottom = false, use_cache = false,},
-    window = {config = win_config, prompt_caret = '█', prompt_prefix = '➜ ',},
+    window = {config = win_config, prompt_caret = '█', prompt_prefix = '> ',},
 })
 mn_completion.setup({
     delay = {completion = 100, info = 100, signature = 50},
