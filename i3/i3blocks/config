@@ -1,3 +1,5 @@
+separator_block_width=6
+
 [volume]
 command=i3blocks-contrib/volume/volume
 interval=5
@@ -5,20 +7,17 @@ signal=10
 STEP=5%
 LABEL=📣  
 background=#9876aa
-separator_block_width=6
 
 [brightness]
 command=echo "🏮 $(brightnessctl -p | awk -F'[()]' '/Current brightness:/ {print $2}')"
 interval=5
 background=#808080
-separator_block_width=6
 
 [battery]
 command=i3blocks-contrib/battery/battery
 interval=30
 LABEL=⚡ 
 background=#9876aa
-separator_block_width=6
 
 [disk]
 command=i3blocks-contrib/disk/disk
@@ -26,7 +25,6 @@ LABEL=📀
 interval=30
 instance=/home
 background=#808080
-separator_block_width=6
 
 [disk]
 command=i3blocks-contrib/disk/disk
@@ -34,28 +32,24 @@ LABEL=💿
 interval=30
 instance=/
 background=#9876aa
-separator_block_width=6
 
 [memory]
 command=i3blocks-contrib/memory/memory
 label=📄 
 interval=30
 background=#808080
-separator_block_width=6
 
 [cpu]
 command=i3blocks-contrib/cpu_usage/cpu_usage
 LABEL=🧠 
 interval=10
 background=#9876aa
-separator_block_width=6
 
 [temperature]
 command=i3blocks-contrib/temperature/temperature
 label=🔥 
 interval=10
 background=#808080
-separator_block_width=6
 
 [iface]
 command=output=$(i3blocks-contrib/iface/iface); [ -z "$output" ] && echo "NIC down" || echo "$output"
@@ -64,11 +58,9 @@ interval=10
 ADDRESS_FAMILY=inet
 display_wifi_name=0
 background=#9876aa
-separator_block_width=6
 
 [time]
 command=echo $(date +"📑 %Y-%m-%d ⏳ %H:%M")
 interval=30
 STRFTIME_FORMAT=%Y-%m-%d %H:%M
 background=#808080
-separator_block_width=6
