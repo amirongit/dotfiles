@@ -7,18 +7,18 @@ font pango: PT Serif 9
 focus_follows_mouse yes
 # smart_gaps on
 # smart_borders on
-for_window [class="."] border pixel 2
+# for_window [class="."] border pixel 2
 
-# new_window normal 0
-# new_float normal 0
+new_window normal 0
+new_float normal 0
 title_align left
 
-gaps inner 8
-gaps outer 2
+# gaps inner 8
+# gaps outer 2
 
-workspace_layout default
+workspace_layout tabbed
 
-set $ActiveBackGround      #4eade5
+set $ActiveBackGround      #bbb529
 set $ActiveBorder          #000000
 set $ActiveText            #2b2b2b
 
@@ -46,16 +46,16 @@ set $BarInActiveText       #ffffff
 
 
 exec_always picom --config /home/amir/.config/picom/picom.conf
-# exec_always xset -b
+exec_always xset -b
 exec_always hsetroot -solid '$BarBackGround'
-exec_always feh --bg-scale ~/.local/share/backgrounds/khachik-simonian-G22cAfM7-tE-unsplash.jpg
+# exec_always feh --bg-scale ~/.local/share/backgrounds/khachik-simonian-G22cAfM7-tE-unsplash.jpg
 exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
 exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off
 exec_always xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym Print exec maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym $mod+d exec rofi -show run
-# bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$ActiveText' -sb '$BarActiveBackGround' -fn 'PT Serif:pixelsize=11:style=Medium' -b # -l 1 -b
+# bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$ActiveText' -sb '$BarActiveBackGround' -fn 'PT Serif:pixelsize=11:style=Medium' -b # -l 1 -b
 # bindsym $mod+Return exec alacritty
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
@@ -92,15 +92,15 @@ bindsym $mod+Tab focus mode_toggle
 bindsym $mod+Down split v
 bindsym $mod+Right split h
 
-# bindsym $mod+s layout stacking
-# bindsym $mod+t layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
-set $ws1 "🐧"
-set $ws2 "🌐"
-set $ws3 "🎹"
-set $ws4 "👾"
-set $ws5 "⚙️"
+set $ws1 "RCH"
+set $ws2 "WWW"
+set $ws3 "DEV"
+set $ws4 "GFX"
+set $ws5 "SYS"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -128,7 +128,7 @@ assign [class="Chromium"] $ws2
 assign [class="firefox"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws1
-assign [class="TelegramDesktop"] $ws2
+assign [class="TelegramDesktop"] $ws1
 assign [class="Skype"] $ws1
 assign [class="Gimp"] $ws4
 assign [class="code-oss"] $ws3
@@ -156,7 +156,7 @@ for_window [class="Pcmanfm"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="lximage-qt"] floating enable
 for_window [class="nekoray"] floating enable
-# for_window [class="TelegramDesktop"] floating enable
+for_window [class="TelegramDesktop"] floating enable
 
 
 
@@ -206,7 +206,7 @@ mode "$mode_gaps_outer" {
 bar {
         position bottom
         status_command i3blocks
-        separator_symbol "​"
+        separator_symbol ">"
         tray_output none
         # mode hide
         height 19
@@ -224,7 +224,7 @@ bar {
 bar {
         position bottom
         status_command i3blocks
-        separator_symbol "​"
+        separator_symbol ">"
         tray_output none
         # mode hide
         height 19
@@ -238,11 +238,3 @@ bar {
             urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
         }
 }
-
-# secondary
-# xrandr --output eDP-1 --auto --left-of HDMI-1
-# mirror
-# xrandr --output eDP-1 --mode 1024x768 --same-as HDMI-1
-# position
-# xrandr --output eDP-1 --mode 1024x768 --right-of HDMI-1
-
