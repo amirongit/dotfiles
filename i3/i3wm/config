@@ -18,31 +18,31 @@ title_align left
 
 workspace_layout tabbed
 
-set $ActiveBackGround      #bbb529
+set $ActiveBackGround      #81a2be
 set $ActiveBorder          #000000
-set $ActiveText            #2b2b2b
+set $ActiveText            #1d1f21
 
-set $UnFocusedBackGround   #808080
+set $UnFocusedBackGround   #969896
 set $UnFocusedBorder       #000000
 set $UnFocusedText         #ffffff
 
-set $InActiveBackGround    #808080
+set $InActiveBackGround    #969896
 set $InActiveBorder        #000000
 set $InActiveText          #ffffff
 
-set $UrgentBackGround      #ff0000
+set $UrgentBackGround      #cc6666
 set $UrgentBorder          #000000
-set $UrgentText            #2b2b2b
+set $UrgentText            #1d1f21
 
-set $BarBackGround         #2b2b2b
+set $BarBackGround         #1d1f21
 
 set $BarActiveBackGround   #bbb529
 set $BarActiveBorder       #00000000
-set $BarActiveText         #2b2b2b
+set $BarActiveText         #1d1f21
 
-set $BarInActiveBackGround #808080
+set $BarInActiveBackGround #969896
 set $BarInActiveBorder     #00000000
-set $BarInActiveText       #ffffff
+set $BarInActiveText       #1d1f21
 
 
 exec_always picom --config /home/amir/.config/picom/picom.conf

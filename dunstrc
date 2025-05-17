@@ -1,6 +1,6 @@
 [global]
     frame_width = 1
-    frame_color = "#4eade5"
+    frame_color = "#81a2be"
     origin = top-center
     font = Recursive Sans Linear Static Medium 10
     markup = yes
@@ -32,20 +32,20 @@
     max_icon_size=64
     width = (200, 400)
 
-frame_color = "#4eade5"
-separator_color = "#bbb529"
+frame_color = "#81a2be"
+separator_color = "#f0c674"
 
 [base16_low]
     msg_urgency = low
-    background = "#2b2b2b"
+    background = "#1d1f21"
     foreground = "#ffffff"
 
 [base16_normal]
     msg_urgency = normal
-    background = "#2b2b2b"
+    background = "#1d1f21"
     foreground = "#ffffff"
 
 [base16_critical]
     msg_urgency = critical
-    background = "#2b2b2b"
+    background = "#1d1f21"
     foreground = "#ffffff"
