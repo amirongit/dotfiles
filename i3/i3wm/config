@@ -13,8 +13,8 @@ new_window normal 0
 new_float normal 0
 title_align left
 
-# gaps inner 8
-# gaps outer 2
+gaps inner 8
+gaps outer 4
 
 workspace_layout tabbed
 
@@ -44,19 +44,17 @@ set $BarInActiveBackGround #969896
 set $BarInActiveBorder     #00000000
 set $BarInActiveText       #1d1f21
 
-
 exec_always picom --config /home/amir/.config/picom/picom.conf
 exec_always xset -b
-exec_always hsetroot -solid '$BarBackGround'
-# exec_always feh --bg-scale ~/.local/share/backgrounds/khachik-simonian-G22cAfM7-tE-unsplash.jpg
+# exec_always hsetroot -solid '#000000'
+exec_always feh --bg-fill ~/.local/share/backgrounds/jack-b-S3SU988T13A-unsplash.jpg
 exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
 exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off
 exec_always xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym Print exec maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-# bindsym $mod+d exec rofi -show run
-bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$ActiveText' -sb '$BarActiveBackGround' -fn 'PT Serif:pixelsize=11:style=Medium' -b # -l 1 -b
-# bindsym $mod+Return exec alacritty
+bindsym $mod+d exec rofi -show run
+# bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$ActiveText' -sb '$BarActiveBackGround' -fn 'PT Serif:pixelsize=11:style=Medium' -b # -l 1 -b
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
@@ -72,12 +70,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-
 bindsym $mod+h focus left
 bindsym $mod+l focus right
 bindsym $mod+k focus up
 bindsym $mod+j focus down
-
 
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+l move right
@@ -139,7 +135,6 @@ assign [class="VirtualBox Manager"] $ws5
 assign [class="VirtualBox"] $ws5
 assign [class="Atom"] $ws3
 
-
 for_window [class="Virt-manager"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
@@ -158,13 +153,10 @@ for_window [class="lximage-qt"] floating enable
 for_window [class="nekoray"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 
-
-
-client.focused            $ActiveBorder    $ActiveBackGround    $ActiveText    $ActiveBackGround
-client.focused_inactive   $InActiveBorder  $InActiveBackGround  $InActiveText  $InActiveBackGround
-client.unfocused          $UnFocusedBorder $UnFocusedBackGround $UnFocusedText $UnFocusedBackGround
-client.urgent             $UrgentBorder    $UrgentBackGround    $UrgentText    $UrgentBackGround
-
+# client.focused            $ActiveBorder    $ActiveBackGround    $ActiveText    $ActiveBackGround
+# client.focused_inactive   $InActiveBorder  $InActiveBackGround  $InActiveText  $InActiveBackGround
+# client.unfocused          $UnFocusedBorder $UnFocusedBackGround $UnFocusedText $UnFocusedBackGround
+# client.urgent             $UrgentBorder    $UrgentBackGround    $UrgentText    $UrgentBackGround
 
 mode "RESIZE" {
 
@@ -191,8 +183,7 @@ mode "$mode_gaps" {
 mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
-#        bindsym 0     gaps inner current set 0
-
+        bindsym 0     gaps inner current set 0
         bindsym Return mode "default"
 }
 mode "$mode_gaps_outer" {
@@ -213,11 +204,11 @@ bar {
         output primary
         font pango: PT Serif 12
         colors {
-            background $BarBackGround
+        #    background $BarBackGround
             separator #ffffff
-            focused_workspace  $BarActiveBorder   $BarActiveBackGround   $BarActiveText
-            inactive_workspace $BarInActiveBorder $BarInActiveBackGround $BarInActiveText
-            urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
+        #    focused_workspace  $BarActiveBorder   $BarActiveBackGround   $BarActiveText
+        #    inactive_workspace $BarInActiveBorder $BarInActiveBackGround $BarInActiveText
+        #    urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
         }
 }
 
@@ -231,10 +222,10 @@ bar {
         output HDMI-1
         font pango: PT Serif 9
         colors {
-            background $BarBackGround
+        #    background $BarBackGround
             separator #ffffff
-            focused_workspace  $BarActiveBorder   $BarActiveBackGround   $BarActiveText
-            inactive_workspace $BarInActiveBorder $BarInActiveBackGround $BarInActiveText
-            urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
+        #    focused_workspace  $BarActiveBorder   $BarActiveBackGround   $BarActiveText
+        #    inactive_workspace $BarInActiveBorder $BarInActiveBackGround $BarInActiveText
+        #    urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
         }
 }

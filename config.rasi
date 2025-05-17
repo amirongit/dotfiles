@@ -1,34 +1,21 @@
 configuration {
-    modei: "run";
-    display-run: "run";
+    modei: ["window","drun","run"];
+    display-run: "";
     font: "PT Serif 12";
     fixed-num-lines: true;
     show-icons: false;
     terminal: "kitty";
 }
 
-/**
- * Base16 Darcula ROFI Color theme
- *
- * Authors
- *  Scheme: jetbrains
- *  Template: Tinted Theming (https://github.com/tinted-theming)
- */
-
 * {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    spacing: 0;
-    separator: false;
-    red:                         rgba ( 78, 173, 229, 100 % );
-    blue:                        rgba ( 152, 118, 170, 100 % );
-    lightfg:                     rgba ( 255, 198, 109, 100 % );
-    lightbg:                     rgba ( 50, 50, 50, 100 % );
-    foreground:                  rgba ( 169, 183, 198, 100 % );
-    background:                  rgba ( 43, 43, 43, 100 % );
-    background-color:            rgba ( 43, 43, 43, 0 % );
-    separatorcolor:              rgba ( 00, 00, 00, 0 % );
+    red:                         rgba ( 204, 102, 102, 100 % );
+    blue:                        rgba ( 129, 162, 190, 100 % );
+    lightfg:                     rgba ( 224, 224, 224, 100 % );
+    lightbg:                     rgba ( 40, 42, 46, 100 % );
+    foreground:                  rgba ( 197, 200, 198, 100 % );
+    background:                  rgba ( 29, 31, 33, 100 % );
+    background-color:            rgba ( 29, 31, 33, 0 % );
+    separatorcolor:              @foreground;
     border-color:                @foreground;
     selected-normal-foreground:  @lightbg;
     selected-normal-background:  @lightfg;
@@ -55,5 +42,15 @@ window {
 }
 
 listview {
+    columns: 1;
+    lines: 7;
+    fixed-height: true;
+    fixed-columns: true;
+    cycle: false;
     scrollbar: false;
+    border: 0px solid;
+}
+
+prompt {
+    enabled: false;
 }

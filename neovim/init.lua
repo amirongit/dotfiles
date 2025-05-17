@@ -42,7 +42,6 @@ local dapui = require('dapui')
 local dap_py = require("dap-python")
 local lspcfg = require('lspconfig')
 local csls_ex = require('csharpls_extended')
-local csls_ex_utils = require('csharpls_extended.utils')
 local ibl = require('ibl')
 local ibl_hooks = require("ibl.hooks")
 local mason = require('mason')
@@ -82,7 +81,6 @@ end
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts = opts or {}
-
     opts.max_height = 25
     opts.max_width = 75
     -- opts.anchor_bias = 'top'
@@ -98,54 +96,8 @@ local win_config = function()
         col = math.floor(0.5 * (vim.o.columns - width)),
     }
 end
-local function cslsex_handler(err, result, ctx)
-    if err ~= nil then error(string.format('Error code %s. %s', err.code, err.message)) end
-    local client = csls_ex.get_csharpls_client()
-    local fetched = {}
-    local offset_encoding = vim.lsp.get_client_by_id(ctx.client_id).offset_encoding
-    local locations = csls_ex.textdocument_definition_to_locations(result)
-    for _, loc in ipairs(locations) do
-        local uri = csls_ex_utils.urldecode(loc.uri)
-        if not csls_ex.is_lsp_url(uri) then
-            table.insert(fetched, {
-                path = vim.uri_to_fname(loc.uri),
-                lnum = loc.range.start.line + 1,
-                col = loc.range.start.character + 1,
-                -- range = loc.range,
-                uri = loc.uri,
-            })
-            goto continue
-        end
-        local res, er = client.request_sync(
-            "csharp/metadata",
-            {timeout = 5000, textDocument = {uri = uri}},
-            10000,
-            0
-        )
-        if not er and res ~= nil then
-            local bufnr = csls_ex.buf_from_metadata(res.result, client.id)
-            loc.uri = vim.uri_from_bufnr(bufnr)
-            table.insert(fetched, {
-                path = vim.uri_to_fname(loc.uri),
-                lnum = loc.range.start.line + 1,
-                col = loc.range.start.character + 1,
-                bufnr = bufnr,
-                uri = loc.uri,
-            })
-        end
-        ::continue::
-    end
-    if #locations > 0 then
-        mn_pick.start(({source = {items = fetched, name = 'LSP (definition)'}}))
-    end
-end
 lspcfg['lua_ls'].setup({})
-lspcfg['csharp_ls'].setup({
-    handlers = {
-        ["textDocument/definition"] = cslsex_handler,
-        ["textDocument/typeDefinition"] = cslsex_handler,
-    },
-})
+lspcfg['csharp_ls'].setup({})
 lspcfg['bashls'].setup({})
 lspcfg['dockerls'].setup({})
 lspcfg['yamlls'].setup({})
@@ -166,6 +118,7 @@ lspcfg['pyright'].setup({
     }
 })
 lspcfg['taplo'].setup({})
+csls_ex.buf_read_cmd_bind()
 dapui.setup({
     controls = {
         element = "repl",
@@ -593,7 +546,7 @@ vim.diagnostic.config({
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.ui.select = mn_pick.ui_select
-vim.cmd("colorscheme base16-darcula")
+vim.cmd("colorscheme base16-tomorrow-night")
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
 vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})
