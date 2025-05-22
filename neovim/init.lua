@@ -21,6 +21,7 @@ add('lukas-reineke/indent-blankline.nvim')
 add('mfussenegger/nvim-dap-python')
 add('rcarriga/nvim-dap-ui')
 add('Decodetalkers/csharpls-extended-lsp.nvim')
+add('b0o/schemastore.nvim')
 add({source = 'mfussenegger/nvim-dap', depends = {{source = 'nvim-neotest/nvim-nio'}}})
 add({
     source = 'mason-org/mason-lspconfig.nvim',
@@ -48,6 +49,7 @@ local mason = require('mason')
 local mason_lspcfg = require('mason-lspconfig')
 local treesitter_cfg = require('nvim-treesitter.configs')
 local treesitter_ctx = require('treesitter-context')
+local schemastore = require('schemastore')
 local mn_starter = require('mini.starter')
 local mn_completion = require('mini.completion')
 local mn_pick = require('mini.pick')
@@ -100,7 +102,17 @@ lspcfg['lua_ls'].setup({})
 lspcfg['csharp_ls'].setup({})
 lspcfg['bashls'].setup({})
 lspcfg['dockerls'].setup({})
-lspcfg['yamlls'].setup({})
+lspcfg['yamlls'].setup({
+    settings = {
+        yaml = {
+            schemaStore = {
+                enable = false,
+                url = "",
+            },
+            schemas = schemastore.yaml.schemas(),
+        },
+    },
+})
 lspcfg['ruff'].setup({})
 lspcfg['pyright'].setup({
     settings = {
@@ -118,7 +130,14 @@ lspcfg['pyright'].setup({
     }
 })
 lspcfg['taplo'].setup({})
-lspcfg['jsonls'].setup({})
+lspcfg['jsonls'].setup({
+    settings = {
+        json = {
+            schemas = schemastore.json.schemas(),
+            validate = { enable = true },
+        },
+    },
+})
 csls_ex.buf_read_cmd_bind()
 dapui.setup({
     controls = {
