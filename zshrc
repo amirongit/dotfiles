@@ -22,8 +22,8 @@ source $ZSH/oh-my-zsh.sh
 alias ls='ls --color=none'
 alias vi='nvim'
 
-if [[ -z "$TMUX" ]]; then
-    tmux new -A -s RCH;
-fi
+# if [[ -z "$TMUX" ]]; then
+#     tmux new -A -s RCH;
+# fi
 
 # gpg-connect-agent updatestartuptty /bye >/dev/null

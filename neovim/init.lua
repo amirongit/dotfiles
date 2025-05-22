@@ -23,9 +23,9 @@ add('rcarriga/nvim-dap-ui')
 add('Decodetalkers/csharpls-extended-lsp.nvim')
 add({source = 'mfussenegger/nvim-dap', depends = {{source = 'nvim-neotest/nvim-nio'}}})
 add({
-    source = 'williamboman/mason.nvim',
+    source = 'mason-org/mason-lspconfig.nvim',
     depends = {
-        {source = 'williamboman/mason-lspconfig.nvim'},
+        {source = 'mason-org/mason.nvim'},
         {source = 'neovim/nvim-lspconfig'}
     }
 })
@@ -118,6 +118,7 @@ lspcfg['pyright'].setup({
     }
 })
 lspcfg['taplo'].setup({})
+lspcfg['jsonls'].setup({})
 csls_ex.buf_read_cmd_bind()
 dapui.setup({
     controls = {
@@ -272,6 +273,7 @@ mn_icons.tweak_lsp_kind('replace')
 mn_cursorword.setup({delay = 500})
 mason.setup()
 mason_lspcfg.setup({
+    automatic_enable = false,
     ensure_installed = {
         'lua_ls',
         'csharp_ls',
@@ -280,7 +282,8 @@ mason_lspcfg.setup({
         'yamlls',
         'ruff',
         'pyright',
-        'taplo'
+        'taplo',
+        'jsonls'
     }
 })
 dap_py.setup("uv")

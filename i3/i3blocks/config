@@ -1,3 +1,8 @@
+[i3-focusedwindow]
+label=
+command=i3blocks-contrib/i3-focusedwindow/i3-focusedwindow 31
+interval=persist
+
 [volume]
 command=i3blocks-contrib/volume/volume
 interval=5

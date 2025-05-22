@@ -7,16 +7,16 @@ font pango: PT Serif 9
 focus_follows_mouse yes
 # smart_gaps on
 # smart_borders on
-# for_window [class="."] border pixel 2
+for_window [class="."] border pixel 2
 
-new_window normal 0
-new_float normal 0
+# new_window normal 0
+# new_float normal 0
 title_align left
 
-gaps inner 8
-gaps outer 4
+gaps inner 4
+gaps outer 2
 
-workspace_layout tabbed
+# workspace_layout tabbed
 
 set $ActiveBackGround      #81a2be
 set $ActiveBorder          #000000
@@ -88,8 +88,8 @@ bindsym $mod+Tab focus mode_toggle
 bindsym $mod+Down split v
 bindsym $mod+Right split h
 
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
+# bindsym $mod+s layout stacking
+# bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 set $ws1 "RCH"
@@ -153,10 +153,10 @@ for_window [class="lximage-qt"] floating enable
 for_window [class="nekoray"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 
-# client.focused            $ActiveBorder    $ActiveBackGround    $ActiveText    $ActiveBackGround
-# client.focused_inactive   $InActiveBorder  $InActiveBackGround  $InActiveText  $InActiveBackGround
-# client.unfocused          $UnFocusedBorder $UnFocusedBackGround $UnFocusedText $UnFocusedBackGround
-# client.urgent             $UrgentBorder    $UrgentBackGround    $UrgentText    $UrgentBackGround
+client.focused            $ActiveBorder    $ActiveBackGround    $ActiveText    $ActiveBackGround
+client.focused_inactive   $InActiveBorder  $InActiveBackGround  $InActiveText  $InActiveBackGround
+client.unfocused          $UnFocusedBorder $UnFocusedBackGround $UnFocusedText $UnFocusedBackGround
+client.urgent             $UrgentBorder    $UrgentBackGround    $UrgentText    $UrgentBackGround
 
 mode "RESIZE" {
 
@@ -195,7 +195,7 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        position bottom
+        position top
         status_command i3blocks
         separator_symbol ">"
         tray_output none
@@ -204,16 +204,16 @@ bar {
         output primary
         font pango: PT Serif 12
         colors {
-        #    background $BarBackGround
+            background $BarBackGround
             separator #ffffff
-        #    focused_workspace  $BarActiveBorder   $BarActiveBackGround   $BarActiveText
-        #    inactive_workspace $BarInActiveBorder $BarInActiveBackGround $BarInActiveText
-        #    urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
+            focused_workspace  $BarActiveBorder   $BarActiveBackGround   $BarActiveText
+            inactive_workspace $BarInActiveBorder $BarInActiveBackGround $BarInActiveText
+            urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
         }
 }
 
 bar {
-        position bottom
+        position top
         status_command i3blocks
         separator_symbol ">"
         tray_output none
@@ -222,10 +222,10 @@ bar {
         output HDMI-1
         font pango: PT Serif 9
         colors {
-        #    background $BarBackGround
+            background $BarBackGround
             separator #ffffff
-        #    focused_workspace  $BarActiveBorder   $BarActiveBackGround   $BarActiveText
-        #    inactive_workspace $BarInActiveBorder $BarInActiveBackGround $BarInActiveText
-        #    urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
+            focused_workspace  $BarActiveBorder   $BarActiveBackGround   $BarActiveText
+            inactive_workspace $BarInActiveBorder $BarInActiveBackGround $BarInActiveText
+            urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
         }
 }
