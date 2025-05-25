@@ -1,5 +1,6 @@
 export LANG=en_US.UTF-8
 export DOTNET_ROOT=$HOME/.dotnet
+export npm_config_prefix="$HOME/.local"
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.dotnet/tools:$HOME/.local/bin:$HOME/.local/share/uv/tools:$HOME/go/bin:$HOME/.cargo/bin:$DOTNET_ROOT:$DOTNET_ROOT/tools:$PATH
 export GPG_TTY=$(tty)
 export TMUX_SESSION=RCH
