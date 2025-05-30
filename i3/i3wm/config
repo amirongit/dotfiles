@@ -7,42 +7,42 @@ font pango: PT Serif 9
 focus_follows_mouse yes
 # smart_gaps on
 # smart_borders on
-for_window [class="."] border pixel 2
+# for_window [class="."] border pixel 2
 
-# new_window normal 0
-# new_float normal 0
+new_window normal 0
+new_float normal 0
 title_align left
 
 gaps inner 4
 gaps outer 2
 
-# workspace_layout tabbed
+workspace_layout tabbed
 
-set $ActiveBackGround      #81a2be
-set $ActiveBorder          #000000
-set $ActiveText            #1d1f21
+set $ActiveBackGround      #D7DAE0
+set $ActiveBorder          #D7DAE0
+set $ActiveText            #1E1E28
 
-set $UnFocusedBackGround   #969896
-set $UnFocusedBorder       #000000
-set $UnFocusedText         #ffffff
+set $UnFocusedBackGround   #575268
+set $UnFocusedBorder       #575268
+set $UnFocusedText         #D7DAE0
 
-set $InActiveBackGround    #969896
-set $InActiveBorder        #000000
-set $InActiveText          #ffffff
+set $InActiveBackGround    #1E1E28
+set $InActiveBorder        #1E1E28
+set $InActiveText          #D7DAE0
 
-set $UrgentBackGround      #cc6666
-set $UrgentBorder          #000000
-set $UrgentText            #1d1f21
+set $UrgentBackGround      #F28FAD
+set $UrgentBorder          #F28FAD
+set $UrgentText            #1A1826
 
-set $BarBackGround         #1d1f21
+set $BarBackGround         #1E1E28
 
-set $BarActiveBackGround   #bbb529
+set $BarActiveBackGround   #DDB6F2
 set $BarActiveBorder       #00000000
-set $BarActiveText         #1d1f21
+set $BarActiveText         #1A1826
 
-set $BarInActiveBackGround #969896
+set $BarInActiveBackGround #575268
 set $BarInActiveBorder     #00000000
-set $BarInActiveText       #1d1f21
+set $BarInActiveText       #D7DAE0
 
 exec_always picom --config /home/amir/.config/picom/picom.conf
 exec_always xset -b
@@ -88,8 +88,8 @@ bindsym $mod+Tab focus mode_toggle
 bindsym $mod+Down split v
 bindsym $mod+Right split h
 
-# bindsym $mod+s layout stacking
-# bindsym $mod+t layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 set $ws1 "RCH"

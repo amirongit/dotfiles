@@ -1,6 +1,6 @@
 [global]
     frame_width = 1
-    frame_color = "#4c7899"
+    frame_color = "#C9CBFF"
     origin = top-right
     font = PT Serif 12
     markup = yes
@@ -32,20 +32,20 @@
     max_icon_size=64
     width = (200, 400)
 
-frame_color = "#4c7899"
-separator_color = "#4c7899"
+frame_color = "#C9CBFF"
+separator_color = "#6E6C7C"
 
-[base16_low]
+[urgency_low]
     msg_urgency = low
-    background = "#285577"
-    foreground = "#e4e4e4"
+    background = "#1E1E28"
+    foreground = "#D7DAE0"
 
-[base16_normal]
+[urgency_normal]
     msg_urgency = normal
-    background = "#285577"
-    foreground = "#e4e4e4"
+    background = "#1E1E28"
+    foreground = "#D7DAE0"
 
-[base16_critical]
+[urgency_critical]
     msg_urgency = critical
-    background = "#285577"
-    foreground = "#e4e4e4"
+    background = "#F28FAD"
+    foreground = "#1A1826"

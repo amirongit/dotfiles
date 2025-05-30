@@ -64,6 +64,7 @@ local mn_trailspace = require('mini.trailspace')
 local mn_animate = require('mini.animate')
 local mn_cursorword = require('mini.cursorword')
 local mn_icons = require('mini.icons')
+local mn_tabline = require('mini.tabline')
 local keycode = vim.keycode or function(x)
     return vim.api.nvim_replace_termcodes(x, true, true, true)
 end
@@ -295,7 +296,7 @@ mason_lspcfg.setup({
     automatic_enable = false,
     ensure_installed = {
         'lua_ls',
-        'csharp_ls',
+        'csharp-language-server',
         'bashls',
         'dockerls',
         'yamlls',
@@ -357,7 +358,6 @@ ibl.setup({scope = {enabled = false}, indent = {highlight = ibl_highlight}})
 mn_indentscope.setup({
     draw = {
         delay = 250,
-        animation = mn_indentscope.gen_animation.quadratic({easing = 'out', duration = 1000, unit = 'total'}),
         priority = 2,
     },
     mappings = {},
@@ -414,6 +414,11 @@ mn_hipatterns.setup({
         warning = {pattern = '%f[%w]()warning()%f[%W]', group = 'MiniHipatternsFixme'},
         hex_color = mn_hipatterns.gen_highlighter.hex_color(),
     }
+})
+mn_tabline.setup({
+    show_icons = true,
+    format = nil,
+    tabpage_section = 'right',
 })
 
 -- vim.keymap.set("n", "H", "gT")
@@ -531,7 +536,7 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.mouse = ""
 vim.opt.cmdheight = 1
-vim.opt.showtabline = 0
+-- vim.opt.showtabline = 0
 vim.opt.scrolloff = 0
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.tabstop = 4
@@ -568,7 +573,7 @@ vim.diagnostic.config({
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.ui.select = mn_pick.ui_select
-vim.cmd("colorscheme base16-tomorrow-night")
+vim.cmd("colorscheme base16-catppuccin")
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
 vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})
