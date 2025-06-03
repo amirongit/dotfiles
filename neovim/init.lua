@@ -573,7 +573,7 @@ vim.diagnostic.config({
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.ui.select = mn_pick.ui_select
-vim.cmd("colorscheme base16-catppuccin")
+vim.cmd("colorscheme base16-gruvbox-dark-hard")
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
 vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})
