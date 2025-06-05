@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 source $HOME/antigen.zsh
 antigen use oh-my-zsh
-antigen theme agnoster
+antigen theme frisk
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
@@ -16,12 +16,15 @@ antigen apply
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4e5165"
 DISABLE_MAGIC_FUNCTIONS=true
 DEFAULT_USER=amir
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 source $ZSH/oh-my-zsh.sh
 
 
 alias ls='ls --color=none'
 alias vi='nvim'
+
+setopt no_share_history
+unsetopt share_history
 
 # if [[ -z "$TMUX" ]]; then
 #     tmux new -A -s RCH;
