@@ -161,7 +161,8 @@ dapui.setup({
     floating = {border = "single", mappings = {close = {"q", "<Esc>"}}},
     force_buffers = true,
     icons = {collapsed = "", current_frame = "", expanded = ""},
-    layouts = {{
+    layouts = {
+        {
             elements = {
                 {id = "breakpoints", size = 0.20},
                 {id = "stacks", size = 0.20},
@@ -174,7 +175,8 @@ dapui.setup({
             elements = {{id = "repl", size = 0.5}, {id = "console", size = 0.5}},
             position = "bottom",
             size = 10
-    }},
+        }
+    },
     mappings = {
         edit = "e",
         expand = "<CR>",
@@ -384,16 +386,16 @@ mn_statusline.setup({
 
             return mn_statusline.combine_groups({
                 -- {hl = 'TSVariable', strings = {'%{mode()} %t %m %r %h %w'}},
-                {hl = 'TSVariable', strings = {filename, diff, '%r'}},
+                {hl = 'TermCursor', strings = {filename, diff, '%r'}},
                 '%=',
-                {hl = 'TSTitle', strings = {git, location, lsp, diagnostics, fileinfo}},
+                {hl = 'Substitute', strings = {git, location, lsp, diagnostics, fileinfo}},
             })
         end,
         inactive = function()
             return mn_statusline.combine_groups({
-                {hl = 'CursorLineNr', strings = {'%t %m %y'}},
+                {hl = 'MiniHipatternsNote', strings = {'%t %m %y'}},
                 '%=',
-                {hl = 'MatchParen', strings = {'%y'}},
+                {hl = 'MiniHipatternsNote', strings = {'%y'}},
             })
         end,
     },
@@ -501,7 +503,7 @@ vim.keymap.set(
 )
 
 vim.opt.compatible = false
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.backup = false
 vim.opt.hidden = true
 vim.opt.writebackup = false
@@ -573,7 +575,7 @@ vim.diagnostic.config({
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.ui.select = mn_pick.ui_select
-vim.cmd("colorscheme base16-gruvbox-dark-hard")
+vim.cmd("colorscheme base16-kanagawa")
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
 vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})

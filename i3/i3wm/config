@@ -18,31 +18,31 @@ gaps outer 2
 
 workspace_layout tabbed
 
-set $ActiveBackGround      #D7DAE0
-set $ActiveBorder          #D7DAE0
-set $ActiveText            #1E1E28
+set $ActiveBackGround      #C8C093
+set $ActiveBorder          #C8C093
+set $ActiveText            #1F1F28
 
-set $UnFocusedBackGround   #575268
-set $UnFocusedBorder       #575268
-set $UnFocusedText         #D7DAE0
+set $UnFocusedBackGround   #717C7C
+set $UnFocusedBorder       #717C7C
+set $UnFocusedText         #DCD7BA
 
-set $InActiveBackGround    #1E1E28
-set $InActiveBorder        #1E1E28
-set $InActiveText          #D7DAE0
+set $InActiveBackGround    #717C7C
+set $InActiveBorder        #717C7C
+set $InActiveText          #DCD7BA
 
-set $UrgentBackGround      #F28FAD
-set $UrgentBorder          #F28FAD
-set $UrgentText            #1A1826
+set $UrgentBackGround      #C34043
+set $UrgentBorder          #C34043
+set $UrgentText            #DCD7BA
 
-set $BarBackGround         #1E1E28
+set $BarBackGround         #1F1F28
 
-set $BarActiveBackGround   #DDB6F2
+set $BarActiveBackGround   #76946A
 set $BarActiveBorder       #00000000
-set $BarActiveText         #1A1826
+set $BarActiveText         #1F1F28
 
-set $BarInActiveBackGround #575268
+set $BarInActiveBackGround #957FB8
 set $BarInActiveBorder     #00000000
-set $BarInActiveText       #D7DAE0
+set $BarInActiveText       #1F1F28
 
 exec_always picom --config /home/amir/.config/picom/picom.conf
 exec_always xset -b
