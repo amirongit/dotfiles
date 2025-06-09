@@ -14,7 +14,7 @@ mn_deps.setup({path = {package = package_directory}})
 local add = mn_deps.add
 local update = MiniDeps.update
 local later = MiniDeps.later
-add('RRethy/base16-nvim')
+add('rebelot/kanagawa.nvim')
 add('tpope/vim-fugitive')
 add('tpope/vim-dadbod')
 add('lukas-reineke/indent-blankline.nvim')
@@ -42,6 +42,7 @@ local dap = require('dap')
 local dapui = require('dapui')
 local dap_py = require("dap-python")
 local lspcfg = require('lspconfig')
+local kanagawa = require('kanagawa')
 local csls_ex = require('csharpls_extended')
 local ibl = require('ibl')
 local ibl_hooks = require("ibl.hooks")
@@ -285,6 +286,38 @@ get_height(root.right, current))
     query_updaters = 'abcdefghijklmnopqrstuvwxyz0123456789_-.',
     silent = true,
 })
+kanagawa.setup({
+    compile = false,
+    undercurl = true,
+    commentStyle = { italic = true },
+    functionStyle = { italic = true },
+    keywordStyle = { italic = true },
+    statementStyle = { bold = true },
+    typeStyle = {},
+    transparent = false,
+    dimInactive = false,
+    terminalColors = true,
+    colors = {
+        palette = {},
+        theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+    },
+    overrides = function(colors)
+        local theme = colors.theme
+        return {
+            NormalFloat = { bg = "none" },
+            FloatBorder = { bg = "none" },
+            FloatTitle = { bg = "none" },
+            NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+            LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+            MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+        }
+    end,
+    theme = "dragon",
+    background = {
+        dark = "dragon",
+        light = "lotus"
+    },
+})
 mn_extra.setup()
 mn_move.setup()
 mn_pairs.setup()
@@ -386,16 +419,14 @@ mn_statusline.setup({
 
             return mn_statusline.combine_groups({
                 -- {hl = 'TSVariable', strings = {'%{mode()} %t %m %r %h %w'}},
-                {hl = 'TermCursor', strings = {filename, diff, '%r'}},
+                {hl = 'PmenuThumb', strings = {filename, diff, '%r'}},
                 '%=',
-                {hl = 'Substitute', strings = {git, location, lsp, diagnostics, fileinfo}},
+                {hl = 'Cursor', strings = {git, location, lsp, diagnostics, fileinfo}},
             })
         end,
         inactive = function()
             return mn_statusline.combine_groups({
-                {hl = 'MiniHipatternsNote', strings = {'%t %m %y'}},
-                '%=',
-                {hl = 'MiniHipatternsNote', strings = {'%y'}},
+                {hl = 'CursorLine', strings = {'%t %m'}},
             })
         end,
     },
@@ -575,7 +606,7 @@ vim.diagnostic.config({
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.ui.select = mn_pick.ui_select
-vim.cmd("colorscheme base16-kanagawa")
+vim.cmd("colorscheme kanagawa-dragon")
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
 vim.api.nvim_set_hl(0, 'DiffAdd', {bg = 'darkcyan', fg = 'white', bold = true})
@@ -590,7 +621,7 @@ vim.api.nvim_set_hl(0, 'TabLineSel', {fg = 'DarkYellow', bg = 'bg'})
 vim.api.nvim_set_hl(0, 'NonText', {bold = false, italic = false, underline = false, fg = 'Gray'})
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', {fg = 'Gray', bold = true})
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', {fg = 'Gray', bold = true})
-vim.api.nvim_set_hl(0, 'MiniCursorword', {underline = true})
+vim.api.nvim_set_hl(0, 'MiniCursorword', {underline = false, fg = 'White'})
 vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
 vim.fn.sign_define('DapBreakpoint', {text = '●'})
 vim.fn.sign_define(
