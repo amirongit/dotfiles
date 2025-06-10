@@ -1,6 +1,6 @@
 [global]
     frame_width = 1
-    frame_color = "#7E9CD8"
+    frame_color = "#DCD7BA"
     origin = top-right
     font = PT Serif 12
     markup = yes
@@ -33,19 +33,19 @@
     width = (200, 400)
 
 frame_color = "#DCD7BA"
-separator_color = "#C0A36E"
+separator_color = "#223249"
 
 [urgency_low]
     msg_urgency = low
-    background = "#1F1F28"
+    background = "#2D4F67"
     foreground = "#DCD7BA"
 
 [urgency_normal]
     msg_urgency = normal
-    background = "#1F1F28"
+    background = "#2D4F67"
     foreground = "#DCD7BA"
 
 [urgency_critical]
     msg_urgency = critical
-    background = "#C34043"
+    background = "#2D4F67"
     foreground = "#DCD7BA"

@@ -13,41 +13,41 @@ new_window normal 0
 new_float normal 0
 title_align left
 
-gaps inner 4
-gaps outer 2
+# gaps inner 4
+# gaps outer 2
 
 workspace_layout tabbed
 
-set $ActiveBackGround      #C8C093
-set $ActiveBorder          #C8C093
-set $ActiveText            #1F1F28
+set $ActiveBackGround      #2D4F67
+set $ActiveBorder          #2D4F67
+set $ActiveText            #DCD7BA
 
-set $UnFocusedBackGround   #717C7C
-set $UnFocusedBorder       #717C7C
+set $UnFocusedBackGround   #223249
+set $UnFocusedBorder       #223249
 set $UnFocusedText         #DCD7BA
 
-set $InActiveBackGround    #717C7C
-set $InActiveBorder        #717C7C
+set $InActiveBackGround    #2B3328
+set $InActiveBorder        #2B3328
 set $InActiveText          #DCD7BA
 
-set $UrgentBackGround      #C34043
-set $UrgentBorder          #C34043
+set $UrgentBackGround      #E82424
+set $UrgentBorder          #E82424
 set $UrgentText            #DCD7BA
 
-set $BarBackGround         #1F1F28
+set $BarBackGround         #223249
 
-set $BarActiveBackGround   #76946A
+set $BarActiveBackGround   #2D4F67
 set $BarActiveBorder       #00000000
-set $BarActiveText         #1F1F28
+set $BarActiveText         #DCD7BA
 
-set $BarInActiveBackGround #957FB8
+set $BarInActiveBackGround #223249
 set $BarInActiveBorder     #00000000
-set $BarInActiveText       #1F1F28
+set $BarInActiveText       #DCD7BA
 
 exec_always picom --config /home/amir/.config/picom/picom.conf
 exec_always xset -b
 # exec_always hsetroot -solid '#000000'
-exec_always feh --bg-fill ~/.local/share/backgrounds/jack-b-S3SU988T13A-unsplash.jpg
+exec_always feh --bg-scale ~/.local/share/backgrounds/pexels-fazel-abdolhossainy-2149529167-30665591.jpg
 exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
 exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off
 exec_always xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
@@ -195,7 +195,7 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        position top
+        position bottom
         status_command i3blocks
         separator_symbol ">"
         tray_output none
@@ -213,7 +213,7 @@ bar {
 }
 
 bar {
-        position top
+        position bottom
         status_command i3blocks
         separator_symbol ">"
         tray_output none
