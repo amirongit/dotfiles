@@ -31,3 +31,7 @@ unsetopt share_history
 # fi
 
 # gpg-connect-agent updatestartuptty /bye >/dev/null
+
+# export http_proxy="socks5://ip:port"
+# export https_proxy="socks5://ip:port"
+# export ftp_proxy="socks5://ip:port"
