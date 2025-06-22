@@ -2,7 +2,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # font pango: Latin Modern Sans Demi Cond Regular  9
-font pango: PT Serif 9
+font pango: PT Serif 11
 
 focus_follows_mouse yes
 # smart_gaps on
@@ -37,11 +37,11 @@ set $UrgentText            #DCD7BA
 set $BarBackGround         #223249
 
 set $BarActiveBackGround   #2D4F67
-set $BarActiveBorder       #00000000
+set $BarActiveBorder       #223249
 set $BarActiveText         #DCD7BA
 
 set $BarInActiveBackGround #223249
-set $BarInActiveBorder     #00000000
+set $BarInActiveBorder     #223249
 set $BarInActiveText       #DCD7BA
 
 exec_always picom --config /home/amir/.config/picom/picom.conf
@@ -49,7 +49,7 @@ exec_always xset -b
 # exec_always hsetroot -solid '#000000'
 exec_always feh --bg-scale ~/.local/share/backgrounds/pexels-fazel-abdolhossainy-2149529167-30665591.jpg
 exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
-exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off
+# exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off
 exec_always xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym Print exec maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
@@ -132,7 +132,7 @@ assign [class="Deluge"] $ws2
 assign [class="Uget-gtk"] $ws2
 assign [class="Virt-manager"] $ws5
 assign [class="VirtualBox Manager"] $ws5
-assign [class="VirtualBox"] $ws5
+# assign [class="VirtualBox"] $ws5
 assign [class="Atom"] $ws3
 
 for_window [class="Virt-manager"] floating enable
@@ -195,14 +195,14 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        position bottom
+        position top
         status_command i3blocks
         separator_symbol ">"
         tray_output none
         # mode hide
         height 19
         output primary
-        font pango: PT Serif 12
+        font pango: PT Serif 10
         colors {
             background $BarBackGround
             separator #ffffff

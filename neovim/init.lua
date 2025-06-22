@@ -8,9 +8,9 @@ require('pinoq.pmanip')
 require('pinoq.ptui')
 require('pinoq.pextra')
 
-vim.keymap.set("n", "H", ":bprevious<CR>", {silent = true})
-vim.keymap.set("n", "L", ":bnext<CR>", {silent = true})
-vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", {silent = true})
+vim.keymap.set("n", "H", ":bprevious<CR>", { silent = true })
+vim.keymap.set("n", "L", ":bnext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", { silent = true })
 
 vim.opt.compatible = false
 vim.opt.backup = false
@@ -21,11 +21,8 @@ vim.opt.expandtab = true
 vim.opt.shiftround = true
 vim.opt.smarttab = true
 vim.opt.autoindent = true
-vim.opt.list = true
 vim.opt.splitbelow = true
 vim.opt.cp = false
-vim.opt.number = true
-vim.opt.relativenumber = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = false
@@ -37,7 +34,6 @@ vim.opt.showcmd = false
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.mouse = ""
-vim.opt.cmdheight = 1
 -- vim.opt.showtabline = 0
 vim.opt.scrolloff = 0
 vim.opt.clipboard:append("unnamedplus")
@@ -46,9 +42,15 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.encoding = "utf-8"
 vim.opt.updatecount = 0
-vim.opt.wildmode = {"list:longest", "list:full"}
+vim.opt.wildmode = { "list:longest", "list:full" }
 vim.opt.virtualedit = "none"
 vim.opt.backspace = "indent,eol,start"
-vim.opt.shortmess:append("C")
 vim.opt.updatetime = 300
 vim.opt.laststatus = 2
+
+
+
+vim.keymap.set("n", "<Up>", ":resize -1<CR>", { silent = true })
+vim.keymap.set("n", "<Down>", ":resize +1<CR>", { silent = true })
+vim.keymap.set("n", "<Left>", ":vertical resize -1<CR>", { silent = true })
+vim.keymap.set("n", "<Right>", ":vertical resize +1<CR>", { silent = true })

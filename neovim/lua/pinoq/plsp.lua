@@ -79,7 +79,7 @@ vim.keymap.set('n', '<leader>sig', vim.lsp.buf.signature_help)
 vim.keymap.set('n', '<leader>act', vim.lsp.buf.code_action)
 vim.keymap.set('n', 'K', vim.diagnostic.goto_prev)
 vim.keymap.set('n', 'J', vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>res", ":LspRestart<CR>", {silent = true})
+vim.keymap.set("n", "<leader>res", ":LspRestart<CR>", { silent = true })
 
 vim.diagnostic.config({
     virtual_text = true,
