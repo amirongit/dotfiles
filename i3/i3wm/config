@@ -2,7 +2,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # font pango: Latin Modern Sans Demi Cond Regular  9
-font pango: PT Serif 11
+font pango: PT Serif 10
 
 focus_follows_mouse yes
 # smart_gaps on
@@ -46,10 +46,10 @@ set $BarInActiveText       #DCD7BA
 
 exec_always picom --config /home/amir/.config/picom/picom.conf
 exec_always xset -b
-# exec_always hsetroot -solid '#000000'
-exec_always feh --bg-scale ~/.local/share/backgrounds/pexels-fazel-abdolhossainy-2149529167-30665591.jpg
 exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
-# exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off
+exec_always /home/amir/.local/share/envscripts/configure-displays.sh
+exec_always sleep 0.5 && feh --bg-scale ~/.local/share/backgrounds/shavr-ik-Mv_e78hOVkE-unsplash.jpg
+# exec_always hsetroot -solid '#717C7C'
 exec_always xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym Print exec maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
@@ -67,8 +67,8 @@ bindsym XF86MonBrightnessUp exec brightnessctl -d "intel_backlight" set 500+
 bindsym XF86MonBrightnessDown exec brightnessctl -d "intel_backlight" set 500-
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send "Audio output $(pactl get-sink-mute @DEFAULT_SINK@)"
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send "Audio input $(pactl get-source-mute @DEFAULT_SOURCE@)"
 
 bindsym $mod+h focus left
 bindsym $mod+l focus right
@@ -151,7 +151,7 @@ for_window [class="Pcmanfm"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="lximage-qt"] floating enable
 for_window [class="nekoray"] floating enable
-for_window [class="TelegramDesktop"] floating enable
+# for_window [class="TelegramDesktop"] floating enable
 
 client.focused            $ActiveBorder    $ActiveBackGround    $ActiveText    $ActiveBackGround
 client.focused_inactive   $InActiveBorder  $InActiveBackGround  $InActiveText  $InActiveBackGround
@@ -201,7 +201,7 @@ bar {
         tray_output none
         # mode hide
         height 19
-        output primary
+        output eDP-1
         font pango: PT Serif 10
         colors {
             background $BarBackGround
@@ -213,7 +213,7 @@ bar {
 }
 
 bar {
-        position bottom
+        position top
         status_command i3blocks
         separator_symbol ">"
         tray_output none
