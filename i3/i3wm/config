@@ -112,6 +112,8 @@ bindsym $mod+Shift+5 move container to workspace $ws5
 
 bindsym $mod+Shift+Right move workspace to output right
 bindsym $mod+Shift+Left move workspace to output left
+bindsym $mod+Shift+Up move workspace to output up
+bindsym $mod+Shift+Down move workspace to output down
 
 assign [class="Inkscape"] $ws4
 assign [class="obs"] $ws4
