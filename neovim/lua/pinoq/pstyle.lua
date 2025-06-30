@@ -54,13 +54,13 @@ vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', { fg = 'Gray', bold = true })
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', { fg = 'Gray', bold = true })
 vim.api.nvim_set_hl(0, 'MiniCursorword', { underline = false, fg = 'LightRed' })
 vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
-vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#C34043" })
-vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#DCA561" })
-vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#658594" })
-vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#FF5D62" })
-vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#7AA89F" })
-vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#D27E99" })
-vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#7E9CD8" })
+vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#43242B" })
+vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#49443C" })
+vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#717C7C" })
+vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#6A9589" })
+vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#2B3328" })
+vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#54546D" })
+vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#2D4F67" })
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "LightBlue" })
 
 mn_animate.setup()
@@ -135,12 +135,12 @@ mn_icons.tweak_lsp_kind('replace')
 
 vim.opt.cursorline = false
 vim.opt.listchars = {
-    tab = '→ ',
-    trail = '܁',
-    -- extends = '➔',
-    -- precedes = '➔',
-    space = '܁',
-    eol = '↓',
+    tab = '> ',
+    trail = '.',
+    extends = '➔',
+    precedes = '➔',
+    -- space = '.',
+    -- eol = '↓',
 }
 vim.opt.fillchars = { eob = " ", fold = " " }
 vim.opt.background = "dark"
@@ -159,6 +159,6 @@ vim.opt.list = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cmdheight = 1
-vim.opt.shortmess:append("C")
+-- vim.opt.shortmess:append("C")
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3

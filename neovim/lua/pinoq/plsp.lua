@@ -19,7 +19,7 @@ mason_lspcfg.setup({
     automatic_enable = false,
     ensure_installed = {
         'lua_ls',
-        'csharp_ls',
+        -- 'csharp_ls',
         'bashls',
         'dockerls',
         'yamlls',
@@ -30,7 +30,7 @@ mason_lspcfg.setup({
     }
 })
 lspcfg['lua_ls'].setup({})
-lspcfg['csharp_ls'].setup({})
+-- lspcfg['csharp_ls'].setup({})
 lspcfg['bashls'].setup({})
 lspcfg['dockerls'].setup({})
 lspcfg['yamlls'].setup({
@@ -70,7 +70,7 @@ lspcfg['jsonls'].setup({
     },
 })
 
-csls_ex.buf_read_cmd_bind()
+-- csls_ex.buf_read_cmd_bind()
 
 vim.keymap.set('n', '<leader>ren', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>doc', vim.lsp.buf.hover)

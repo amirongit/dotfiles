@@ -109,9 +109,7 @@ vim.keymap.set("n", "<leader>wym", ":Pick lsp scope='workspace_symbol'<CR>", { s
 vim.keymap.set("n", "<leader>kmp", ":Pick keymaps<CR>", { silent = true })
 vim.keymap.set("n", "<leader>cmt", ":Pick git_commits<CR>", { silent = true })
 vim.keymap.set("n", "<leader>brn", ":Pick git_branches<CR>", { silent = true })
-vim.keymap.set("n", "<leader>sex", ":Sexplore<CR>", { silent = true })
-vim.keymap.set("n", "<leader>vex", ":Vexplore<CR>", { silent = true })
-vim.keymap.set("n", "<leader>tex", ":Texplore<CR>", { silent = true })
+vim.keymap.set("n", "<leader>exp", ":Pick explorer<CR>", { silent = true })
 
 vim.ui.select = mn_pick.ui_select
 
