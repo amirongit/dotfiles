@@ -15,7 +15,6 @@ local add = mn_deps.add
 local update = MiniDeps.update
 local later = MiniDeps.later
 add('rebelot/kanagawa.nvim')
-add('tpope/vim-fugitive')
 add('tpope/vim-dadbod')
 add('lukas-reineke/indent-blankline.nvim')
 add('mfussenegger/nvim-dap-python')
@@ -32,5 +31,4 @@ add({
     hooks = { post_checkout = function() vim.cmd('TSUpdate') end }
 })
 add('nvim-treesitter/nvim-treesitter-context')
-add('SmiteshP/nvim-navic')
 -- update(nil, {force = true})

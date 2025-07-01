@@ -3,7 +3,6 @@ local csls_ex = require('csharpls_extended')
 local mason = require('mason')
 local mason_lspcfg = require('mason-lspconfig')
 local schemastore = require('schemastore')
-local navic = require("nvim-navic")
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -16,9 +15,6 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 end
 
 local function global_on_attach(client, bufnr)
-    if client.server_capabilities.documentSymbolProvider then
-        navic.attach(client, bufnr)
-    end
 end
 
 mason.setup()
@@ -26,7 +22,7 @@ mason_lspcfg.setup({
     automatic_enable = false,
     ensure_installed = {
         'lua_ls',
-        'csharp_ls',
+        -- 'csharp_ls',
         'bashls',
         'dockerls',
         'yamlls',

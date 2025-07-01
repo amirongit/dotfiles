@@ -9,7 +9,7 @@ local mn_animate = require('mini.animate')
 local mn_cursorword = require('mini.cursorword')
 local mn_icons = require('mini.icons')
 local mn_tabline = require('mini.tabline')
-local navic = require("nvim-navic")
+local mn_diff = require('mini.diff')
 
 kanagawa.setup({
     compile = false,
@@ -53,7 +53,7 @@ vim.api.nvim_set_hl(0, 'TabLineSel', { fg = 'DarkYellow', bg = 'bg' })
 vim.api.nvim_set_hl(0, 'NonText', { bold = false, italic = false, underline = false, fg = 'Gray' })
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', { fg = 'Gray', bold = true })
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', { fg = 'Gray', bold = true })
-vim.api.nvim_set_hl(0, 'MiniCursorword', { underline = false, fg = 'LightRed' })
+vim.api.nvim_set_hl(0, 'MiniCursorword', { underline = false, fg = 'LightBlue' })
 vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
 vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#43242B" })
 vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#49443C" })
@@ -63,9 +63,53 @@ vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#2B3328" })
 vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#54546D" })
 vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#2D4F67" })
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "LightBlue" })
+vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { bg = "none" })
+vim.api.nvim_set_hl(0, "MiniDiffSignChange", { bg = "none" })
+vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { bg = "none" })
 
-mn_animate.setup()
-mn_icons.setup()
+
+mn_animate.setup(
+    {
+        cursor = {
+            enable = true,
+            timing = mn_animate.gen_timing.linear({ duration = 50, unit = 'total' }),
+            path = mn_animate.gen_path.line()
+        },
+        scroll = {
+            enable = true,
+            timing = mn_animate.gen_timing.linear({ duration = 50, unit = 'total' }),
+            subscroll = mn_animate.gen_subscroll.equal()
+        },
+        resize = {
+            enable = true,
+            timing = mn_animate.gen_timing.linear({ duration = 50, unit = 'total' }),
+            subresize = mn_animate.gen_subresize.equal()
+        },
+        open = {
+            enable = true,
+            timing = mn_animate.gen_timing.linear({ duration = 50, unit = 'total' }),
+            winconfig = mn_animate.gen_winconfig.wipe(),
+            winblend = mn_animate.gen_winblend.linear()
+        },
+        close = {
+            enable = true,
+            timing = mn_animate.gen_timing.linear({ duration = 50, unit = 'total' }),
+            winconfig = mn_animate.gen_winconfig.wipe(),
+            winblend = mn_animate.gen_winblend.linear()
+        },
+    }
+)
+mn_icons.setup({
+    style = 'glyph',
+    default = {},
+    directory = {},
+    extension = {},
+    file = {},
+    filetype = {},
+    lsp = {},
+    os = {},
+    use_file_extension = function(ext, file) return true end,
+})
 mn_cursorword.setup({ delay = 500 })
 mn_indentscope.setup({
     draw = { delay = 250, priority = 2, },
@@ -76,33 +120,26 @@ mn_indentscope.setup({
 mn_statusline.setup({
     content = {
         active = function()
-            local first_strings = {}
-            local file_section;
-            local relative = vim.fn.expand('%')
-            if relative:sub(1,1) == "/" then
-                file_section = mn_icons.get('file', vim.fn.expand('%:t')) .. " " .. relative
-            else
-                file_section = mn_icons.get('file', vim.fn.expand('%:t')) .. " ./" .. relative
-            end
-            if navic.is_available() then
-                first_strings = file_section .. ' > ' .. navic.get_location()
-            else
-                first_strings = file_section
-            end
-
+            local mode, mode_hl = mn_statusline.section_mode({ trunc_width = 5 })
             return mn_statusline.combine_groups(
                 {
-                    { hl = 'PmenuSel',  strings = { first_strings } },
-                    -- { hl = 'CursorLine' },
+                    { hl = mode_hl, strings = { mode } },
+                    {
+                        hl = 'PmenuSel',
+                        strings = {
+                            mn_statusline.section_git({ trunc_width = 120 }),
+                            mn_statusline.section_diff({ trunc_width = 75 }),
+                            mn_statusline.section_diagnostics({ trunc_width = 75 }),
+                            mn_statusline.section_lsp({ trunc_width = 75 }),
+                        }
+                    },
                     '%=',
                     {
                         hl = 'Cursor',
                         strings = {
-                            mn_statusline.section_git({ trunc_width = 120 }),
+                            mn_statusline.section_fileinfo({ trunc_width = 120 }),
+                            mn_statusline.section_searchcount({ trunc_width = 75 }),
                             mn_statusline.section_location({ trunc_width = 75 }),
-                            mn_statusline.section_lsp({ trunc_width = 75 }),
-                            mn_statusline.section_diagnostics({ trunc_width = 75 }),
-                            mn_statusline.section_fileinfo({ trunc_width = 120 })
                         }
                     },
                 }
@@ -110,7 +147,7 @@ mn_statusline.setup({
         end,
         inactive = function()
             return mn_statusline.combine_groups({
-                { hl = 'CursorLine', strings = { mn_icons.get('file', vim.fn.expand('%:t')) .. " ./" .. vim.fn.expand('%') } },
+                { hl = 'CursorLine' },
             })
         end,
     },
@@ -133,49 +170,30 @@ mn_hipatterns.setup({
     }
 })
 mn_tabline.setup({ show_icons = true, format = nil, tabpage_section = 'right', })
-navic.setup({
-    icons = {
-        File          = mn_icons.get('lsp', 'File') .. " ",
-        Module        = mn_icons.get('lsp', 'Module') .. " ",
-        Namespace     = mn_icons.get('lsp', 'Namespace') .. " ",
-        Package       = mn_icons.get('lsp', 'Package') .. " ",
-        Class         = mn_icons.get('lsp', 'Class') .. " ",
-        Method        = mn_icons.get('lsp', 'Method') .. " ",
-        Property      = mn_icons.get('lsp', 'Property') .. " ",
-        Field         = mn_icons.get('lsp', 'Field') .. " ",
-        Constructor   = mn_icons.get('lsp', 'Constructor') .. " ",
-        Enum          = mn_icons.get('lsp', 'Enum') .. " ",
-        Interface     = mn_icons.get('lsp', 'Interface') .. " ",
-        Function      = mn_icons.get('lsp', 'Function') .. " ",
-        Variable      = mn_icons.get('lsp', 'Variable') .. " ",
-        Constant      = mn_icons.get('lsp', 'Constant') .. " ",
-        String        = mn_icons.get('lsp', 'String') .. " ",
-        Number        = mn_icons.get('lsp', 'Number') .. " ",
-        Boolean       = mn_icons.get('lsp', 'Boolean') .. " ",
-        Array         = mn_icons.get('lsp', 'Array') .. " ",
-        Object        = mn_icons.get('lsp', 'Object') .. " ",
-        Key           = mn_icons.get('lsp', 'Key') .. " ",
-        Null          = mn_icons.get('lsp', 'Null') .. " ",
-        EnumMember    = mn_icons.get('lsp', 'EnumMember') .. " ",
-        Struct        = mn_icons.get('lsp', 'Struct') .. " ",
-        Event         = mn_icons.get('lsp', 'Event') .. " ",
-        Operator      = mn_icons.get('lsp', 'Operator') .. " ",
-        TypeParameter = mn_icons.get('lsp', 'TypeParameter') .. " ",
+mn_diff.setup({
+    view = {
+        -- style = vim.go.number and 'number' or 'sign',
+        style = 'sign',
+        signs = { add = '+', change = '~', delete = '-' },
+        priority = 199,
     },
-    lsp = {
-        auto_attach = false,
-        preference = nil,
+    source = nil,
+    delay = { text_change = 200, },
+    mappings = {
+        apply = 'gh',
+        reset = 'gH',
+        textobject = 'gh',
+        goto_first = '[H',
+        goto_prev = '[h',
+        goto_next = ']h',
+        goto_last = ']H',
     },
-    highlight = false,
-    separator = " > ",
-    depth_limit = 0,
-    depth_limit_indicator = "..",
-    safe_output = true,
-    lazy_update_context = false,
-    click = false,
-    format_text = function(text)
-        return text
-    end,
+    options = {
+        algorithm = 'histogram',
+        indent_heuristic = true,
+        linematch = 60,
+        wrap_goto = false,
+    },
 })
 ibl.setup({
     scope = { enabled = false },
