@@ -22,19 +22,15 @@ add('mfussenegger/nvim-dap-python')
 add('rcarriga/nvim-dap-ui')
 add('Decodetalkers/csharpls-extended-lsp.nvim')
 add('b0o/schemastore.nvim')
-add({ source = 'mfussenegger/nvim-dap', depends = { { source = 'nvim-neotest/nvim-nio' } } })
+add('nvim-neotest/nvim-nio')
+add('mfussenegger/nvim-dap')
+add('mason-org/mason.nvim')
+add('neovim/nvim-lspconfig')
+add('mason-org/mason-lspconfig.nvim')
 add({
-    source = 'mason-org/mason-lspconfig.nvim',
-    depends = {
-        { source = 'mason-org/mason.nvim' },
-        { source = 'neovim/nvim-lspconfig' }
-    }
+    source = 'nvim-treesitter/nvim-treesitter',
+    hooks = { post_checkout = function() vim.cmd('TSUpdate') end }
 })
-add({
-    source = 'nvim-treesitter/nvim-treesitter-context',
-    depends = { {
-        source = 'nvim-treesitter/nvim-treesitter',
-        hooks = { post_checkout = function() vim.cmd('TSUpdate') end }
-    } }
-})
+add('nvim-treesitter/nvim-treesitter-context')
+add('SmiteshP/nvim-navic')
 -- update(nil, {force = true})

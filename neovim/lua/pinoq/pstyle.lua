@@ -9,6 +9,7 @@ local mn_animate = require('mini.animate')
 local mn_cursorword = require('mini.cursorword')
 local mn_icons = require('mini.icons')
 local mn_tabline = require('mini.tabline')
+local navic = require("nvim-navic")
 
 kanagawa.setup({
     compile = false,
@@ -75,8 +76,7 @@ mn_indentscope.setup({
 mn_statusline.setup({
     content = {
         active = function()
-            local git         = mn_statusline.section_git({ trunc_width = 40 });
-            local diff        = mn_statusline.section_diff({ trunc_width = 75 });
+            local git         = mn_statusline.section_git({ trunc_width = 120 });
             local diagnostics = mn_statusline.section_diagnostics({ trunc_width = 75 });
             local lsp         = mn_statusline.section_lsp({ trunc_width = 75 });
             local filename    = mn_statusline.section_filename({ trunc_width = 120 });
@@ -85,7 +85,7 @@ mn_statusline.setup({
 
             return mn_statusline.combine_groups({
                 -- {hl = 'TSVariable', strings = {'%{mode()} %t %m %r %h %w'}},
-                { hl = 'PmenuThumb', strings = { filename, diff, '%r' } },
+                { hl = 'PmenuThumb', strings = { '>', navic.get_location(), '%r' } },
                 '%=',
                 { hl = 'Cursor',     strings = { git, location, lsp, diagnostics, fileinfo } },
             })
@@ -115,6 +115,50 @@ mn_hipatterns.setup({
     }
 })
 mn_tabline.setup({ show_icons = true, format = nil, tabpage_section = 'right', })
+navic.setup({
+    icons = {
+        File          = mn_icons.get('lsp', 'File') .. " ",
+        Module        = mn_icons.get('lsp', 'Module') .. " ",
+        Namespace     = mn_icons.get('lsp', 'Namespace') .. " ",
+        Package       = mn_icons.get('lsp', 'Package') .. " ",
+        Class         = mn_icons.get('lsp', 'Class') .. " ",
+        Method        = mn_icons.get('lsp', 'Method') .. " ",
+        Property      = mn_icons.get('lsp', 'Property') .. " ",
+        Field         = mn_icons.get('lsp', 'Field') .. " ",
+        Constructor   = mn_icons.get('lsp', 'Constructor') .. " ",
+        Enum          = mn_icons.get('lsp', 'Enum') .. " ",
+        Interface     = mn_icons.get('lsp', 'Interface') .. " ",
+        Function      = mn_icons.get('lsp', 'Function') .. " ",
+        Variable      = mn_icons.get('lsp', 'Variable') .. " ",
+        Constant      = mn_icons.get('lsp', 'Constant') .. " ",
+        String        = mn_icons.get('lsp', 'String') .. " ",
+        Number        = mn_icons.get('lsp', 'Number') .. " ",
+        Boolean       = mn_icons.get('lsp', 'Boolean') .. " ",
+        Array         = mn_icons.get('lsp', 'Array') .. " ",
+        Object        = mn_icons.get('lsp', 'Object') .. " ",
+        Key           = mn_icons.get('lsp', 'Key') .. " ",
+        Null          = mn_icons.get('lsp', 'Null') .. " ",
+        EnumMember    = mn_icons.get('lsp', 'EnumMember') .. " ",
+        Struct        = mn_icons.get('lsp', 'Struct') .. " ",
+        Event         = mn_icons.get('lsp', 'Event') .. " ",
+        Operator      = mn_icons.get('lsp', 'Operator') .. " ",
+        TypeParameter = mn_icons.get('lsp', 'TypeParameter') .. " ",
+    },
+    lsp = {
+        auto_attach = false,
+        preference = nil,
+    },
+    highlight = false,
+    separator = " > ",
+    depth_limit = 0,
+    depth_limit_indicator = "..",
+    safe_output = true,
+    lazy_update_context = false,
+    click = false,
+    format_text = function(text)
+        return text
+    end,
+})
 ibl.setup({
     scope = { enabled = false },
     indent = {

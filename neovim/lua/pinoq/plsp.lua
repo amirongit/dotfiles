@@ -3,6 +3,7 @@ local csls_ex = require('csharpls_extended')
 local mason = require('mason')
 local mason_lspcfg = require('mason-lspconfig')
 local schemastore = require('schemastore')
+local navic = require("nvim-navic")
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -14,12 +15,18 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
+local function global_on_attach(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
+end
+
 mason.setup()
 mason_lspcfg.setup({
     automatic_enable = false,
     ensure_installed = {
         'lua_ls',
-        -- 'csharp_ls',
+        'csharp_ls',
         'bashls',
         'dockerls',
         'yamlls',
@@ -29,11 +36,12 @@ mason_lspcfg.setup({
         'jsonls'
     }
 })
-lspcfg['lua_ls'].setup({})
--- lspcfg['csharp_ls'].setup({})
-lspcfg['bashls'].setup({})
-lspcfg['dockerls'].setup({})
+lspcfg['lua_ls'].setup({on_attach = global_on_attach})
+lspcfg['csharp_ls'].setup({on_attach = global_on_attach})
+lspcfg['bashls'].setup({on_attach = global_on_attach})
+lspcfg['dockerls'].setup({on_attach = global_on_attach})
 lspcfg['yamlls'].setup({
+    on_attach = global_on_attach,
     settings = {
         yaml = {
             schemaStore = {
@@ -44,8 +52,9 @@ lspcfg['yamlls'].setup({
         },
     },
 })
-lspcfg['ruff'].setup({})
+lspcfg['ruff'].setup({on_attach = global_on_attach})
 lspcfg['pyright'].setup({
+    on_attach = global_on_attach,
     settings = {
         pyright = {
             disableOrganizeImports = true,
@@ -60,8 +69,9 @@ lspcfg['pyright'].setup({
         }
     }
 })
-lspcfg['taplo'].setup({})
+lspcfg['taplo'].setup({on_attach = global_on_attach})
 lspcfg['jsonls'].setup({
+    on_attach = global_on_attach,
     settings = {
         json = {
             schemas = schemastore.json.schemas(),
@@ -70,7 +80,7 @@ lspcfg['jsonls'].setup({
     },
 })
 
--- csls_ex.buf_read_cmd_bind()
+csls_ex.buf_read_cmd_bind()
 
 vim.keymap.set('n', '<leader>ren', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>doc', vim.lsp.buf.hover)
