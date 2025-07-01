@@ -173,7 +173,7 @@ mn_tabline.setup({ show_icons = true, format = nil, tabpage_section = 'right', }
 mn_diff.setup({
     view = {
         -- style = vim.go.number and 'number' or 'sign',
-        style = 'sign',
+        style = 'number',
         signs = { add = '+', change = '~', delete = '-' },
         priority = 199,
     },
