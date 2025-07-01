@@ -77,16 +77,23 @@ mn_statusline.setup({
     content = {
         active = function()
             local first_strings = {}
-            if navic.is_available() then
-                first_strings = mn_icons.get('lsp', 'File') .. " %t" .. ' > ' .. navic.get_location()
+            local file_section;
+            local relative = vim.fn.expand('%')
+            if relative:sub(1,1) == "/" then
+                file_section = mn_icons.get('file', vim.fn.expand('%:t')) .. " " .. relative
             else
-                first_strings = mn_statusline.section_filename({ trunc_width = 120 })
+                file_section = mn_icons.get('file', vim.fn.expand('%:t')) .. " ./" .. relative
+            end
+            if navic.is_available() then
+                first_strings = file_section .. ' > ' .. navic.get_location()
+            else
+                first_strings = file_section
             end
 
             return mn_statusline.combine_groups(
                 {
-                    { hl = 'PmenuSel', strings = { first_strings } },
-                    { hl = 'Normal' },
+                    { hl = 'PmenuSel',  strings = { first_strings } },
+                    -- { hl = 'CursorLine' },
                     '%=',
                     {
                         hl = 'Cursor',
@@ -103,7 +110,7 @@ mn_statusline.setup({
         end,
         inactive = function()
             return mn_statusline.combine_groups({
-                { hl = 'Normal', strings = { mn_icons.get('lsp', 'File') .. " %t" .. ' > ' .. navic.get_location() } },
+                { hl = 'CursorLine', strings = { mn_icons.get('file', vim.fn.expand('%:t')) .. " ./" .. vim.fn.expand('%') } },
             })
         end,
     },
