@@ -76,23 +76,34 @@ mn_indentscope.setup({
 mn_statusline.setup({
     content = {
         active = function()
-            local git         = mn_statusline.section_git({ trunc_width = 120 });
-            local diagnostics = mn_statusline.section_diagnostics({ trunc_width = 75 });
-            local lsp         = mn_statusline.section_lsp({ trunc_width = 75 });
-            local filename    = mn_statusline.section_filename({ trunc_width = 120 });
-            local fileinfo    = mn_statusline.section_fileinfo({ trunc_width = 120 });
-            local location    = mn_statusline.section_location({ trunc_width = 75 });
+            local first_strings = {}
+            if navic.is_available() then
+                first_strings = mn_icons.get('lsp', 'File') .. " %t" .. ' > ' .. navic.get_location()
+            else
+                first_strings = mn_statusline.section_filename({ trunc_width = 120 })
+            end
 
-            return mn_statusline.combine_groups({
-                -- {hl = 'TSVariable', strings = {'%{mode()} %t %m %r %h %w'}},
-                { hl = 'PmenuThumb', strings = { '>', navic.get_location(), '%r' } },
-                '%=',
-                { hl = 'Cursor',     strings = { git, location, lsp, diagnostics, fileinfo } },
-            })
+            return mn_statusline.combine_groups(
+                {
+                    { hl = 'PmenuSel', strings = { first_strings } },
+                    { hl = 'Normal' },
+                    '%=',
+                    {
+                        hl = 'Cursor',
+                        strings = {
+                            mn_statusline.section_git({ trunc_width = 120 }),
+                            mn_statusline.section_location({ trunc_width = 75 }),
+                            mn_statusline.section_lsp({ trunc_width = 75 }),
+                            mn_statusline.section_diagnostics({ trunc_width = 75 }),
+                            mn_statusline.section_fileinfo({ trunc_width = 120 })
+                        }
+                    },
+                }
+            )
         end,
         inactive = function()
             return mn_statusline.combine_groups({
-                { hl = 'CursorLine', strings = { '%t %m' } },
+                { hl = 'Normal', strings = { mn_icons.get('lsp', 'File') .. " %t" .. ' > ' .. navic.get_location() } },
             })
         end,
     },
