@@ -128,16 +128,13 @@ mn_statusline.setup({
                         hl = 'PmenuSel',
                         strings = {
                             mn_statusline.section_git({ trunc_width = 120 }),
-                            mn_statusline.section_diff({ trunc_width = 75 }),
-                            mn_statusline.section_diagnostics({ trunc_width = 75 }),
-                            mn_statusline.section_lsp({ trunc_width = 75 }),
+                            mn_statusline.section_fileinfo({ trunc_width = 120 }),
                         }
                     },
                     '%=',
                     {
                         hl = 'Cursor',
                         strings = {
-                            mn_statusline.section_fileinfo({ trunc_width = 120 }),
                             mn_statusline.section_searchcount({ trunc_width = 75 }),
                             mn_statusline.section_location({ trunc_width = 75 }),
                         }

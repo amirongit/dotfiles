@@ -22,7 +22,7 @@ mason_lspcfg.setup({
     automatic_enable = false,
     ensure_installed = {
         'lua_ls',
-        -- 'csharp_ls',
+        'csharp_ls',
         'bashls',
         'dockerls',
         'yamlls',
