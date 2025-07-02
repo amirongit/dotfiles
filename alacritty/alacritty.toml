@@ -1,0 +1,89 @@
+[general]
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[cursor.style]
+blinking = "Always"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 12
+
+[font.bold]
+family = "MonaspiceXe Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "MonaspiceXe Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "MonaspiceXe Nerd Font"
+style = "Medium"
+
+[font.normal]
+family = "MonaspiceXe Nerd Font"
+style = "Medium"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 500
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[window]
+dynamic_padding = false
+
+[window.padding]
+x = 5
+y = 5
+
+[colors.primary]
+background = '#181616'
+foreground = '#c5c9c5'
+
+[colors.normal]
+black = '#0d0c0c'
+red = '#c4746e'
+green = '#8a9a7b'
+yellow = '#c4b28a'
+blue = '#8ba4b0'
+magenta = '#a292a3'
+cyan = '#8ea4a2'
+white = '#c8c093'
+
+[colors.bright]
+black = '#a6a69c'
+red = '#e46876'
+green = '#87a987'
+yellow = '#e6c384'
+blue = '#7fb4ca'
+magenta = '#938aa9'
+cyan = '#7aa89f'
+white = '#c5c9c5'
+
+[colors.selection]
+background = '#2d4f67'
+foreground = '#c8c093'
+
+[[colors.indexed_colors]]
+index = 16
+color = '#b6927b'
+
+[[colors.indexed_colors]]
+index = 17
+color = '#b98d7b'
