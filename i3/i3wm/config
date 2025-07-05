@@ -11,12 +11,12 @@ focus_follows_mouse yes
 
 new_window normal 0
 new_float normal 0
-title_align left
+# title_align left
 
-# gaps inner 4
-# gaps outer 2
+# gaps inner 6
+# gaps outer 4
 
-workspace_layout tabbed
+# workspace_layout tabbed
 
 set $ActiveBackGround      #2D4F67
 set $ActiveBorder          #2D4F67
@@ -48,8 +48,8 @@ exec_always picom --config /home/amir/.config/picom/picom.conf
 exec_always xset -b
 exec_always setxkbmap -layout us,ir -option grp:win_space_toggle
 exec_always /home/amir/.local/share/envscripts/configure-displays.sh
-exec_always sleep 0.5 && feh --bg-scale ~/.local/share/backgrounds/shavr-ik-Mv_e78hOVkE-unsplash.jpg
-# exec_always hsetroot -solid '#717C7C'
+exec_always sleep 0.5 && feh --bg-fill ~/.local/share/backgrounds/403292mtsdl.jpg
+# exec_always hsetroot -solid '#493922'
 exec_always xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym Print exec maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
@@ -120,9 +120,10 @@ assign [class="obs"] $ws4
 assign [class="discord"] $ws1
 assign [class="libreoffice*"] $ws4
 assign [class="Steam"] $ws4
-assign [class="Brave-browser"] $ws2
+assign [class="torbrowser-launcher"] $ws2
 assign [class="Brave"] $ws2
 assign [class="Chromium"] $ws2
+assign [class="Tor Browser"] $ws2
 assign [class="firefox"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws1
@@ -137,6 +138,7 @@ assign [class="VirtualBox Manager"] $ws5
 # assign [class="VirtualBox"] $ws5
 assign [class="Atom"] $ws3
 
+for_window [class="torbrowser-launcher"] floating enable
 for_window [class="Virt-manager"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="VirtualBox Manager"] floating enable

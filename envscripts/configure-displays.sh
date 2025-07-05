@@ -1,7 +1,7 @@
 #!/bin/bash
 
 lid_state=$(awk '{print $2}' /proc/acpi/button/lid/LID/state )
-number_of_monitors=$(xrandr --listactivemonitors | grep Monitors | cut -d ' ' -f 2)
+number_of_monitors=$(xrandr | grep " connected " | wc -l)
 
 if [ "$lid_state" = "open" ]; then
     if [ "$number_of_monitors " -eq 2 ]; then
