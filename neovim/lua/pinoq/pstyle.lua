@@ -56,17 +56,23 @@ vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', { fg = 'Gray', bold = true })
 vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbolOff', { fg = 'Gray', bold = true })
 vim.api.nvim_set_hl(0, 'MiniCursorword', { underline = false, fg = 'LightBlue' })
 vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
-vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#43242B" })
-vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#49443C" })
-vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#717C7C" })
-vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#6A9589" })
-vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#2B3328" })
-vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#54546D" })
-vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#2D4F67" })
+vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#1F1F28" })
+vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#2A2A37" })
+vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#363646" })
+vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#54546D" })
+vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#223249" })
+vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#2D4F67" })
+vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#7E9CD8" })
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "LightBlue" })
 vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { bg = "none" })
 vim.api.nvim_set_hl(0, "MiniDiffSignChange", { bg = "none" })
 vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { bg = "none" })
+vim.api.nvim_set_hl(0, 'MiniStatuslineModeNormal', { bg = "#252535" })
+vim.api.nvim_set_hl(0, 'MiniStatuslineModeInsert', { bg = "#C34043" })
+vim.api.nvim_set_hl(0, 'MiniStatuslineModeVisual', { bg = "#2B3328" })
+vim.api.nvim_set_hl(0, 'MiniStatuslineModeReplace', { bg = "#C34043" })
+vim.api.nvim_set_hl(0, 'MiniStatuslineModeCommand', { bg = "#54546D" })
+vim.api.nvim_set_hl(0, 'MiniStatuslineModeOther', { bg = "#252535" })
 
 mn_animate.setup(
     {
@@ -125,7 +131,11 @@ mn_statusline.setup({
                         strings = {
                             mn_statusline.section_git({ trunc_width = 120 }),
                             mn_statusline.section_fileinfo({ trunc_width = 120 }),
-                        }
+                        },
+                    },
+                    {
+                        hl = mode_hl,
+                        strings = { mn_statusline.section_filename({ trunc_width = 120 }) }
                     },
                     '%=',
                     {
