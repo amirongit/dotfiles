@@ -48,6 +48,7 @@ vim.api.nvim_set_hl(0, 'CocWarningSign', { bg = 'brown', fg = 'white', bold = tr
 vim.api.nvim_set_hl(0, 'CocErrorSign', { bg = 'darkred', fg = 'white', bold = true })
 vim.api.nvim_set_hl(0, 'CocHintSign', { bg = 'lightblue', fg = 'white', bold = true })
 vim.api.nvim_set_hl(0, 'TabLineFill', { fg = 'Gray', bg = 'bg' })
+vim.api.nvim_set_hl(0, 'TabLineFill', { fg = 'Gray', bg = 'bg' })
 vim.api.nvim_set_hl(0, 'TabLine', { fg = 'Gray', bg = 'bg' })
 vim.api.nvim_set_hl(0, 'TabLineSel', { fg = 'DarkYellow', bg = 'bg' })
 vim.api.nvim_set_hl(0, 'NonText', { bold = false, italic = false, underline = false, fg = 'Gray' })
@@ -67,17 +68,12 @@ vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { bg = "none" })
 vim.api.nvim_set_hl(0, "MiniDiffSignChange", { bg = "none" })
 vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { bg = "none" })
 
-
 mn_animate.setup(
     {
-        cursor = {
-            enable = true,
-            timing = mn_animate.gen_timing.linear({ duration = 50, unit = 'total' }),
-            path = mn_animate.gen_path.line()
-        },
+        cursor = { enable = false, },
         scroll = {
             enable = true,
-            timing = mn_animate.gen_timing.linear({ duration = 50, unit = 'total' }),
+            timing = mn_animate.gen_timing.linear({ duration = 200, unit = 'total' }),
             subscroll = mn_animate.gen_subscroll.equal()
         },
         resize = {
@@ -87,13 +83,13 @@ mn_animate.setup(
         },
         open = {
             enable = true,
-            timing = mn_animate.gen_timing.linear({ duration = 50, unit = 'total' }),
+            timing = mn_animate.gen_timing.linear({ duration = 200, unit = 'total' }),
             winconfig = mn_animate.gen_winconfig.wipe(),
             winblend = mn_animate.gen_winblend.linear()
         },
         close = {
             enable = true,
-            timing = mn_animate.gen_timing.linear({ duration = 50, unit = 'total' }),
+            timing = mn_animate.gen_timing.linear({ duration = 200, unit = 'total' }),
             winconfig = mn_animate.gen_winconfig.wipe(),
             winblend = mn_animate.gen_winblend.linear()
         },
