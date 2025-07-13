@@ -20,6 +20,7 @@ c.auto_save.interval = 15000
 c.auto_save.session = True
 c.backend = 'webengine'
 c.bindings.key_mappings = {'<Shift-Return>': '<Return>', '<Enter>': '<Return>', '<Shift-Enter>': '<Return>', '<Ctrl-Enter>': '<Ctrl-Return>'}
+c.bindings.default = {}
 c.changelog_after_upgrade = 'minor'
 c.colors.downloads.system.bg = 'rgb'
 c.colors.downloads.system.fg = 'rgb'
@@ -390,6 +391,7 @@ c.zoom.default = '100%'
 c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 c.zoom.mouse_divider = 512
 # c.zoom.text_only = False
+config.bind('\\q', 'tab-close')
 config.bind('+', 'zoom-in')
 config.bind('-', 'zoom-out')
 config.bind('/', 'cmd-set-text /')
@@ -446,6 +448,7 @@ config.bind('w', 'move-to-next-word', mode='caret')
 config.bind('y', 'yank selection', mode='caret')
 config.bind('{', 'move-to-end-of-prev-block', mode='caret')
 config.bind('}', 'move-to-end-of-next-block', mode='caret')
+config.bind('<Escape>', 'mode-leave', mode='command')
 config.bind('<Alt-Backspace>', 'rl-backward-kill-word', mode='command')
 config.bind('<Ctrl-Shift-Tab>', 'completion-item-focus prev-category', mode='command')
 config.bind('<Ctrl-Tab>', 'completion-item-focus next-category', mode='command')
