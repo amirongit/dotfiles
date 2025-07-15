@@ -419,7 +419,7 @@ config.bind('<Escape>', 'clear-keychain ;; search ;; jseval -q document.activeEl
 config.bind('<Escape>', 'mode-leave', mode='caret')
 config.bind('<Escape>', 'mode-leave', mode='command')
 config.bind('<Escape>', 'mode-leave', mode='hint')
-config.bind('<Escape>', 'leave-mode ;; jseval -q document.activeElement.blur()', mode='insert')
+config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()', mode='insert')
 config.bind('<Escape>', 'mode-leave', mode='prompt')
 config.bind('<Escape>', 'mode-leave', mode='register')
 config.bind('<Escape>', 'mode-leave', mode='yesno')
