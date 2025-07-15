@@ -15,7 +15,7 @@ base0D = "#8ba4b0"
 base0E = "#8992a7"
 base0F = "#a292a3"
 config.load_autoconfig(False)
-c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save', 'o': 'open'}
+c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save', 'o': 'open', 'bd': 'tab-close'}
 c.auto_save.interval = 15000
 c.auto_save.session = True
 c.backend = 'webengine'
@@ -415,11 +415,11 @@ config.bind('<Ctrl-Tab>', 'completion-item-focus next-category', mode='command')
 config.bind('<Ctrl-U>', 'scroll-page 0 -0.5')
 config.bind('<Down>', 'completion-item-focus --history next', mode='command')
 config.bind('<Down>', 'prompt-item-focus next', mode='prompt')
-config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
+config.bind('<Escape>', 'clear-keychain ;; search ;; jseval -q document.activeElement.blur()')
 config.bind('<Escape>', 'mode-leave', mode='caret')
 config.bind('<Escape>', 'mode-leave', mode='command')
 config.bind('<Escape>', 'mode-leave', mode='hint')
-config.bind('<Escape>', 'mode-leave', mode='insert')
+config.bind('<Escape>', 'leave-mode ;; jseval -q document.activeElement.blur()', mode='insert')
 config.bind('<Escape>', 'mode-leave', mode='prompt')
 config.bind('<Escape>', 'mode-leave', mode='register')
 config.bind('<Escape>', 'mode-leave', mode='yesno')
@@ -453,7 +453,6 @@ config.bind('N', 'prompt-accept --save no', mode='yesno')
 config.bind('V', 'selection-toggle --line', mode='caret')
 config.bind('Y', 'prompt-accept --save yes', mode='yesno')
 config.bind('Y', 'yank selection -s', mode='caret')
-config.bind('\\q', 'tab-close')
 config.bind('b', 'move-to-prev-word', mode='caret')
 config.bind('e', 'move-to-end-of-word', mode='caret')
 config.bind('f', 'hint')
@@ -482,4 +481,3 @@ config.bind('{', 'move-to-end-of-prev-block', mode='caret')
 config.bind('|', 'move-to-start-of-line', mode='caret')
 config.bind('}', 'move-to-end-of-next-block', mode='caret')
 config.bind('.', 'cmd-repeat-last')
-config.bind('<Ctrl-Q>', 'wq')
