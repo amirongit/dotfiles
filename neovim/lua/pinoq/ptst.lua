@@ -15,7 +15,7 @@ treesitter_cfg.setup({
     },
     sync_install = true,
     auto_install = true,
-    highlight = { enable = true },
+    highlight = { enable = false }, -- BUGGED AS FUCK!
 })
 treesitter_ctx.setup({
     enable = true,
@@ -30,5 +30,3 @@ treesitter_ctx.setup({
     zindex = 20,
     on_attach = nil,
 })
-
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
