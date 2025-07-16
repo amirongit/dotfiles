@@ -31,4 +31,5 @@ add({
     hooks = { post_checkout = function() vim.cmd('TSUpdate') end }
 })
 add('nvim-treesitter/nvim-treesitter-context')
+add('rose-pine/neovim')
 -- update(nil, {force = true})
