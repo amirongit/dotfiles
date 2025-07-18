@@ -42,8 +42,8 @@ kanagawa.setup({
             RainbowCyan = { fg = "#FF9E3B" },
         }
     end,
-    theme = "dragon",
-    background = { dark = "dragon", light = "lotus" },
+    theme = "wave",
+    background = { dark = "wave", light = "lotus" },
 })
 rosepine.setup({
     variant = "moon",
@@ -89,8 +89,8 @@ rosepine.setup({
     },
     palette = {},
     highlight_groups = {
-		CurSearch = { fg = "base", bg = "leaf", inherit = false },
-		Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
+        CurSearch = { fg = "base", bg = "leaf", inherit = false },
+        Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
         RainbowRed = { fg = "#2a273f" },
         RainbowYellow = { fg = "#393552" },
         RainbowBlue = { fg = "#6e6a86" },
@@ -104,7 +104,7 @@ rosepine.setup({
     end,
 })
 
-vim.cmd("colorscheme rose-pine-moon")
+vim.cmd("colorscheme kanagawa-wave")
 
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
@@ -204,7 +204,7 @@ mn_statusline.setup({
         end,
         inactive = function()
             return mn_statusline.combine_groups({
-                { hl = 'CursorLine' },
+                { hl = 'CursorLine', strings = { mn_statusline.section_filename({ trunc_width = 120 }) } },
             })
         end,
     },
