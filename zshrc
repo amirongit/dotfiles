@@ -1,12 +1,12 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="minimal"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-CASE_SENSITIVE="true"
+CASE_SENSITIVE="false"
 # HYPHEN_INSENSITIVE="true"
 DISABLE_MAGIC_FUNCTIONS="true"
 # DISABLE_LS_COLORS="true"
 # DISABLE_AUTO_TITLE="true"
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="false"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="mm/dd/yyyy"
@@ -34,6 +34,6 @@ unsetopt share_history
 #     tmux new -A -s RCH;
 # fi
 # gpg-connect-agent updatestartuptty /bye >/dev/null
-# export http_proxy="http://192.168.2.172:8080"
-# export https_proxy="http://192.168.2.172:8080"
-# export ftp_proxy="http://192.168.2.172:8080"
+# export http_proxy="socks5://192.168.2.172:1080"
+# export https_proxy="socks5://192.168.2.172:1080"
+# export ftp_proxy="socks5://192.168.2.172:1080"

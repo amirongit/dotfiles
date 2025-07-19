@@ -1,7 +1,7 @@
 configuration {
     modei: ["window","drun","run"];
     display-run: "";
-    font: "PT Serif 12";
+    font: "Ubuntu Nerd Font 12";
     fixed-num-lines: true;
     show-icons: false;
     terminal: "kitty";
@@ -74,4 +74,8 @@ listview {
 
 prompt {
     enabled: false;
+}
+
+element {
+    highlight: none;
 }

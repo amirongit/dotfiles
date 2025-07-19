@@ -2,7 +2,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # font pango: Latin Modern Sans Demi Cond Regular  9
-font pango: PT Serif 10
+font pango: Ubuntu Nerd Font 10
 
 focus_follows_mouse yes
 # smart_gaps on
@@ -18,17 +18,17 @@ gaps outer 8
 
 # workspace_layout tabbed
 
-set $ActiveBackGround      #DCD7BA
-set $ActiveBorder          #DCD7BA
-set $ActiveText            #DCD7BA
+set $ActiveBackGround      #E6C384
+set $ActiveBorder          #E6C384
+set $ActiveText            #E6C384
 
-set $UnFocusedBackGround   #9CABCA
-set $UnFocusedBorder       #9CABCA
-set $UnFocusedText         #9CABCA
+set $UnFocusedBackGround   #938056
+set $UnFocusedBorder       #938056
+set $UnFocusedText         #938056
 
-set $InActiveBackGround    #9CABCA
-set $InActiveBorder        #9CABCA
-set $InActiveText          #9CABCA
+set $InActiveBackGround    #938056
+set $InActiveBorder        #938056
+set $InActiveText          #938056
 
 set $UrgentBackGround      #FF5D62
 set $UrgentBorder          #FF5D62
@@ -36,13 +36,13 @@ set $UrgentText            #DCD7BA
 
 set $BarBackGround         #1F1F28
 
-set $BarActiveBackGround   #2D4F67
-set $BarActiveBorder       #2D4F67
-set $BarActiveText         #DCD7BA
+set $BarActiveBackGround   #E6C384
+set $BarActiveBorder       #E6C384
+set $BarActiveText         #1F1F28
 
-set $BarInActiveBackGround #1F1F28
-set $BarInActiveBorder     #1F1F28
-set $BarInActiveText       #DCD7BA
+set $BarInActiveBackGround #938056
+set $BarInActiveBorder     #938056
+set $BarInActiveText       #1F1F28
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 exec_always --no-startup-id xset -b
