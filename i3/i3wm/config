@@ -206,7 +206,7 @@ bar {
         # mode hide
         height 19
         output eDP-1
-        font pango: PT Serif 10
+        font pango: Ubuntu Nerd Font 10
         colors {
             background $BarBackGround
             separator #ffffff
@@ -224,7 +224,7 @@ bar {
         # mode hide
         height 19
         output HDMI-1
-        font pango: PT Serif 9
+        font pango: Ubuntu Nerd Font 9
         colors {
             background $BarBackGround
             separator #ffffff
