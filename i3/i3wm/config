@@ -13,8 +13,8 @@ for_window [class="."] border pixel 2
 # new_float normal 0
 # title_align left
 
-gaps inner 8
-gaps outer 8
+gaps inner 12
+gaps outer 6
 
 # workspace_layout tabbed
 
@@ -22,33 +22,33 @@ set $ActiveBackGround      #E6C384
 set $ActiveBorder          #E6C384
 set $ActiveText            #E6C384
 
-set $UnFocusedBackGround   #938056
-set $UnFocusedBorder       #938056
-set $UnFocusedText         #938056
+set $UnFocusedBackGround   #b6927b
+set $UnFocusedBorder       #b6927b
+set $UnFocusedText         #b6927b
 
-set $InActiveBackGround    #938056
-set $InActiveBorder        #938056
-set $InActiveText          #938056
+set $InActiveBackGround    #b6927b
+set $InActiveBorder        #b6927b
+set $InActiveText          #b6927b
 
-set $UrgentBackGround      #FF5D62
-set $UrgentBorder          #FF5D62
-set $UrgentText            #DCD7BA
+set $UrgentBackGround      #E46876
+set $UrgentBorder          #E46876
+set $UrgentText            #E46876
 
-set $BarBackGround         #1F1F28
+set $BarBackGround         #181616
 
-set $BarActiveBackGround   #E6C384
-set $BarActiveBorder       #E6C384
-set $BarActiveText         #1F1F28
+set $BarActiveBackGround   #938AA9
+set $BarActiveBorder       #938AA9
+set $BarActiveText         #181616
 
-set $BarInActiveBackGround #938056
-set $BarInActiveBorder     #938056
-set $BarInActiveText       #1F1F28
+set $BarInActiveBackGround #a6a69c
+set $BarInActiveBorder     #a6a69c
+set $BarInActiveText       #181616
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -layout us,ir -option grp:win_space_toggle
 exec_always --no-startup-id /home/amir/.local/share/envscripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-fill ~/.local/share/backgrounds/403292mtsdl.jpg
+exec_always --no-startup-id sleep 0.5 && feh --bg-fill ~/.local/share/backgrounds/shavr-ik-Mv_e78hOVkE-unsplash.jpg
 # exec_always --no-startup-id hsetroot -solid '#493922'
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 

@@ -36,15 +36,15 @@ separator_color = "#2D4F67"
 
 [urgency_low]
     msg_urgency = low
-    background = "#1F1F28"
+    background = "#12120F"
     foreground = "#DCD7BA"
 
 [urgency_normal]
     msg_urgency = normal
-    background = "#1F1F28"
+    background = "#12120F"
     foreground = "#DCD7BA"
 
 [urgency_critical]
     msg_urgency = critical
-    background = "#1F1F28"
+    background = "#12120F"
     foreground = "#DCD7BA"

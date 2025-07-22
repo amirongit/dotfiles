@@ -9,7 +9,7 @@ configuration {
 
 
 * {
-/* kanagawa dragon
+/* kanagawa dragon */
     red:                         rgba ( 196, 116, 110, 100 % );
     blue:                        rgba ( 139, 164, 176, 100 % );
     lightfg:                     rgba ( 122, 131, 130, 100 % );
@@ -17,7 +17,7 @@ configuration {
     foreground:                  rgba ( 197, 201, 197, 100 % );
     background:                  rgba ( 13, 12, 12, 100 % );
     background-color:            rgba ( 13, 12, 12, 0 % );
-*/
+
 /* rose pine moon
     red:                         rgba ( 235, 111, 146, 100 % );
     blue:                        rgba ( 196, 167, 231, 100 % );
@@ -27,7 +27,7 @@ configuration {
     background:                  rgba ( 35, 33, 54, 100 % );
     background-color:            rgba ( 35, 33, 54, 0 % );
 */
-/* kanagawa wave */
+/* kanagawa wave
     red:                         rgba ( 195, 64, 67, 100 % );
     blue:                        rgba ( 126, 156, 216, 100 % );
     lightfg:                     rgba ( 200, 192, 147, 100 % );
@@ -35,8 +35,10 @@ configuration {
     foreground:                  rgba ( 220, 215, 186, 100 % );
     background:                  rgba ( 31, 31, 40, 100 % );
     background-color:            rgba ( 31, 31, 40, 0 % );
+*/
+
     separatorcolor:              @foreground;
-    border-color:                @foreground;
+    border-color:                #00000000;
     selected-normal-foreground:  @lightbg;
     selected-normal-background:  @lightfg;
     selected-active-foreground:  @background;
