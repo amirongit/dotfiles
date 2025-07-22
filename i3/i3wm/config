@@ -36,12 +36,12 @@ set $UrgentText            #E46876
 
 set $BarBackGround         #181616
 
-set $BarActiveBackGround   #938AA9
-set $BarActiveBorder       #938AA9
+set $BarActiveBackGround   #E6C384
+set $BarActiveBorder       #E6C384
 set $BarActiveText         #181616
 
-set $BarInActiveBackGround #a6a69c
-set $BarInActiveBorder     #a6a69c
+set $BarInActiveBackGround #b6927b
+set $BarInActiveBorder     #b6927b
 set $BarInActiveText       #181616
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
