@@ -42,8 +42,8 @@ kanagawa.setup({
             RainbowCyan = { fg = "#FF9E3B" },
         }
     end,
-    theme = "wave",
-    background = { dark = "wave", light = "lotus" },
+    theme = "dragon",
+    background = { dark = "dragon", light = "dragon" },
 })
 rosepine.setup({
     variant = "moon",
@@ -104,7 +104,7 @@ rosepine.setup({
     end,
 })
 
-vim.cmd("colorscheme kanagawa-wave")
+vim.cmd("colorscheme kanagawa-dragon")
 
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})

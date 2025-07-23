@@ -29,7 +29,7 @@ mason_lspcfg.setup({
         'ruff',
         'pyright',
         'taplo',
-        'jsonls'
+        'jsonls',
     }
 })
 lspcfg['lua_ls'].setup({on_attach = global_on_attach})
