@@ -338,7 +338,7 @@ c.new_instance_open_target = 'tab'
 c.new_instance_open_target_window = 'last-focused'
 c.prompt.filebrowser = True
 c.prompt.radius = 2
-c.qt.args = []
+c.qt.args = ["disable-features=PermissionElement"]
 c.qt.chromium.experimental_web_platform_features = 'never'
 c.qt.chromium.low_end_device_mode = 'auto'
 c.qt.chromium.process_model = 'process-per-site-instance'
