@@ -1,7 +1,7 @@
 [global]
     frame_width = 1
     origin = top-right
-    font = Ubuntu Nerd Font 12
+    font = Aladin 12
     markup = yes
     format = "%s\n%n\n%b"
     stack_duplicates = false

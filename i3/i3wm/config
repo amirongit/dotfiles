@@ -2,7 +2,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # font pango: Latin Modern Sans Demi Cond Regular  9
-font pango: Ubuntu Nerd Font 10
+font pango: Aladin 10
 
 focus_follows_mouse yes
 # smart_gaps on
@@ -13,14 +13,14 @@ for_window [class="."] border pixel 2
 # new_float normal 0
 # title_align left
 
-gaps inner 12
+gaps inner 10
 gaps outer 6
 
 # workspace_layout tabbed
 
-set $ActiveBackGround      #E6C384
-set $ActiveBorder          #E6C384
-set $ActiveText            #E6C384
+set $ActiveBackGround      #C8C093
+set $ActiveBorder          #C8C093
+set $ActiveText            #C8C093
 
 set $UnFocusedBackGround   #b6927b
 set $UnFocusedBorder       #b6927b
@@ -32,17 +32,17 @@ set $InActiveText          #b6927b
 
 set $UrgentBackGround      #E46876
 set $UrgentBorder          #E46876
-set $UrgentText            #E46876
+set $UrgentText            #0d0c0c
 
 set $BarBackGround         #181616
 
-set $BarActiveBackGround   #E6C384
-set $BarActiveBorder       #E6C384
-set $BarActiveText         #181616
+set $BarActiveBackGround   #C8C093
+set $BarActiveBorder       #C8C093
+set $BarActiveText         #0d0c0c
 
 set $BarInActiveBackGround #b6927b
 set $BarInActiveBorder     #b6927b
-set $BarInActiveText       #181616
+set $BarInActiveText       #0d0c0c
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 exec_always --no-startup-id xset -b
@@ -206,7 +206,7 @@ bar {
         # mode hide
         height 19
         output eDP-1
-        font pango: Ubuntu Nerd Font 10
+        font pango: Aladin 10
         colors {
             background $BarBackGround
             separator #ffffff
@@ -224,7 +224,7 @@ bar {
         # mode hide
         height 19
         output HDMI-1
-        font pango: Ubuntu Nerd Font 9
+        font pango: Aladin 10
         colors {
             background $BarBackGround
             separator #ffffff
