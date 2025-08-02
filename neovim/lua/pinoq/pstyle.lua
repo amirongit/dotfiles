@@ -1,7 +1,5 @@
 -- :source $VIMRUNTIME/syntax/hitest.vim
 
-local kanagawa = require('kanagawa')
-local rosepine = require('rose-pine')
 local ibl = require('ibl')
 local mn_hipatterns = require('mini.hipatterns')
 local mn_statusline = require('mini.statusline')
@@ -11,100 +9,19 @@ local mn_cursorword = require('mini.cursorword')
 local mn_icons = require('mini.icons')
 local mn_tabline = require('mini.tabline')
 local mn_diff = require('mini.diff')
+local base16_cs = require('base16-colorscheme')
 
-kanagawa.setup({
-    compile = false,
-    undercurl = true,
-    commentStyle = { italic = true },
-    functionStyle = { italic = false },
-    keywordStyle = { italic = true },
-    statementStyle = { bold = false },
-    typeStyle = {},
-    transparent = false,
-    dimInactive = false,
-    terminalColors = true,
-    colors = { palette = {}, theme = { wave = {}, lotus = {}, dragon = {}, all = {} }, },
-    overrides = function(colors)
-        local theme = colors.theme
-        return {
-            NormalFloat = { bg = "none" },
-            FloatBorder = { bg = "none" },
-            FloatTitle = { bg = "none" },
-            NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-            LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-            MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-            RainbowRed = { fg = "#2A2A37" },
-            RainbowYellow = { fg = "#363646" },
-            RainbowBlue = { fg = "#54546D" },
-            RainbowOrange = { fg = "#2D4F67" },
-            RainbowGreen = { fg = "#76946A" },
-            RainbowViolet = { fg = "#C34043" },
-            RainbowCyan = { fg = "#FF9E3B" },
-        }
-    end,
-    theme = "dragon",
-    background = { dark = "dragon", light = "dragon" },
-})
-rosepine.setup({
-    variant = "moon",
-    dark_variant = "moon",
-    dim_inactive_windows = false,
-    extend_background_behind_borders = true,
-    enable = {
-        terminal = true,
-        legacy_highlights = true,
-        migrations = true,
-    },
-    styles = {
-        bold = true,
-        italic = true,
-        transparency = false,
-    },
-    groups = {
-        border = "muted",
-        link = "iris",
-        panel = "surface",
-        error = "love",
-        hint = "iris",
-        info = "foam",
-        note = "pine",
-        todo = "rose",
-        warn = "gold",
-        git_add = "foam",
-        git_change = "rose",
-        git_delete = "love",
-        git_dirty = "rose",
-        git_ignore = "muted",
-        git_merge = "iris",
-        git_rename = "pine",
-        git_stage = "iris",
-        git_text = "rose",
-        git_untracked = "subtle",
-        h1 = "iris",
-        h2 = "foam",
-        h3 = "rose",
-        h4 = "gold",
-        h5 = "pine",
-        h6 = "foam",
-    },
-    palette = {},
-    highlight_groups = {
-        CurSearch = { fg = "base", bg = "leaf", inherit = false },
-        Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
-        RainbowRed = { fg = "#2a273f" },
-        RainbowYellow = { fg = "#393552" },
-        RainbowBlue = { fg = "#6e6a86" },
-        RainbowOrange = { fg = "#908caa" },
-        RainbowGreen = { fg = "#e0def4" },
-        RainbowViolet = { fg = "#eb6f92" },
-        RainbowCyan = { fg = "#f6c177" },
-    },
-
-    before_highlight = function(group, highlight, palette)
-    end,
+base16_cs.with_config({
+    telescope = false,
+    indentblankline = true,
+    notify = false,
+    ts_rainbow = false,
+    cmp = false,
+    illuminate = false,
+    dapui = true,
 })
 
-vim.cmd("colorscheme kanagawa-dragon")
+vim.cmd("colorscheme base16-darcula")
 
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
@@ -127,6 +44,19 @@ vim.api.nvim_set_hl(0, "WinSeparator", { fg = "LightBlue" })
 vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { bg = "none" })
 vim.api.nvim_set_hl(0, "MiniDiffSignChange", { bg = "none" })
 vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { bg = "none" })
+vim.api.nvim_set_hl(0, "RainbowRed", { fg = base16_cs.colors.base04 })
+vim.api.nvim_set_hl(0, "RainbowYellow", { fg = base16_cs.colors.base05 })
+vim.api.nvim_set_hl(0, "RainbowBlue", { fg = base16_cs.colors.base06 })
+vim.api.nvim_set_hl(0, "RainbowOrange", { fg = base16_cs.colors.base07 })
+vim.api.nvim_set_hl(0, "RainbowGreen", { fg = base16_cs.colors.base08 })
+vim.api.nvim_set_hl(0, "RainbowViolet", { fg = base16_cs.colors.base09 })
+vim.api.nvim_set_hl(0, "RainbowCyan", { fg = base16_cs.colors.base0A })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", { bg = base16_cs.colors.base03 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeInsert", { bg = base16_cs.colors.base0A, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", { bg = base16_cs.colors.base09, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeReplace", { bg = base16_cs.colors.base0A, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { bg = base16_cs.colors.base0B, fg = base16_cs.colors.base00  })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { bg = base16_cs.colors.base0F })
 
 mn_animate.setup(
     {
@@ -255,15 +185,15 @@ mn_diff.setup({
 ibl.setup({
     scope = { enabled = false },
     indent = {
-        highlight = {
-            "RainbowRed",
-            "RainbowYellow",
-            "RainbowBlue",
-            "RainbowOrange",
-            "RainbowGreen",
-            "RainbowViolet",
-            "RainbowCyan",
-        }
+        -- highlight = {
+        --     "RainbowRed",
+        --     "RainbowYellow",
+        --     "RainbowBlue",
+        --     "RainbowOrange",
+        --     "RainbowGreen",
+        --     "RainbowViolet",
+        --     "RainbowCyan",
+        -- }
     }
 })
 

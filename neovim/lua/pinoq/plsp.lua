@@ -30,12 +30,19 @@ mason_lspcfg.setup({
         'pyright',
         'taplo',
         'jsonls',
+        'basics-language-server',
     }
 })
-lspcfg['lua_ls'].setup({on_attach = global_on_attach})
-lspcfg['csharp_ls'].setup({on_attach = global_on_attach})
-lspcfg['bashls'].setup({on_attach = global_on_attach})
-lspcfg['dockerls'].setup({on_attach = global_on_attach})
+lspcfg['lua_ls'].setup({ on_attach = global_on_attach })
+lspcfg['basics_ls'].setup(
+    {
+        on_attach = global_on_attach,
+        settings = { path = { enable = true } }
+    }
+)
+lspcfg['csharp_ls'].setup({ on_attach = global_on_attach })
+lspcfg['bashls'].setup({ on_attach = global_on_attach })
+lspcfg['dockerls'].setup({ on_attach = global_on_attach })
 lspcfg['yamlls'].setup({
     on_attach = global_on_attach,
     settings = {
@@ -48,7 +55,7 @@ lspcfg['yamlls'].setup({
         },
     },
 })
-lspcfg['ruff'].setup({on_attach = global_on_attach})
+lspcfg['ruff'].setup({ on_attach = global_on_attach })
 lspcfg['pyright'].setup({
     on_attach = global_on_attach,
     settings = {
@@ -65,7 +72,7 @@ lspcfg['pyright'].setup({
         }
     }
 })
-lspcfg['taplo'].setup({on_attach = global_on_attach})
+lspcfg['taplo'].setup({ on_attach = global_on_attach })
 lspcfg['jsonls'].setup({
     on_attach = global_on_attach,
     settings = {

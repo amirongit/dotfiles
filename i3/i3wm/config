@@ -18,31 +18,31 @@ gaps outer 6
 
 # workspace_layout tabbed
 
-set $ActiveBackGround      #C8C093
-set $ActiveBorder          #C8C093
-set $ActiveText            #C8C093
+set $ActiveBackGround      #bbb529
+set $ActiveBorder          #bbb529
+set $ActiveText            #bbb529
 
-set $UnFocusedBackGround   #b6927b
-set $UnFocusedBorder       #b6927b
-set $UnFocusedText         #b6927b
+set $UnFocusedBackGround   #a9b7c6
+set $UnFocusedBorder       #a9b7c6
+set $UnFocusedText         #a9b7c6
 
-set $InActiveBackGround    #b6927b
-set $InActiveBorder        #b6927b
-set $InActiveText          #b6927b
+set $InActiveBackGround    #a9b7c6
+set $InActiveBorder        #a9b7c6
+set $InActiveText          #a9b7c6
 
-set $UrgentBackGround      #E46876
-set $UrgentBorder          #E46876
-set $UrgentText            #0d0c0c
+set $UrgentBackGround      #cc7832
+set $UrgentBorder          #cc7832
+set $UrgentText            #2b2b2b
 
-set $BarBackGround         #181616
+set $BarBackGround         #2b2b2b
 
-set $BarActiveBackGround   #C8C093
-set $BarActiveBorder       #C8C093
-set $BarActiveText         #0d0c0c
+set $BarActiveBackGround   #bbb529
+set $BarActiveBorder       #bbb529
+set $BarActiveText         #2b2b2b
 
-set $BarInActiveBackGround #b6927b
-set $BarInActiveBorder     #b6927b
-set $BarInActiveText       #0d0c0c
+set $BarInActiveBackGround #2b2b2b
+set $BarInActiveBorder     #2b2b2b
+set $BarInActiveText       #ffffff
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 exec_always --no-startup-id xset -b

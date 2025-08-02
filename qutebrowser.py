@@ -1,38 +1,20 @@
-# kanagawa dragon
-base00 = "#0d0c0c"
-base01 = "#1d1c19"
-base02 = "#282727"
-base03 = "#737c73"
-base04 = "#a6a69c"
-base05 = "#c5c9c5"
-base06 = "#7a8382"
-base07 = "#c5c9c5"
-base08 = "#c4746e"
-base09 = "#b98d7b"
-base0A = "#c4b28a"
-base0B = "#87a987"
-base0C = "#8ea4a2"
-base0D = "#8ba4b0"
-base0E = "#8992a7"
-base0F = "#a292a3"
-
-# kanagawa wave
-# base00 = "#1f1f28"
-# base01 = "#16161d"
-# base02 = "#223249"
-# base03 = "#54546d"
-# base04 = "#727169"
-# base05 = "#dcd7ba"
-# base06 = "#c8c093"
-# base07 = "#717c7c"
-# base08 = "#c34043"
-# base09 = "#ffa066"
-# base0A = "#c0a36e"
-# base0B = "#76946a"
-# base0C = "#6a9589"
-# base0D = "#7e9cd8"
-# base0E = "#957fb8"
-# base0F = "#d27e99"
+# https://github.com/tinted-theming/base16-qutebrowser
+base00 = "#2b2b2b"
+base01 = "#323232"
+base02 = "#323232"
+base03 = "#606366"
+base04 = "#a4a3a3"
+base05 = "#a9b7c6"
+base06 = "#ffc66d"
+base07 = "#ffffff"
+base08 = "#4eade5"
+base09 = "#689757"
+base0A = "#bbb529"
+base0B = "#6a8759"
+base0C = "#629755"
+base0D = "#9876aa"
+base0E = "#cc7832"
+base0F = "#808080"
 
 config.load_autoconfig(False)
 c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save', 'o': 'open', 'bd': 'tab-close'}
@@ -287,7 +269,7 @@ c.fonts.tabs.unselected = 'default_size default_family'
 c.fonts.tooltip = 'default_size default_family'
 c.fonts.web.family.cursive = 'Aladin'
 c.fonts.web.family.fantasy = 'Aladin'
-c.fonts.web.family.fixed = 'CaskaydiaCove Nerd Font'
+c.fonts.web.family.fixed = 'SpaceMono Nerd Font'
 c.fonts.web.family.sans_serif = 'Aladin'
 c.fonts.web.family.serif = 'Aladin'
 c.fonts.web.family.standard = 'Aladin'

@@ -14,7 +14,6 @@ mn_deps.setup({ path = { package = package_directory } })
 local add = mn_deps.add
 local update = MiniDeps.update
 local later = MiniDeps.later
-add('rebelot/kanagawa.nvim')
 add('tpope/vim-dadbod')
 add('lukas-reineke/indent-blankline.nvim')
 add('mfussenegger/nvim-dap-python')
@@ -31,5 +30,5 @@ add({
     hooks = { post_checkout = function() vim.cmd('TSUpdate') end }
 })
 add('nvim-treesitter/nvim-treesitter-context')
-add('rose-pine/neovim')
+add('RRethy/base16-nvim')
 -- update(nil, {force = true})
