@@ -55,8 +55,8 @@ vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", { bg = base16_cs.colors.base0
 vim.api.nvim_set_hl(0, "MiniStatuslineModeInsert", { bg = base16_cs.colors.base0A, fg = base16_cs.colors.base00 })
 vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", { bg = base16_cs.colors.base09, fg = base16_cs.colors.base00 })
 vim.api.nvim_set_hl(0, "MiniStatuslineModeReplace", { bg = base16_cs.colors.base0A, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { bg = base16_cs.colors.base0B, fg = base16_cs.colors.base00  })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { bg = base16_cs.colors.base0F })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { bg = base16_cs.colors.base0E, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { bg = base16_cs.colors.base0F, fg = base16_cs.colors.base00 })
 
 mn_animate.setup(
     {
