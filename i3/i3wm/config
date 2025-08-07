@@ -1,54 +1,53 @@
 set $mod Mod4
 floating_modifier $mod
 
-# font pango: Latin Modern Sans Demi Cond Regular  9
 font pango: Aladin 10
 
 focus_follows_mouse yes
 # smart_gaps on
 # smart_borders on
-for_window [class="."] border pixel 2
+# for_window [class="."] border pixel 2
 
-# new_window normal 0
-# new_float normal 0
+new_window normal 0
+new_float normal 0
 # title_align left
 
-gaps inner 10
-gaps outer 6
+# gaps inner 12
+# gaps outer 8
 
-# workspace_layout tabbed
+workspace_layout tabbed
 
-set $ActiveBackGround      #fabd2f
-set $ActiveBorder          #fabd2f
-set $ActiveText            #fabd2f
+set $ActiveBackGround      #5f8787
+set $ActiveBorder          #5f8787
+set $ActiveText            #000000
 
-set $UnFocusedBackGround   #83a598
-set $UnFocusedBorder       #83a598
-set $UnFocusedText         #83a598
+set $UnFocusedBackGround   #222222
+set $UnFocusedBorder       #222222
+set $UnFocusedText         #c1c1c1
 
-set $InActiveBackGround    #83a598
-set $InActiveBorder        #83a598
-set $InActiveText          #83a598
+set $InActiveBackGround    #333333
+set $InActiveBorder        #333333
+set $InActiveText          #c1c1c1
 
-set $UrgentBackGround      #fb4934
-set $UrgentBorder          #fb4934
-set $UrgentText            #1d2021
+set $UrgentBackGround      #a06666
+set $UrgentBorder          #a06666
+set $UrgentText            #000000
 
-set $BarBackGround         #1d2021
+set $BarBackGround         #000000
 
-set $BarActiveBackGround   #d3869b
-set $BarActiveBorder       #d3869b
-set $BarActiveText         #1d2021
+set $BarActiveBackGround   #5f8787
+set $BarActiveBorder       #5f8787
+set $BarActiveText         #000000
 
-set $BarInActiveBackGround #1d2021
-set $BarInActiveBorder     #1d2021
-set $BarInActiveText       #fbf1c7
+set $BarInActiveBackGround #333333
+set $BarInActiveBorder     #333333
+set $BarInActiveText       #c1c1c1
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -layout us,ir -option grp:win_space_toggle
 exec_always --no-startup-id /home/amir/.local/share/envscripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-fill ~/.local/share/backgrounds/pexels-anthony-nguyen-41365574-7305301.jpg
+exec_always --no-startup-id sleep 0.5 && feh --bg-fill ~/.local/share/backgrounds/pexels-padrinan-3391933.jpg
 # exec_always --no-startup-id hsetroot -solid '#493922'
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
@@ -88,8 +87,8 @@ bindsym $mod+Tab focus mode_toggle
 bindsym $mod+Down split v
 bindsym $mod+Right split h
 
-# bindsym $mod+s layout stacking
-# bindsym $mod+t layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 set $ws1 "RCH"
@@ -199,7 +198,7 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        position bottom
+        position top
         status_command i3blocks
         separator_symbol ">"
         tray_output none
@@ -217,7 +216,7 @@ bar {
 }
 
 bar {
-        position bottom
+        position top
         status_command i3blocks
         separator_symbol ">"
         tray_output none

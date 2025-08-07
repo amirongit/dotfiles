@@ -21,7 +21,7 @@ base16_cs.with_config({
     dapui = true,
 })
 
-vim.cmd("colorscheme base16-gruvbox-dark-hard")
+vim.cmd("colorscheme base16-black-metal")
 
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
