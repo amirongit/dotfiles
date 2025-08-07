@@ -30,16 +30,9 @@ mason_lspcfg.setup({
         'pyright',
         'taplo',
         'jsonls',
-        'basics-language-server',
     }
 })
 lspcfg['lua_ls'].setup({ on_attach = global_on_attach })
-lspcfg['basics_ls'].setup(
-    {
-        on_attach = global_on_attach,
-        settings = { path = { enable = true } }
-    }
-)
 lspcfg['csharp_ls'].setup({ on_attach = global_on_attach })
 lspcfg['bashls'].setup({ on_attach = global_on_attach })
 lspcfg['dockerls'].setup({ on_attach = global_on_attach })

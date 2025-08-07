@@ -21,7 +21,7 @@ base16_cs.with_config({
     dapui = true,
 })
 
-vim.cmd("colorscheme base16-darcula")
+vim.cmd("colorscheme base16-gruvbox-dark-hard")
 
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
@@ -44,19 +44,19 @@ vim.api.nvim_set_hl(0, "WinSeparator", { fg = "LightBlue" })
 vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { bg = "none" })
 vim.api.nvim_set_hl(0, "MiniDiffSignChange", { bg = "none" })
 vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { bg = "none" })
-vim.api.nvim_set_hl(0, "RainbowRed", { fg = base16_cs.colors.base04 })
-vim.api.nvim_set_hl(0, "RainbowYellow", { fg = base16_cs.colors.base05 })
-vim.api.nvim_set_hl(0, "RainbowBlue", { fg = base16_cs.colors.base06 })
-vim.api.nvim_set_hl(0, "RainbowOrange", { fg = base16_cs.colors.base07 })
-vim.api.nvim_set_hl(0, "RainbowGreen", { fg = base16_cs.colors.base08 })
-vim.api.nvim_set_hl(0, "RainbowViolet", { fg = base16_cs.colors.base09 })
-vim.api.nvim_set_hl(0, "RainbowCyan", { fg = base16_cs.colors.base0A })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", { bg = base16_cs.colors.base03 })
+vim.api.nvim_set_hl(0, "RainbowRed", { fg = base16_cs.colors.base08 })
+vim.api.nvim_set_hl(0, "RainbowYellow", { fg = base16_cs.colors.base0A })
+vim.api.nvim_set_hl(0, "RainbowBlue", { fg = base16_cs.colors.base0D })
+vim.api.nvim_set_hl(0, "RainbowOrange", { fg = base16_cs.colors.base09 })
+vim.api.nvim_set_hl(0, "RainbowGreen", { fg = base16_cs.colors.base0B })
+vim.api.nvim_set_hl(0, "RainbowViolet", { fg = base16_cs.colors.base0C })
+vim.api.nvim_set_hl(0, "RainbowCyan", { fg = base16_cs.colors.base0E })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", { bg = base16_cs.colors.base0D, fg = base16_cs.colors.base00 })
 vim.api.nvim_set_hl(0, "MiniStatuslineModeInsert", { bg = base16_cs.colors.base0A, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", { bg = base16_cs.colors.base09, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", { bg = base16_cs.colors.base0E, fg = base16_cs.colors.base00 })
 vim.api.nvim_set_hl(0, "MiniStatuslineModeReplace", { bg = base16_cs.colors.base0A, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { bg = base16_cs.colors.base0E, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { bg = base16_cs.colors.base0F, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { bg = base16_cs.colors.base0C, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { bg = base16_cs.colors.base0D, fg = base16_cs.colors.base00 })
 
 mn_animate.setup(
     {
@@ -185,15 +185,15 @@ mn_diff.setup({
 ibl.setup({
     scope = { enabled = false },
     indent = {
-        -- highlight = {
-        --     "RainbowRed",
-        --     "RainbowYellow",
-        --     "RainbowBlue",
-        --     "RainbowOrange",
-        --     "RainbowGreen",
-        --     "RainbowViolet",
-        --     "RainbowCyan",
-        -- }
+        highlight = {
+            "RainbowRed",
+            "RainbowYellow",
+            "RainbowBlue",
+            "RainbowOrange",
+            "RainbowGreen",
+            "RainbowViolet",
+            "RainbowCyan",
+        }
     }
 })
 

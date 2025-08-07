@@ -18,37 +18,37 @@ gaps outer 6
 
 # workspace_layout tabbed
 
-set $ActiveBackGround      #bbb529
-set $ActiveBorder          #bbb529
-set $ActiveText            #bbb529
+set $ActiveBackGround      #fabd2f
+set $ActiveBorder          #fabd2f
+set $ActiveText            #fabd2f
 
-set $UnFocusedBackGround   #a9b7c6
-set $UnFocusedBorder       #a9b7c6
-set $UnFocusedText         #a9b7c6
+set $UnFocusedBackGround   #83a598
+set $UnFocusedBorder       #83a598
+set $UnFocusedText         #83a598
 
-set $InActiveBackGround    #a9b7c6
-set $InActiveBorder        #a9b7c6
-set $InActiveText          #a9b7c6
+set $InActiveBackGround    #83a598
+set $InActiveBorder        #83a598
+set $InActiveText          #83a598
 
-set $UrgentBackGround      #cc7832
-set $UrgentBorder          #cc7832
-set $UrgentText            #2b2b2b
+set $UrgentBackGround      #fb4934
+set $UrgentBorder          #fb4934
+set $UrgentText            #1d2021
 
-set $BarBackGround         #2b2b2b
+set $BarBackGround         #1d2021
 
-set $BarActiveBackGround   #bbb529
-set $BarActiveBorder       #bbb529
-set $BarActiveText         #2b2b2b
+set $BarActiveBackGround   #d3869b
+set $BarActiveBorder       #d3869b
+set $BarActiveText         #1d2021
 
-set $BarInActiveBackGround #2b2b2b
-set $BarInActiveBorder     #2b2b2b
-set $BarInActiveText       #ffffff
+set $BarInActiveBackGround #1d2021
+set $BarInActiveBorder     #1d2021
+set $BarInActiveText       #fbf1c7
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -layout us,ir -option grp:win_space_toggle
 exec_always --no-startup-id /home/amir/.local/share/envscripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-fill ~/.local/share/backgrounds/shavr-ik-Mv_e78hOVkE-unsplash.jpg
+exec_always --no-startup-id sleep 0.5 && feh --bg-fill ~/.local/share/backgrounds/pexels-anthony-nguyen-41365574-7305301.jpg
 # exec_always --no-startup-id hsetroot -solid '#493922'
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
