@@ -17,30 +17,30 @@ new_float normal 0
 
 workspace_layout tabbed
 
-set $ActiveBackGround      #5f8787
-set $ActiveBorder          #5f8787
-set $ActiveText            #000000
+set $ActiveBackGround      #b58900
+set $ActiveBorder          #b58900
+set $ActiveText            #002b36
 
-set $UnFocusedBackGround   #222222
-set $UnFocusedBorder       #222222
-set $UnFocusedText         #c1c1c1
+set $UnFocusedBackGround   #073642
+set $UnFocusedBorder       #073642
+set $UnFocusedText         #fdf6e3
 
-set $InActiveBackGround    #333333
-set $InActiveBorder        #333333
-set $InActiveText          #c1c1c1
+set $InActiveBackGround    #586e75
+set $InActiveBorder        #586e75
+set $InActiveText          #fdf6e3
 
-set $UrgentBackGround      #a06666
-set $UrgentBorder          #a06666
-set $UrgentText            #000000
+set $UrgentBackGround      #dc322f
+set $UrgentBorder          #dc322f
+set $UrgentText            #002b36
 
-set $BarBackGround         #000000
+set $BarBackGround         #002b36
 
-set $BarActiveBackGround   #5f8787
-set $BarActiveBorder       #5f8787
-set $BarActiveText         #000000
+set $BarActiveBackGround   #859900
+set $BarActiveBorder       #859900
+set $BarActiveText         #002b36
 
-set $BarInActiveBackGround #333333
-set $BarInActiveBorder     #333333
+set $BarInActiveBackGround #657b83
+set $BarInActiveBorder     #657b83
 set $BarInActiveText       #c1c1c1
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf

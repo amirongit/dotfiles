@@ -21,7 +21,7 @@ base16_cs.with_config({
     dapui = true,
 })
 
-vim.cmd("colorscheme base16-black-metal")
+vim.cmd("colorscheme base16-solarized-dark")
 
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
@@ -49,14 +49,14 @@ vim.api.nvim_set_hl(0, "RainbowYellow", { fg = base16_cs.colors.base0A })
 vim.api.nvim_set_hl(0, "RainbowBlue", { fg = base16_cs.colors.base0D })
 vim.api.nvim_set_hl(0, "RainbowOrange", { fg = base16_cs.colors.base09 })
 vim.api.nvim_set_hl(0, "RainbowGreen", { fg = base16_cs.colors.base0B })
-vim.api.nvim_set_hl(0, "RainbowViolet", { fg = base16_cs.colors.base0C })
-vim.api.nvim_set_hl(0, "RainbowCyan", { fg = base16_cs.colors.base0E })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", { bg = base16_cs.colors.base0D, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeInsert", { bg = base16_cs.colors.base0A, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", { bg = base16_cs.colors.base0E, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeReplace", { bg = base16_cs.colors.base0A, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { bg = base16_cs.colors.base0C, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { bg = base16_cs.colors.base0D, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "RainbowViolet", { fg = base16_cs.colors.base0E })
+vim.api.nvim_set_hl(0, "RainbowCyan", { fg = base16_cs.colors.base0C })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", { bg = base16_cs.colors.base05, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeInsert", { bg = base16_cs.colors.base0C, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", { bg = base16_cs.colors.base0B, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeReplace", { bg = base16_cs.colors.base0C, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { bg = base16_cs.colors.base0B, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { bg = base16_cs.colors.base05, fg = base16_cs.colors.base00 })
 
 mn_animate.setup(
     {
@@ -111,7 +111,7 @@ mn_statusline.setup({
                 {
                     { hl = mode_hl, strings = { mode } },
                     {
-                        hl = 'CurSearch',
+                        hl = 'PmenuSel',
                         strings = {
                             mn_statusline.section_git({ trunc_width = 120 }),
                             mn_statusline.section_fileinfo({ trunc_width = 120 }),
@@ -123,7 +123,7 @@ mn_statusline.setup({
                     },
                     '%=',
                     {
-                        hl = 'CurSearch',
+                        hl = 'PmenuSel',
                         strings = {
                             mn_statusline.section_searchcount({ trunc_width = 75 }),
                             mn_statusline.section_location({ trunc_width = 75 }),
