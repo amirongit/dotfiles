@@ -111,7 +111,7 @@ mn_statusline.setup({
                 {
                     { hl = mode_hl, strings = { mode } },
                     {
-                        hl = 'PmenuSel',
+                        hl = 'CurSearch',
                         strings = {
                             mn_statusline.section_git({ trunc_width = 120 }),
                             mn_statusline.section_fileinfo({ trunc_width = 120 }),
@@ -123,7 +123,7 @@ mn_statusline.setup({
                     },
                     '%=',
                     {
-                        hl = 'Cursor',
+                        hl = 'CurSearch',
                         strings = {
                             mn_statusline.section_searchcount({ trunc_width = 75 }),
                             mn_statusline.section_location({ trunc_width = 75 }),
