@@ -1,7 +1,7 @@
 configuration {
     modei: ["window","drun","run"];
     display-run: "";
-    font: "Aladin 12";
+    font: "Patrick Hand 12";
     fixed-num-lines: true;
     show-icons: false;
     terminal: "kitty";
