@@ -21,7 +21,8 @@ base16_cs.with_config({
     dapui = true,
 })
 
-vim.cmd("colorscheme base16-solarized-dark")
+
+vim.cmd("colorscheme base16-onedark")
 
 vim.api.nvim_set_hl(0, 'LineNr', {})
 vim.api.nvim_set_hl(0, 'SignColumn', {})
@@ -52,10 +53,10 @@ vim.api.nvim_set_hl(0, "RainbowGreen", { fg = base16_cs.colors.base0B })
 vim.api.nvim_set_hl(0, "RainbowViolet", { fg = base16_cs.colors.base0E })
 vim.api.nvim_set_hl(0, "RainbowCyan", { fg = base16_cs.colors.base0C })
 vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", { bg = base16_cs.colors.base05, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeInsert", { bg = base16_cs.colors.base0C, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeInsert", { bg = base16_cs.colors.base0F, fg = base16_cs.colors.base00 })
 vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", { bg = base16_cs.colors.base0B, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeReplace", { bg = base16_cs.colors.base0C, fg = base16_cs.colors.base00 })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { bg = base16_cs.colors.base0B, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeReplace", { bg = base16_cs.colors.base0F, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { bg = base16_cs.colors.base0A, fg = base16_cs.colors.base00 })
 vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { bg = base16_cs.colors.base05, fg = base16_cs.colors.base00 })
 
 mn_animate.setup(

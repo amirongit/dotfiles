@@ -11,13 +11,13 @@ configuration {
 * {
 /* https://github.com/tinted-theming/base16-rofi */
 
-    red:                         rgba ( 220, 50, 47, 100 % );
-    blue:                        rgba ( 38, 139, 210, 100 % );
-    lightfg:                     rgba ( 238, 232, 213, 100 % );
-    lightbg:                     rgba ( 7, 54, 66, 100 % );
-    foreground:                  rgba ( 147, 161, 161, 100 % );
-    background:                  rgba ( 0, 43, 54, 100 % );
-    background-color:            rgba ( 0, 43, 54, 0 % );
+    red:                         rgba ( 224, 108, 117, 100 % );
+    blue:                        rgba ( 97, 175, 239, 100 % );
+    lightfg:                     rgba ( 182, 189, 202, 100 % );
+    lightbg:                     rgba ( 53, 59, 69, 100 % );
+    foreground:                  rgba ( 171, 178, 191, 100 % );
+    background:                  rgba ( 40, 44, 52, 100 % );
+    background-color:            rgba ( 40, 44, 52, 0 % );
 
     separatorcolor:              @foreground;
     border-color:                #00000000;
