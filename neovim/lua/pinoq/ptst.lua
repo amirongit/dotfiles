@@ -15,7 +15,7 @@ treesitter_cfg.setup({
     },
     sync_install = true,
     auto_install = true,
-    highlight = { enable = false }, -- BUGGED AS FUCK!
+    highlight = { enable = true },
 })
 treesitter_ctx.setup({
     enable = true,

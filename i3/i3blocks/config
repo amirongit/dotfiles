@@ -5,6 +5,10 @@ signal=10
 STEP=5%
 LABEL=VOL 
 
+[bluetooth]
+command=output=$(bluetoothctl devices Connected | head -n1 | cut -d' ' -f3-); [[ "$output" == "/"* ]] && echo "BZ down" || echo BZ "$output"
+interval=60
+
 [brightness]
 command=echo "BRT $(brightnessctl -p | awk -F'[()]' '/Current brightness:/ {print $2}')"
 interval=5
@@ -49,5 +53,5 @@ ADDRESS_FAMILY=inet
 display_wifi_name=0
 
 [time]
-command=echo $(date +"DATE %Y-%m-%d %H:%M")
+command=echo $(date +"DT %Y-%m-%d %H:%M")
 interval=30
