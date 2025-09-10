@@ -1,5 +1,5 @@
 [global]
-    frame_width = 1
+    frame_width = 2
     origin = top-right
     font = Patrick Hand 12
     markup = yes
@@ -21,7 +21,7 @@
     history_length = 20
     show_indicators = yes
     line_height = 0
-    separator_height = 1
+    separator_height = 2
     padding = 5
     horizontal_padding = 5
     dmenu = /usr/bin/dmenu -p dunst:
@@ -31,20 +31,20 @@
     max_icon_size=64
     width = (200, 400)
 
-frame_color = "#e5c07b"
-separator_color = "#e06c75"
+frame_color = "#717c7c"
+separator_color = "#717c7c"
 
 [urgency_low]
     msg_urgency = low
-    background = "#282c34"
-    foreground = "#c8ccd4"
+    background = "#1f1f28"
+    foreground = "#dcd7ba"
 
 [urgency_normal]
     msg_urgency = normal
-    background = "#282c34"
-    foreground = "#c8ccd4"
+    background = "#1f1f28"
+    foreground = "#dcd7ba"
 
 [urgency_critical]
     msg_urgency = critical
-    background = "#282c34"
-    foreground = "#c8ccd4"
+    background = "#1f1f28"
+    foreground = "#dcd7ba"
