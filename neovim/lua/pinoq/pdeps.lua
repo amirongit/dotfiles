@@ -31,4 +31,8 @@ add({
 })
 add('nvim-treesitter/nvim-treesitter-context')
 add('RRethy/base16-nvim')
+add({
+    source = 'oribarilan/lensline.nvim',
+    checkout = '1.1.2',
+})
 -- update(nil, {force = true})

@@ -112,5 +112,3 @@ vim.keymap.set("n", "<leader>brn", ":Pick git_branches<CR>", { silent = true })
 vim.keymap.set("n", "<leader>exp", ":Pick explorer<CR>", { silent = true })
 
 vim.ui.select = mn_pick.ui_select
-
-vim.api.nvim_set_hl(0, 'MiniPickPrompt', { bg = 'none' })

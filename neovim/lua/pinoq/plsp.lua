@@ -3,6 +3,7 @@ local csls_ex = require('csharpls_extended')
 local mason = require('mason')
 local mason_lspcfg = require('mason-lspconfig')
 local schemastore = require('schemastore')
+local lensline = require('lensline')
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -16,6 +17,46 @@ end
 
 local function global_on_attach(client, bufnr)
 end
+
+lensline.setup({
+    providers = {
+        {
+            name = "references",
+            enabled = true,
+            quiet_lsp = true,
+        },
+        {
+            name = "last_author",
+            enabled = true,
+            cache_max_files = 100,
+        },
+        {
+            name = "diagnostics",
+            enabled = false,
+        },
+        {
+            name = "complexity",
+            enabled = false, -- disabled by default - enable explicitly to use
+        },
+    },
+    style = {
+        separator = " • ",
+        highlight = "Comment",
+        prefix = " ",
+        placement = "inline",
+        use_nerdfont = true,
+    },
+    render = "all",
+    limits = {
+        exclude = {},
+        exclude_gitignored = true,
+        max_lines = 2000,
+        max_lenses = 120,
+    },
+    debounce_ms = 500,
+    focused_debounce_ms = 150,
+    debug_mode = false,
+})
 
 mason.setup()
 mason_lspcfg.setup({

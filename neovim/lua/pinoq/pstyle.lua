@@ -58,6 +58,9 @@ vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", { bg = base16_cs.colors.base0
 vim.api.nvim_set_hl(0, "MiniStatuslineModeReplace", { bg = base16_cs.colors.base0F, fg = base16_cs.colors.base00 })
 vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { bg = base16_cs.colors.base0A, fg = base16_cs.colors.base00 })
 vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { bg = base16_cs.colors.base05, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, 'MiniPickPrompt', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'MiniPickMatchCurrent', { bg = base16_cs.colors.base0A, fg = base16_cs.colors.base00 })
+vim.api.nvim_set_hl(0, 'TreesitterContext', { bg = 'none' })
 
 mn_animate.setup(
     {
