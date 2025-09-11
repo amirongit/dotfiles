@@ -31,20 +31,20 @@
     max_icon_size=64
     width = (200, 400)
 
-frame_color = "#717c7c"
-separator_color = "#717c7c"
+frame_color = "#8ba4b0"
+separator_color = "#8ba4b0"
 
 [urgency_low]
     msg_urgency = low
-    background = "#1f1f28"
-    foreground = "#dcd7ba"
+    background = "#0d0c0c"
+    foreground = "#c5c9c5"
 
 [urgency_normal]
     msg_urgency = normal
-    background = "#1f1f28"
-    foreground = "#dcd7ba"
+    background = "#0d0c0c"
+    foreground = "#c5c9c5"
 
 [urgency_critical]
     msg_urgency = critical
-    background = "#1f1f28"
-    foreground = "#dcd7ba"
+    background = "#0d0c0c"
+    foreground = "#c5c9c5"
