@@ -1,0 +1,21 @@
+tabs = false
+
+[font]
+size = 12
+features = {"JetBrainsMono Nerd Font" = ["+cv02", "+cv03", "+cv04", "+cv05", "+cv06", "+cv07", "+cv08", "+cv10", "+cv11", "+cv12", "+cv14", "+cv15", "+cv16", "+cv17", "+cv18", "+cv19", "+cv20"], "FiraCode Nerd Font" = ["+cv01", "+cv02", "+zero", "+cv11", "+cv14", "+onum", "+cv16", "+cv29", "+cv31"], "CaskaydiaCove Nerd Font" = ["+ss01", "+ss02", "+ss03", "+ss20"]}
+
+[[font.normal]]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[[font.bold]]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[[font.italic]]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[[font.bold_italic]]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"

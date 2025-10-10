@@ -123,7 +123,7 @@ mn_statusline.setup({
                     },
                     {
                         hl = mode_hl,
-                        strings = { mn_statusline.section_filename({ trunc_width = 120 }) }
+                        strings = { mn_statusline.section_filename({ trunc_width = 75 }) }
                     },
                     '%=',
                     {
