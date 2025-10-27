@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="minimal"
+ZSH_THEME="robbyrussell"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 CASE_SENSITIVE="false"
 # HYPHEN_INSENSITIVE="true"
@@ -27,6 +27,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
+alias nvi='neovide & disown'
 alias vi='nvim'
 setopt no_share_history
 unsetopt share_history
@@ -34,6 +35,19 @@ unsetopt share_history
 #     tmux new -A -s RCH;
 # fi
 # gpg-connect-agent updatestartuptty /bye >/dev/null
-# export http_proxy="socks5://192.168.2.172:1080"
-# export https_proxy="socks5://192.168.2.172:1080"
-# export ftp_proxy="socks5://192.168.2.172:1080"
+# export http_proxy="socks5://10.194.108.220:1080"
+# export https_proxy="socks5://10.194.108.220:1080"
+# export ftp_proxy="socks5://10.194.108.220:1080"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#565c64"
+
+
+set_proxy() {
+  if [ -z "$1" ]; then
+    echo "Usage: set_proxy <proxy_string>"
+    return 1
+  fi
+  export http_proxy="$1"
+  export https_proxy="$1"
+  export ftp_proxy="$1"
+  echo "Proxy variables set to $1"
+}
