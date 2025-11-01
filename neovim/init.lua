@@ -9,10 +9,15 @@ if vim.g.neovide then
     require('pinoq.ptui')
     require('pinoq.pextra')
     require('pinoq.pgui')
+elseif vim.g.vscode then
+    require('pinoq.pide')
 end
 
-vim.keymap.set("n", "H", ":bprevious<CR>", { silent = true })
-vim.keymap.set("n", "L", ":bnext<CR>", { silent = true })
+if not vim.g.vscode then
+    vim.keymap.set("n", "H", ":bprevious<CR>", { silent = true })
+    vim.keymap.set("n", "L", ":bnext<CR>", { silent = true })
+end
+
 vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", { silent = true })
 
 vim.opt.compatible = false
