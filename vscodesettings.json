@@ -108,7 +108,7 @@
     "http.proxy": "socks5://10.28.105.209:1080",
     "ruff.nativeServer": "on",
     "chat.disableAIFeatures": true,
-    "workbench.colorTheme": "Rosé Pine (no italics)",
+    "workbench.colorTheme": "Darcula",
     "editor.cursorBlinking": "expand",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.cursorStyle": "block",

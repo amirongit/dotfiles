@@ -66,6 +66,6 @@ vim.keymap.set('n', '<leader>bar',
 )
 vim.keymap.set('n', '<leader>ter',
     function()
-        vscode.action('workbench.action.toggleSidebarVisibility')
+        vscode.action('workbench.action.terminal.toggleTerminal')
     end
 )
