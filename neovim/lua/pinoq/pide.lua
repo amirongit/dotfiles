@@ -37,16 +37,6 @@ vim.keymap.set('n', '<leader>def',
         vscode.action('editor.action.peekDefinition')
     end
 )
-vim.keymap.set('n', '<leader>dia',
-    function()
-        vscode.action('workbench.action.tasks.toggleProblems')
-    end
-)
-vim.keymap.set('n', '<leader>fnd',
-    function()
-        vscode.action('workbench.action.quickOpen')
-    end
-)
 vim.keymap.set('n', '<leader>trm',
     function()
         vscode.action('editor.action.trimTrailingWhitespace')
@@ -55,15 +45,5 @@ vim.keymap.set('n', '<leader>trm',
 vim.keymap.set('n', '<leader>ren',
     function()
         vscode.action('editor.action.rename')
-    end
-)
-vim.keymap.set('n', '<leader>bar',
-    function()
-        vscode.action('workbench.action.toggleSidebarVisibility')
-    end
-)
-vim.keymap.set('n', '<leader>ter',
-    function()
-        vscode.action('workbench.action.terminal.toggleTerminal')
     end
 )
