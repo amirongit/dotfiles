@@ -1,8 +1,6 @@
 local vscode = require('vscode')
 
 vim.cmd('cnoreabbrev bd Tabclose')
-vim.keymap.set("n", "H", ":Tabprevious<CR>", { silent = true })
-vim.keymap.set("n", "L", ":Tabnext<CR>", { silent = true })
 vim.keymap.set('n', '<leader>for',
     function()
         vscode.action('editor.action.formatDocument')
