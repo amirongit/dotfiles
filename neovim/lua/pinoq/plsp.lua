@@ -58,66 +58,69 @@ lensline.setup({
     debug_mode = false,
 })
 
+local lsps = {
+    'lua_ls',
+    'csharp_ls',
+    'bashls',
+    'dockerls',
+    'yamlls',
+    'ruff',
+    'pyright',
+    'taplo',
+    'jsonls',
+}
+
 mason.setup()
-mason_lspcfg.setup({
-    automatic_enable = false,
-    ensure_installed = {
-        'lua_ls',
-        'csharp_ls',
-        'bashls',
-        'dockerls',
-        'yamlls',
-        'ruff',
-        'pyright',
-        'taplo',
-        'jsonls',
+mason_lspcfg.setup({ automatic_enable = false, ensure_installed = lsps })
+vim.lsp.config('lua_ls', {})
+vim.lsp.config('csharp_ls', {})
+vim.lsp.config('bashls', {})
+vim.lsp.config('dockerls', {})
+vim.lsp.config(
+    'yamlls',
+    {
+        settings = {
+            yaml = {
+                schemaStore = { enable = false, url = "", },
+                schemas = schemastore.yaml.schemas(),
+            },
+        },
     }
-})
-lspcfg['lua_ls'].setup({ on_attach = global_on_attach })
-lspcfg['csharp_ls'].setup({ on_attach = global_on_attach })
-lspcfg['bashls'].setup({ on_attach = global_on_attach })
-lspcfg['dockerls'].setup({ on_attach = global_on_attach })
-lspcfg['yamlls'].setup({
-    on_attach = global_on_attach,
-    settings = {
-        yaml = {
-            schemaStore = {
-                enable = false,
-                url = "",
+)
+vim.lsp.config('ruff', {})
+vim.lsp.config(
+    'pyright',
+    {
+        settings = {
+            pyright = {
+                disableOrganizeImports = true,
+                disableTaggedHints = true
             },
-            schemas = schemastore.yaml.schemas(),
-        },
-    },
-})
-lspcfg['ruff'].setup({ on_attach = global_on_attach })
-lspcfg['pyright'].setup({
-    on_attach = global_on_attach,
-    settings = {
-        pyright = {
-            disableOrganizeImports = true,
-            disableTaggedHints = true
-        },
-        python = {
-            analysis = {
-                autoImportCompletions = true,
-                diagnosticMode = "workspace",
-                useLibraryCodeForTypes = true,
-            },
+            python = {
+                analysis = {
+                    autoImportCompletions = true,
+                    diagnosticMode = "workspace",
+                    useLibraryCodeForTypes = true,
+                },
+            }
         }
     }
-})
-lspcfg['taplo'].setup({ on_attach = global_on_attach })
-lspcfg['jsonls'].setup({
-    on_attach = global_on_attach,
-    settings = {
-        json = {
-            schemas = schemastore.json.schemas(),
-            validate = { enable = true },
+)
+vim.lsp.config('taplo', {})
+vim.lsp.config(
+    'jsonls',
+    {
+        settings = {
+            json = {
+                schemas = schemastore.json.schemas(),
+                validate = { enable = true },
+            },
         },
-    },
-})
+    }
+)
 
 csls_ex.buf_read_cmd_bind()
+vim.lsp.enable(lsps)
 
 vim.keymap.set('n', '<leader>ren', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>doc', vim.lsp.buf.hover)
