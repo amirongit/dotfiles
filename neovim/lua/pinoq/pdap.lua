@@ -1,5 +1,5 @@
-local dap = require('dap')
-local dapui = require('dapui')
+local dap = require("dap")
+local dapui = require("dapui")
 local dap_py = require("dap-python")
 
 dapui.setup({
@@ -60,14 +60,14 @@ vim.keymap.set("n", "<leader>dbi", "<CMD>DapStepInto<CR>", { silent = true })
 vim.keymap.set("n", "<leader>dbo", "<CMD>DapStepOut<CR>", { silent = true })
 vim.keymap.set("n", "<leader>dbn", "<CMD>DapStepOver<CR>", { silent = true })
 vim.keymap.set("n", "<leader>dbx", "<CMD>DapTerminate<CR>", { silent = true })
-vim.fn.sign_define('DapBreakpoint', { text = '●' })
+vim.fn.sign_define("DapBreakpoint", { text = "●" })
 vim.fn.sign_define(
-    'DapBreakpointCondition',
-    { text = '◍', texthl = 'red', linehl = '', numhl = '' }
+    "DapBreakpointCondition",
+    { text = "◍", texthl = "red", linehl = "", numhl = "" }
 )
-vim.fn.sign_define('DapLogPoint', { text = '◉', texthl = 'red', linehl = '', numhl = '' })
-vim.fn.sign_define('DapStopped', { text = '➲', texthl = 'red', linehl = '', numhl = '' })
+vim.fn.sign_define("DapLogPoint", { text = "◉", texthl = "red", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "➲", texthl = "red", linehl = "", numhl = "" })
 vim.fn.sign_define(
-    'DapBreakpointRejected',
-    { text = '○', texthl = 'red', linehl = '', numhl = '' }
+    "DapBreakpointRejected",
+    { text = "○", texthl = "red", linehl = "", numhl = "" }
 )

@@ -1,49 +1,49 @@
-local vscode = require('vscode')
+local vscode = require("vscode")
 
-vim.cmd('cnoreabbrev bd Tabclose')
-vim.keymap.set('n', '<leader>for',
+vim.cmd("cnoreabbrev bd Tabclose")
+vim.keymap.set("n", "<leader>for",
     function()
-        vscode.action('editor.action.formatDocument')
-        vscode.action('editor.action.organizeImports')
+        vscode.action("editor.action.formatDocument")
+        vscode.action("editor.action.organizeImports")
     end
 )
-vim.keymap.set('n', '<leader>hov',
+vim.keymap.set("n", "<leader>hov",
     function()
-        vscode.action('editor.action.showHover')
+        vscode.action("editor.action.showHover")
     end
 )
-vim.keymap.set('n', '<leader>ref',
+vim.keymap.set("n", "<leader>ref",
     function()
-        vscode.action('editor.action.referenceSearch.trigger')
+        vscode.action("editor.action.referenceSearch.trigger")
     end
 )
-vim.keymap.set('n', '<leader>imp',
+vim.keymap.set("n", "<leader>imp",
     function()
-        vscode.action('editor.action.peekImplementation')
+        vscode.action("editor.action.peekImplementation")
     end
 )
-vim.keymap.set('n', '<leader>tdf',
+vim.keymap.set("n", "<leader>tdf",
     function()
-        vscode.action('editor.action.peekTypeDefinition')
+        vscode.action("editor.action.peekTypeDefinition")
     end
 )
-vim.keymap.set('n', '<leader>dec',
+vim.keymap.set("n", "<leader>dec",
     function()
-        vscode.action('editor.action.peekDeclaration')
+        vscode.action("editor.action.peekDeclaration")
     end
 )
-vim.keymap.set('n', '<leader>def',
+vim.keymap.set("n", "<leader>def",
     function()
-        vscode.action('editor.action.peekDefinition')
+        vscode.action("editor.action.peekDefinition")
     end
 )
-vim.keymap.set('n', '<leader>trm',
+vim.keymap.set("n", "<leader>trm",
     function()
-        vscode.action('editor.action.trimTrailingWhitespace')
+        vscode.action("editor.action.trimTrailingWhitespace")
     end
 )
-vim.keymap.set('n', '<leader>ren',
+vim.keymap.set("n", "<leader>ren",
     function()
-        vscode.action('editor.action.rename')
+        vscode.action("editor.action.rename")
     end
 )

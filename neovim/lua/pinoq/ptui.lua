@@ -1,11 +1,11 @@
 local mn_starter = require('mini.starter')
-local mn_pick = require('mini.pick')
+local mn_pick = require("mini.pick")
 
 local win_config = function()
     local height = math.floor(0.618 * vim.o.lines)
     local width = math.floor(0.618 * vim.o.columns)
     return {
-        anchor = 'NW',
+        anchor = "NW",
         height = height,
         width = width,
         row = math.floor(0.5 * (vim.o.lines - height)),
@@ -15,32 +15,32 @@ end
 mn_pick.setup({
     delay = { async = 10, busy = 50, },
     mappings = {
-        caret_left        = '',
-        caret_right       = '',
-        choose            = '<CR>',
-        choose_in_split   = '<C-x>',
-        choose_in_tabpage = '<C-t>',
-        choose_in_vsplit  = '<C-v>',
-        delete_char       = '<BS>',
-        move_down         = '<Tab>',
-        move_up           = '<S-Tab>',
-        refine            = '<C-r>',
-        stop              = '<Esc>',
-        toggle_preview    = '<C-p>',
-        scroll_down       = '<C-d>',
-        scroll_left       = '',
-        scroll_right      = '',
-        scroll_up         = '<C-u>',
-        choose_marked     = '',
-        delete_char_right = '',
-        delete_left       = '',
-        delete_word       = '',
-        mark              = '',
-        mark_all          = '',
-        move_start        = '',
-        paste             = '',
-        refine_marked     = '',
-        toggle_info       = '',
+        caret_left        = "",
+        caret_right       = "",
+        choose            = "<CR>",
+        choose_in_split   = "<C-x>",
+        choose_in_tabpage = "<C-t>",
+        choose_in_vsplit  = "<C-v>",
+        delete_char       = "<BS>",
+        move_down         = "<Tab>",
+        move_up           = "<S-Tab>",
+        refine            = "<C-r>",
+        stop              = "<Esc>",
+        toggle_preview    = "<C-p>",
+        scroll_down       = "<C-d>",
+        scroll_left       = "",
+        scroll_right      = "",
+        scroll_up         = "<C-u>",
+        choose_marked     = "",
+        delete_char_right = "",
+        delete_left       = "",
+        delete_word       = "",
+        mark              = "",
+        mark_all          = "",
+        move_start        = "",
+        paste             = "",
+        refine_marked     = "",
+        toggle_info       = "",
     },
     source = {
         items = nil,
@@ -53,16 +53,16 @@ mn_pick.setup({
         choose_marked = nil,
     },
     options = { content_from_bottom = false, use_cache = false, },
-    window = { config = win_config, prompt_caret = '█', prompt_prefix = ': ', },
+    window = { config = win_config, prompt_caret = "█", prompt_prefix = ": ", },
 })
 mn_starter.setup({
     autoopen = true,
     evaluate_single = false,
     items = {
         {
-            { name = 'Blank',   action = 'enew',       section = 'Actions' },
-            { name = 'Explore', action = 'Pick files', section = 'Actions' },
-            { name = 'Quit',    action = 'q',          section = 'Actions' },
+            { name = "Blank",   action = "enew",       section = "Actions" },
+            { name = "Explore", action = "Pick files", section = "Actions" },
+            { name = "Quit",    action = "q",          section = "Actions" },
         }
     },
     header = [=[
@@ -72,7 +72,7 @@ Coordinate  = tuple[int, int] def visualize[T](root: Node[T]) -> None: val_coor
 5)  grid_hei  =  (root_hei := get_height(root)) * 2 - 1 grid_mid = (grid_wid :=
 2**root_hei)  //  2  grid = [[" " * val_size for _ in range(grid_wid)] for _ in
 range(grid_hei)]  for  i  in  val_coor:  val,  y,  x  = i[0], abs(i[1][1]) * 2,
-grid_mid - i[1][0] grid[y][x] = f'({str(val).rjust(val_size - 2, "_")})' if y <
+grid_mid - i[1][0] grid[y][x] = f"({str(val).rjust(val_size - 2, "_")})" if y <
 grid_hei   -   1:   grid[y  +  1][x]  =  "/"  +  grid[y  +  1][x][1:-1]  +  "\"
 print("\n".join(["".join(col)  for  col in grid])) def get_coordinates[T](root:
 Node[T])  ->  set[tuple[T, Coordinate]]: q: Queue[tuple[Node[T], Coordinate]] =
@@ -89,7 +89,7 @@ get_height(root.right, current))
     ]=],
     footer = "",
     content_hooks = nil,
-    query_updaters = 'abcdefghijklmnopqrstuvwxyz0123456789_-.',
+    query_updaters = "abcdefghijklmnopqrstuvwxyz0123456789_-.",
     silent = true,
 })
 

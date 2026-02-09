@@ -1,22 +1,21 @@
-local treesitter_cfg = require('nvim-treesitter.configs')
-local treesitter_ctx = require('treesitter-context')
+local treesitter = require("nvim-treesitter")
+local treesitter_ctx = require("treesitter-context")
 
-treesitter_cfg.setup({
-    ensure_installed = {
-        "python",
-        "bash",
-        "json",
-        "toml",
-        "xml",
-        "yaml",
-        "markdown",
-        "markdown_inline",
-        "vimdoc"
-    },
-    sync_install = true,
-    auto_install = true,
-    highlight = { enable = true },
+
+treesitter.setup({ install_dir = vim.fn.stdpath("data") .. "/site" })
+
+treesitter.install({
+    "python",
+    "bash",
+    "json",
+    "toml",
+    "xml",
+    "yaml",
+    "markdown",
+    "markdown_inline",
+    "vimdoc"
 })
+
 treesitter_ctx.setup({
     enable = true,
     multiwindow = false,
@@ -24,9 +23,9 @@ treesitter_ctx.setup({
     min_window_height = 30,
     line_numbers = true,
     multiline_threshold = 1,
-    trim_scope = 'outer',
-    mode = 'cursor',
-    separator = '⎼',
+    trim_scope = "outer",
+    mode = "cursor",
+    separator = "⎼",
     zindex = 20,
     on_attach = nil,
 })

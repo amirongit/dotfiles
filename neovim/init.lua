@@ -1,16 +1,17 @@
-if vim.g.neovide then
-    require('pinoq.pdeps')
-    require('pinoq.pstyle')
-    require('pinoq.pdap')
-    require('pinoq.plsp')
-    require('pinoq.ptst')
-    require('pinoq.pcomp')
-    require('pinoq.pmanip')
-    require('pinoq.ptui')
-    require('pinoq.pextra')
-    require('pinoq.pgui')
-elseif vim.g.vscode then
-    require('pinoq.pide')
+if vim.g.vscode then
+    require("pinoq.pide")
+-- if vim.g.neovide then
+else
+    require("pinoq.pdeps")
+    require("pinoq.pstyle")
+    require("pinoq.pdap")
+    require("pinoq.plsp")
+    require("pinoq.ptst")
+    require("pinoq.pcomp")
+    require("pinoq.pmanip")
+    require("pinoq.ptui")
+    require("pinoq.pextra")
+    require("pinoq.pgui")
 end
 
 if not vim.g.vscode then
