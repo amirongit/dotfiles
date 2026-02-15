@@ -1,7 +1,7 @@
 [global]
     frame_width = 2
-    origin = top-right
-    font = Patrick Hand 12
+    origin = bottom-right
+    font = Exo 2 Bold 9
     markup = yes
     format = "%s\n%n\n%b"
     stack_duplicates = false
@@ -31,20 +31,20 @@
     max_icon_size=64
     width = (200, 400)
 
-frame_color = "#8ba4b0"
-separator_color = "#8ba4b0"
+frame_color = "#54546d"
+separator_color = "#54546d"
 
 [urgency_low]
     msg_urgency = low
-    background = "#0d0c0c"
-    foreground = "#c5c9c5"
+    background = "#1f1f28"
+    foreground = "#dcd7ba"
 
 [urgency_normal]
     msg_urgency = normal
-    background = "#0d0c0c"
-    foreground = "#c5c9c5"
+    background = "#1f1f28"
+    foreground = "#dcd7ba"
 
 [urgency_critical]
     msg_urgency = critical
-    background = "#0d0c0c"
-    foreground = "#c5c9c5"
+    background = "#1f1f28"
+    foreground = "#dcd7ba"

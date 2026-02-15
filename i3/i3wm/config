@@ -1,15 +1,15 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Patrick Hand 12
+font pango: Exo 2 Bold 9
 
 focus_follows_mouse yes
 # smart_gaps on
 # smart_borders on
-for_window [class="."] border pixel 2
+# for_window [class="."] border pixel 2
 
-# new_window normal 0
-# new_float normal 0
+new_window normal 0
+new_float normal 0
 # title_align left
 
 gaps inner 8
@@ -17,44 +17,44 @@ gaps outer 6
 
 # workspace_layout tabbed
 
-set $ActiveBackGround      #c4b28a
-set $ActiveBorder          #c4b28a
-set $ActiveText            #0d0c0c
+set $ActiveBackGround      #76946a
+set $ActiveBorder          #76946a
+set $ActiveText            #1f1f28
 
-set $UnFocusedBackGround   #8ea4a2
-set $UnFocusedBorder       #8ea4a2
-set $UnFocusedText         #0d0c0c
+set $UnFocusedBackGround   #54546d
+set $UnFocusedBorder       #54546d
+set $UnFocusedText         #dcd7ba
 
-set $InActiveBackGround    #8992a7
-set $InActiveBorder        #8992a7
-set $InActiveText          #0d0c0c
+set $InActiveBackGround    #223249
+set $InActiveBorder        #223249
+set $InActiveText          #dcd7ba
 
-set $UrgentBackGround      #c4746e
-set $UrgentBorder          #c4746e
-set $UrgentText            #0d0c0c
+set $UrgentBackGround      #c34043
+set $UrgentBorder          #c34043
+set $UrgentText            #dcd7ba
 
-set $BarBackGround         #0d0c0c
+set $BarBackGround         #1f1f28
 
-set $BarActiveBackGround   #87a987
-set $BarActiveBorder       #0d0c0c
-set $BarActiveText         #0d0c0c
+set $BarActiveBackGround   #7e9cd8
+set $BarActiveBorder       #1f1f28
+set $BarActiveText         #dcd7ba
 
-set $BarInActiveBackGround #737c73
-set $BarInActiveBorder     #0d0c0c
-set $BarInActiveText       #c5c9c5
+set $BarInActiveBackGround #54546d
+set $BarInActiveBorder     #1f1f28
+set $BarInActiveText       #dcd7ba
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id /home/amir/.local/share/envscripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-fill ~/.local/share/backgrounds/nicola-samori-07.jpg
+exec_always --no-startup-id sleep 0.5 && feh --bg-fill --randomize ~/Development/dotfiles/backgrounds/{pexels-hedamervekorkmaz-10438265.jpg,mountain.jpg,mojave-night.webp,miriam-espacio-K4EUCv5vNc0-unsplash.jpg,403292mtsdl.jpg,andre-benz-qi2hmCwlhcE-unsplash.jpg,GwTFj6C.jpeg,jonathan-borba-x_sa53wZEiQ-unsplash.jpg,khachik-simonian-G22cAfM7-tE-unsplash.jpg,khristina-sergeychik-W3PWC7snLVw-unsplash.jpg}
 # exec_always --no-startup-id hsetroot -solid '#493922'
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym Print exec maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
 bindsym $mod+d exec rofi -show run
 # bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$ActiveText' -sb '$BarActiveBackGround' -fn 'PT Serif:pixelsize=11:style=Medium' -b # -l 1 -b
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
 
@@ -87,8 +87,8 @@ bindsym $mod+Tab focus mode_toggle
 bindsym $mod+Down split v
 bindsym $mod+Right split h
 
-# bindsym $mod+s layout stacking
-# bindsym $mod+t layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 set $ws1 "RCH"
@@ -134,7 +134,7 @@ assign [class="Deluge"] $ws2
 assign [class="Uget-gtk"] $ws2
 assign [class="Virt-manager"] $ws5
 assign [class="VirtualBox Manager"] $ws5
-# assign [class="VirtualBox"] $ws5
+assign [class="VirtualBox"] $ws5
 assign [class="Atom"] $ws3
 
 for_window [class="torbrowser-launcher"] floating enable
@@ -155,6 +155,7 @@ for_window [class="Pcmanfm"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="lximage-qt"] floating enable
 for_window [class="nekoray"] floating enable
+for_window [class="Nwg-look"] floating enable
 # for_window [class="TelegramDesktop"] floating enable
 
 client.focused            $ActiveBorder    $ActiveBackGround    $ActiveText    $ActiveBackGround
@@ -206,7 +207,7 @@ bar {
         # mode hide
         height 19
         output eDP-1
-        font pango: Patrick Hand 12
+        font pango: Exo 2 Bold 9
         colors {
             background $BarBackGround
             separator #ffffff
@@ -224,7 +225,7 @@ bar {
         # mode hide
         height 19
         output HDMI-1
-        font pango: Patrick Hand 12
+        font pango: Exo 2 Bold 9
         colors {
             background $BarBackGround
             separator #ffffff
