@@ -1,23 +1,23 @@
 configuration {
     modei: ["window","drun","run"];
     display-run: "";
-    font: "Patrick Hand 12";
+    font: "Exo 2 Bold 10";
     fixed-num-lines: true;
     show-icons: false;
-    terminal: "kitty";
+    terminal: "alacritty";
 }
 
 
 * {
 /* https://github.com/tinted-theming/base16-rofi */
 
-    red:                         rgba ( 196, 116, 110, 100 % );
-    blue:                        rgba ( 139, 164, 176, 100 % );
-    lightfg:                     rgba ( 122, 131, 130, 100 % );
-    lightbg:                     rgba ( 29, 28, 25, 100 % );
-    foreground:                  rgba ( 197, 201, 197, 100 % );
-    background:                  rgba ( 13, 12, 12, 100 % );
-    background-color:            rgba ( 13, 12, 12, 0 % );
+    red:                         rgba ( 215, 95, 95, 100 % );
+    blue:                        rgba ( 62, 68, 81, 100 % );
+    lightfg:                     rgba ( 168, 115, 34, 100 % );
+    lightbg:                     rgba ( 44, 50, 59, 100 % );
+    foreground:                  rgba ( 213, 196, 161, 100 % );
+    background:                  rgba ( 40, 44, 52, 100 % );
+    background-color:            rgba ( 31, 31, 40, 0 % );
 
     separatorcolor:              @foreground;
     border-color:                #00000000;
