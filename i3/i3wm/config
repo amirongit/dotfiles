@@ -4,29 +4,31 @@ floating_modifier $mod
 font pango: Exo 2 Bold 9
 
 focus_follows_mouse yes
-# smart_gaps on
-# smart_borders on
-# for_window [class="."] border pixel 2
+smart_gaps off
+smart_borders on
+for_window [class="."] border pixel 2
 
 new_window normal 0
 new_float normal 0
 # title_align left
 
-# gaps inner 8
-# gaps outer 6
+gaps inner 8
+gaps outer 8
 
-workspace_layout stacking
+# workspace_layout stacking
 
-set $ActiveBackGround      #a87322
-set $ActiveBorder          #a07e3b
+#282c34 #2c323b #3e4451 #665c54 #928374 #a89984 #d5c4a1 #fdf4c1 #83a598 #a07e3b #528b8b #d75f5f #a87322
+
+set $ActiveBackGround      #528b8b
+set $ActiveBorder          #528b8b
 set $ActiveText            #282c34
 
-set $UnFocusedBackGround   #2c323b
-set $UnFocusedBorder       #3e4451
+set $UnFocusedBackGround   #665c54
+set $UnFocusedBorder       #665c54
 set $UnFocusedText         #d5c4a1
 
 set $InActiveBackGround    #3e4451
-set $InActiveBorder        #665c54
+set $InActiveBorder        #3e4451
 set $InActiveText          #d5c4a1
 
 set $UrgentBackGround      #d75f5f
@@ -35,7 +37,7 @@ set $UrgentText            #282c34
 
 set $BarBackGround         #282c34
 
-set $BarActiveBackGround   #528b8b
+set $BarActiveBackGround   #a87322
 set $BarActiveBorder       #282c34
 set $BarActiveText         #282c34
 
@@ -47,7 +49,7 @@ exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 # exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id /home/amir/.local/share/envscripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-scale --randomize ~/Development/dotfiles/backgrounds/403292mtsdl.jpg
+exec_always --no-startup-id sleep 0.5 && feh --bg-scale --randomize ~/Development/dotfiles/backgrounds/{403292mtsdl.jpg,mikulas-prokop-CMHPps9CLzc-unsplash.jpg,New\ Jersey\ Beach\ -\ William\ Trost\ Richards.jpg,pexels-marina-pechnikova-93670000-9295766.jpg}
 # exec_always --no-startup-id hsetroot -solid '#493922'
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
@@ -87,8 +89,8 @@ bindsym $mod+Tab focus mode_toggle
 bindsym $mod+Down split v
 bindsym $mod+Right split h
 
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
+# bindsym $mod+s layout stacking
+# bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 set $ws1 "RCH"
@@ -207,7 +209,7 @@ bar {
         separator_symbol ">"
         tray_output none
         # mode hide
-        height 19
+        height 20
         output eDP-1
         font pango: Exo 2 Bold 9
         colors {
@@ -225,7 +227,7 @@ bar {
         separator_symbol ">"
         tray_output none
         # mode hide
-        height 19
+        height 20
         output HDMI-1
         font pango: Exo 2 Bold 9
         colors {
