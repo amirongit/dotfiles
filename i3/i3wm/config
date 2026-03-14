@@ -15,7 +15,7 @@ new_float normal 0
 # gaps inner 8
 # gaps outer 6
 
-# workspace_layout tabbed
+workspace_layout stacking
 
 set $ActiveBackGround      #a87322
 set $ActiveBorder          #a07e3b
@@ -35,13 +35,13 @@ set $UrgentText            #282c34
 
 set $BarBackGround         #282c34
 
-set $BarActiveBackGround   #a87322
+set $BarActiveBackGround   #528b8b
 set $BarActiveBorder       #282c34
 set $BarActiveText         #282c34
 
-set $BarInActiveBackGround #528b8b
+set $BarInActiveBackGround #3e4451
 set $BarInActiveBorder     #282c34
-set $BarInActiveText       #282c34
+set $BarInActiveText       #d5c4a1
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 # exec_always --no-startup-id xset -b
