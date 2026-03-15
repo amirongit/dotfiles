@@ -4,7 +4,7 @@ floating_modifier $mod
 font pango: Exo 2 Bold 9
 
 focus_follows_mouse yes
-smart_gaps off
+# smart_gaps off
 smart_borders on
 for_window [class="."] border pixel 2
 
@@ -19,17 +19,17 @@ gaps outer 8
 
 #282c34 #2c323b #3e4451 #665c54 #928374 #a89984 #d5c4a1 #fdf4c1 #83a598 #a07e3b #528b8b #d75f5f #a87322
 
-set $ActiveBackGround      #528b8b
-set $ActiveBorder          #528b8b
-set $ActiveText            #282c34
+set $ActiveBackGround      #fdf4c1
+set $ActiveBorder          #fdf4c1
+set $ActiveText            #fdf4c1
 
-set $UnFocusedBackGround   #665c54
-set $UnFocusedBorder       #665c54
-set $UnFocusedText         #d5c4a1
+set $UnFocusedBackGround   #928374
+set $UnFocusedBorder       #928374
+set $UnFocusedText         #928374
 
-set $InActiveBackGround    #3e4451
-set $InActiveBorder        #3e4451
-set $InActiveText          #d5c4a1
+set $InActiveBackGround    #665c54
+set $InActiveBorder        #665c54
+set $InActiveText          #665c54
 
 set $UrgentBackGround      #d75f5f
 set $UrgentBorder          #282c34
@@ -49,13 +49,12 @@ exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 # exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id /home/amir/.local/share/envscripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-scale --randomize ~/Development/dotfiles/backgrounds/{403292mtsdl.jpg,mikulas-prokop-CMHPps9CLzc-unsplash.jpg,New\ Jersey\ Beach\ -\ William\ Trost\ Richards.jpg,pexels-marina-pechnikova-93670000-9295766.jpg}
+exec_always --no-startup-id sleep 0.5 && feh --bg-scale --randomize ~/Development/dotfiles/backgrounds/{pexels-serinus-5838960.jpg,darya-jum-mDlrSzIQjWk-unsplash.jpg,InShot_20260311_012905981.jpg,khristina-sergeychik-W3PWC7snLVw-unsplash.jpg,mikulas-prokop-CMHPps9CLzc-unsplash.jpg,mountain.jpg,New\ Jersey\ Beach\ -\ William\ Trost\ Richards.jpg,pexels-anthony-nguyen-41365574-7305301.jpg,pexels-d123x-913524.jpg,pexels-d123x-913536.jpg,pexels-hedamervekorkmaz-10438265.jpg,pexels-marina-pechnikova-93670000-9295766.jpg}
 # exec_always --no-startup-id hsetroot -solid '#493922'
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym Print exec maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
 bindsym $mod+d exec rofi -show run
-# bindsym $mod+d exec dmenu_run -nb '$BarBackGround' -sf '$ActiveText' -sb '$BarActiveBackGround' -fn 'PT Serif:pixelsize=11:style=Medium' -b # -l 1 -b
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
@@ -204,7 +203,7 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        position top
+        position bottom
         status_command i3blocks
         separator_symbol ">"
         tray_output none
@@ -222,7 +221,7 @@ bar {
 }
 
 bar {
-        position top
+        position bottom
         status_command i3blocks
         separator_symbol ">"
         tray_output none

@@ -5,6 +5,9 @@ configuration {
     fixed-num-lines: true;
     show-icons: false;
     terminal: "alacritty";
+    entry {
+        max-history: 0;
+    }
 }
 
 
@@ -20,7 +23,7 @@ configuration {
     background-color:            rgba ( 31, 31, 40, 0 % );
 
     separatorcolor:              @foreground;
-    border-color:                #00000000;
+    border-color:                @background;
     selected-normal-foreground:  @lightbg;
     selected-normal-background:  @lightfg;
     selected-active-foreground:  @background;
