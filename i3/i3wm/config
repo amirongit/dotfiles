@@ -4,7 +4,7 @@ floating_modifier $mod
 font pango: Exo 2 Bold 9
 
 focus_follows_mouse yes
-# smart_gaps off
+smart_gaps on
 smart_borders on
 for_window [class="."] border pixel 2
 
@@ -32,8 +32,8 @@ set $InActiveBorder        #665c54
 set $InActiveText          #665c54
 
 set $UrgentBackGround      #d75f5f
-set $UrgentBorder          #282c34
-set $UrgentText            #282c34
+set $UrgentBorder          #d75f5f
+set $UrgentText            #d75f5f
 
 set $BarBackGround         #282c34
 
