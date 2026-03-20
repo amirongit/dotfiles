@@ -17,54 +17,54 @@ gaps outer 6
 
 # workspace_layout stacking
 
-#0f0f0f
-#191919
-#262626
-#393939
-#4c4c4c
-#cacaca
-#e7e7e7
-#f0f0f0
-#ac8a8c
-#ceb188
-#aca98a
-#8aac8b
-#8aabac
-#8f8aac
-#ac8aac
-#ac8a8c
+#1f1f28
+#16161d
+#223249
+#54546d
+#727169
+#dcd7ba
+#c8c093
+#717c7c
+#c34043
+#ffa066
+#c0a36e
+#76946a
+#6a9589
+#7e9cd8
+#957fb8
+#d27e99
 
-set $ActiveBackGround      #f0f0f0
-set $ActiveBorder          #f0f0f0
-set $ActiveText            #f0f0f0
+set $ActiveBackGround      #dcd7ba
+set $ActiveBorder          #dcd7ba
+set $ActiveText            #dcd7ba
 
-set $UnFocusedBackGround   #4c4c4c
-set $UnFocusedBorder       #4c4c4c
-set $UnFocusedText         #4c4c4c
+set $UnFocusedBackGround   #727169
+set $UnFocusedBorder       #727169
+set $UnFocusedText         #727169
 
-set $InActiveBackGround    #393939
-set $InActiveBorder        #393939
-set $InActiveText          #393939
+set $InActiveBackGround    #54546d
+set $InActiveBorder        #54546d
+set $InActiveText          #54546d
 
-set $UrgentBackGround      #ac8a8c
-set $UrgentBorder          #4c4c4c
-set $UrgentText            #f0f0f0
+set $UrgentBackGround      #c34043
+set $UrgentBorder          #54546d
+set $UrgentText            #dcd7ba
 
-set $BarBackGround         #4c4c4c
+set $BarBackGround         #54546d
 
-set $BarActiveBackGround   #8f8aac
-set $BarActiveBorder       #4c4c4c
-set $BarActiveText         #191919
+set $BarActiveBackGround   #957fb8
+set $BarActiveBorder       #54546d
+set $BarActiveText         #dcd7ba
 
-set $BarInActiveBackGround #aca98a
-set $BarInActiveBorder     #4c4c4c
-set $BarInActiveText       #191919
+set $BarInActiveBackGround #727169
+set $BarInActiveBorder     #54546d
+set $BarInActiveText       #dcd7ba
 
 exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 # exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id /home/amir/.local/share/envscripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-fill --randomize ~/Development/dotfiles/backgrounds/{pexels-serinus-5838960.jpg,khristina-sergeychik-W3PWC7snLVw-unsplash.jpg,mikulas-prokop-CMHPps9CLzc-unsplash.jpg,pexels-d123x-913524.jpg,pexels-d123x-913536.jpg}
+exec_always --no-startup-id sleep 0.5 && feh --bg-fill --randomize ~/Development/dotfiles/backgrounds/{403292mtsdl.jpg,darya-jum-mDlrSzIQjWk-unsplash.jpg,GwTFj6C.jpeg,InShot_20260317_133449766.jpg,jonathan-borba-x_sa53wZEiQ-unsplash.jpg,mikulas-prokop-CMHPps9CLzc-unsplash.jpg,miriam-espacio-K4EUCv5vNc0-unsplash.jpg,mojave-night.webp,mountain.jpg,New\ Jersey\ Beach\ -\ William\ Trost\ Richards.jpg,pexels-andreea-ch-371539-3610212.jpg,pexels-anthony-nguyen-41365574-7305301.jpg,pexels-d123x-913536.jpg,pexels-hedamervekorkmaz-10438265.jpg,pexels-marina-pechnikova-93670000-9295766.jpg,pexels-sandra-seitamaa-89384773-9669201.jpg,shavr-ik-Mv_e78hOVkE-unsplash.jpg}
 # exec_always --no-startup-id hsetroot -solid '#493922'
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
@@ -218,7 +218,7 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
-        position top
+        position bottom
         status_command i3blocks
         separator_symbol ">"
         tray_output none
@@ -236,7 +236,7 @@ bar {
 }
 
 bar {
-        position top
+        position bottom
         status_command i3blocks
         separator_symbol ">"
         tray_output none

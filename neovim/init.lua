@@ -1,6 +1,5 @@
 if vim.g.vscode then
     require("pinoq.pide")
--- if vim.g.neovide then
 else
     require("pinoq.pdeps")
     require("pinoq.pstyle")

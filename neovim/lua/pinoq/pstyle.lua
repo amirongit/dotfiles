@@ -233,3 +233,23 @@ vim.opt.cmdheight = 1
 -- vim.opt.shortmess:append("C")
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
+
+if false then
+    local base16_cs = require("base16-colorscheme")
+    print(base16_cs.colors.base00)
+    print(base16_cs.colors.base01)
+    print(base16_cs.colors.base02)
+    print(base16_cs.colors.base03)
+    print(base16_cs.colors.base04)
+    print(base16_cs.colors.base05)
+    print(base16_cs.colors.base06)
+    print(base16_cs.colors.base07)
+    print(base16_cs.colors.base08)
+    print(base16_cs.colors.base09)
+    print(base16_cs.colors.base0A)
+    print(base16_cs.colors.base0B)
+    print(base16_cs.colors.base0C)
+    print(base16_cs.colors.base0D)
+    print(base16_cs.colors.base0E)
+    print(base16_cs.colors.base0F)
+end
