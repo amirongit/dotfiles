@@ -64,7 +64,7 @@ exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
 # exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id /home/amir/.local/share/envscripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-fill --randomize ~/Development/dotfiles/backgrounds/{403292mtsdl.jpg,darya-jum-mDlrSzIQjWk-unsplash.jpg,GwTFj6C.jpeg,InShot_20260317_133449766.jpg,jonathan-borba-x_sa53wZEiQ-unsplash.jpg,mikulas-prokop-CMHPps9CLzc-unsplash.jpg,miriam-espacio-K4EUCv5vNc0-unsplash.jpg,mojave-night.webp,mountain.jpg,New\ Jersey\ Beach\ -\ William\ Trost\ Richards.jpg,pexels-andreea-ch-371539-3610212.jpg,pexels-anthony-nguyen-41365574-7305301.jpg,pexels-d123x-913536.jpg,pexels-hedamervekorkmaz-10438265.jpg,pexels-marina-pechnikova-93670000-9295766.jpg,pexels-sandra-seitamaa-89384773-9669201.jpg,shavr-ik-Mv_e78hOVkE-unsplash.jpg}
+exec_always --no-startup-id sleep 0.5 && feh --bg-scale --randomize ~/Development/dotfiles/backgrounds/{403292mtsdl.jpg,darya-jum-mDlrSzIQjWk-unsplash.jpg,GwTFj6C.jpeg,InShot_20260317_133449766.jpg,jonathan-borba-x_sa53wZEiQ-unsplash.jpg,mikulas-prokop-CMHPps9CLzc-unsplash.jpg,miriam-espacio-K4EUCv5vNc0-unsplash.jpg,mojave-night.webp,mountain.jpg,New\ Jersey\ Beach\ -\ William\ Trost\ Richards.jpg,pexels-andreea-ch-371539-3610212.jpg,pexels-anthony-nguyen-41365574-7305301.jpg,pexels-d123x-913536.jpg,pexels-hedamervekorkmaz-10438265.jpg,pexels-marina-pechnikova-93670000-9295766.jpg,pexels-sandra-seitamaa-89384773-9669201.jpg,shavr-ik-Mv_e78hOVkE-unsplash.jpg}
 # exec_always --no-startup-id hsetroot -solid '#493922'
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
@@ -174,6 +174,7 @@ for_window [class="nekoray"] floating enable
 for_window [class="Nwg-look"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="pavucontrol"] floating enable
+for_window [class="Xarchiver"] floating enable
 # for_window [class="TelegramDesktop"] floating enable
 
 client.focused            $ActiveBorder    $ActiveBackGround    $ActiveText    $ActiveBackGround
