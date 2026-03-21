@@ -17,7 +17,7 @@ configuration {
     red:                         rgba ( 195, 64, 67, 100 % );
     blue:                        rgba ( 126, 156, 216, 100 % );
     lightfg:                     rgba ( 220, 215, 186, 100 % );
-    lightbg:                     rgba ( 34, 50, 73, 100 % );
+    lightbg:                     rgba ( 22, 22, 29, 100 % );
     foreground:                  rgba ( 220, 215, 186, 100 % );
     background:                  rgba ( 31, 31, 40, 100 % );
     background-color:            rgba ( 31, 31, 40, 100 % );
