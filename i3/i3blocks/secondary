@@ -1,3 +1,7 @@
+[blank]
+command=echo " "
+interval=30
+
 [battery]
 command=i3blocks-contrib/battery/battery
 interval=30
@@ -30,6 +34,6 @@ command=i3blocks-contrib/temperature/temperature
 label=TMP 
 interval=10
 
-[time]
-command=echo $(date +"DT %Y-%m-%d %H:%M")
+[blank]
+command=echo " "
 interval=30

@@ -1,3 +1,7 @@
+[blank]
+command=echo " "
+interval=30
+
 [volume]
 command=i3blocks-contrib/volume/volume
 interval=5
@@ -54,4 +58,8 @@ display_wifi_name=0
 
 [time]
 command=echo $(date +"DT %Y-%m-%d %H:%M")
+interval=30
+
+[blank]
+command=echo " "
 interval=30
