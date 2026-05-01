@@ -1,7 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Exo 2 Bold 9
+font pango: Exo 2 semiBold 9
 
 focus_follows_mouse yes
 smart_gaps on
@@ -17,60 +17,43 @@ gaps outer 6
 
 # workspace_layout stacking
 
-#1f1f28
-#16161d
-#223249
-#54546d
-#727169
-#dcd7ba
-#c8c093
-#717c7c
-#c34043
-#ffa066
-#c0a36e
-#76946a
-#6a9589
-#7e9cd8
-#957fb8
-#d27e99
+set $ActiveBackGround      #a292a3
+set $ActiveBorder          #a292a3
+set $ActiveText            #a292a3
 
-set $ActiveBackGround      #dcd7ba
-set $ActiveBorder          #dcd7ba
-set $ActiveText            #dcd7ba
+set $UnFocusedBackGround   #625e5a
+set $UnFocusedBorder       #625e5a
+set $UnFocusedText         #625e5a
 
-set $UnFocusedBackGround   #727169
-set $UnFocusedBorder       #727169
-set $UnFocusedText         #727169
+set $InActiveBackGround    #393836
+set $InActiveBorder        #393836
+set $InActiveText          #393836
 
-set $InActiveBackGround    #54546d
-set $InActiveBorder        #54546d
-set $InActiveText          #54546d
+set $UrgentBackGround      #c4746e
+set $UrgentBorder          #737c73
+set $UrgentText            #181616
 
-set $UrgentBackGround      #c34043
-set $UrgentBorder          #54546d
-set $UrgentText            #dcd7ba
+set $BarBackGround         #737c73
 
-set $BarBackGround         #54546d
+set $BarActiveBackGround   #c5c9c5
+set $BarActiveBorder       #737c73
+set $BarActiveText         #181616
 
-set $BarActiveBackGround   #957fb8
-set $BarActiveBorder       #54546d
-set $BarActiveText         #dcd7ba
+set $BarInActiveBackGround #625e5a
+set $BarInActiveBorder     #737c73
+set $BarInActiveText       #c5c9c5
 
-set $BarInActiveBackGround #727169
-set $BarInActiveBorder     #54546d
-set $BarInActiveText       #dcd7ba
-
-exec_always --no-startup-id picom --config /home/amir/.config/picom/picom.conf
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 # exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
-exec_always --no-startup-id /home/amir/.local/share/envscripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-scale --randomize ~/Development/dotfiles/backgrounds/{403292mtsdl.jpg,darya-jum-mDlrSzIQjWk-unsplash.jpg,GwTFj6C.jpeg,InShot_20260317_133449766.jpg,jonathan-borba-x_sa53wZEiQ-unsplash.jpg,mikulas-prokop-CMHPps9CLzc-unsplash.jpg,miriam-espacio-K4EUCv5vNc0-unsplash.jpg,mojave-night.webp,mountain.jpg,New\ Jersey\ Beach\ -\ William\ Trost\ Richards.jpg,pexels-andreea-ch-371539-3610212.jpg,pexels-anthony-nguyen-41365574-7305301.jpg,pexels-d123x-913536.jpg,pexels-hedamervekorkmaz-10438265.jpg,pexels-marina-pechnikova-93670000-9295766.jpg,pexels-sandra-seitamaa-89384773-9669201.jpg,shavr-ik-Mv_e78hOVkE-unsplash.jpg}
+exec_always --no-startup-id bash ~/.local/share/envscripts/configure-displays.sh
+exec_always --no-startup-id sleep 0.5 && feh --bg-fill ~/Development/dotfiles/backgrounds/sajad-nori-rG41gpS2FKI-unsplash.jpg ~/Development/dotfiles/backgrounds/vahid-mazaheri-FGRtZFtrmSc-unsplash.jpg
 # exec_always --no-startup-id hsetroot -solid '#493922'
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym Print exec maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
 bindsym $mod+d exec rofi -show run
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
 
@@ -175,6 +158,7 @@ for_window [class="Nwg-look"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="pavucontrol"] floating enable
 for_window [class="Xarchiver"] floating enable
+for_window [class="Arandr"] floating enable
 # for_window [class="TelegramDesktop"] floating enable
 
 client.focused            $ActiveBorder    $ActiveBackGround    $ActiveText    $ActiveBackGround
@@ -220,13 +204,13 @@ mode "$mode_gaps_outer" {
 
 bar {
         position bottom
-        status_command i3blocks
+        status_command i3blocks -c ~/.config/i3blocks/primary
         separator_symbol ">"
         tray_output none
         # mode hide
         height 20
         output eDP-1
-        font pango: Exo 2 Bold 9
+        font pango: Exo 2 semiBold 10
         colors {
             background $BarBackGround
             separator #ffffff
@@ -238,13 +222,13 @@ bar {
 
 bar {
         position bottom
-        status_command i3blocks
+        status_command i3blocks -c ~/.config/i3blocks/secondary
         separator_symbol ">"
         tray_output none
         # mode hide
         height 20
         output HDMI-1
-        font pango: Exo 2 Bold 9
+        font pango: Exo 2 semiBold 8
         colors {
             background $BarBackGround
             separator #ffffff

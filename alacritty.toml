@@ -12,22 +12,22 @@ shape = "Block"
 TERM = "xterm-256color"
 
 [font]
-size = 9
+size = 13
 
 [font.bold]
-family = "Agave Nerd Font Propo"
+family = "Ubuntu Mono"
 style = "Regular"
 
 [font.bold_italic]
-family = "Agave Nerd Font Propo"
+family = "Ubuntu Mono"
 style = "Regular"
 
 [font.italic]
-family = "Agave Nerd Font Propo"
+family = "Ubuntu Mono"
 style = "Regular"
 
 [font.normal]
-family = "Agave Nerd Font Propo"
+family = "Ubuntu Mono"
 style = "Regular"
 
 [[keyboard.bindings]]
@@ -49,8 +49,8 @@ save_to_clipboard = true
 dynamic_padding = false
 
 [window.padding]
-x = 5
-y = 5
+x = 10
+y = 10
 
 
 # https://github.com/tinted-theming/tinted-terminal/tree/main/themes/alacritty
@@ -58,32 +58,56 @@ y = 5
 
 # Default colors
 [colors.primary]
-background = '#1f1f28'
-foreground = '#dcd7ba'
+background = '0x181616'
+foreground = '0xc5c9c5'
 
 # Colors the cursor will use if `custom_cursor_colors` is true
 [colors.cursor]
-text = '#dcd7ba'
-cursor = '#717c7c'
+text = '0x181616'
+cursor = '0xc5c9c5'
 
 # Normal colors
 [colors.normal]
-black = '#1f1f28'
-red = '#c34043'
-green = '#76946a'
-yellow = '#c0a36e'
-blue = '#7e9cd8'
-magenta = '#6a9589'
-cyan = '#957fb8'
-white = '#c8c093'
+black = '0x181616'
+red = '0xc4746e'
+green = '0x8a9a7b'
+yellow = '0xc4b28a'
+blue = '0x8ba4b0'
+magenta = '0xa292a3'
+cyan = '0x8ea4a2'
+white = '0xc5c9c5'
 
 # Bright colors
 [colors.bright]
-black = '#16161d'
-red = '#c34043'
-green = '#76946a'
-yellow = '#c0a36e'
-blue = '#7e9cd8'
-magenta = '#6a9589'
-cyan = '#957fb8'
-white = '#dcd7ba'
+black = '0x625e5a'
+red = '0xc4746e'
+green = '0x8a9a7b'
+yellow = '0xc4b28a'
+blue = '0x8ba4b0'
+magenta = '0xa292a3'
+cyan = '0x8ea4a2'
+white = '0xc5c9c5'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xb6927b"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xb98d7b"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x282727"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x393836"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x737c73"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xc8c093"
