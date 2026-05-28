@@ -4,16 +4,16 @@ floating_modifier $mod
 font pango: Exo 2 semiBold 9
 
 focus_follows_mouse yes
-smart_gaps on
-smart_borders on
+# smart_gaps on
+# smart_borders on
 for_window [class="."] border pixel 2
 
 new_window normal 0
 new_float normal 0
 # title_align left
 
-gaps inner 16
-gaps outer 6
+gaps inner 6
+gaps outer 4
 
 # workspace_layout stacking
 
@@ -44,14 +44,14 @@ set $BarInActiveBorder     #737c73
 set $BarInActiveText       #c5c9c5
 
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
-# exec_always --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
-exec_always --no-startup-id bash ~/.local/share/envscripts/configure-displays.sh
+exec_always --no-startup-id bash ~/.local/share/scripts/configure-displays.sh
 exec_always --no-startup-id sleep 0.5 && feh --bg-fill ~/Development/dotfiles/backgrounds/sajad-nori-rG41gpS2FKI-unsplash.jpg ~/Development/dotfiles/backgrounds/vahid-mazaheri-FGRtZFtrmSc-unsplash.jpg
-# exec_always --no-startup-id hsetroot -solid '#493922'
+exec_always --no-startup-id ~/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym Print exec maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
+bindsym --release $mod+Print exec --no-startup-id sh -c '~/.local/share/scripts/screenshot-monitor.sh "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png" && notify-send "~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png"'
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
@@ -90,11 +90,11 @@ bindsym $mod+Right split h
 # bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
-set $ws1 "RCH"
-set $ws2 "WWW"
-set $ws3 "DEV"
-set $ws4 "GFX"
-set $ws5 "SYS"
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -200,40 +200,4 @@ mode "$mode_gaps_outer" {
         bindsym 0     gaps outer current set 0
 
         bindsym Return mode "default"
-}
-
-bar {
-        position bottom
-        status_command i3blocks -c ~/.config/i3blocks/primary
-        separator_symbol ">"
-        tray_output none
-        # mode hide
-        height 20
-        output eDP-1
-        font pango: Exo 2 semiBold 10
-        colors {
-            background $BarBackGround
-            separator #ffffff
-            focused_workspace  $BarActiveBorder   $BarActiveBackGround   $BarActiveText
-            inactive_workspace $BarInActiveBorder $BarInActiveBackGround $BarInActiveText
-            urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
-        }
-}
-
-bar {
-        position bottom
-        status_command i3blocks -c ~/.config/i3blocks/secondary
-        separator_symbol ">"
-        tray_output none
-        # mode hide
-        height 20
-        output HDMI-1
-        font pango: Exo 2 semiBold 8
-        colors {
-            background $BarBackGround
-            separator #ffffff
-            focused_workspace  $BarActiveBorder   $BarActiveBackGround   $BarActiveText
-            inactive_workspace $BarInActiveBorder $BarInActiveBackGround $BarInActiveText
-            urgent_workspace   $UrgentBorder      $UrgentBackGround      $UrgentText
-        }
 }

@@ -1,7 +1,7 @@
 [global]
     frame_width = 2
     origin = bottom-right
-    font = Ubuntu Condensed Bold 9
+    font = VictorMono Nerd Font Bold 9
     markup = yes
     format = "%s\n%n\n%b"
     stack_duplicates = false
@@ -42,7 +42,7 @@ separator_color = "#c5c9c5"
 
 [base16_normal]
     msg_urgency = "normal"
-    background = "#393836"
+    background = "#181616"
     foreground = "#c5c9c5"
 
 [base16_critical]
