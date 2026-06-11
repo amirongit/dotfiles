@@ -6,7 +6,7 @@ font pango: Exo 2 semiBold 9
 focus_follows_mouse yes
 # smart_gaps on
 # smart_borders on
-for_window [class="."] border pixel 2
+for_window [class="."] border pixel 1
 
 new_window normal 0
 new_float normal 0
@@ -36,7 +36,7 @@ set $UrgentText            #181818
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id bash $HOME/.local/share/scripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-fill $HOME/Development/dotfiles/backgrounds/sajad-nori-rG41gpS2FKI-unsplash.jpg $HOME/Development/dotfiles/backgrounds/vahid-mazaheri-FGRtZFtrmSc-unsplash.jpg
+exec_always --no-startup-id sleep 0.5 && feh --bg-fill $HOME/Development/dotfiles/backgrounds/pexels-hedamervekorkmaz-10438265.jpg $HOME/Development/dotfiles/backgrounds/miriam-espacio-K4EUCv5vNc0-unsplash.jpg
 exec_always --no-startup-id $HOME/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
