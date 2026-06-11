@@ -1,12 +1,12 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Exo 2 semiBold 9
+font pango: Google Sans Flex semiBold 9
 
 focus_follows_mouse yes
 # smart_gaps on
 # smart_borders on
-for_window [class="."] border pixel 1
+for_window [class="."] border pixel 2
 
 new_window normal 0
 new_float normal 0

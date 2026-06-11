@@ -1,10 +1,10 @@
 configuration {
     modei: ["window","drun","run"];
     display-run: "";
-    font: "Ubuntu Condensed 10";
+    font: "Google Sans Flex SemiBold 10";
     fixed-num-lines: true;
     show-icons: false;
-    terminal: "alacritty";
+    terminal: "kitty";
     entry {
         max-history: 0;
     }
