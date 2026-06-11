@@ -1,0 +1,67 @@
+configuration {
+    modei: ["window","drun","run"];
+    display-run: "";
+    font: "Google Sans Code Medium 9";
+    fixed-num-lines: true;
+    show-icons: false;
+    terminal: "kitty";
+    entry {
+        max-history: 0;
+    }
+}
+
+
+* {
+
+    red:                         rgba ( 171, 70, 66, 100 % );
+    blue:                        rgba ( 124, 175, 194, 100 % );
+    lightfg:                     rgba ( 232, 232, 232, 100 % );
+    lightbg:                     rgba ( 40, 40, 40, 100 % );
+    foreground:                  rgba ( 216, 216, 216, 100 % );
+    background:                  rgba ( 24, 24, 24, 100 % );
+    background-color:            rgba ( 24, 24, 24, 0 % );
+
+    separatorcolor:              @foreground;
+    border-color:                @foreground;
+    selected-normal-foreground:  @lightbg;
+    selected-normal-background:  @lightfg;
+    selected-active-foreground:  @background;
+    selected-active-background:  @blue;
+    selected-urgent-foreground:  @background;
+    selected-urgent-background:  @red;
+    normal-foreground:           @foreground;
+    normal-background:           @background;
+    active-foreground:           @blue;
+    active-background:           @background;
+    urgent-foreground:           @red;
+    urgent-background:           @background;
+    alternate-normal-foreground: @foreground;
+    alternate-normal-background: @lightbg;
+    alternate-active-foreground: @blue;
+    alternate-active-background: @lightbg;
+    alternate-urgent-foreground: @red;
+    alternate-urgent-background: @lightbg;
+    spacing:                     2;
+}
+
+window {
+    width: 40%;
+}
+
+listview {
+    columns: 1;
+    lines: 7;
+    fixed-height: true;
+    fixed-columns: true;
+    cycle: false;
+    scrollbar: false;
+    border: 0px solid;
+}
+
+prompt {
+    enabled: false;
+}
+
+element {
+    highlight: none;
+}
