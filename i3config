@@ -17,41 +17,31 @@ gaps outer 4
 
 # workspace_layout stacking
 
-set $ActiveBackGround      #a292a3
-set $ActiveBorder          #a292a3
-set $ActiveText            #a292a3
+set $ActiveBackGround      #b8b8b8
+set $ActiveBorder          #b8b8b8
+set $ActiveText            #b8b8b8
 
-set $UnFocusedBackGround   #625e5a
-set $UnFocusedBorder       #625e5a
-set $UnFocusedText         #625e5a
+set $UnFocusedBackGround   #585858
+set $UnFocusedBorder       #585858
+set $UnFocusedText         #585858
 
-set $InActiveBackGround    #393836
-set $InActiveBorder        #393836
-set $InActiveText          #393836
+set $InActiveBackGround    #383838
+set $InActiveBorder        #383838
+set $InActiveText          #383838
 
-set $UrgentBackGround      #c4746e
-set $UrgentBorder          #737c73
-set $UrgentText            #181616
+set $UrgentBackGround      #ab4642
+set $UrgentBorder          #ab4642
+set $UrgentText            #181818
 
-set $BarBackGround         #737c73
-
-set $BarActiveBackGround   #c5c9c5
-set $BarActiveBorder       #737c73
-set $BarActiveText         #181616
-
-set $BarInActiveBackGround #625e5a
-set $BarInActiveBorder     #737c73
-set $BarInActiveText       #c5c9c5
-
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
-exec_always --no-startup-id bash ~/.local/share/scripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-fill ~/Development/dotfiles/backgrounds/sajad-nori-rG41gpS2FKI-unsplash.jpg ~/Development/dotfiles/backgrounds/vahid-mazaheri-FGRtZFtrmSc-unsplash.jpg
-exec_always --no-startup-id ~/.local/share/scripts/launch-polybar.sh
+exec_always --no-startup-id bash $HOME/.local/share/scripts/configure-displays.sh
+exec_always --no-startup-id sleep 0.5 && feh --bg-fill $HOME/Development/dotfiles/backgrounds/sajad-nori-rG41gpS2FKI-unsplash.jpg $HOME/Development/dotfiles/backgrounds/vahid-mazaheri-FGRtZFtrmSc-unsplash.jpg
+exec_always --no-startup-id $HOME/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
-bindsym Print exec maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+~/Pictures/%m-%d_%H-%M-%S_shot.png")
-bindsym --release $mod+Print exec --no-startup-id sh -c '~/.local/share/scripts/screenshot-monitor.sh "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png" && notify-send "~/Pictures/$(date +%m-%d_%H-%M-%S_shot).png"'
+bindsym Print exec maim -i $(xdotool getactivewindow) $HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+$HOME/Pictures/%m-%d_%H-%M-%S_shot.png")
+bindsym --release $mod+Print exec --no-startup-id sh -c '$HOME/.local/share/scripts/screenshot-monitor.sh "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png" && notify-send "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png"'
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill

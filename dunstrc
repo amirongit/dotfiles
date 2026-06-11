@@ -32,20 +32,20 @@
     width = (200, 400)
 
 [global]
-frame_color = "#c5c9c5"
-separator_color = "#c5c9c5"
+frame_color = "#b8b8b8"
+separator_color = "#b8b8b8"
 
 [base16_low]
     msg_urgency = "low"
-    background = "#282727"
-    foreground = "#625e5a"
+    background = "#181818"
+    foreground = "#d8d8d8"
 
 [base16_normal]
     msg_urgency = "normal"
-    background = "#181616"
-    foreground = "#c5c9c5"
+    background = "#181818"
+    foreground = "#d8d8d8"
 
 [base16_critical]
     msg_urgency = "critical"
-    background = "#c4746e"
-    foreground = "#c8c093"
+    background = "#181818"
+    foreground = "#d8d8d8"

@@ -22,7 +22,7 @@ base16_cs.with_config({
 })
 
 
-vim.cmd("colorscheme base16-kanagawa")
+vim.cmd("colorscheme base16-default-dark")
 
 vim.api.nvim_set_hl(0, "LineNr", {})
 vim.api.nvim_set_hl(0, "SignColumn", {})
