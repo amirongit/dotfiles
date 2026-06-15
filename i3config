@@ -12,7 +12,7 @@ new_window normal 0
 new_float normal 0
 # title_align left
 
-gaps inner 6
+gaps inner 12
 gaps outer 4
 
 # workspace_layout stacking
