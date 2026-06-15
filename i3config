@@ -6,7 +6,7 @@ font pango: Google Sans Flex semiBold 9
 focus_follows_mouse yes
 # smart_gaps on
 # smart_borders on
-for_window [class="."] border pixel 2
+for_window [class="."] border pixel 1
 
 new_window normal 0
 new_float normal 0
@@ -17,17 +17,17 @@ gaps outer 4
 
 # workspace_layout stacking
 
-set $ActiveBackGround      #b8b8b8
-set $ActiveBorder          #b8b8b8
-set $ActiveText            #b8b8b8
+set $ActiveBackGround      #f8f8f8
+set $ActiveBorder          #f8f8f8
+set $ActiveText            #f8f8f8
 
-set $UnFocusedBackGround   #585858
-set $UnFocusedBorder       #585858
-set $UnFocusedText         #585858
+set $UnFocusedBackGround   #b8b8b8
+set $UnFocusedBorder       #b8b8b8
+set $UnFocusedText         #b8b8b8
 
-set $InActiveBackGround    #383838
-set $InActiveBorder        #383838
-set $InActiveText          #383838
+set $InActiveBackGround    #585858
+set $InActiveBorder        #585858
+set $InActiveText          #585858
 
 set $UrgentBackGround      #ab4642
 set $UrgentBorder          #ab4642
@@ -36,7 +36,7 @@ set $UrgentText            #181818
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id bash $HOME/.local/share/scripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-fill $HOME/Development/dotfiles/backgrounds/pexels-hedamervekorkmaz-10438265.jpg $HOME/Development/dotfiles/backgrounds/miriam-espacio-K4EUCv5vNc0-unsplash.jpg
+exec_always --no-startup-id sleep 0.5 && feh --bg-fill $HOME/Development/dotfiles/backgrounds/aishot-5065.jpg $HOME/Development/dotfiles/backgrounds/aishot-5064.jpg
 exec_always --no-startup-id $HOME/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
