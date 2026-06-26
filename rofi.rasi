@@ -1,7 +1,7 @@
 configuration {
     modei: ["window","drun","run"];
     display-run: "";
-    font: "Google Sans Flex SemiBold 10";
+    font: "Epunda Slab Medium 12";
     fixed-num-lines: true;
     show-icons: false;
     terminal: "kitty";
@@ -13,13 +13,13 @@ configuration {
 
 * {
 
-    red:                         rgba ( 171, 70, 66, 100 % );
-    blue:                        rgba ( 124, 175, 194, 100 % );
-    lightfg:                     rgba ( 232, 232, 232, 100 % );
-    lightbg:                     rgba ( 40, 40, 40, 100 % );
-    foreground:                  rgba ( 216, 216, 216, 100 % );
-    background:                  rgba ( 24, 24, 24, 100 % );
-    background-color:            rgba ( 24, 24, 24, 0 % );
+    red:                         rgba ( 255, 85, 85, 100 % );
+    blue:                        rgba ( 189, 147, 249, 100 % );
+    lightfg:                     rgba ( 248, 248, 242, 100 % );
+    lightbg:                     rgba ( 33, 34, 44, 100 % );
+    foreground:                  rgba ( 248, 248, 242, 100 % );
+    background:                  rgba ( 40, 42, 54, 100 % );
+    background-color:            rgba ( 40, 42, 54, 0 % );
 
     separatorcolor:              @foreground;
     border-color:                @foreground;

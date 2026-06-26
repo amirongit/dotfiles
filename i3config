@@ -1,7 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Google Sans Flex semiBold 9
+font pango: Epunda Slab Medium 9
 
 focus_follows_mouse yes
 # smart_gaps on
@@ -36,14 +36,14 @@ set $UrgentText            #181818
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id bash $HOME/.local/share/scripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-fill $HOME/Development/dotfiles/backgrounds/aishot-5065.jpg $HOME/Development/dotfiles/backgrounds/aishot-5064.jpg
+exec_always --no-startup-id sleep 0.5 && feh --bg-fill $HOME/Development/dotfiles/backgrounds/mishaal-zahed-meschael-zahede-gUeyFDvPvTE-unsplash.jpg $HOME/Development/dotfiles/backgrounds/vahid-mazaheri-FGRtZFtrmSc-unsplash.jpg
 exec_always --no-startup-id $HOME/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym Print exec maim -i $(xdotool getactivewindow) $HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+$HOME/Pictures/%m-%d_%H-%M-%S_shot.png")
 bindsym --release $mod+Print exec --no-startup-id sh -c '$HOME/.local/share/scripts/screenshot-monitor.sh "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png" && notify-send "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png"'
 bindsym $mod+d exec rofi -show run
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
 
