@@ -1,0 +1,282 @@
+language = en
+
+# jetbrains mono
+font-family = JetBrainsMono Nerd Font
+font-family-bold = JetBrainsMono Nerd Font
+font-family-italic = JetBrainsMono Nerd Font
+font-family-bold-italic = JetBrainsMono Nerd Font
+font-style = Medium
+font-style-bold = SemiBold
+font-style-italic = Medium Italic
+font-style-bold-italic = SemiBold Italic
+font-feature = cv02, cv03, cv04, cv05, cv06, cv07, cv08, cv11, cv14, cv15, cv16, cv17, cv18, cv19, cv20
+
+# fira code
+# font-family = FiraCode Nerd Font
+# font-family-bold = FiraCode Nerd Font
+# font-family-italic = FiraCode Nerd Font
+# font-family-bold-italic = FiraCode Nerd Font
+# font-style = Medium
+# font-style-bold = SemiBold
+# font-style-italic = Medium
+# font-style-bold-italic = SemiBold
+# font-feature = cv01, cv02, zero, cv11, cv14, onum, cv16, cv29, cv31
+
+# victor mono
+# font-family = VictorMono Nerd Font
+# font-family-bold = VictorMono Nerd Font
+# font-family-italic = VictorMono Nerd Font
+# font-family-bold-italic = VictorMono Nerd Font
+# font-style = SemiBold
+# font-style-bold = Bold
+# font-style-italic = SemiBold Italic
+# font-style-bold-italic = Bold Italic
+# font-feature = ss01, ss04, ss06
+
+# cascadia
+# font-family = CaskaydiaCove Nerd Font
+# font-family-bold = CaskaydiaCove Nerd Font
+# font-family-italic = CaskaydiaCove Nerd Font
+# font-family-bold-italic = CaskaydiaCove Nerd Font
+# font-style = Regular
+# font-style-bold = SemiBold
+# font-style-italic = Italic
+# font-style-bold-italic = SemiBold Italic
+# font-feature = ss01, ss02, ss03, ss20
+
+# simple
+# font-family = Agave Nerd Font
+# font-family-bold = Agave Nerd Font
+# font-family-italic = Agave Nerd Font
+# font-family-bold-italic = Agave Nerd Font
+# font-style = Regular
+# font-style-bold = Regular
+# font-style-italic = Regular
+# font-style-bold-italic = Regular
+# font-feature =
+
+font-variation =
+font-variation-bold =
+font-variation-italic =
+font-variation-bold-italic =
+font-codepoint-map =
+clipboard-codepoint-map =
+
+theme =
+# Color palette
+palette = 0=#282a36
+palette = 1=#ff5555
+palette = 2=#50fa7b
+palette = 3=#f1fa8c
+palette = 4=#bd93f9
+palette = 5=#ff79c6
+palette = 6=#8be9fd
+palette = 7=#f8f8f2
+palette = 8=#6272a4
+palette = 9=#ff5555
+palette = 10=#50fa7b
+palette = 11=#f1fa8c
+palette = 12=#bd93f9
+palette = 13=#ff79c6
+palette = 14=#8be9fd
+palette = 15=#ffffff
+palette = 16=#ffb86c
+palette = 17=#993333
+palette = 18=#21222c
+palette = 19=#44475a
+palette = 20=#9ea8c7
+palette = 21=#f8f8f2
+# Foreground & background colors
+background = #282a36
+foreground = #f8f8f2
+cursor-color = #f8f8f2
+selection-background = #f8f8f2
+selection-foreground = #44475a
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #ffffff
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #bd93f9
+
+font-synthetic-style = false
+font-size = 12
+font-thicken = false
+font-thicken-strength =
+font-shaping-break = cursor
+alpha-blending = linear-corrected
+adjust-cell-width =
+adjust-cell-height =
+adjust-font-baseline =
+adjust-underline-position =
+adjust-underline-thickness =
+adjust-strikethrough-position =
+adjust-strikethrough-thickness =
+adjust-overline-position =
+adjust-overline-thickness =
+adjust-cursor-thickness =
+adjust-cursor-height =
+adjust-box-thickness =
+adjust-icon-height =
+grapheme-width-method = unicode
+freetype-load-flags =
+background-image =
+background-image-opacity =
+background-image-position =
+background-image-fit =
+background-image-repeat =
+selection-clear-on-typing = true
+selection-clear-on-copy = false
+selection-word-chars = \t'"│`|:;,()[]{}<>$
+minimum-contrast =
+palette-generate = false
+palette-harmonious =
+cursor-opacity = 1
+cursor-style = block_hollow
+cursor-style-blink = false
+cursor-text =
+cursor-click-to-move = false
+mouse-hide-while-typing = true
+scroll-to-bottom = keystroke, no-output
+mouse-shift-capture = false
+mouse-reporting = true
+mouse-scroll-multiplier = 1
+background-opacity = 1
+background-opacity-cells = true
+background-blur = false
+unfocused-split-opacity = 1
+unfocused-split-fill =
+split-divider-color =
+split-preserve-zoom =
+search-foreground =
+search-background =
+search-selected-background =
+search-selected-foreground =
+command =
+initial-command =
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = no-bell,notify
+notify-on-command-finish-after = 10s
+env =
+input =
+wait-after-command = false
+abnormal-command-exit-runtime =
+scrollback-limit = 50000000
+scrollbar = never
+link =
+link-url = true
+link-previews = false
+maximize = false
+fullscreen = false
+title =
+class =
+x11-instance-name =
+working-directory =
+keybind = clear
+keybind = performable:ctrl+shift+c=copy_to_clipboard
+keybind = performable:ctrl+shift+v=paste_from_clipboard
+keybind = ctrl+shift+r=reload_config
+key-remap =
+window-padding-x = 5
+window-padding-y = 5
+window-padding-balance = true
+window-padding-color = extend-always
+window-vsync = true
+window-inherit-working-directory =
+tab-inherit-working-directory =
+split-inherit-working-directory =
+window-inherit-font-size =
+window-decoration = server
+window-title-font-family =
+window-subtitle = false
+window-theme = system
+window-colorspace = srgb
+window-height =
+window-width =
+window-position-x =
+window-position-y =
+window-save-state = never
+window-step-resize =
+window-new-tab-position =
+window-show-tab-bar = never
+window-titlebar-background =
+window-titlebar-foreground =
+resize-overlay = always
+resize-overlay-position = center
+resize-overlay-duration = 1s
+focus-follows-mouse = true
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = false
+clipboard-paste-protection = false
+clipboard-paste-bracketed-safe = true
+title-report = false
+image-storage-limit =
+copy-on-select = true
+right-click-action = copy-or-paste
+click-repeat-interval = 0
+config-file =
+config-default-files = true
+confirm-close-surface = always
+quit-after-last-window-closed =
+quit-after-last-window-closed-delay =
+initial-window =
+undo-timeout = 5s
+quick-terminal-position =
+quick-terminal-size =
+gtk-quick-terminal-layer =
+gtk-quick-terminal-namespace =
+quick-terminal-screen =
+quick-terminal-animation-duration =
+quick-terminal-autohide =
+quick-terminal-space-behavior =
+quick-terminal-keyboard-interactivity =
+shell-integration = zsh
+shell-integration-features = no-cursor, no-sudo, no-title, ssh-env, ssh-terminfo, path
+command-palette-entry =
+osc-color-report-format = 16-bit
+vt-kam-allowed = false
+custom-shader =
+custom-shader-animation = true
+bell-features = system
+bell-audio-path =
+bell-audio-volume =
+app-notifications = clipboard-copy, config-reload
+macos-non-native-fullscreen =
+macos-window-buttons =
+macos-titlebar-style =
+macos-titlebar-proxy-icon =
+macos-dock-drop-behavior =
+macos-option-as-alt =
+macos-window-shadow =
+macos-hidden =
+macos-auto-secure-input =
+macos-secure-input-indication =
+macos-applescript =
+macos-icon =
+macos-custom-icon =
+macos-icon-frame =
+macos-icon-ghost-color =
+macos-shortcuts =
+linux-cgroup = always
+linux-cgroup-memory-limit =
+linux-cgroup-processes-limit =
+linux-cgroup-hard-fail = true
+gtk-opengl-debug = false
+gtk-single-instance = false
+gtk-titlebar = false
+gtk-tabs-location =
+gtk-titlebar-hide-when-maximized =
+gtk-toolbar-style =
+gtk-titlebar-style =
+gtk-wide-tabs =
+gtk-custom-css =
+desktop-notifications = true
+progress-style = true
+bold-color =
+faint-opacity =
+term =
+enquiry-response =
+async-backend = auto
+auto-update = off
+auto-update-channel =

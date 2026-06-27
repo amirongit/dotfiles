@@ -17,21 +17,21 @@ gaps outer 5
 
 # workspace_layout stacking
 
-set $ActiveBackGround      #f8f8f8
-set $ActiveBorder          #f8f8f8
-set $ActiveText            #f8f8f8
+set $ActiveBackGround      #ffffff
+set $ActiveBorder          #ffffff
+set $ActiveText            #ffffff
 
-set $UnFocusedBackGround   #b8b8b8
-set $UnFocusedBorder       #b8b8b8
-set $UnFocusedText         #b8b8b8
+set $UnFocusedBackGround   #6272a4
+set $UnFocusedBorder       #6272a4
+set $UnFocusedText         #6272a4
 
-set $InActiveBackGround    #585858
-set $InActiveBorder        #585858
-set $InActiveText          #585858
+set $InActiveBackGround    #9ea8c7
+set $InActiveBorder        #9ea8c7
+set $InActiveText          #9ea8c7
 
-set $UrgentBackGround      #ab4642
-set $UrgentBorder          #ab4642
-set $UrgentText            #181818
+set $UrgentBackGround      #ff5555
+set $UrgentBorder          #ff5555
+set $UrgentText            #282a36
 
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
@@ -43,7 +43,7 @@ exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "li
 bindsym Print exec maim -i $(xdotool getactivewindow) $HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+$HOME/Pictures/%m-%d_%H-%M-%S_shot.png")
 bindsym --release $mod+Print exec --no-startup-id sh -c '$HOME/.local/share/scripts/screenshot-monitor.sh "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png" && notify-send "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png"'
 bindsym $mod+d exec rofi -show run
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
 
