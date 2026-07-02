@@ -21,17 +21,17 @@ set $ActiveBackGround      #ffffff
 set $ActiveBorder          #ffffff
 set $ActiveText            #ffffff
 
-set $UnFocusedBackGround   #6272a4
-set $UnFocusedBorder       #6272a4
-set $UnFocusedText         #6272a4
+set $UnFocusedBackGround   #a4a3a3
+set $UnFocusedBorder       #a4a3a3
+set $UnFocusedText         #a4a3a3
 
-set $InActiveBackGround    #9ea8c7
-set $InActiveBorder        #9ea8c7
-set $InActiveText          #9ea8c7
+set $InActiveBackGround    #a9b7c6
+set $InActiveBorder        #a9b7c6
+set $InActiveText          #a9b7c6
 
-set $UrgentBackGround      #ff5555
-set $UrgentBorder          #ff5555
-set $UrgentText            #282a36
+set $UrgentBackGround      #cc7832
+set $UrgentBorder          #cc7832
+set $UrgentText            #2b2b2b
 
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"

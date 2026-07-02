@@ -13,13 +13,13 @@ configuration {
 
 * {
 
-    red:                         rgba ( 255, 85, 85, 100 % );
-    blue:                        rgba ( 189, 147, 249, 100 % );
-    lightfg:                     rgba ( 248, 248, 242, 100 % );
-    lightbg:                     rgba ( 33, 34, 44, 100 % );
-    foreground:                  rgba ( 248, 248, 242, 100 % );
-    background:                  rgba ( 40, 42, 54, 100 % );
-    background-color:            rgba ( 40, 42, 54, 0 % );
+    red:                         rgba ( 78, 173, 229, 100 % );
+    blue:                        rgba ( 152, 118, 170, 100 % );
+    lightfg:                     rgba ( 255, 198, 109, 100 % );
+    lightbg:                     rgba ( 50, 50, 50, 100 % );
+    foreground:                  rgba ( 169, 183, 198, 100 % );
+    background:                  rgba ( 43, 43, 43, 100 % );
+    background-color:            rgba ( 43, 43, 43, 0 % );
 
     separatorcolor:              @foreground;
     border-color:                @foreground;

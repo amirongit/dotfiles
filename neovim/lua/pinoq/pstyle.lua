@@ -22,7 +22,7 @@ base16_cs.with_config({
 })
 
 
-vim.cmd("colorscheme base16-dracula")
+vim.cmd("colorscheme base16-darcula")
 
 vim.api.nvim_set_hl(0, "LineNr", {})
 vim.api.nvim_set_hl(0, "SignColumn", {})
