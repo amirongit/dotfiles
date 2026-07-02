@@ -1,7 +1,7 @@
 [global]
-    frame_width = 2
+    frame_width = 1
     origin = bottom-right
-    font = Epunda Slab Medium 11
+    font = Epunda Slab Medium 9
     markup = yes
     format = "%s\n%n\n%b"
     stack_duplicates = false
@@ -21,7 +21,7 @@
     history_length = 20
     show_indicators = yes
     line_height = 0
-    separator_height = 2
+    separator_height = 1
     padding = 5
     horizontal_padding = 5
     dmenu = /usr/bin/dmenu -p dunst:
@@ -32,8 +32,8 @@
     width = (200, 400)
 
 [global]
-frame_color = "#bbb529"
-separator_color = "#bbb529"
+frame_color = "#4eade5"
+separator_color = "#4eade5"
 
 [base16_low]
     msg_urgency = "low"
