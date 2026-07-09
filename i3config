@@ -36,7 +36,8 @@ set $UrgentText            #000000
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id bash $HOME/.local/share/scripts/configure-displays.sh
-exec_always --no-startup-id sleep 0.5 && feh --bg-fill $HOME/Development/dotfiles/backgrounds/mishaal-zahed-meschael-zahede-gUeyFDvPvTE-unsplash.jpg $HOME/Development/dotfiles/backgrounds/vahid-mazaheri-FGRtZFtrmSc-unsplash.jpg
+exec_always hsetroot -solid "#990000"
+#  exec_always --no-startup-id sleep 0.5 && feh --bg-fill $HOME/Development/dotfiles/backgrounds/mishaal-zahed-meschael-zahede-gUeyFDvPvTE-unsplash.jpg $HOME/Development/dotfiles/backgrounds/vahid-mazaheri-FGRtZFtrmSc-unsplash.jpg
 exec_always --no-startup-id $HOME/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
