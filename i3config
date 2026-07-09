@@ -17,21 +17,21 @@ gaps outer 5
 
 # workspace_layout stacking
 
-set $ActiveBackGround      #ffffff
-set $ActiveBorder          #ffffff
-set $ActiveText            #ffffff
+set $ActiveBackGround      #fbcb97
+set $ActiveBorder          #fbcb97
+set $ActiveText            #fbcb97
 
-set $UnFocusedBackGround   #a4a3a3
-set $UnFocusedBorder       #a4a3a3
-set $UnFocusedText         #a4a3a3
+set $UnFocusedBackGround   #999999
+set $UnFocusedBorder       #999999
+set $UnFocusedText         #999999
 
-set $InActiveBackGround    #a9b7c6
-set $InActiveBorder        #a9b7c6
-set $InActiveText          #a9b7c6
+set $InActiveBackGround    #c1c1c1
+set $InActiveBorder        #c1c1c1
+set $InActiveText          #c1c1c1
 
-set $UrgentBackGround      #cc7832
-set $UrgentBorder          #cc7832
-set $UrgentText            #2b2b2b
+set $UrgentBackGround      #e78a53
+set $UrgentBorder          #e78a53
+set $UrgentText            #000000
 
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
