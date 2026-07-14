@@ -38,7 +38,7 @@ unsetopt share_history
 # export http_proxy="socks5://10.194.108.220:1080"
 # export https_proxy="socks5://10.194.108.220:1080"
 # export ftp_proxy="socks5://10.194.108.220:1080"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#565c64"
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#999999'
 
 
 set_proxy() {

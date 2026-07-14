@@ -1,5 +1,5 @@
 [global]
-    frame_width = 1
+    frame_width = 2
     origin = bottom-right
     font = Epunda Slab Medium 12
     markup = yes
