@@ -22,7 +22,7 @@ base16_cs.with_config({
 })
 
 
-vim.cmd("colorscheme base16-black-metal-bathory")
+vim.cmd("colorscheme base16-everforest-dark-hard")
 
 vim.api.nvim_set_hl(0, "LineNr", {})
 vim.api.nvim_set_hl(0, "SignColumn", {})
@@ -188,17 +188,17 @@ mn_diff.setup({
 })
 ibl.setup({
     scope = { enabled = false },
-    indent = {
-        highlight = {
-            "RainbowRed",
-            "RainbowYellow",
-            "RainbowBlue",
-            "RainbowOrange",
-            "RainbowGreen",
-            "RainbowViolet",
-            "RainbowCyan",
-        }
-    }
+    -- indent = {
+    --     highlight = {
+    --         "RainbowRed",
+    --         "RainbowYellow",
+    --         "RainbowBlue",
+    --         "RainbowOrange",
+    --         "RainbowGreen",
+    --         "RainbowViolet",
+    --         "RainbowCyan",
+    --     }
+    -- }
 })
 
 mn_icons.tweak_lsp_kind("replace")
