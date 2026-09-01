@@ -1,5 +1,25 @@
 -- :source $VIMRUNTIME/syntax/hitest.vim
 
+local palette = {
+    base00 = "#000000", -- background
+    base01 = "#111111",
+    base02 = "#1c1c1c",
+    base03 = "#3a3a3a",
+    base04 = "#7a7a7a",
+    base05 = "#c0c0c0", -- main foreground
+    base06 = "#e0e0e0",
+    base07 = "#ffffff",
+
+    base08 = "#b23331", -- variables / errors (red)
+    base09 = "#d8bb6c", -- numbers / constants (gold)
+    base0A = "#d8bb6c", -- classes / highlights (gold)
+    base0B = "#b23331", -- strings (red)
+    base0C = "#d8bb6c", -- regex / escapes (gold)
+    base0D = "#b23331", -- functions (red)
+    base0E = "#d8bb6c", -- keywords (gold)
+    base0F = "#b23331", -- delimiters (red)
+}
+
 local ibl = require("ibl")
 local mn_hipatterns = require("mini.hipatterns")
 local mn_statusline = require("mini.statusline")
@@ -22,7 +42,12 @@ base16_cs.with_config({
 })
 
 
-vim.cmd("colorscheme base16-everforest-dark-hard")
+base16_cs.setup(
+    palette
+)
+
+-- vim.cmd("colorscheme base16-everforest-dark-hard")
+
 
 vim.api.nvim_set_hl(0, "LineNr", {})
 vim.api.nvim_set_hl(0, "SignColumn", {})
