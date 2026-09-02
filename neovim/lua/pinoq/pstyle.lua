@@ -1,23 +1,23 @@
 -- :source $VIMRUNTIME/syntax/hitest.vim
 
 local palette = {
-    base00 = "#000000", -- background
-    base01 = "#111111",
-    base02 = "#1c1c1c",
-    base03 = "#3a3a3a",
-    base04 = "#7a7a7a",
-    base05 = "#c0c0c0", -- main foreground
-    base06 = "#e0e0e0",
+    base00 = "#000000",
+    base01 = "#0a0a0a",
+    base02 = "#151515",
+    base03 = "#2e2e2e",
+    base04 = "#6e6e6e",
+    base05 = "#d0d0d0",
+    base06 = "#e8e8e8",
     base07 = "#ffffff",
 
-    base08 = "#b23331", -- variables / errors (red)
-    base09 = "#d8bb6c", -- numbers / constants (gold)
-    base0A = "#d8bb6c", -- classes / highlights (gold)
-    base0B = "#b23331", -- strings (red)
-    base0C = "#d8bb6c", -- regex / escapes (gold)
-    base0D = "#b23331", -- functions (red)
-    base0E = "#d8bb6c", -- keywords (gold)
-    base0F = "#b23331", -- delimiters (red)
+    base08 = "#b23331",
+    base09 = "#31B0B2",
+    base0A = "#aeb036",
+    base0B = "#31B0B2",
+    base0C = "#aeb036",
+    base0D = "#b23331",
+    base0E = "#aeb036",
+    base0F = "#b23331",
 }
 
 local ibl = require("ibl")
