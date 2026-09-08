@@ -1,0 +1,26 @@
+[general]
+live-config = 1
+framerate = 60
+autosens = 1
+sensitivity = 100
+bars = 0
+bar_width = 2
+bar_spacing = 1
+center_align = 1
+max_height = 95
+sleep_timer = 5
+[input]
+method = pulse
+source = auto
+[output]
+method = noncurses
+orientation = horizontal
+channels = stereo
+synchronized_sync = 1
+disable_blanking = 0
+show_idle_bar_heads = 1
+waveform = 0
+[color]
+background = black
+foreground = green
+# theme = 'solarized_dark'

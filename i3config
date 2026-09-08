@@ -48,10 +48,10 @@ bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
 
-bindsym XF86AudioPause exec playerctl play-pause && notify-send "Pause/Play " "$(playerctl metadata --format '{{ title }}' 2>/dev/null || echo 'No media')"
-bindsym XF86AudioPlay exec playerctl play-pause && notify-send "Play " "$(playerctl metadata --format '{{ title }}' 2>/dev/null || echo 'No media')"
-bindsym XF86AudioNext exec playerctl next && notify-send "Next " "$(playerctl metadata --format '{{ title }}' 2>/dev/null || echo 'No media')"
-bindsym XF86AudioPrev exec playerctl previous && notify-send "Previous " "$(playerctl metadata --format '{{ title }}' 2>/dev/null || echo 'No media')"
+bindsym XF86AudioPause exec playerctl play-pause && notify-send "Audio Pause/Play"
+bindsym XF86AudioPlay exec playerctl play-pause && notify-send "Audio Play"
+bindsym XF86AudioNext exec playerctl next && notify-send "Audio Next"
+bindsym XF86AudioPrev exec playerctl previous && notify-send "Audio Previous"
 
 bindsym XF86MonBrightnessUp exec brightnessctl -d "intel_backlight" set 500+
 bindsym XF86MonBrightnessDown exec brightnessctl -d "intel_backlight" set 500-
