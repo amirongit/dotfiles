@@ -12,20 +12,21 @@ new_window normal 0
 new_float normal 0
 # title_align left
 
-gaps inner 6
-gaps outer 3
+# gaps inner 12
+# gaps outer 8
+gaps bottom 4
 
 workspace_layout stacking
 
-set $ActiveBackGround      #737c73
+set $ActiveBackGround      #8a9a7b
 set $ActiveBorder          #737c73
 set $ActiveText            #181616
 
-set $UnFocusedBackGround   #625e5a
+set $UnFocusedBackGround   #737c73
 set $UnFocusedBorder       #625e5a
 set $UnFocusedText         #c5c9c5
 
-set $InActiveBackGround    #393836
+set $InActiveBackGround    #625e5a
 set $InActiveBorder        #393836
 set $InActiveText          #c5c9c5
 
@@ -36,7 +37,7 @@ set $UrgentText            #181616
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id bash $HOME/.local/share/scripts/configure-displays.sh
-# exec_always hsetroot -solid "#5f8787"
+# exec_always hsetroot -solid "#ff0000"
 exec_always --no-startup-id sleep 0.5 && feh --bg-scale $HOME/Development/dotfiles/backgrounds/susan-wilkinson-M-8TaIV_qaY-unsplash.jpg $HOME/Development/dotfiles/backgrounds/susan-wilkinson-rdwG718JTOg-unsplash.jpg
 exec_always --no-startup-id $HOME/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
@@ -47,6 +48,7 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
+bindsym $mod+Control+l exec xsecurelock
 
 bindsym XF86AudioPause exec playerctl play-pause && notify-send "Audio Pause/Play"
 bindsym XF86AudioPlay exec playerctl play-pause && notify-send "Audio Play"
