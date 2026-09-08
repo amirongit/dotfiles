@@ -3,9 +3,7 @@ sleep 1 &
 
 polybar -r lapdum &
 polybar -r lap &
-polybar -r monittopdum &
-polybar -r monittop &
-polybar -r monitbotdum &
-polybar -r monitbot
+polybar -r monitdum &
+polybar -r monit
 
 wait
