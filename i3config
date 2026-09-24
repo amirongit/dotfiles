@@ -14,31 +14,32 @@ new_float normal 0
 
 # gaps inner 12
 # gaps outer 8
-gaps bottom 4
+gaps top 5
 
-workspace_layout stacking
+# workspace_layout tabbed
 
-set $ActiveBackGround      #8a9a7b
-set $ActiveBorder          #737c73
-set $ActiveText            #181616
+set $ActiveBackGround      #CFAD25
+set $ActiveBorder          #865369
+set $ActiveText            #0e3c46
 
-set $UnFocusedBackGround   #737c73
-set $UnFocusedBorder       #625e5a
-set $UnFocusedText         #c5c9c5
+set $UnFocusedBackGround   #CCD4D3
+set $UnFocusedBorder       #90B7B6
+set $UnFocusedText         #0e3c46
 
-set $InActiveBackGround    #625e5a
-set $InActiveBorder        #393836
-set $InActiveText          #c5c9c5
+set $InActiveBackGround    #5C787B
+set $InActiveBorder        #4B5B5F
+set $InActiveText          #E9F1EF
 
-set $UrgentBackGround      #c4746e
-set $UrgentBorder          #c4746e
-set $UrgentText            #181616
+set $UrgentBackGround      #D27F46
+set $UrgentBorder          #CF432E
+set $UrgentText            #0e3c46
 
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id bash $HOME/.local/share/scripts/configure-displays.sh
-# exec_always hsetroot -solid "#ff0000"
-exec_always --no-startup-id sleep 0.5 && feh --bg-scale $HOME/Development/dotfiles/backgrounds/susan-wilkinson-M-8TaIV_qaY-unsplash.jpg $HOME/Development/dotfiles/backgrounds/susan-wilkinson-rdwG718JTOg-unsplash.jpg
+exec_always --no-startup-id sleep 0.5
+# exec_always --no-startup-id hsetroot -solid "#773440"
+exec_always --no-startup-id feh --bg-scale $HOME/Development/dotfiles/backgrounds/2001900.jpg $HOME/Development/dotfiles/backgrounds/wallhaven-0qprwq_3840x2160.png
 exec_always --no-startup-id $HOME/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
@@ -119,7 +120,7 @@ assign [class="Tor Browser"] $ws2
 assign [class="firefox"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws1
-assign [class="TelegramDesktop"] $ws1
+# assign [class="TelegramDesktop"] $ws1
 assign [class="Skype"] $ws1
 assign [class="Gimp"] $ws4
 assign [class="code-oss"] $ws3

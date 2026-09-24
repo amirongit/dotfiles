@@ -1,15 +1,15 @@
 language = en
 
 # jetbrains mono
-font-family = JetBrainsMono Nerd Font
-font-family-bold = JetBrainsMono Nerd Font
-font-family-italic = JetBrainsMono Nerd Font
-font-family-bold-italic = JetBrainsMono Nerd Font
-font-style = Medium
-font-style-bold = Medium
-font-style-italic = Medium Italic
-font-style-bold-italic = Medium Italic
-font-feature = cv02, cv03, cv04, cv05, cv06, cv07, cv08, cv11, cv14, cv15, cv16, cv17, cv18, cv19, cv20
+# font-family = JetBrainsMono Nerd Font
+# font-family-bold = JetBrainsMono Nerd Font
+# font-family-italic = JetBrainsMono Nerd Font
+# font-family-bold-italic = JetBrainsMono Nerd Font
+# font-style = Medium
+# font-style-bold = Medium
+# font-style-italic = Medium Italic
+# font-style-bold-italic = Medium Italic
+# font-feature = cv02, cv03, cv04, cv05, cv06, cv07, cv08, cv11, cv14, cv15, cv16, cv17, cv18, cv19, cv20
 
 # fira code
 # font-family = FiraCode Nerd Font
@@ -23,15 +23,15 @@ font-feature = cv02, cv03, cv04, cv05, cv06, cv07, cv08, cv11, cv14, cv15, cv16,
 # font-feature = cv01, cv02, zero, cv11, cv14, onum, cv16, cv29, cv31
 
 # victor mono
-# font-family = VictorMono Nerd Font
-# font-family-bold = VictorMono Nerd Font
-# font-family-italic = VictorMono Nerd Font
-# font-family-bold-italic = VictorMono Nerd Font
-# font-style = SemiBold
-# font-style-bold = Bold
-# font-style-italic = SemiBold Italic
-# font-style-bold-italic = Bold Italic
-# font-feature = ss01, ss04, ss06
+font-family = VictorMono Nerd Font
+font-family-bold = VictorMono Nerd Font
+font-family-italic = VictorMono Nerd Font
+font-family-bold-italic = VictorMono Nerd Font
+font-style = SemiBold
+font-style-bold = Bold
+font-style-italic = SemiBold Italic
+font-style-bold-italic = Bold Italic
+font-feature = ss01, ss04, ss06
 
 # cascadia
 # font-family = CaskaydiaCove Nerd Font
@@ -45,10 +45,10 @@ font-feature = cv02, cv03, cv04, cv05, cv06, cv07, cv08, cv11, cv14, cv15, cv16,
 # font-feature = ss01, ss02, ss03, ss20
 
 # simple
-# font-family = Iosevka Pinoq
-# font-family-bold = Iosevka Pinoq
-# font-family-italic = Iosevka Pinoq
-# font-family-bold-italic = Iosevka Pinoq
+# font-family = Agave Nerd Font
+# font-family-bold = Agave Nerd Font
+# font-family-italic = Agave Nerd Font
+# font-family-bold-italic = Agave Nerd Font
 # font-style = Regular
 # font-style-bold = Bold
 # font-style-italic = Italic
@@ -64,42 +64,42 @@ clipboard-codepoint-map =
 
 theme =
 # Color palette
-palette = 0=#181616
-palette = 1=#c4746e
-palette = 2=#8a9a7b
-palette = 3=#c4b28a
-palette = 4=#8ba4b0
-palette = 5=#a292a3
-palette = 6=#8ea4a2
-palette = 7=#c5c9c5
-palette = 8=#625e5a
-palette = 9=#c4746e
-palette = 10=#8a9a7b
-palette = 11=#c4b28a
-palette = 12=#8ba4b0
-palette = 13=#a292a3
-palette = 14=#8ea4a2
-palette = 15=#c5c9c5
-palette = 16=#b6927b
-palette = 17=#b98d7b
-palette = 18=#282727
-palette = 19=#393836
-palette = 20=#737c73
-palette = 21=#c8c093
+palette = 0=#e9f1ef
+palette = 1=#cf432e
+palette = 2=#6ca38c
+palette = 3=#cfad25
+palette = 4=#39aac9
+palette = 5=#6e6582
+palette = 6=#329ca2
+palette = 7=#385156
+palette = 8=#5c787b
+palette = 9=#cf432e
+palette = 10=#6ca38c
+palette = 11=#cfad25
+palette = 12=#39aac9
+palette = 13=#6e6582
+palette = 14=#329ca2
+palette = 15=#d2faff
+palette = 16=#d27f46
+palette = 17=#865369
+palette = 18=#ccd4d3
+palette = 19=#90b7b6
+palette = 20=#4b5b5f
+palette = 21=#0e3c46
 
 # Foreground & background colors
-background = #181616
-foreground = #c5c9c5
-cursor-color = #c5c9c5
-selection-background = #c5c9c5
-selection-foreground = #393836
+background = #e9f1ef
+foreground = #385156
+cursor-color = #385156
+selection-background = #385156
+selection-foreground = #90b7b6
 
 # Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
 #
 # Set the ghost color to the lightest foreground:
-macos-icon-ghost-color = #c5c9c5
+macos-icon-ghost-color = #d2faff
 # Replace the official icon's blue background with the designated bright blue color:
-macos-icon-screen-color = #8ba4b0
+macos-icon-screen-color = #39aac9
 
 font-synthetic-style = false
 font-size = 13

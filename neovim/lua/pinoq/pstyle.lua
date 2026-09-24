@@ -20,7 +20,7 @@ base16_cs.with_config({
     dapui = true,
 })
 
-vim.cmd("colorscheme base16-kanagawa-dragon")
+vim.cmd("colorscheme base16-silk-light")
 
 vim.api.nvim_set_hl(0, "LineNr", {})
 vim.api.nvim_set_hl(0, "SignColumn", {})
