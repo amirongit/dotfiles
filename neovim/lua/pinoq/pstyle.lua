@@ -1,8 +1,4 @@
 -- :source $VIMRUNTIME/syntax/hitest.vim
-
-vim.opt.termguicolors = true
-vim.opt.background = "dark"
-
 local ibl = require("ibl")
 local mn_hipatterns = require("mini.hipatterns")
 local mn_statusline = require("mini.statusline")
@@ -399,41 +395,6 @@ ibl.setup({
 })
 
 mn_icons.tweak_lsp_kind("replace")
-
-vim.opt.cursorline = false
-
-vim.opt.listchars = {
-    tab = "> ",
-    trail = ".",
-    extends = "➔",
-    precedes = "➔",
-    -- space = ".",
-    -- eol = "↓",
-}
-
-vim.opt.fillchars = {
-    eob = " ",
-    fold = " ",
-}
-
-vim.opt.foldmethod = "expr"
-vim.opt.foldtext = ""
-vim.opt.foldlevelstart = 1
-vim.opt.foldnestmax = 5
-vim.opt.foldlevel = 1
-vim.opt.foldcolumn = "0"
-vim.opt.foldenable = false
-vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
-vim.opt.signcolumn = "number"
-vim.opt.syntax = "on"
-vim.opt.list = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.cmdheight = 1
--- vim.opt.shortmess:append("C")
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3
-
 
 if false then
     local base16_cs = require("base16-colorscheme")
