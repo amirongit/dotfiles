@@ -23,15 +23,15 @@ language = en
 # font-feature = cv01, cv02, zero, cv11, cv14, onum, cv16, cv29, cv31
 
 # victor mono
-font-family = VictorMono Nerd Font
-font-family-bold = VictorMono Nerd Font
-font-family-italic = VictorMono Nerd Font
-font-family-bold-italic = VictorMono Nerd Font
-font-style = SemiBold
-font-style-bold = Bold
-font-style-italic = SemiBold Italic
-font-style-bold-italic = Bold Italic
-font-feature = ss01, ss04, ss06
+# font-family = VictorMono Nerd Font
+# font-family-bold = VictorMono Nerd Font
+# font-family-italic = VictorMono Nerd Font
+# font-family-bold-italic = VictorMono Nerd Font
+# font-style = SemiBold
+# font-style-bold = Bold
+# font-style-italic = SemiBold Italic
+# font-style-bold-italic = Bold Italic
+# font-feature = ss01, ss04, ss06
 
 # cascadia
 # font-family = CaskaydiaCove Nerd Font
@@ -45,15 +45,15 @@ font-feature = ss01, ss04, ss06
 # font-feature = ss01, ss02, ss03, ss20
 
 # simple
-# font-family = Agave Nerd Font
-# font-family-bold = Agave Nerd Font
-# font-family-italic = Agave Nerd Font
-# font-family-bold-italic = Agave Nerd Font
-# font-style = Regular
-# font-style-bold = Bold
-# font-style-italic = Italic
-# font-style-bold-italic = Bold Italic
-# font-feature =
+font-family = Agave Nerd Font
+font-family-bold = Agave Nerd Font
+font-family-italic = Agave Nerd Font
+font-family-bold-italic = Agave Nerd Font
+font-style = Regular
+font-style-bold = Bold
+font-style-italic = Italic
+font-style-bold-italic = Bold Italic
+font-feature =
 
 font-variation =
 font-variation-bold =
@@ -102,7 +102,7 @@ macos-icon-ghost-color = #d2faff
 macos-icon-screen-color = #39aac9
 
 font-synthetic-style = false
-font-size = 13
+font-size = 14
 font-thicken = false
 font-thicken-strength =
 font-shaping-break = cursor
