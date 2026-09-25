@@ -42,7 +42,7 @@ exec_always --no-startup-id sleep 0.5 && feh --bg-scale $HOME/Development/dotfil
 exec_always --no-startup-id sleep 0.5 && $HOME/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
-bindsym Print exec maim -i $(xdotool getactivewindow) $HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+$HOME/Pictures/%m-%d_%H-%M-%S_shot.png")
+bindsym Print exec maim -i $(xdotool getactivewindow) --quality 10 $HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+$HOME/Pictures/%m-%d_%H-%M-%S_shot.png")
 bindsym $mod+Print exec sh -c '$HOME/.local/share/scripts/screenshot-monitor.sh "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png" && notify-send "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png"'
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Return exec ghostty

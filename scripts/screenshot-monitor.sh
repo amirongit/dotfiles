@@ -14,7 +14,7 @@ while read -r geom; do
 
   if [ "$X" -ge "$x" ] && [ "$X" -lt "$((x + w))" ] &&
      [ "$Y" -ge "$y" ] && [ "$Y" -lt "$((y + h))" ]; then
-    maim -m 1 -g "${w}x${h}+${x}+${y}" "${1:-screenshot.png}"
+    maim -m 1 -g "${w}x${h}+${x}+${y}" --quality 10 "${1:-screenshot.png}"
     exit 0
   fi
 done <<< "$monitors"
