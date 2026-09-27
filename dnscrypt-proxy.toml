@@ -1,4 +1,5 @@
-server_names = ['scaleway-fr', 'google', 'yandex', 'cloudflare']
+server_names = ['cloudflare', 'google', 'yandex']
+proxy = 'socks5://10.51.22.114:1080'
 listen_addresses = ['127.0.0.1:53']
 max_clients = 250
 ipv4_servers = true
@@ -11,7 +12,6 @@ require_nolog = true
 require_nofilter = true
 disabled_server_names = []
 force_tcp = true
-proxy = 'socks5://<ip>:<port>'
 http3 = false
 http3_probe = false
 timeout = 5000
@@ -36,6 +36,8 @@ cache_min_ttl = 2400
 cache_max_ttl = 86400
 cache_neg_min_ttl = 60
 cache_neg_max_ttl = 600
+forwarding_rules = '/etc/dnscrypt-proxy/forwarding-rules.txt'
+# ir 185.51.200.2, 178.22.122.100
 [captive_portals]
 [local_doh]
 [query_log]

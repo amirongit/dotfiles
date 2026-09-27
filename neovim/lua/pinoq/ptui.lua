@@ -110,5 +110,12 @@ vim.keymap.set("n", "<leader>kmp", ":Pick keymaps<CR>", { silent = true })
 vim.keymap.set("n", "<leader>cmt", ":Pick git_commits<CR>", { silent = true })
 vim.keymap.set("n", "<leader>brn", ":Pick git_branches<CR>", { silent = true })
 vim.keymap.set("n", "<leader>exp", ":Pick explorer<CR>", { silent = true })
+vim.keymap.set("n", "<Up>", ":resize -1<CR>", { silent = true })
+vim.keymap.set("n", "<Down>", ":resize +1<CR>", { silent = true })
+vim.keymap.set("n", "<Left>", ":vertical resize -1<CR>", { silent = true })
+vim.keymap.set("n", "<Right>", ":vertical resize +1<CR>", { silent = true })
+vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", { silent = true })
+vim.keymap.set("n", "H", ":bprevious<CR>", { silent = true })
+vim.keymap.set("n", "L", ":bnext<CR>", { silent = true })
 
 vim.ui.select = mn_pick.ui_select

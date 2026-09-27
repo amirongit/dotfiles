@@ -1,25 +1,33 @@
-if vim.g.vscode then
-    require("pinoq.pide")
-else
-    require("pinoq.pdeps")
-    require("pinoq.pstyle")
-    require("pinoq.pdap")
-    require("pinoq.plsp")
-    require("pinoq.ptst")
-    require("pinoq.pcomp")
-    require("pinoq.pmanip")
-    require("pinoq.ptui")
-    require("pinoq.pextra")
-    require("pinoq.pgui")
-end
-
-if not vim.g.vscode then
-    vim.keymap.set("n", "H", ":bprevious<CR>", { silent = true })
-    vim.keymap.set("n", "L", ":bnext<CR>", { silent = true })
-end
-
-vim.keymap.set("n", "<leader>hls", ":set hlsearch!<CR>", { silent = true })
-
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
+vim.opt.cursorline = false
+vim.opt.listchars = {
+    tab = "> ",
+    trail = ".",
+    extends = "➔",
+    precedes = "➔",
+    -- space = ".",
+    -- eol = "↓",
+}
+vim.opt.fillchars = {
+    eob = " ",
+    fold = " ",
+}
+vim.opt.foldmethod = "expr"
+vim.opt.foldtext = ""
+vim.opt.foldlevelstart = 1
+vim.opt.foldnestmax = 5
+vim.opt.foldlevel = 1
+vim.opt.foldcolumn = "0"
+vim.opt.foldenable = false
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:block"
+vim.opt.signcolumn = "number"
+vim.opt.syntax = "on"
+vim.opt.list = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cmdheight = 1
+-- vim.opt.shortmess:append("C")
 vim.opt.compatible = false
 vim.opt.backup = false
 vim.opt.hidden = true
@@ -56,9 +64,17 @@ vim.opt.backspace = "indent,eol,start"
 vim.opt.updatetime = 300
 vim.opt.laststatus = 2
 
-
-
-vim.keymap.set("n", "<Up>", ":resize -1<CR>", { silent = true })
-vim.keymap.set("n", "<Down>", ":resize +1<CR>", { silent = true })
-vim.keymap.set("n", "<Left>", ":vertical resize -1<CR>", { silent = true })
-vim.keymap.set("n", "<Right>", ":vertical resize +1<CR>", { silent = true })
+if vim.g.vscode then
+    require("pinoq.pide")
+else
+    require("pinoq.pdeps")
+    require("pinoq.pstyle")
+    require("pinoq.pdap")
+    require("pinoq.plsp")
+    require("pinoq.ptst")
+    require("pinoq.pcomp")
+    require("pinoq.pmanip")
+    require("pinoq.ptui")
+    require("pinoq.pextra")
+    require("pinoq.pgui")
+end

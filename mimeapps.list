@@ -56,6 +56,7 @@ x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 image/png=lximage-qt.desktop;
 image/jpg=lximage-qt.desktop;
+application/pdf=firefox.desktop;
 
 [Default Applications]
 application/x-matroska=mpv.desktop;
@@ -134,3 +135,4 @@ application/json=l3afpad.desktop;
 application/xml=l3afpad.desktop;
 application/x-yaml=l3afpad.desktop;
 application/toml=l3afpad.desktop;
+application/pdf=firefox.desktop;
