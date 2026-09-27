@@ -44,7 +44,8 @@ exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "li
 
 bindsym Print exec maim -i $(xdotool getactivewindow) --quality 10 $HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png -m 1 && notify-send $(date "+$HOME/Pictures/%m-%d_%H-%M-%S_shot.png")
 bindsym $mod+Print exec sh -c '$HOME/.local/share/scripts/screenshot-monitor.sh "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png" && notify-send "$HOME/Pictures/$(date +%m-%d_%H-%M-%S_shot).png"'
-bindsym $mod+d exec rofi -show run
+bindsym $mod+p exec rofi -show run
+bindsym $mod+x exec rofimoji --selector rofi --max-recent 0
 bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
@@ -154,6 +155,7 @@ for_window [class="pavucontrol"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="L3afpad"] floating enable
+for_window [class="KeePassXC"] floating enable
 
 client.focused            $ActiveBorder    $ActiveBackGround    $ActiveText    $ActiveBackGround
 client.focused_inactive   $InActiveBorder  $InActiveBackGround  $InActiveText  $InActiveBackGround
