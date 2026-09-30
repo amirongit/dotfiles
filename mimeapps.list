@@ -55,7 +55,7 @@ video/x-theora+ogg=mpv.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 image/png=lximage-qt.desktop;
-image/jpg=lximage-qt.desktop;
+image/jpeg=lximage-qt.desktop;
 application/pdf=firefox.desktop;
 
 [Default Applications]
@@ -114,7 +114,7 @@ video/x-theora+ogg=mpv.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 image/png=lximage-qt.desktop;
-image/jpg=lximage-qt.desktop;
+image/jpeg=lximage-qt.desktop;
 text/plain=l3afpad.desktop;
 text/markdown=l3afpad.desktop;
 text/html=l3afpad.desktop;
