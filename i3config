@@ -156,6 +156,7 @@ for_window [class="Xarchiver"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="L3afpad"] floating enable
 for_window [class="KeePassXC"] floating enable
+for_window [class="org.pwmt.zathura"] floating enable
 
 client.focused            $ActiveBorder    $ActiveBackGround    $ActiveText    $ActiveBackGround
 client.focused_inactive   $InActiveBorder  $InActiveBackGround  $InActiveText  $InActiveBackGround
