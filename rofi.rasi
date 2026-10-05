@@ -10,6 +10,12 @@ configuration {
     }
 }
 
+entry {
+    cursor-width: 10px;
+    cursor-outline: false;
+    placeholder: "";
+}
+
 
 * {
 
