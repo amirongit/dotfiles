@@ -1,0 +1,51 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "server": {
+        "port": 4096,
+        "hostname": "0.0.0.0",
+        "mdns": true,
+        "mdnsDomain": "myproject.local",
+        "cors": [
+            "http://localhost:5173"
+        ]
+    },
+    "permission": {
+        "bash": "ask",
+        "edit": "ask",
+        "write": "ask",
+        "apply_patch": "ask",
+        "webfetch": "ask",
+        "question": "allow",
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "skill": "allow",
+        "todowrite": "allow",
+        "lsp": "deny",
+        "websearch": "deny",
+    },
+    "shell": "/bin/zsh",
+    "default_agent": "plan",
+    "subagent_depth": 2,
+    "share": "manual",
+    "snapshot": true,
+    "autoupdate": false,
+    "formatter": false,
+    "lsp": false,
+    "compaction": {
+        "auto": true,
+        "prune": true,
+        "reserved": 10000,
+    },
+    "watcher": {
+        "ignore": [
+            "node_modules/**",
+            "dist/**",
+            ".git/**",
+            ".venv/**",
+            ".env",
+            ".opencode/**",
+            ".opencode",
+        ]
+    },
+}
