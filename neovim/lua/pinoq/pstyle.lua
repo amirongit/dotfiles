@@ -86,7 +86,7 @@ local function apply_highlights()
 
     vim.api.nvim_set_hl(0, "MiniCursorword", {
         underline = false,
-        fg = "LightBlue",
+        fg = "Red",
     })
 
     vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", {})
@@ -179,7 +179,7 @@ local function apply_highlights()
     })
 end
 
-vim.cmd.colorscheme("base16-silk-light")
+vim.cmd.colorscheme("base16-grayscale-dark")
 
 apply_highlights()
 

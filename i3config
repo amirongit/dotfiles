@@ -1,7 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango: Epunda Slab Medium 9
+font pango: Libron Regular 9
 
 focus_follows_mouse yes
 # smart_gaps on
@@ -12,33 +12,32 @@ new_window normal 0
 new_float normal 0
 # title_align left
 
-# gaps inner 12
-# gaps outer 8
-gaps top 4
+gaps inner 2
+gaps outer 4
 
 # workspace_layout tabbed
 
-set $ActiveBackGround      #CFAD25
-set $ActiveBorder          #865369
-set $ActiveText            #0e3c46
+set $ActiveBackGround      #e3e3e3
+set $ActiveBorder          #f7f7f7
+set $ActiveText            #101010
 
-set $UnFocusedBackGround   #CCD4D3
-set $UnFocusedBorder       #90B7B6
-set $UnFocusedText         #0e3c46
+set $UnFocusedBackGround   #ababab
+set $UnFocusedBorder       #525252
+set $UnFocusedText         #f7f7f7
 
-set $InActiveBackGround    #5C787B
-set $InActiveBorder        #4B5B5F
-set $InActiveText          #E9F1EF
+set $InActiveBackGround    #464646
+set $InActiveBorder        #252525
+set $InActiveText          #f7f7f7
 
-set $UrgentBackGround      #D27F46
-set $UrgentBorder          #CF432E
-set $UrgentText            #0e3c46
+set $UrgentBackGround      #f7f7f7
+set $UrgentBorder          #101010
+set $UrgentText            #101010
 
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id bash $HOME/.local/share/scripts/configure-displays.sh
 # exec_always --no-startup-id hsetroot -solid "#773440"
-exec_always --no-startup-id sleep 0.5 && feh --bg-scale $HOME/Development/dotfiles/backgrounds/wallhaven-0qrqzr_3840x2160.png $HOME/Development/dotfiles/backgrounds/wallhaven-gwz6r3.png
+exec_always --no-startup-id sleep 0.5 && feh --bg-center $HOME/Development/dotfiles/backgrounds/3840x2156_omarchy_abstract-black-white-maze-pattern__01-abstract-black-white-maze-pattern.jpg $HOME/Development/dotfiles/backgrounds/1920x1080_abstract_a_white_line_drawing_of_a_group_of_trees.jpg
 exec_always --no-startup-id sleep 0.5 && $HOME/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 

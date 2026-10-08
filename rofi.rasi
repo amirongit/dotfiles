@@ -1,7 +1,7 @@
 configuration {
     modei: ["window","drun","run"];
     display-run: "";
-    font: "Epunda Slab Medium 12";
+    font: "Libron Regular 10";
     fixed-num-lines: true;
     show-icons: false;
     terminal: "kitty";
@@ -11,7 +11,7 @@ configuration {
 }
 
 entry {
-    cursor-width: 10px;
+    cursor-width: 8px;
     cursor-outline: false;
     placeholder: "";
 }
@@ -19,13 +19,13 @@ entry {
 
 * {
 
-    red:                         rgba ( 207, 67, 46, 100 % );
-    blue:                        rgba ( 57, 170, 201, 100 % );
-    lightfg:                     rgba ( 14, 60, 70, 100 % );
-    lightbg:                     rgba ( 204, 212, 211, 100 % );
-    foreground:                  rgba ( 56, 81, 86, 100 % );
-    background:                  rgba ( 233, 241, 239, 100 % );
-    background-color:            rgba ( 233, 241, 239, 0 % );
+    red:                         rgba ( 124, 124, 124, 100 % );
+    blue:                        rgba ( 104, 104, 104, 100 % );
+    lightfg:                     rgba ( 227, 227, 227, 100 % );
+    lightbg:                     rgba ( 37, 37, 37, 100 % );
+    foreground:                  rgba ( 185, 185, 185, 100 % );
+    background:                  rgba ( 16, 16, 16, 100 % );
+    background-color:            rgba ( 16, 16, 16, 0 % );
 
     separatorcolor:              @foreground;
     border-color:                @foreground;
