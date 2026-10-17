@@ -12,32 +12,33 @@ new_window normal 0
 new_float normal 0
 # title_align left
 
-gaps inner 2
-gaps outer 4
+gaps inner 4
+gaps outer 6
+# gaps bottom 2
 
 # workspace_layout tabbed
 
-set $ActiveBackGround      #e3e3e3
-set $ActiveBorder          #f7f7f7
-set $ActiveText            #101010
+set $ActiveBackGround      #c4b28a
+set $ActiveBorder          #c8c093
+set $ActiveText            #181616
 
-set $UnFocusedBackGround   #ababab
-set $UnFocusedBorder       #525252
-set $UnFocusedText         #f7f7f7
+set $UnFocusedBackGround   #625e5a
+set $UnFocusedBorder       #737c73
+set $UnFocusedText         #c5c9c5
 
-set $InActiveBackGround    #464646
-set $InActiveBorder        #252525
-set $InActiveText          #f7f7f7
+set $InActiveBackGround    #393836
+set $InActiveBorder        #625e5a
+set $InActiveText          #c5c9c5
 
-set $UrgentBackGround      #f7f7f7
-set $UrgentBorder          #101010
-set $UrgentText            #101010
+set $UrgentBackGround      #c4746e
+set $UrgentBorder          #c4b28a
+set $UrgentText            #181616
 
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id bash $HOME/.local/share/scripts/configure-displays.sh
 # exec_always --no-startup-id hsetroot -solid "#773440"
-exec_always --no-startup-id sleep 0.5 && feh --bg-center $HOME/Development/dotfiles/backgrounds/3840x2156_omarchy_abstract-black-white-maze-pattern__01-abstract-black-white-maze-pattern.jpg $HOME/Development/dotfiles/backgrounds/1920x1080_abstract_a_white_line_drawing_of_a_group_of_trees.jpg
+exec_always --no-startup-id sleep 0.5 && feh --bg-center $HOME/Development/dotfiles/backgrounds/1920x1080_bonus_a_sculpture_of_a_man_with_a_face_on_his_head.png $HOME/Development/dotfiles/backgrounds/3840x2156_omarchy_abstract-black-white-maze-pattern__01-abstract-black-white-maze-pattern.jpg
 exec_always --no-startup-id sleep 0.5 && $HOME/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 

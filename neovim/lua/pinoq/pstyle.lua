@@ -179,7 +179,7 @@ local function apply_highlights()
     })
 end
 
-vim.cmd.colorscheme("base16-grayscale-dark")
+vim.cmd.colorscheme("base16-kanagawa-dragon")
 
 apply_highlights()
 
