@@ -1,6 +1,6 @@
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.listchars = {
     tab = "> ",
     trail = ".",

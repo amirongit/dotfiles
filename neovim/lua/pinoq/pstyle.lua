@@ -179,7 +179,7 @@ local function apply_highlights()
     })
 end
 
-vim.cmd.colorscheme("base16-kanagawa-dragon")
+vim.cmd.colorscheme("base16-kanagawa")
 
 apply_highlights()
 
@@ -345,6 +345,7 @@ mn_tabline.setup({
     tabpage_section = "right",
 })
 
+
 mn_diff.setup({
     view = {
         -- style = vim.go.number and "number" or "sign",
@@ -395,6 +396,7 @@ ibl.setup({
 })
 
 mn_icons.tweak_lsp_kind("replace")
+
 
 if false then
     local base16_cs = require("base16-colorscheme")

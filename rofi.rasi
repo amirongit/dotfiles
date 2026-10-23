@@ -19,13 +19,13 @@ entry {
 
 * {
 
-    red:                         rgba ( 196, 116, 110, 100 % );
-    blue:                        rgba ( 139, 164, 176, 100 % );
+    red:                         rgba ( 195, 64, 67, 100 % );
+    blue:                        rgba ( 126, 156, 216, 100 % );
     lightfg:                     rgba ( 200, 192, 147, 100 % );
-    lightbg:                     rgba ( 40, 39, 39, 100 % );
-    foreground:                  rgba ( 197, 201, 197, 100 % );
-    background:                  rgba ( 24, 22, 22, 100 % );
-    background-color:            rgba ( 24, 22, 22, 0 % );
+    lightbg:                     rgba ( 22, 22, 29, 100 % );
+    foreground:                  rgba ( 220, 215, 186, 100 % );
+    background:                  rgba ( 31, 31, 40, 100 % );
+    background-color:            rgba ( 31, 31, 40, 0 % );
 
     separatorcolor:              @foreground;
     border-color:                @foreground;

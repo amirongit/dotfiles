@@ -10,29 +10,29 @@ focus_follows_mouse yes
 
 new_window normal 0
 new_float normal 0
-# title_align left
+title_align center
 
-gaps inner 4
-gaps outer 6
-# gaps bottom 2
+# gaps inner 4
+# gaps outer 6
+# gaps bottom 3
 
 # workspace_layout tabbed
 
-set $ActiveBackGround      #c4b28a
-set $ActiveBorder          #c8c093
-set $ActiveText            #181616
+set $ActiveBackGround      #C0A36E
+set $ActiveBorder          #1F1F28
+set $ActiveText            #1F1F28
 
-set $UnFocusedBackGround   #625e5a
-set $UnFocusedBorder       #737c73
-set $UnFocusedText         #c5c9c5
+set $UnFocusedBackGround   #54546D
+set $UnFocusedBorder       #223249
+set $UnFocusedText         #C8C093
 
-set $InActiveBackGround    #393836
-set $InActiveBorder        #625e5a
-set $InActiveText          #c5c9c5
+set $InActiveBackGround    #717C7C
+set $InActiveBorder        #54546D
+set $InActiveText          #C8C093
 
-set $UrgentBackGround      #c4746e
-set $UrgentBorder          #c4b28a
-set $UrgentText            #181616
+set $UrgentBackGround      #C0A36E
+set $UrgentBorder          #C34043
+set $UrgentText            #1F1F28
 
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"

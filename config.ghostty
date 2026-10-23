@@ -23,15 +23,15 @@ language = en
 # font-feature = cv01, cv02, zero, cv11, cv14, onum, cv16, cv29, cv31
 
 # victor mono
-font-family = VictorMono Nerd Font
-font-family-bold = VictorMono Nerd Font
-font-family-italic = VictorMono Nerd Font
-font-family-bold-italic = VictorMono Nerd Font
-font-style = SemiBold
-font-style-bold = Bold
-font-style-italic = SemiBold Italic
-font-style-bold-italic = Bold Italic
-font-feature = ss01, ss04, ss06
+# font-family = VictorMono Nerd Font
+# font-family-bold = VictorMono Nerd Font
+# font-family-italic = VictorMono Nerd Font
+# font-family-bold-italic = VictorMono Nerd Font
+# font-style = SemiBold
+# font-style-bold = Bold
+# font-style-italic = SemiBold Italic
+# font-style-bold-italic = Bold Italic
+# font-feature = ss01, ss04, ss06
 
 # cascadia
 # font-family = CaskaydiaCove Nerd Font
@@ -45,14 +45,14 @@ font-feature = ss01, ss04, ss06
 # font-feature = ss01, ss02, ss03, ss20
 
 # simple
-# font-family = Agave Nerd Font
-# font-family-bold = Agave Nerd Font
-# font-family-italic = Agave Nerd Font
-# font-family-bold-italic = Agave Nerd Font
-# font-style = Regular
-# font-style-bold = Bold
-# font-style-italic = Italic
-# font-style-bold-italic = Bold Italic
+font-family = Agave Nerd Font
+font-family-bold = Agave Nerd Font
+font-family-italic = Agave Nerd Font
+font-family-bold-italic = Agave Nerd Font
+font-style = Regular
+font-style-bold = Bold
+font-style-italic = Italic
+font-style-bold-italic = Bold Italic
 # font-feature =
 
 font-variation =
@@ -64,49 +64,49 @@ clipboard-codepoint-map =
 
 theme =
 # Color palette
-palette = 0=#181616
-palette = 1=#c4746e
-palette = 2=#8a9a7b
-palette = 3=#c4b28a
-palette = 4=#8ba4b0
-palette = 5=#a292a3
-palette = 6=#8ea4a2
-palette = 7=#c5c9c5
-palette = 8=#625e5a
-palette = 9=#c4746e
-palette = 10=#8a9a7b
-palette = 11=#c4b28a
-palette = 12=#8ba4b0
-palette = 13=#a292a3
-palette = 14=#8ea4a2
-palette = 15=#c5c9c5
-palette = 16=#b6927b
-palette = 17=#b98d7b
-palette = 18=#282727
-palette = 19=#393836
-palette = 20=#737c73
+palette = 0=#1f1f28
+palette = 1=#c34043
+palette = 2=#76946a
+palette = 3=#c0a36e
+palette = 4=#7e9cd8
+palette = 5=#957fb8
+palette = 6=#6a9589
+palette = 7=#dcd7ba
+palette = 8=#54546d
+palette = 9=#c34043
+palette = 10=#76946a
+palette = 11=#c0a36e
+palette = 12=#7e9cd8
+palette = 13=#957fb8
+palette = 14=#6a9589
+palette = 15=#717c7c
+palette = 16=#ffa066
+palette = 17=#d27e99
+palette = 18=#16161d
+palette = 19=#223249
+palette = 20=#727169
 palette = 21=#c8c093
 
 # Foreground & background colors
-background = #181616
-foreground = #c5c9c5
-cursor-color = #c5c9c5
-selection-background = #c5c9c5
-selection-foreground = #393836
-search-background = #c4b28a
-search-foreground = #282727
-search-selected-background = #b6927b
-search-selected-foreground = #282727
+background = #1f1f28
+foreground = #dcd7ba
+cursor-color = #dcd7ba
+selection-background = #dcd7ba
+selection-foreground = #223249
+search-background = #c0a36e
+search-foreground = #16161d
+search-selected-background = #ffa066
+search-selected-foreground = #16161d
 
 # Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
 #
 # Set the ghost color to the lightest foreground:
-macos-icon-ghost-color = #c5c9c5
+macos-icon-ghost-color = #717c7c
 # Replace the official icon's blue background with the designated bright blue color:
-macos-icon-screen-color = #8ba4b0
+macos-icon-screen-color = #7e9cd8
 
 font-synthetic-style = false
-font-size = 13
+font-size = 14
 font-thicken = false
 font-thicken-strength =
 font-shaping-break = cursor
@@ -127,10 +127,10 @@ adjust-icon-height =
 grapheme-width-method = unicode
 freetype-load-flags =
 background-image =
-background-image-opacity =
-background-image-position =
-background-image-fit =
-background-image-repeat =
+background-image-opacity = 0.05
+background-image-position = center
+background-image-fit = none
+background-image-repeat = false
 selection-clear-on-typing = true
 selection-clear-on-copy = false
 selection-word-chars = \t'"│`|:;,()[]{}<>$
