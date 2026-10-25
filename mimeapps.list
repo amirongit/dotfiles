@@ -100,6 +100,7 @@ application/x-deb=xarchiver.desktop
 application/vnd.debian.binary-package=xarchiver.desktop
 application/x-apple-diskimage=xarchiver.desktop
 application/x-iso9660-image=xarchiver.desktop
+inode/directory=pcmanfm-qt.desktop
 
 [Default Applications]
 application/x-matroska=mpv.desktop;
@@ -222,3 +223,4 @@ application/x-deb=xarchiver.desktop
 application/vnd.debian.binary-package=xarchiver.desktop
 application/x-apple-diskimage=xarchiver.desktop
 application/x-iso9660-image=xarchiver.desktop
+inode/directory=pcmanfm-qt.desktop
