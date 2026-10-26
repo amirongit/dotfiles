@@ -1,0 +1,16 @@
+nnoremap <silent> H :tabprevious<CR>
+nnoremap <silent> L :tabnext<CR>
+nnoremap <silent> <leader>hls :set hlsearch!<CR>
+set ignorecase
+set smartcase
+set noincsearch
+set noshowcmd
+set wrap
+set scrolloff=0
+set clipboard+=unnamedplus
+nnoremap <silent> <Up> :resize -1<CR>
+nnoremap <silent> <Down> :resize +1<CR>
+nnoremap <silent> <Left> :vertical resize -1<CR>
+nnoremap <silent> <Right> :vertical resize +1<CR>
+set number relativenumber
+
