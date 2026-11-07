@@ -1,0 +1,27 @@
+{
+    "$schema": "https://pi.dev/schemas/models.schema.json",
+    "providers": {
+        "ollama": {
+            "baseUrl": "http://localhost:11434/v1",
+            "api": "openai-completions",
+            "apiKey": "ollama",
+            "models": [
+                {
+                    "id": "gemma3:270m"
+                },
+                {
+                    "id": "deepseek-r1:1.5b"
+                },
+                {
+                    "id": "deepseek-r1:8b"
+                },
+                {
+                    "id": "deepseek-coder:6.7b"
+                },
+                {
+                    "id": "deepseek-r1:14b"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,207 @@
+{
+  "components": {
+    "editor": {
+      "enabled": true,
+      "style": "opencode-copy-friendly",
+      "codexQuota": false,
+      "colorSource": "terminal",
+      "borderColorMode": "static",
+      "modelLabel": "id",
+      "viewportIndicators": true,
+      "styles": {
+        "opencode": {
+          "metadataFormat": "$model  $provider(  $thinking)(  $fast_mode)(  $codex_quota)",
+          "completionMenu": "palette"
+        },
+        "opencode-copy-friendly": {
+          "metadataFormat": "$model  $provider(  $thinking)(  $fast_mode)(  $codex_quota)",
+          "completionMenu": "palette"
+        },
+        "accent-rail": {
+          "rail": "▎",
+          "asciiRail": "|",
+          "transparent": false
+        },
+        "minimalist": {
+          "formats": {
+            "bottomLeft": "$session_name$join_sep($git_branch)"
+          },
+          "pathDisplay": "compact",
+          "contextFormat": "percent",
+          "contextGauge": false,
+          "showSessionName": true,
+          "showTimer": false,
+          "showCost": false,
+          "showCacheHit": false,
+          "showGit": false,
+          "contextThresholds": {
+            "warning": 70,
+            "error": 90
+          },
+          "separator": "dash"
+        }
+      },
+      "rail": "▎",
+      "asciiRail": "▎"
+    },
+    "footer": {
+      "style": "starship",
+      "codexQuota": false,
+      "colorSource": "terminal",
+      "modelLabel": "id",
+      "styles": {
+        "starship": {
+          "format": "",
+          "responsive": false,
+          "compactFormat": "$cwd$wrap(in $session_name)$wrap(on $git_branch) $git_status$wrap$context$wrap_sep$tokens$wrap_sep($codex_quota)",
+          "compactMaxLines": 1,
+          "separator": "none",
+          "contextStyle": "text",
+          "contextThresholds": {
+            "warning": 70,
+            "error": 90
+          },
+          "pathDisplay": {
+            "mode": "basename",
+            "depth": 0
+          },
+          "segments": {
+            "cwd": true,
+            "sessionName": false,
+            "gitBranch": true,
+            "gitStatus": true,
+            "gitCounts": true,
+            "gitCommit": false,
+            "gitMetrics": true,
+            "runtime": false,
+            "modelInfo": true,
+            "context": true,
+            "tokens": false,
+            "cost": false,
+            "sessionDuration": false,
+            "username": false,
+            "time": false,
+            "os": false,
+            "packageVersion": false
+          },
+          "gitBranch": {
+            "maxLength": "full"
+          },
+          "gitCommit": {
+            "hashLength": 7,
+            "onlyDetached": true,
+            "showTag": false
+          },
+          "gitMetrics": {
+            "onlyNonzero": false,
+            "ignoreSubmodules": false
+          },
+          "extensionStatuses": {
+            "defaultPlacement": "right",
+            "placements": {},
+            "colorModes": {}
+          }
+        }
+      }
+    },
+    "userMessages": {
+      "enabled": false,
+      "style": "framed-copy-friendly",
+      "colorSource": "terminal",
+      "styles": {
+        "framed": {},
+        "framed-copy-friendly": {},
+        "compact": {},
+        "labeled": {}
+      }
+    },
+    "selectorBorders": {
+      "enabled": false,
+      "style": "zentui",
+      "colorSource": "terminal"
+    },
+    "thinkingSteps": {
+      "enabled": false,
+      "mode": "tree"
+    },
+    "toolDisplay": {
+      "enabled": false,
+      "style": "native",
+      "registerToolOverrides": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "grep": true,
+        "find": true,
+        "ls": true
+      },
+      "builtinRendererOverrides": {
+        "bash": true
+      },
+      "compatibleToolSources": {},
+      "customToolOverrides": {},
+      "readOutputMode": "preview",
+      "searchOutputMode": "preview",
+      "mcpOutputMode": "preview",
+      "bashOutputMode": "preview",
+      "bashSyntax": "semantic",
+      "previewLines": 12,
+      "expandedPreviewMaxLines": 4000,
+      "bashCollapsedLines": 20,
+      "diffViewMode": "split",
+      "diffIndicatorMode": "none",
+      "diffSplitMinWidth": 120,
+      "diffCollapsedLines": 24,
+      "diffWordWrap": true,
+      "showTruncationHints": false
+    },
+    "workingLine": {
+      "enabled": true,
+      "turnSummary": false,
+      "turnSummaryFormat": "Turn took $turn_duration$join_sep(thought for $thought_duration)$join_sep(↑$input_tokens ↓$output_tokens)$join_sep$token_rate",
+      "spinner": "braille",
+      "spinnerIntervalMs": 160,
+      "animateSpinnerColor": true,
+      "textIntervalMs": 100,
+      "textAnimation": "kitt",
+      "placement": "border",
+      "colorSource": "terminal",
+      "messages": {
+        "custom": false,
+        "values": [
+          "Sautéing…",
+          "Cooking…",
+          "Ionizing…",
+          "Zigzagging…",
+          "Razzle-dazzling…",
+          "Photosynthesizing…",
+          "Nucleating…",
+          "Brewing…",
+          "Combobulating…",
+          "Boogieing…",
+          "Befuddling…",
+          "Alchemizing…",
+          "Conjuring…",
+          "Baking…",
+          "Simmering…",
+          "Blanching…"
+        ]
+      },
+      "segments": {
+        "tokenRate": true,
+        "tool": true,
+        "elapsed": false,
+        "thought": false,
+        "tokens": false
+      }
+    },
+    "extensionStatuses": {
+      "defaultVisibility": "show",
+      "visibility": {}
+    }
+  },
+  "icons": {
+    "mode": "nerd"
+  }
+}

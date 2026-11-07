@@ -1,0 +1,9 @@
+{
+    "displayMode": "inline",
+    "singleSelectLayout": "list",
+    "allowComment": false,
+    "contextExpanded": false,
+    "overlayToggleKey": "alt+o",
+    "commentToggleKey": "ctrl+g",
+    "emitFullEvents": true
+}

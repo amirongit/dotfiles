@@ -1,0 +1,22 @@
+{
+    "defaultPolicy": {
+        "tools": "ask",
+        "bash": "ask",
+        "mcp": "ask",
+        "skills": "allow",
+        "special": "ask"
+    },
+    "tools": {
+        "read": "allow",
+        "grep": "allow",
+        "find": "allow",
+        "ls": "allow",
+        "write": "ask",
+        "edit": "ask"
+    },
+    "bash": {
+        "*": "ask",
+        "rm *": "deny",
+        "sudo *": "deny"
+    }
+}
