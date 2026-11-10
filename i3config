@@ -38,7 +38,7 @@ exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
 exec_always --no-startup-id bash $HOME/.local/share/scripts/configure-displays.sh
 # exec_always --no-startup-id hsetroot -solid "#773440"
-exec_always --no-startup-id sleep 0.5 && feh --bg-center $HOME/Development/dotfiles/backgrounds/1920x1080_bonus_a_sculpture_of_a_man_with_a_face_on_his_head.png $HOME/Development/dotfiles/backgrounds/3840x2156_omarchy_abstract-black-white-maze-pattern__01-abstract-black-white-maze-pattern.jpg
+exec_always --no-startup-id sleep 0.5 && feh --bg-scale $HOME/Development/dotfiles/backgrounds/3840x2400_omarchy_abstract-flowing-black-sculpture__01-abstract-flowing-black-sculpture.jpg $HOME/Development/dotfiles/backgrounds/1920x1080_abstract_a_white_line_drawing_of_a_group_of_trees.jpg
 exec_always --no-startup-id sleep 0.5 && $HOME/.local/share/scripts/launch-polybar.sh
 exec_always --no-startup-id xinput set-prop "ASUF1300:00 2808:0205 Touchpad" "libinput Tapping Enabled" 1
 
