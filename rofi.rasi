@@ -18,40 +18,42 @@ entry {
 
 
 * {
+    separatorcolor:              #333333;
+    border-color:                #333333;
 
-    red:                         rgba ( 195, 64, 67, 100 % );
-    blue:                        rgba ( 126, 156, 216, 100 % );
-    lightfg:                     rgba ( 200, 192, 147, 100 % );
-    lightbg:                     rgba ( 22, 22, 29, 100 % );
-    foreground:                  rgba ( 220, 215, 186, 100 % );
-    background:                  rgba ( 31, 31, 40, 100 % );
-    background-color:            rgba ( 31, 31, 40, 0 % );
+    selected-normal-foreground:  #ffffff;
+    selected-normal-background:  #285577;
+    selected-active-foreground:  #ffffff;
+    selected-active-background:  #285577;
+    selected-urgent-foreground:  #ffffff;
+    selected-urgent-background:  #900000;
 
-    separatorcolor:              @foreground;
-    border-color:                @foreground;
-    selected-normal-foreground:  @lightbg;
-    selected-normal-background:  @lightfg;
-    selected-active-foreground:  @background;
-    selected-active-background:  @blue;
-    selected-urgent-foreground:  @background;
-    selected-urgent-background:  @red;
-    normal-foreground:           @foreground;
-    normal-background:           @background;
-    active-foreground:           @blue;
-    active-background:           @background;
-    urgent-foreground:           @red;
-    urgent-background:           @background;
-    alternate-normal-foreground: @foreground;
-    alternate-normal-background: @lightbg;
-    alternate-active-foreground: @blue;
-    alternate-active-background: @lightbg;
-    alternate-urgent-foreground: @red;
-    alternate-urgent-background: @lightbg;
+    normal-foreground:           #888888;
+    normal-background:           #222222;
+
+    active-foreground:           #285577;
+    active-background:           #222222;
+
+    urgent-foreground:           #900000;
+    urgent-background:           #222222;
+
+    alternate-normal-foreground: #ffffff;
+    alternate-normal-background: #5f676a;
+
+    alternate-active-foreground: #ffffff;
+    alternate-active-background: #5f676a;
+
+    alternate-urgent-foreground: #ffffff;
+    alternate-urgent-background: #5f676a;
+
+    background: #222222;
+    foreground: #888888;
+
     spacing:                     2;
 }
 
 window {
-    width: 40%;
+    width: 20%;
 }
 
 listview {

@@ -179,7 +179,7 @@ local function apply_highlights()
     })
 end
 
-vim.cmd.colorscheme("base16-kanagawa")
+vim.cmd.colorscheme("base16-darcula")
 
 apply_highlights()
 

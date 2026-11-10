@@ -1,3 +1,5 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+
 local csls_ex = require("csharpls_extended")
 local mason = require("mason")
 local mason_lspcfg = require("mason-lspconfig")
@@ -51,6 +53,7 @@ local lsps = {
     "pyright",
     "taplo",
     "jsonls",
+    "ts_ls",
 }
 
 mason.setup()

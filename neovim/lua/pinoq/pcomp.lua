@@ -33,7 +33,7 @@ mn_completion.setup({
     set_vim_settings = true,
 })
 mn_pairs.setup({
-    modes = { insert = true, command = false, terminal = false },
+    modes = { insert = false, command = false, terminal = false },
     mappings = {
         ["("] = { action = "open", pair = "()", neigh_pattern = "[^\\]." },
         ["["] = { action = "open", pair = "[]", neigh_pattern = "[^\\]." },
@@ -42,7 +42,7 @@ mn_pairs.setup({
         ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
         ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
         ["\""] = { action = "closeopen", pair = "\"\"", neigh_pattern = "[^\\].", register = { cr = false } },
-        ["\""] = { action = "closeopen", pair = "\"\"", neigh_pattern = "[^%a\\].", register = { cr = false } },
+        -- ["\""] = { action = "closeopen", pair = "\"\"", neigh_pattern = "[^%a\\].", register = { cr = false } },
         ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\].", register = { cr = false } },
     },
 })

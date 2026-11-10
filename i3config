@@ -18,21 +18,21 @@ title_align center
 
 # workspace_layout tabbed
 
-set $ActiveBackGround      #C0A36E
-set $ActiveBorder          #1F1F28
-set $ActiveText            #1F1F28
+set $ActiveBackGround      #285577
+set $ActiveBorder          #4c7899
+set $ActiveText            #ffffff
 
-set $UnFocusedBackGround   #54546D
-set $UnFocusedBorder       #223249
-set $UnFocusedText         #C8C093
+set $UnFocusedBackGround   #5f676a
+set $UnFocusedBorder       #333333
+set $UnFocusedText         #ffffff
 
-set $InActiveBackGround    #717C7C
-set $InActiveBorder        #54546D
-set $InActiveText          #C8C093
+set $InActiveBackGround    #222222
+set $InActiveBorder        #333333
+set $InActiveText          #888888
 
-set $UrgentBackGround      #C0A36E
-set $UrgentBorder          #C34043
-set $UrgentText            #1F1F28
+set $UrgentBackGround      #900000
+set $UrgentBorder          #2f343a
+set $UrgentText            #ffffff
 
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id setxkbmap -layout "us,ir" -option "grp:win_space_toggle" -option "ctrl:swapcaps"
@@ -133,6 +133,7 @@ assign [class="Atom"] $ws3
 
 for_window [class="torbrowser-launcher"] floating enable
 for_window [class="qt5ct"] floating enable
+for_window [class="qps"] floating enable
 for_window [class="Virt-manager"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
