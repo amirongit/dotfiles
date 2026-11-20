@@ -86,7 +86,7 @@ local function apply_highlights()
 
     vim.api.nvim_set_hl(0, "MiniCursorword", {
         underline = false,
-        fg = "Red",
+        fg = "White",
     })
 
     vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", {})
@@ -141,17 +141,17 @@ local function apply_highlights()
     })
 
     vim.api.nvim_set_hl(0, "MiniStatuslineModeInsert", {
-        bg = colors.base0F,
+        bg = colors.base08,
         fg = colors.base00,
     })
 
     vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", {
-        bg = colors.base0B,
+        bg = colors.base0E,
         fg = colors.base00,
     })
 
     vim.api.nvim_set_hl(0, "MiniStatuslineModeReplace", {
-        bg = colors.base0F,
+        bg = colors.base08,
         fg = colors.base00,
     })
 
@@ -179,7 +179,7 @@ local function apply_highlights()
     })
 end
 
-vim.cmd.colorscheme("base16-darcula")
+vim.cmd.colorscheme("base16-noche")
 
 apply_highlights()
 
@@ -254,7 +254,7 @@ mn_statusline.setup({
             return mn_statusline.combine_groups({
                 { hl = mode_hl, strings = { mode } },
                 {
-                    hl = "PmenuSel",
+                    hl = "Normal",
                     strings = {
                         mn_statusline.section_git({ trunc_width = 120 }),
                         mn_statusline.section_fileinfo({ trunc_width = 120 }),
@@ -268,7 +268,7 @@ mn_statusline.setup({
                 },
                 "%=",
                 {
-                    hl = "PmenuSel",
+                    hl = "Normal",
                     strings = {
                         mn_statusline.section_searchcount({ trunc_width = 75 }),
                         mn_statusline.section_location({ trunc_width = 75 }),
@@ -396,7 +396,6 @@ ibl.setup({
 })
 
 mn_icons.tweak_lsp_kind("replace")
-
 
 if false then
     local base16_cs = require("base16-colorscheme")
