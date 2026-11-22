@@ -179,7 +179,7 @@ local function apply_highlights()
     })
 end
 
-vim.cmd.colorscheme("base16-noche")
+vim.cmd.colorscheme("base16-solarized-dark")
 
 apply_highlights()
 
