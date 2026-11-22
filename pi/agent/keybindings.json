@@ -86,8 +86,8 @@
     "tui.input.tab": "tab",
     "tui.select.cancel": "escape",
     "tui.select.confirm": "enter",
-    "tui.select.down": "j",
+    "tui.select.down": "ctrl+j",
     "tui.select.pageDown": "pageDown",
     "tui.select.pageUp": "pageUp",
-    "tui.select.up": "k"
+    "tui.select.up": "ctrl+k"
 }
