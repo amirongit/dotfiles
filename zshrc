@@ -51,3 +51,23 @@ set_proxy() {
   export ftp_proxy="$1"
   echo "Proxy variables set to $1"
 }
+
+vlsrv() {
+  if [ -z "$1" ]; then
+    echo "Usage: vlsrv <path-to-model> <args>"
+    return 1
+  fi
+
+  local p="$1"
+  shift
+
+  local -a c=(
+    vllm serve "$p"
+    --max-num-seqs 1
+    --max-model-len 8192
+    "$@"
+  )
+
+  print -r -- "${(q)c[@]}"
+  "${c[@]}"
+}
